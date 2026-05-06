@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan Deiss YouTube — Taking Stock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7; --bg-alt: #f3f1ec; --surface: #ffffff;
+    --border: #e8e4dc; --border-strong: #d4cec1;
+    --ink: #1c1b18; --ink-soft: #4a4843; --ink-muted: #807c73;
+    --accent: #c96442; --accent-soft: #f4e8e1;
+    --s5: #1d6b3f; --s5-bg: #e3f1e8;
+    --s4: #4a8b3a; --s4-bg: #ecf3e3;
+    --s3: #b08a18; --s3-bg: #faf3dd;
+    --s2: #b85a1e; --s2-bg: #fbe9d9;
+    --s1: #6a6760; --s1-bg: #ececea;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+
+  .layout {
+    display: grid; grid-template-columns: 260px minmax(0, 1fr);
+    gap: 56px; max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  }
+
+  aside {
+    position: sticky; top: 0; align-self: start; height: 100vh;
+    padding: 48px 0; overflow-y: auto;
+    border-right: 1px solid var(--border); padding-right: 24px;
+  }
+
+  .sidebar-brand {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 32px;
+    font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none;
+  }
+  .brand-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+
+  .toc-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-muted); margin-bottom: 12px; font-weight: 600;
+  }
+  .toc { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--border); }
+  .toc a {
+    display: block; padding: 7px 16px; margin-left: -1px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border-left: 2px solid transparent; transition: all 0.15s ease;
+  }
+  .toc a:hover { color: var(--ink); background: var(--bg-alt); }
+  .toc a.active { color: var(--accent); border-left-color: var(--accent); font-weight: 500; }
+
+  main { padding: 48px 0 120px; max-width: 760px; }
+
+  .meta-bar {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+    font-size: 12.5px; color: var(--ink-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .pill {
+    display: inline-block; padding: 3px 10px;
+    background: var(--accent-soft); color: var(--accent);
+    border-radius: 12px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.02em;
+  }
+
+  h1 {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    font-size: 44px; font-weight: 600; line-height: 1.15;
+    letter-spacing: -0.02em; margin: 0 0 16px;
+  }
+
+  .subtitle {
+    font-size: 18px; line-height: 1.55; color: var(--ink-soft);
+    font-style: italic; margin: 0 0 48px; max-width: 620px;
+  }
+
+  h2 {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    font-size: 28px; font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.01em; margin: 56px 0 16px; scroll-margin-top: 32px;
+  }
+
+  h3 {
+    font-size: 17px; font-weight: 600;
+    margin: 28px 0 10px; scroll-margin-top: 32px;
+  }
+
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  p strong, li strong { color: var(--ink); font-weight: 600; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(201, 100, 66, 0.3); }
+  a:hover { border-bottom-color: var(--accent); }
+
+  ul, ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--ink-muted); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+  .table-wrap {
+    margin: 24px 0; border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    text-align: left; padding: 12px 16px; background: var(--bg-alt);
+    color: var(--ink); font-weight: 600; font-size: 12.5px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    color: var(--ink-soft); vertical-align: top; font-size: 13.5px;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-alt); }
+
+  .score-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 5px;
+    font-family: 'Source Serif Pro', Georgia, serif;
+    font-size: 14px; font-weight: 600; color: white;
+  }
+  .score-pill.s5 { background: var(--s5); }
+  .score-pill.s4 { background: var(--s4); }
+  .score-pill.s3 { background: var(--s3); }
+  .score-pill.s2 { background: var(--s2); }
+  .score-pill.s1 { background: var(--s1); }
+  .score-pill.skip { background: var(--bg-alt); color: var(--ink-muted); border: 1px dashed var(--border-strong); }
+
+  .quadrant {
+    display: inline-block; padding: 2px 7px; border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.04em; margin-left: 4px;
+    vertical-align: middle;
+  }
+  .quadrant.nb { background: var(--s5-bg); color: var(--s5); }
+  .quadrant.nn { background: var(--s3-bg); color: var(--s3); }
+  .quadrant.bb { background: var(--bg-alt); color: var(--ink-muted); }
+  .quadrant.bn { background: #fbe9e7; color: #9b2c2c; }
+
+  .ideatag {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-right: 6px; vertical-align: middle;
+  }
+
+  /* Rubric levels */
+  .rubric-table th:first-child { width: 60px; }
+  .rubric-table td:first-child { padding: 14px 16px; }
+
+  .callout {
+    padding: 18px 22px; border-radius: 8px; margin: 24px 0;
+    border: 1px solid var(--border); background: var(--surface);
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--accent);
+    background: linear-gradient(to right, var(--accent-soft), var(--surface) 30%);
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* Slate items */
+  .slate-list {
+    list-style: none; padding: 0; margin: 24px 0;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .slate-list li {
+    display: grid; grid-template-columns: 36px 1fr; gap: 14px;
+    align-items: flex-start;
+    padding: 14px 18px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .slate-list .slot-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 600; color: var(--ink-muted);
+    background: var(--bg-alt); padding: 5px 0;
+    border-radius: 4px; text-align: center;
+  }
+  .slate-list .slot-title {
+    font-weight: 600; color: var(--ink); font-size: 15px;
+    margin: 0 0 4px; display: flex; flex-wrap: wrap;
+    align-items: center; gap: 8px;
+  }
+  .slate-list .slot-evidence {
+    font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.5;
+  }
+
+  .footer-cta {
+    margin-top: 56px; padding: 26px 30px;
+    background: var(--ink); color: var(--bg);
+    border-radius: 12px;
+  }
+  .footer-cta p { color: rgba(250, 249, 247, 0.85); margin: 0 0 12px; }
+  .footer-cta strong { color: var(--bg); }
+  .footer-cta p:last-child { margin-bottom: 0; }
+
+  .sources {
+    font-size: 12.5px; color: var(--ink-muted);
+    font-style: italic; margin-top: 48px;
+    padding-top: 24px; border-top: 1px solid var(--border);
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    background: var(--bg-alt); padding: 1px 6px;
+    border-radius: 3px; color: var(--ink);
+  }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 0; padding: 0 20px; }
+    aside { display: none; }
+    main { padding: 32px 0 80px; max-width: 100%; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    .slate-list li { grid-template-columns: 30px 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside>
+    <a href="#top" class="sidebar-brand">
+      <span class="brand-dot"></span>
+      Taking Stock
+    </a>
+    <div class="toc-label">On this page</div>
+    <ul class="toc">
+      <li><a href="#recap">1. Where we've landed</a></li>
+      <li><a href="#rubric">2. The Confidence Rubric</a></li>
+      <li><a href="#scores">3. My scores — 36 ideas</a></li>
+      <li><a href="#unfilmed">4. Where my confidence sits</a></li>
+      <li><a href="#asks">5. What I'd love from you</a></li>
+      <li><a href="#bet">6. The longer-term bet</a></li>
+    </ul>
+  </aside>
+
+  <main id="top">
+
+    <div class="meta-bar">
+      <span class="pill">For Ryan</span>
+      <span>·</span>
+      <span>Stocktake — May 2026</span>
+      <span>·</span>
+      <span>~7 min read</span>
+    </div>
+
+    <h1>Ryan Deiss YouTube — Taking Stock</h1>
+    <p class="subtitle">Wanted to take stock of where we've landed since the February ideas session — to make sure we're not adding more ideas before working through what's already on the table. Here's what I went back through, the gut-feel rubric I'm applying, my scores against the current pipeline, and what I think we do next.</p>
+
+    <h2 id="recap">1. Where we've landed since February</h2>
+
+    <p><strong>February — original shortlist sent.</strong> I shared a Top 10 ranked by evidence strength, plus three angles for remaking <em>Business Books</em> (your 5th biggest video ever, and a recent outlier). You bought in — particularly on the remake — and shipped two videos within days: <em>Why Most Entrepreneurs Stay at $1M</em> (from the list) and <em>I'm Betting My Marketing Strategy on These 3 Trends</em> (your stage-tested content).</p>
+
+    <p><strong>March–April — Duke's Workshops doc + the broad/narrow conversation.</strong> Duke pulled together a doc of video ideas drawn from your client teachings. Over a few rounds we found ourselves talking past each other on what "broad" and "narrow" meant — you'd been using those words to describe topic, I'd been using them to describe audience. Once we caught it, the conversation got sharper fast.</p>
+
+    <p><strong>Mid-April — definitions locked, framework set.</strong> Duke wrote the cleanest set of definitions, splitting Audience (Broad/Narrow) × Topic (Broad/Narrow) into a 2×2. I ran the last 180 days of videos through it.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Quadrant</th>
+            <th>Avg views</th>
+            <th>Avg outlier</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>N/B</strong> (ICP × Broad topic)</td>
+            <td><strong>14.8K</strong></td>
+            <td><strong>2.67×</strong></td>
+            <td style="color: var(--s5); font-weight: 600;">Best — double down</td>
+          </tr>
+          <tr>
+            <td>N/N (ICP × Narrow topic)</td>
+            <td>10.9K</td>
+            <td>1.52×</td>
+            <td>Second; 9 of 12 below baseline</td>
+          </tr>
+          <tr>
+            <td>B/B (Beginner × Broad topic)</td>
+            <td>6.7K</td>
+            <td>1.24×</td>
+            <td>Mid</td>
+          </tr>
+          <tr>
+            <td>B/N (Beginner × Narrow topic)</td>
+            <td>4.6K</td>
+            <td>0.84×</td>
+            <td style="color: #9b2c2c; font-weight: 600;">Stop making these</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>You agreed: <strong>predominantly N/B, occasional N/N</strong> for ICP content you want out regardless of view performance.</p>
+
+    <p><strong>Late April–May — operating model.</strong> New packaging workflow agreed (you tick a preferred title in Notion + drop thumbnail references → we return 2–3 thumbnail directions matching the title's emotion → you sign off pre-publish). Audience and Topic fields added to every Notion card. And — the reason for this doc — a confidence rubric for every idea going forward.</p>
+
+    <h2 id="rubric">2. The Confidence Rubric</h2>
+
+    <p>A 1–5 gut score recorded against every idea. Not a gate at first — we ship per the N/B strategy. After three months we pull the data and check whether high-confidence ideas actually outperformed. The whole point is to calibrate intuition over time.</p>
+
+    <div class="table-wrap">
+      <table class="rubric-table">
+        <thead>
+          <tr><th>Score</th><th>Meaning</th><th>What it feels like</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="score-pill s5">5</span></td>
+            <td><strong>Almost certain banger</strong></td>
+            <td>The kind of idea you'd bet money on. Genuinely surprised if it underperformed.</td>
+          </tr>
+          <tr>
+            <td><span class="score-pill s4">4</span></td>
+            <td><strong>Strong belief</strong></td>
+            <td>Solid hunch this performs above channel average. Disappointed, not shocked, if it flops.</td>
+          </tr>
+          <tr>
+            <td><span class="score-pill s3">3</span></td>
+            <td><strong>Could go either way</strong></td>
+            <td>No strong feeling. Even odds.</td>
+          </tr>
+          <tr>
+            <td><span class="score-pill s2">2</span></td>
+            <td><strong>Doubtful but worth shooting</strong></td>
+            <td>Gut says probably no, but business reason to make it (ICP precision, sales asset). Trading reach for something else.</td>
+          </tr>
+          <tr>
+            <td><span class="score-pill s1">1</span></td>
+            <td><strong>Don't make it</strong></td>
+            <td>Gut says no, no business reason to override. Killed at idea stage — but we still record the score so the retro can confirm.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>How we use it</h3>
+    <ul>
+      <li><strong>It's a ranking system, not a gate.</strong> For now, we ship per the N/B strategy regardless of score. The score gets recorded, not gated on.</li>
+      <li><strong>Two scorers, independent.</strong> You and I each score every idea blind to each other, then reconcile at the pre-publish checkpoint. Over time the retro tells us whose gut tracks reality more closely on this channel.</li>
+      <li><strong>Pure gut.</strong> No criteria checklist. Designed to be backwards-looking — at the 3-month retro we check whether high-confidence ideas actually outperformed, and that's where any real shipping rules get earned.</li>
+    </ul>
+
+    <h2 id="scores">3. My scores — 36 ideas across three sources</h2>
+
+    <h3>Pool 1 — The February shortlist (13 ideas)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width: 60px;">Score</th><th>Idea</th></tr></thead>
+        <tbody>
+          <tr><td><span class="score-pill s5">5</span></td><td>Why E-Myth Is Wrong About Almost Everything <em>(Business Books — angle 1)</em></td></tr>
+          <tr><td><span class="score-pill s5">5</span></td><td>I Ranked Every Business Book — Tier List <em>(Business Books — angle 2)</em></td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>What Your Favourite Business Book Says About You <em>(Business Books — angle 3)</em></td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>Give Me 12 Minutes and I'll Fix Your Business</td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>I Built 17 Companies — These 3 Systems Are All You Need</td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>The 10:80:10 Rule That Freed Me From My Own Business</td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>Everything I Learned Taking 8 Companies to $200M in 26 Min</td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>How I Run 17 Companies at the Same Time</td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>What I Learned From Being Around $200M+ Entrepreneurs</td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>Why Looking Poor Made Me Rich</td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>The $1M Delegation System (Works Even If You're a Control Freak)</td></tr>
+          <tr><td><span class="score-pill s1">1</span></td><td>How I'd Build a $10M Business in 2026 (Starting From Nothing)</td></tr>
+          <tr><td><span class="score-pill skip">—</span></td><td>Why Most Entrepreneurs Stay at $1M <em>(already live, skipped)</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Pool 2 — Duke's Workshops doc (10 ideas)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width: 60px;">Score</th><th>Idea</th></tr></thead>
+        <tbody>
+          <tr><td><span class="score-pill s3">3</span></td><td>What's Working Now — How to Sell in Private (Segmentation)</td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>YouOS — Define Your Role / Write Your Own Job Description <em>(filmed as "CEO Job Description That Took Me to $20M")</em></td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>Customer Experience Elevator (from "2x Your Profit")</td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>Scalable Operator — Operator-CEO Relationship <em>(filmed as "Smart CEO's Guide to Hiring")</em></td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>Perfect 1:1s — High-Value Meetings With Direct Reports</td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>The Cycle-Scope Matrix (Fox/Peacock/Panda/Elephant)</td></tr>
+          <tr><td><span class="score-pill s1">1</span></td><td>Founder-First Hiring (with Hiring Scorecard)</td></tr>
+          <tr><td><span class="score-pill s1">1</span></td><td>The Architecture of Authority — 5 Authority Triggers <em>(filmed as "Stop Competing on Price")</em></td></tr>
+          <tr><td><span class="score-pill s1">1</span></td><td>The Two Marketing Mistakes — Find the Middle Ground</td></tr>
+          <tr><td><span class="score-pill s1">1</span></td><td>The Embedded Influencer <em>(live as "Marketing Strategies That Actually Work in 2026")</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Pool 3 — Other pipeline cards (13 ideas)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width: 60px;">Score</th><th>Idea</th></tr></thead>
+        <tbody>
+          <tr><td><span class="score-pill s5">5</span></td><td>Scalable Hub Notion Template (walkthrough) <em>(filmed)</em></td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>I'm Betting My Marketing Strategy on These 3 Trends <em>(live)</em></td></tr>
+          <tr><td><span class="score-pill s4">4</span></td><td>Double Your Sales in 2026 <em>(backlog)</em></td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>10 Marketing Commandments from a $100M CEO <em>(live)</em></td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>5 Skills I Had to Unlearn to Scale from $1M to $10M <em>(live)</em></td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>The Only 3 Systems You Need to Scale to $20M <em>(live, 4.6× outlier)</em></td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>8 Frameworks Every $10M Founder Uses</td></tr>
+          <tr><td><span class="score-pill s3">3</span></td><td>I Paid $341,240 to Masterminds — Here's What I Learned</td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>Escaping No Man's Land — Why Companies Stall at $2M–$6M <em>(filmed, awaiting edit)</em></td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>I'm Wearing Too Many Hats — Cure for Founder Burnout <em>(filmed, awaiting edit)</em></td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>I Run 17 Companies — Here's How I Delegate Work <em>(live)</em></td></tr>
+          <tr><td><span class="score-pill s2">2</span></td><td>10 Scale Commandments (sequel to 10 Marketing Commandments)</td></tr>
+          <tr><td><span class="score-pill skip">—</span></td><td>Give Me XX Minutes and I'll Fix Your Business <em>(skipped — same as Pool 1 idea)</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="unfilmed">4. Where my confidence sits in the unfilmed ideas</h2>
+
+    <p>The highest-scoring unfilmed entries in the existing pile, with their N/B quadrant tag pulled from Notion:</p>
+
+    <ol class="slate-list">
+      <li>
+        <div class="slot-num">01</div>
+        <div>
+          <div class="slot-title">Why E-Myth Is Wrong About Almost Everything <span class="ideatag"><span class="score-pill s5">5</span><span class="quadrant nb">N/B</span></span></div>
+          <p class="slot-evidence">Business Books remake angle 1. The original <em>Business Books</em> video hit 14.5× — your single biggest outlier on this channel.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">02</div>
+        <div>
+          <div class="slot-title">I Ranked Every Business Book — Tier List <span class="ideatag"><span class="score-pill s5">5</span><span class="quadrant nb">N/B</span></span></div>
+          <p class="slot-evidence">Business Books remake angle 2. Same evidence anchor, different on-screen format.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">03</div>
+        <div>
+          <div class="slot-title">Give Me 12 Minutes and I'll Fix Your Business <span class="ideatag"><span class="score-pill s4">4</span><span class="quadrant nb">N/B</span></span></div>
+          <p class="slot-evidence">Direct match to a Q4 ELITE formula (270K precedent on a comparable channel).</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">04</div>
+        <div>
+          <div class="slot-title">I Built 17 Companies — These 3 Systems Are All You Need <span class="ideatag"><span class="score-pill s4">4</span><span class="quadrant nn">N/N</span></span></div>
+          <p class="slot-evidence">Your most scroll-stopping stat + a named framework.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">05</div>
+        <div>
+          <div class="slot-title">The 10:80:10 Rule That Freed Me From My Own Business <span class="ideatag"><span class="score-pill s4">4</span><span class="quadrant nn">N/N</span></span></div>
+          <p class="slot-evidence">Named framework, founder-freedom pillar.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">06</div>
+        <div>
+          <div class="slot-title">What Your Favourite Business Book Says About You <span class="ideatag"><span class="score-pill s4">4</span><span class="quadrant nb">N/B</span></span></div>
+          <p class="slot-evidence">Business Books remake angle 3.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">07</div>
+        <div>
+          <div class="slot-title">Double Your Sales in 2026 <span class="ideatag"><span class="score-pill s4">4</span><span class="quadrant bb">B/B</span></span></div>
+          <p class="slot-evidence">Broad and year-stamped. Sits outside the N/B focus but the gut still says strong.</p>
+        </div>
+      </li>
+      <li>
+        <div class="slot-num">08</div>
+        <div>
+          <div class="slot-title">Everything I Learned Taking 8 Companies to $200M in 26 Min <span class="ideatag"><span class="score-pill s3">3</span><span class="quadrant nb">N/B</span></span></div>
+          <p class="slot-evidence">Included for the evidence anchor: it mirrors Stanford (80×) and Goldman Sachs (>100×) institution-format outliers.</p>
+        </div>
+      </li>
+    </ol>
+
+    <h2 id="asks">5. What I'd love from you</h2>
+
+    <div class="callout">
+      <p><strong>Run your own scoring pass on the existing pile.</strong> Independently, blind to mine. The dual-score property is already live in Notion — your column is empty, waiting for your pass. Once we have both, the gap between scores becomes useful calibration data over time.</p>
+    </div>
+
+    <p>When that's done, happy to set up a dedicated ideas session for fresh material. Two natural angles to dig into, given we agreed on Narrow Audience + Everything-style topics as the focus: pulling from recent YouTube outliers in the founder/operator space, or mining your own content / newsletter for ideas already validated with your audience. Whichever feels like the better dig.</p>
+
+    <h2 id="bet">6. The longer-term bet</h2>
+
+    <p>The rubric is a calibration exercise. After three months we pull the data, look at correlation between confidence scores and actual performance, and either earn a real shipping rule or learn something about how our intuition tracks reality on this channel — which is itself useful. It earned us a real rule on a previous channel; same play here.</p>
+
+    <p class="sources">Sources: Q4 2025 Analytics Review · Wide vs Narrow Matrix Analysis · February Video Ideas doc · Duke's Workshops for YouTube Videos doc · ongoing Slack conversations.</p>
+
+  </main>
+
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc a');
+  const sections = Array.from(links).map(l => {
+    const id = l.getAttribute('href').slice(1);
+    return { link: l, el: document.getElementById(id) };
+  }).filter(s => s.el);
+
+  function updateActive() {
+    const scrollY = window.scrollY + 100;
+    let current = sections[0];
+    for (const s of sections) {
+      if (s.el.offsetTop <= scrollY) current = s;
+    }
+    links.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+</script>
+
+</body>
+</html>
