@@ -127,10 +127,22 @@ section{padding:clamp(52px,6vw,80px) 0}
 .mk b{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417;box-shadow:0 0 0 3px rgba(255,255,255,.8)}
 .mk em{position:absolute;right:14px;bottom:10px;white-space:nowrap;font-style:normal;font-size:13px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;box-shadow:var(--shadow-sm)}
 .mk.r em{left:14px;right:auto;bottom:auto;top:-6px;transform:translateY(-100%)}
+.mk.br em{left:12px;right:auto;bottom:auto;top:10px}
 .mk.live b{border-color:var(--red);background:var(--red);animation:ping 2s ease-out infinite}
 .mk.live em{top:16px;bottom:auto;right:-4px;color:#fff;background:var(--red);border-color:var(--red)}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(228,0,59,.45)}70%{box-shadow:0 0 0 12px rgba(228,0,59,0)}100%{box-shadow:0 0 0 0 rgba(228,0,59,0)}}
 @media (prefers-reduced-motion:reduce){.mk.live b{animation:none}}
+.pin{position:absolute;width:0;height:0;line-height:1;z-index:2}
+.pin::before{content:'';position:absolute;left:-1px;width:2px;height:var(--stem);background:var(--ink-30)}
+.pin.up::before{bottom:0}.pin.down::before{top:0}
+.pin .dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417}
+.pc{position:absolute;left:50%;transform:translateX(-50%);width:clamp(110px,13vw,150px);background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;box-shadow:var(--shadow-md);text-decoration:none;color:var(--ink);transition:transform .2s}
+.pin.up .pc{bottom:var(--stem)}.pin.down .pc{top:var(--stem)}
+.pc:hover{transform:translateX(-50%) translateY(-2px)}
+.pc img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.pc em{display:block;font-style:normal;font-size:12px;color:var(--ink-50);padding:6px 3px 2px;white-space:nowrap}
+.pc em b{color:var(--ink);font-weight:800}
+.st-top{display:none}
 .st-ch{display:flex;margin-top:10px;gap:3px}
 .st-ch>span{flex:none;border-radius:6px;padding:7px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .st-ch .c0{background:#f2f3f4;color:var(--ink-50)}.st-ch .c1{background:var(--blue-50);color:var(--cobalt)}.st-ch .c2{background:var(--yellow-50);color:var(--amber)}.st-ch .c3{background:var(--red-50);color:var(--red)}
@@ -146,6 +158,8 @@ section{padding:clamp(52px,6vw,80px) 0}
   .mk em{font-size:10.5px;padding:3px 7px;right:10px;bottom:7px}
   .mk.live em{top:11px}
   .mk.sm-hide{display:none}
+  .pc{display:none}.pin::before{display:none}.pin .dot{left:-5px;top:-5px;width:10px;height:10px;border-width:2px}
+  .st-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.st-top a{text-decoration:none;color:var(--ink-50)}.st-top img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}.st-top em{display:block;font-style:normal;font-size:11px;margin-top:4px}.st-top b{color:var(--ink)}
   .st-ch>span{font-size:9px;letter-spacing:.02em;padding:6px 4px}
   .st-ch .full,.mk .full{display:none}.st-ch .short,.mk .short{display:inline}
   .st-x span{font-size:10px}.st-x span:nth-child(2),.st-x span:nth-child(5){display:none}
@@ -443,12 +457,13 @@ footer p{max-width:720px;margin:0 auto}
         <img src="assets/daniel-500k/studio-growth.png" alt="YouTube Studio: total subscribers from 2 June 2025 to 1 November 2026">
         <i class="bd b0" style="left:0;width:17.7%"></i><i class="bd b1" style="left:17.7%;width:23.5%"></i><i class="bd b2" style="left:41.2%;width:40.9%"></i><i class="bd b3" style="left:82.1%;width:17.9%"></i>
         <span class="yl" style="top:3.1%">210K</span><span class="yl" style="top:35.1%">140K</span><span class="yl" style="top:67.2%">70K</span>
-        <span class="mk r" style="left:17.9%;top:89.2%"><b></b><em>21K</em></span>
-        <span class="mk sm-hide" style="left:41.2%;top:48.4%"><b></b><em>110K</em></span>
-        <span class="mk" style="left:55.6%;top:31%"><b></b><em>DOAC collab</em></span>
-        <span class="mk sm-hide" style="left:77.7%;top:11.8%"><b></b><em>Top 0.01%</em></span>
+        <span class="pin up" style="left:18.2%;top:88.5%;--stem:118px"><a class="pc" href="https://www.youtube.com/watch?v=72a1PjnZFIM" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/72a1PjnZFIM.jpg" alt="Give Me 29 Minutes and I'll Teach You to Make $1 Million"><em><b>443K</b> views · Sep 25</em></a><b class="dot"></b></span>
+        <span class="pin up" style="left:36.5%;top:54%;--stem:36px"><a class="pc" href="https://www.youtube.com/watch?v=tVLnzcoM5LE" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/tVLnzcoM5LE.jpg" alt="25 Years of Sales Knowledge in 34 Minutes"><em><b>634K</b> views · Dec 25</em></a><b class="dot"></b></span>
+        <span class="mk br" style="left:55.6%;top:31%"><b></b><em>DOAC collab</em></span>
+        <span class="pin down" style="left:76.7%;top:14.5%;--stem:44px"><a class="pc" href="https://www.youtube.com/watch?v=fymfTFftN-g" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/fymfTFftN-g.jpg" alt="What I Learned From Being Around The Top 0.01%"><em><b>511K</b> views · Jul 26</em></a><b class="dot"></b></span>
         <span class="mk live" style="left:99.7%;top:6%"><b></b><em><span class="full">Relaunch 31 Oct</span><span class="short">Relaunch</span></em></span>
       </div>
+      <div class="st-top"><a href="https://www.youtube.com/watch?v=72a1PjnZFIM" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/72a1PjnZFIM.jpg" alt=""><em><b>443K</b> · Sep 25</em></a><a href="https://www.youtube.com/watch?v=tVLnzcoM5LE" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/tVLnzcoM5LE.jpg" alt=""><em><b>634K</b> · Dec 25</em></a><a href="https://www.youtube.com/watch?v=fymfTFftN-g" target="_blank" rel="noopener"><img src="assets/daniel-500k/thumbs/fymfTFftN-g.jpg" alt=""><em><b>511K</b> · Jul 26</em></a></div>
       <div class="st-ch"><span class="c0" style="width:17.7%"><span class="full">Start point</span><span class="short">Start</span></span><span class="c1" style="width:23.5%"><span class="full">Weekly launch run</span><span class="short">Launch</span></span><span class="c2" style="width:40.9%"><span class="full">Consistent 2026</span><span class="short">Consistent 2026</span></span><span class="c3" style="width:17.9%"><span class="full">Channel paused</span><span class="short">Paused</span></span></div>
       <div class="st-x"><span style="left:0">Jun 25</span><span style="left:11.7%">Aug</span><span style="left:29.4%">Nov</span><span style="left:47.2%">Feb 26</span><span style="left:64.4%">May</span><span style="left:82.1%">Aug</span><span style="left:100%">Nov</span></div>
       <figcaption>YouTube Studio · total subscribers, 2 June 2025 to 1 November 2026</figcaption>
