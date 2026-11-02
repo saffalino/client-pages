@@ -440,6 +440,32 @@ footer p{max-width:720px;margin:0 auto}
   .btn{padding:10px 16px;font-size:14px}
   .who small{display:none}
 }
+
+/* Calm pass: fewer colours, fewer boxes, more air */
+section{padding:clamp(72px,9vw,128px) 0}
+.head{margin-bottom:clamp(40px,5vw,64px)}
+.head p{font-size:19px;line-height:1.55;max-width:680px;margin-left:auto;margin-right:auto}
+.sub-head{margin:clamp(88px,10vw,140px) auto 36px}
+.sub-head p{font-size:18px;line-height:1.55}
+.g2,.g3,.g4{gap:20px}
+.card{box-shadow:none;border:1px solid var(--line-soft);padding:28px 28px 30px;gap:10px}
+.card h3{font-size:19px;line-height:1.3}
+.card p{font-size:16px;line-height:1.6}
+.card .ic{display:none}
+.card.t-blue,.card.t-green,.card.t-yellow,.card.t-red{background:var(--white);border:1px solid var(--line-soft)}
+.t-blue .num,.t-green .num,.t-yellow .num,.t-red .num{background:var(--paper)}
+.stat,.chart,.proj,.mile,.idea-row,.fx,.weeks,.cm,details.more,.tbl-wrap,.cs-card{box-shadow:none}
+.stat,.chart,.proj,.mile{border-color:var(--line-soft)}
+.summary{box-shadow:none}
+.callout{margin-top:48px}
+details.more{margin-top:40px;border-color:var(--line-soft)}
+.hook{padding:26px 28px}
+.hook blockquote{font-size:16px}
+.vgrid{gap:28px 22px}
+/* Chart labels: no white circles over the curve */
+.pin .dot{display:none}
+.mk:not(.live) b{display:none}
+.mk.br em{left:18px;top:16px}
 </style>
 </head>
 <body>
@@ -539,7 +565,7 @@ footer p{max-width:720px;margin:0 auto}
 
   <div class="chart">
     <div class="chart-t"><b>New subscribers each month</b>
-      <div class="legend"><span><i style="background:var(--cobalt)"></i>Weekly long-form</span><span><i style="background:var(--marker)"></i>Slower 2026</span><span><i style="background:#d5dae3"></i>No long-form</span></div>
+      <div class="legend"><span><i style="background:var(--cobalt)"></i>Weekly long-form</span><span><i style="background:var(--marker)"></i>2026</span><span><i style="background:#d5dae3"></i>No long-form</span></div>
     </div>
     <div class="bars many" data-max="31">
       <div class="bar" style="--h:12%"><em>3.8K</em><i style="height:12%"></i></div>
