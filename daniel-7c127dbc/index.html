@@ -166,6 +166,18 @@ section{padding:clamp(52px,6vw,80px) 0}
 }
 @media (max-width:760px){.prog-top{grid-template-columns:1fr;gap:18px}}
 
+/* Note from the strategist */
+.letter{max-width:760px;margin:44px auto 0;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(22px,4vw,34px);position:relative}
+.letter-who{display:flex;align-items:center;gap:14px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.avatar{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--red-50);color:var(--red);font-weight:800;font-size:18px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.letter-who b{display:block;font-size:17px}
+.letter-who small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.letter-body p{font-size:17px;line-height:1.65;color:var(--ink-70)}
+.letter-body p+p{margin-top:12px}
+.letter-body b{color:var(--ink);font-weight:600}
+.letter-body .sign{font-family:'Caveat',cursive;font-size:30px;color:var(--red);line-height:1;margin-top:16px}
+
 /* TL;DR */
 .tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:56px auto 0;text-align:left}
 .tl{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px}
@@ -470,32 +482,16 @@ footer p{max-width:720px;margin:0 auto}
     </figure>
   </div>
 
-  <div class="tldr">
-    <div class="tl g">
-      <span class="chip g mono" style="align-self:flex-start">What got us here</span>
-      <ol>
-        <li><b>Long-form built the channel.</b> Weekly videos from September 2025 took it from 21K to 110K in four months, and to 200K by August 2026.</li>
-        <li><b>Big outcomes, taught simply.</b> Six launch-run videos brought 76K subscribers between them.</li>
-        <li><b>Viewers came to learn.</b> They take notes, repeat your frameworks back and ask "how is this free?"</li>
-      </ol>
+  <div class="letter">
+    <div class="letter-who">
+      <span class="avatar" aria-hidden="true">NM</span>
+      <div><b>Najma Mogul</b><small>Your dedicated YouTube strategist</small></div>
     </div>
-    <div class="tl r">
-      <span class="chip mono" style="align-self:flex-start">What happened</span>
-      <ol>
-        <li><b>YouTube stopped showing the channel.</b> Impressions fell from 6.9M a month to 1.2M.</li>
-        <li><b>The videos didn't get worse.</b> Click-through and retention held all year.</li>
-        <li><b>We gave YouTube less to work with.</b> Uploads halved, then stopped after 18 July, and topics drifted narrower.</li>
-        <li><b>The engine still works.</b> "Top 0.01%" brought 5.3M impressions in July.</li>
-      </ol>
-    </div>
-    <div class="tl b">
-      <span class="chip b mono" style="align-self:flex-start">What happens next</span>
-      <ol>
-        <li><b>Weekly long-form</b>, live since 31 October.</li>
-        <li><b>Own "what business to start in 2027"</b>, the niche's strongest topic.</li>
-        <li><b>One big outcome, taught simply</b>, for people not yet running a business.</li>
-        <li><b>Titles that feel doable</b>, at <b>15 to 25 minutes</b>, with a scripted first 30 seconds.</li>
-      </ol>
+    <div class="letter-body">
+      <p>Hey Daniel,</p>
+      <p>I went through 19 months of your analytics, every hook we've written and 902 videos from the biggest channels in your space. The good news: <b>your videos never got worse.</b> YouTube stopped showing the channel when we stopped giving it new ones.</p>
+      <p>So we're back to <b>a video every Saturday</b>, on big ideas for people who want to build something, starting with <b>what business to start in 2027</b>. Everything I found, and the plan, is below.</p>
+      <p class="sign">Najma</p>
     </div>
   </div>
 </header>
