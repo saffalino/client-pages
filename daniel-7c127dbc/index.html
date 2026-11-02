@@ -98,13 +98,17 @@ section{padding:clamp(52px,6vw,80px) 0}
 .stat.goal{background:linear-gradient(135deg,#3463f2,#1a3fc4);border-color:transparent;color:#fff;box-shadow:0 18px 40px -20px rgba(31,79,224,.55)}
 .stat.goal span{color:rgba(255,255,255,.85)}
 
-.proofs{display:flex;flex-wrap:wrap;justify-content:center;column-gap:8px;row-gap:0;margin:22px auto 0;max-width:1100px}
-.proofs>span{margin:4px 0}
-.proofs .row-br{flex-basis:100%;height:0}
-.proofs span{text-align:center;white-space:nowrap}
-.proofs span{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--ink-70);box-shadow:var(--shadow-sm)}
-.proofs b{color:var(--ink);font-weight:800}
-@media (max-width:640px){.proofs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.proofs>span{margin:0}.proofs .row-br{display:none}.proofs span{display:flex;flex-direction:column;align-items:center;justify-content:center;white-space:normal;border-radius:12px;padding:8px 4px;font-size:10.5px;line-height:1.25;box-shadow:none}.proofs b{font-size:17px;letter-spacing:-.02em;margin-bottom:2px}.sub br{display:none}}
+.work{max-width:1000px;margin:34px auto 0}
+.work-t{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);margin-bottom:12px}
+.work-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden}
+.work-g>div{padding:clamp(16px,2.4vw,24px) 14px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.work-g>div:nth-child(4n){border-right:0}.work-g>div:nth-child(n+5){border-bottom:0}
+.work-g b{display:block;font-size:clamp(38px,5vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.work-g span{display:block;margin-top:8px;font-size:14px;line-height:1.35;color:var(--ink-70)}
+@media (max-width:640px){.work-g{grid-template-columns:1fr 1fr}.work-g>div:nth-child(n){border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}.work-g>div:nth-child(2n){border-right:0}.work-g>div:nth-child(n+7){border-bottom:0}.work-g b{font-size:36px}.work-g span{font-size:13px}.sub br{display:none}}
+.letter.has-photo{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;max-width:900px;align-items:center}
+.letter-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
+@media (max-width:760px){.letter.has-photo{grid-template-columns:1fr;gap:18px}.letter-photo{aspect-ratio:4/3;object-position:50% 30%}}
 /* Hero progress: counter, goal bar, growth curve */
 .prog{max-width:1000px;margin:40px auto 0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(18px,3vw,28px);text-align:left}
 .prog-top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,44px);align-items:center}
@@ -451,10 +455,9 @@ footer p{max-width:720px;margin:0 auto}
 <!-- ============ HERO ============ -->
 <header class="hero wrap" id="top">
   <span class="chip tag"><svg class="tag-yt" viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg>Strategy for Daniel Priestley</span>
-  <span class="hello" style="display:block">Hey Daniel!</span>
   <h1>We built your first 200K.<br>Here's the next <span class="note">300K<svg class="arrow" viewBox="0 0 56 56" aria-hidden="true"><path d="M48 52 C 46 36, 32 28, 6 30" pathLength="1"/><path d="M6 30 L 15 22 M6 30 L 16 36" pathLength="1"/></svg><span class="aside">by October 2027</span></span></h1>
   <p class="sub">Only <b class="nowrap">1.3% of YouTube channels</b> ever reach 100K. <br>Here's how we get you into the <b class="nowrap">top 0.3%</b>.</p>
-  <div class="proofs"><span><b>28</b> of our videos analysed</span><span><b>19</b> months of YouTube Analytics</span><span><b>27</b> hooks torn down</span><span><b>902</b> competitor videos studied</span><i class="row-br"></i><span><b>10</b> winning title formulas tested</span><span><b>50</b> thumbnail formats reviewed</span><span><b>4</b> creator channels reverse engineered</span><span><b>12</b> data-backed ideas for relaunch</span></div>
+  <div class="work"><span class="work-t">The work behind this plan</span><div class="work-g"><div><b data-n="28">28</b><span>of our videos analysed</span></div><div><b data-n="19">19</b><span>months of YouTube Analytics</span></div><div><b data-n="27">27</b><span>hooks torn down</span></div><div><b data-n="902">902</b><span>competitor videos studied</span></div><div><b data-n="10">10</b><span>winning title formulas tested</span></div><div><b data-n="50">50</b><span>thumbnail formats reviewed</span></div><div><b data-n="4">4</b><span>creator channels reverse engineered</span></div><div><b data-n="12">12</b><span>data-backed ideas for relaunch</span></div></div></div>
 
   <div class="prog">
     <div class="prog-top">
@@ -482,16 +485,19 @@ footer p{max-width:720px;margin:0 auto}
     </figure>
   </div>
 
-  <div class="letter">
+  <div class="letter has-photo">
+    <img class="letter-photo" src="assets/najma-gold.jpg" alt="Najma Mogul holding a YouTube Gold Play Button">
+    <div class="letter-main">
     <div class="letter-who">
-      <span class="avatar"><img src="assets/av-najma.jpg" alt="Najma Mogul"></span>
+      <span class="avatar"><img src="assets/av-najma.jpg" alt=""></span>
       <div><b>Najma Mogul</b><small>Your dedicated YouTube strategist</small></div>
     </div>
     <div class="letter-body">
       <p>Hey Daniel,</p>
-      <p>I went through 19 months of your analytics, every hook we've written and 902 videos from the biggest channels in your space. The good news: <b>your videos never got worse.</b> YouTube stopped showing the channel when we stopped giving it new ones.</p>
+      <p>Good news first: <b>your videos never got worse.</b> YouTube stopped showing the channel when we stopped giving it new ones.</p>
       <p>So we're back to <b>a video every Saturday</b>, on big ideas for people who want to build something, starting with <b>what business to start in 2027</b>. Everything I found, and the plan, is below.</p>
       <p class="sign">Najma</p>
+    </div>
     </div>
   </div>
 </header>
@@ -510,10 +516,6 @@ footer p{max-width:720px;margin:0 auto}
     <div class="card t-red"><div class="ic">🎓</div><h3>Authority plus simplicity</h3><p>Viewers come because you've built the businesses. They stay because you make it simple.</p></div>
   </div>
 
-  <div class="summary">
-    <strong>The goal: 500K subscribers by October 2027</strong>
-    <p>Another 297K from today's 203K, resting on two cornerstones: <b>a video every week</b>, and <b>broad ideas</b> for anyone who wants to build something.</p>
-  </div>
 
   <div class="sub-head">
     <h3>What makes you different</h3>
@@ -1304,6 +1306,20 @@ footer p{max-width:720px;margin:0 auto}
 </div></footer>
 
 <script>
+// Count the proof-of-work numbers up when they scroll into view
+(function () {
+  var els = document.querySelectorAll('.work-g b[data-n]');
+  if (!els.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      var el = e.target, to = +el.dataset.n, t0 = null;
+      (function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400), k = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * k).toLocaleString('en-GB'); if (p < 1) requestAnimationFrame(step); })(performance.now());
+    });
+  }, { threshold: .4 });
+  els.forEach(function (el) { el.textContent = '0'; io.observe(el); });
+})();
+
 // Count the subscriber number up from 21,000 on load
 (function () {
   var el = document.getElementById('subs'); if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
