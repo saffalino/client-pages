@@ -466,6 +466,38 @@ details.more{margin-top:40px;border-color:var(--line-soft)}
 .pin .dot{display:none}
 .mk:not(.live) b{display:none}
 .mk.br em{left:18px;top:16px}
+
+/* Rollout calendar (Notion-style) */
+.cal{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.cal-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:18px 20px 14px}
+.cal-top b{font-size:16px}
+.cal-top>span{font-size:13px;color:var(--ink-50)}
+.cal-key{margin-left:auto;display:flex;gap:14px;font-size:12px;color:var(--ink-50)}
+.cal-key i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:0}
+.k-live{background:var(--green)}.k-edit{background:var(--marker)}.k-plan{background:#c9ced3}.k-shoot{background:var(--cobalt)}
+.cal-dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cal-dow span{padding:8px 10px;font-size:12px;color:var(--ink-50);text-align:right}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cd{position:relative;min-height:104px;padding:6px 6px 8px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.cd:nth-child(7n){border-right:0}
+.cd:nth-last-child(-n+7){border-bottom:0}
+.cd.we{background:#fbfbfb}
+.dn{display:block;text-align:right;font-size:12px;color:var(--ink-50);padding:2px 4px 6px}
+.cd.alt .dn{color:var(--ink-30)}
+.cd.today .dn{text-align:right}
+.cd.today .dn b{display:inline-block;min-width:22px;padding:2px 6px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;text-align:center}
+.ev{position:relative;z-index:1;border-radius:6px;padding:6px 8px;font-size:12px;font-weight:600;line-height:1.3;background:#f1f2f3;color:var(--ink);box-shadow:0 1px 0 rgba(17,20,23,.06),inset 0 0 0 1px rgba(17,20,23,.06);}
+.ev small{display:block;font-size:10.5px;font-weight:600;color:var(--ink-50);margin-bottom:2px}
+.ev.live{background:var(--green-50);box-shadow:inset 3px 0 0 var(--green),inset 0 0 0 1px #c3ebd1}
+.ev.live small{color:var(--green)}
+.ev.edit{background:#fdf3dc;box-shadow:inset 3px 0 0 var(--marker),inset 0 0 0 1px #f6e0a8}
+.ev.edit small{color:var(--amber)}
+.ev.plan{box-shadow:inset 3px 0 0 #c9ced3,inset 0 0 0 1px rgba(17,20,23,.06)}
+.ev.shoot{background:var(--blue-50);color:var(--cobalt);box-shadow:inset 3px 0 0 var(--cobalt)}
+.ev.shoot small{color:var(--cobalt)}
+.ev.span4{width:calc(400% + 36px)}
+@media (min-width:641px){.weeks{display:none}}
+@media (max-width:640px){.cal{display:none}}
 </style>
 </head>
 <body>
@@ -1230,6 +1262,95 @@ details.more{margin-top:40px;border-color:var(--line-soft)}
     <div style="display:flex;flex-direction:column;gap:8px;padding-right:6px"><span class="pill live" style="align-self:flex-start">Week 1 · Sat 31 Oct</span><b style="font-size:18px">The 5 Laws of Microeconomics To Make Your First $1 Million</b><small>33:28 · 21K views in its first two days</small></div>
   </a>
 
+  <div class="cal">
+  <div class="cal-top"><b>Upload calendar</b><span>October 2026 to January 2027 · every Saturday</span><div class="cal-key"><span><i class="k-live"></i>Live</span><span><i class="k-edit"></i>In the edit</span><span><i class="k-plan"></i>Planned</span><span><i class="k-shoot"></i>Filming</span></div></div>
+  <div class="cal-dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+  <div class="cal-grid">
+  <div class="cd alt"><span class="dn">Oct 26</span></div>
+  <div class="cd alt"><span class="dn">27</span></div>
+  <div class="cd alt"><span class="dn">28</span></div>
+  <div class="cd alt"><span class="dn">29</span></div>
+  <div class="cd alt"><span class="dn">30</span></div>
+  <div class="cd we alt"><span class="dn">31</span><div class="ev live" title="The 5 Laws of Microeconomics To Make Your First $1 Million"><small>Week 1 · Live</small>The 5 Laws of Microeconomics To Make Your First $1 Million</div></div>
+  <div class="cd we"><span class="dn">Nov 1</span></div>
+  <div class="cd today"><span class="dn"><b>2</b></span></div>
+  <div class="cd"><span class="dn">3</span><div class="ev shoot span4"><small>Shoot 2 · to confirm</small>Filming, 3 to 6 Nov</div></div>
+  <div class="cd"><span class="dn">4</span></div>
+  <div class="cd"><span class="dn">5</span></div>
+  <div class="cd"><span class="dn">6</span></div>
+  <div class="cd we"><span class="dn">7</span><div class="ev edit" title="Unfortunately, Growing a $1M Business Is Really This Simple"><small>Week 2 · In the edit</small>Unfortunately, Growing a $1M Business Is Really This Simple</div></div>
+  <div class="cd we"><span class="dn">8</span></div>
+  <div class="cd"><span class="dn">9</span></div>
+  <div class="cd"><span class="dn">10</span></div>
+  <div class="cd"><span class="dn">11</span></div>
+  <div class="cd"><span class="dn">12</span></div>
+  <div class="cd"><span class="dn">13</span></div>
+  <div class="cd we"><span class="dn">14</span><div class="ev plan" title="7 Things You MUST Do Before 2027 to Get Ahead of 99% of People"><small>Week 3</small>7 Things You MUST Do Before 2027 to Get Ahead of 99% of People</div></div>
+  <div class="cd we"><span class="dn">15</span></div>
+  <div class="cd"><span class="dn">16</span></div>
+  <div class="cd"><span class="dn">17</span></div>
+  <div class="cd"><span class="dn">18</span></div>
+  <div class="cd"><span class="dn">19</span></div>
+  <div class="cd"><span class="dn">20</span></div>
+  <div class="cd we"><span class="dn">21</span><div class="ev plan" title="Here&#x27;s What I&#x27;d Learn Instead of AI Automation in 2027"><small>Week 4</small>Here&#x27;s What I&#x27;d Learn Instead of AI Automation in 2027</div></div>
+  <div class="cd we"><span class="dn">22</span></div>
+  <div class="cd"><span class="dn">23</span></div>
+  <div class="cd"><span class="dn">24</span></div>
+  <div class="cd"><span class="dn">25</span></div>
+  <div class="cd"><span class="dn">26</span></div>
+  <div class="cd"><span class="dn">27</span></div>
+  <div class="cd we"><span class="dn">28</span><div class="ev plan" title="If I Woke Up in 2027 With $0, This Is Exactly What I&#x27;d Do to Build to $1M"><small>Week 5</small>If I Woke Up in 2027 With $0, This Is Exactly What I&#x27;d Do to Build to $1M</div></div>
+  <div class="cd we"><span class="dn">29</span></div>
+  <div class="cd"><span class="dn">30</span></div>
+  <div class="cd alt"><span class="dn">Dec 1</span></div>
+  <div class="cd alt"><span class="dn">2</span></div>
+  <div class="cd alt"><span class="dn">3</span></div>
+  <div class="cd alt"><span class="dn">4</span></div>
+  <div class="cd we alt"><span class="dn">5</span><div class="ev plan" title="Give Me 23 Minutes and I&#x27;ll Make You Dangerously Good at Social Media Marketing"><small>Week 6</small>Give Me 23 Minutes and I&#x27;ll Make You Dangerously Good at Social Media Marketing</div></div>
+  <div class="cd we alt"><span class="dn">6</span></div>
+  <div class="cd alt"><span class="dn">7</span></div>
+  <div class="cd alt"><span class="dn">8</span></div>
+  <div class="cd alt"><span class="dn">9</span></div>
+  <div class="cd alt"><span class="dn">10</span></div>
+  <div class="cd alt"><span class="dn">11</span></div>
+  <div class="cd we alt"><span class="dn">12</span><div class="ev plan" title="What Billionaires Know That Millionaires Don&#x27;t (After 20 Years Around Both)"><small>Week 7</small>What Billionaires Know That Millionaires Don&#x27;t (After 20 Years Around Both)</div></div>
+  <div class="cd we alt"><span class="dn">13</span></div>
+  <div class="cd alt"><span class="dn">14</span></div>
+  <div class="cd alt"><span class="dn">15</span></div>
+  <div class="cd alt"><span class="dn">16</span></div>
+  <div class="cd alt"><span class="dn">17</span></div>
+  <div class="cd alt"><span class="dn">18</span></div>
+  <div class="cd we alt"><span class="dn">19</span><div class="ev plan" title="The Top 1% Business Books You Should Actually Read (RANKED)"><small>Week 8</small>The Top 1% Business Books You Should Actually Read (RANKED)</div></div>
+  <div class="cd we alt"><span class="dn">20</span></div>
+  <div class="cd alt"><span class="dn">21</span></div>
+  <div class="cd alt"><span class="dn">22</span></div>
+  <div class="cd alt"><span class="dn">23</span></div>
+  <div class="cd alt"><span class="dn">24</span></div>
+  <div class="cd alt"><span class="dn">25</span></div>
+  <div class="cd we alt"><span class="dn">26</span><div class="ev plan" title="If You Only Watch One Business Video, Make It This (Masterclass)"><small>Week 9</small>If You Only Watch One Business Video, Make It This (Masterclass)</div></div>
+  <div class="cd we alt"><span class="dn">27</span></div>
+  <div class="cd alt"><span class="dn">28</span></div>
+  <div class="cd alt"><span class="dn">29</span></div>
+  <div class="cd alt"><span class="dn">30</span></div>
+  <div class="cd alt"><span class="dn">31</span></div>
+  <div class="cd"><span class="dn">Jan 1</span></div>
+  <div class="cd we"><span class="dn">2</span><div class="ev plan" title="Boring Businesses That Quietly Make Millionaires (And How to Start One)"><small>Week 10</small>Boring Businesses That Quietly Make Millionaires (And How to Start One)</div></div>
+  <div class="cd we"><span class="dn">3</span></div>
+  <div class="cd"><span class="dn">4</span></div>
+  <div class="cd"><span class="dn">5</span></div>
+  <div class="cd"><span class="dn">6</span></div>
+  <div class="cd"><span class="dn">7</span></div>
+  <div class="cd"><span class="dn">8</span></div>
+  <div class="cd we"><span class="dn">9</span><div class="ev plan" title="How I Use AI to Run My Businesses (My Complete Workflow)"><small>Week 11</small>How I Use AI to Run My Businesses (My Complete Workflow)</div></div>
+  <div class="cd we"><span class="dn">10</span></div>
+  <div class="cd"><span class="dn">11</span></div>
+  <div class="cd"><span class="dn">12</span></div>
+  <div class="cd"><span class="dn">13</span></div>
+  <div class="cd"><span class="dn">14</span></div>
+  <div class="cd"><span class="dn">15</span></div>
+  <div class="cd we"><span class="dn">16</span><div class="ev plan" title="How Normal People Become Millionaires in the AI Era"><small>Week 12</small>How Normal People Become Millionaires in the AI Era</div></div>
+  <div class="cd we"><span class="dn">17</span></div>
+  </div></div>
   <ol class="weeks">
     <li class="wk is-live"><time>Week 1<b>Sat 31 Oct</b></time><strong>The 5 Laws of Microeconomics To Make Your First $1 Million</strong><span class="st live">Live</span></li>
     <li class="wk"><time>Week 2<b>Sat 7 Nov</b></time><strong>Unfortunately, Growing a $1M Business Is Really This Simple<small>Hooks and rehooks reviewed before the final cut. Thumbnails shared with you before it goes live.</small></strong><span class="st edit">In the edit</span></li>
