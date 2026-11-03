@@ -498,6 +498,18 @@ details.more{margin-top:40px;border-color:var(--line-soft)}
 .ev.span4{width:calc(400% + 36px)}
 @media (min-width:641px){.weeks{display:none}}
 @media (max-width:640px){.cal{display:none}}
+
+/* Comment stacks: label outside, screenshot as the top card of a pile */
+.stacks{gap:clamp(28px,4vw,48px);align-items:start}
+.stk-lab{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-bottom:22px}
+.stk-lab p{font-size:17px;font-weight:600;color:var(--ink)}
+.stack{position:relative;isolation:isolate;margin:0 14px 22px}
+.stack::before,.stack::after{content:'';position:absolute;inset:0;border-radius:16px;background:#fff;border:1px solid var(--line);z-index:-1}
+.stack::before{transform:translate(10px,10px) rotate(1.6deg);box-shadow:var(--shadow-sm)}
+.stack::after{transform:translate(20px,20px) rotate(3.2deg);z-index:-2;opacity:.8}
+.stack img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px;box-shadow:var(--shadow-md)}
+.stk-col:last-child .stack::before{transform:translate(-10px,10px) rotate(-1.6deg)}
+.stk-col:last-child .stack::after{transform:translate(-20px,20px) rotate(-3.2deg)}
 </style>
 </head>
 <body>
@@ -657,9 +669,15 @@ details.more{margin-top:40px;border-color:var(--line-soft)}
     <h3>Learners, not operators</h3>
     <p>Far more people <b>want</b> a business than run one. "Make your first $1M" speaks to a much bigger crowd than "how to hire your next manager".</p>
   </div>
-  <div class="pair">
-    <figure class="cm"><figcaption><span class="chip g" style="font-size:12px;padding:3px 10px">Big videos</span>Students hearing an idea for the first time</figcaption><img src="assets/daniel-500k/comment_doable.png" alt="Comment: sales feels doable and less scary now" loading="lazy"></figure>
-    <figure class="cm"><figcaption><span class="chip" style="font-size:12px;padding:3px 10px">Small videos</span>Operators with a specific problem</figcaption><img src="assets/daniel-500k/comment_operator.png" alt="Comment: we're doing 2m revenue but have 30 employees" loading="lazy"></figure>
+  <div class="pair stacks">
+    <div class="stk-col">
+      <div class="stk-lab"><span class="chip g">Big videos</span><p>Students hearing an idea for the first time</p></div>
+      <div class="stack"><img src="assets/daniel-500k/comment_doable.png" alt="Comment: sales feels doable and less scary now" loading="lazy"></div>
+    </div>
+    <div class="stk-col">
+      <div class="stk-lab"><span class="chip">Small videos</span><p>Operators with a specific problem</p></div>
+      <div class="stack"><img src="assets/daniel-500k/comment_operator.png" alt="Comment: we're doing 2m revenue but have 30 employees" loading="lazy"></div>
+    </div>
   </div>
   <p class="callout">The growth came from people who want to <span class="hl">build something</span>, not from people who already have.</p>
 
