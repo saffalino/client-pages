@@ -7,20 +7,20 @@
 <title>Alex Ikonn, Life Design On YouTube</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Build a personal brand around Life Design. A proposal from Talking Heads.">
-<meta property="og:title" content="Build a personal brand you feel proud of and impacts millions of lives">
+<meta property="og:title" content="Build a personal brand you're proud of and impacts millions of lives">
 <meta property="og:description" content="A mission to inspire 1% of people to self-actualize. A proposal from Talking Heads.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://talkingheads.media/alex/">
-<meta property="og:image" content="https://talkingheads.media/alex/assets/og-alex.jpg?v=2">
+<meta property="og:image" content="https://talkingheads.media/alex/assets/og-alex.jpg?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Build a personal brand you feel proud of and impacts millions of lives">
-<meta name="twitter:image" content="https://talkingheads.media/alex/assets/og-alex.jpg?v=2">
+<meta name="twitter:title" content="Build a personal brand you're proud of and impacts millions of lives">
+<meta name="twitter:image" content="https://talkingheads.media/alex/assets/og-alex.jpg?v=3">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&family=Space+Mono:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&family=Space+Mono:wght@400;700&family=Roboto:wght@400;500;700&family=UnifrakturMaguntia&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --red:#e4003b; --marker:#f7c25a; --cobalt:#1f4fe0; --red-dark:#a8002c; --red-50:#fef3f6; --red-100:#fbe3ea;
@@ -512,6 +512,48 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 @media (max-width:760px){.charts{grid-template-columns:1fr}}
 .hero h1{max-width:none;font-size:clamp(36px,4.4vw,54px)}
 @media (max-width:960px){.dbr{display:none}}
+
+/* NYT clipping */
+.nyt{display:block;max-width:720px;margin:28px auto 0;background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px 28px 20px;text-decoration:none;color:#121212;box-shadow:var(--shadow-sm);text-align:left;transform:rotate(-.6deg)}
+.nyt:hover{box-shadow:var(--shadow-md)}
+.nyt-mast{display:block;font-family:'UnifrakturMaguntia',serif;font-size:22px;text-align:center;border-bottom:1px solid #121212;padding-bottom:10px;margin-bottom:14px}
+.nyt-hed{display:block;font-family:'Libre Caslon Text',Georgia,serif;font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.01em}
+.nyt-dek{display:block;font-family:'Libre Caslon Text',Georgia,serif;font-size:16px;line-height:1.45;color:#363636;margin-top:10px}
+.nyt-by{display:block;font-family:var(--f);font-size:12px;font-weight:600;letter-spacing:.02em;color:#5a5a5a;margin-top:12px}
+/* Full width case studies */
+.bigcases{display:flex;flex-direction:column;gap:20px}
+.bigcase{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.bigcase .case-img{aspect-ratio:16/9;height:100%}
+.bigcase .case-body{justify-content:center;padding:28px 32px;gap:20px}
+.bigcase .case-ch img{width:48px;height:48px}
+.bigcase .case-ch b{font-size:18px}
+.bigcase .case-result strong{font-size:clamp(36px,4.6vw,56px)}
+.bigcase .case-result span{font-size:16px}
+.bigcase .bigplay{width:84px;height:59px}
+.watch-cta{font-family:var(--f);font-weight:600;font-size:15px;color:var(--red)}
+.watch-cta::after{content:' \2192'}
+@media (max-width:760px){.bigcase{grid-template-columns:1fr}.bigcase .case-body{padding:20px 22px 24px}}
+/* Team strip in the bento */
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.team > div{background:var(--paper);border-radius:var(--r-md);padding:16px}
+.team b{display:block;font-size:15px}
+.team span{display:block;font-size:14px;color:var(--ink-70);margin-top:4px;line-height:1.45}
+@media (max-width:760px){.team{grid-template-columns:1fr 1fr}}
+/* Option 2 heading stickers */
+#option-2 .head p+p{margin-top:8px}
+.pf-tile svg{width:.78em;height:auto;display:block}
+/* Job description */
+.jd{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden}
+.jd-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 28px;background:linear-gradient(180deg,var(--red-50),var(--white));border-bottom:1px solid var(--line-soft)}
+.jd-top small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.jd-top b{display:block;font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.jd-pills{display:flex;flex-wrap:wrap;gap:8px}
+.jd-pills span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:500}
+.jd-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 28px 28px}
+.jd h3{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.jd .ticks{margin-top:12px}
+.ticks.score li::before{background:var(--red-100);color:var(--red)}
+@media (max-width:760px){.jd-cols{grid-template-columns:1fr;gap:20px}.jd-top,.jd-cols{padding-left:20px;padding-right:20px}}
 </style>
 </head>
 <body>
@@ -519,14 +561,14 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 <nav class="nav"><div class="nav-in">
   <a class="who" href="#top"><img src="assets/av-alex.jpg" alt=""><span><b>Alex Ikonn</b><small>@AlexIkonnPodcast</small></span></a>
   <div class="links">
-    <a href="#gap">The Opportunity</a><a href="#option-1">Option 1</a><a href="#option-2">Option 2</a><a href="#why">Why Saf</a>
+    <a href="#gap">The Opportunity</a><a href="#option-1">Option 1</a><a href="#option-2">Option 2</a>
   </div>
   <a class="btn" href="https://calendar.app.google/qEfA6hQygffwn6h57" target="_blank" rel="noopener">Book a call</a>
 </div></nav>
 
 <header class="hero wrap" id="top">
   <span class="chip tag"><svg class="tag-yt" viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg>Proposal for Alex Ikonn</span>
-  <h1>Build a <span class="cobalt">personal brand</span> you feel proud&nbsp;of<br class="dbr"> and impacts <span class="note">millions of lives<svg class="arrow" viewBox="0 0 56 56" aria-hidden="true"><path d="M48 52 C 46 36, 32 28, 6 30" pathLength="1"/><path d="M6 30 L 15 22 M6 30 L 16 36" pathLength="1"/></svg><span class="aside">(through Life Design)</span></span></h1>
+  <h1>Build a <span class="cobalt">personal brand</span> you're proud&nbsp;of<br class="dbr"> and impacts <span class="note">millions of lives<svg class="arrow" viewBox="0 0 56 56" aria-hidden="true"><path d="M48 52 C 46 36, 32 28, 6 30" pathLength="1"/><path d="M6 30 L 15 22 M6 30 L 16 36" pathLength="1"/></svg><span class="aside">(through Life Design)</span></span></h1>
   <p class="sub">Mission to inspire <b>1% of people</b> to <b>self&#8209;actualize</b>,<br class="dbr"> and it'll have ripple effects on <b>the other 99%</b>.</p>
 
   <div class="video own" id="hello" data-yt="YjqKtM6ztR0">
@@ -552,6 +594,12 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <!-- BLOCK 0a: the urgency -->
   <div class="blk">
     <p class="callout" style="margin-top:0">We're lonelier than ever, and <span class="red">searching for&nbsp;meaning</span>.</p>
+    <a class="nyt" href="https://www.nytimes.com/2025/03/20/us/americans-solo-dining-happiness.html" target="_blank" rel="noopener">
+      <span class="nyt-mast">The New York Times</span>
+      <span class="nyt-hed">Americans Are Unhappier Than Ever. Solo Dining May Be a Sign.</span>
+      <span class="nyt-dek">About a quarter of Americans ate every meal alone in 2023, according to the American Time Use Survey.</span>
+      <span class="nyt-by">By Sopan Deb · March 20, 2025</span>
+    </a>
     <div class="charts">
       <div class="chart-card">
         <small class="cs-label">Americans who host people at home every month</small>
@@ -570,7 +618,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <!-- BLOCK 0b: the messenger -->
   <div class="blk">
     <p class="callout lead" style="margin-top:0">This is bigger than you, and bigger than Intelligent Change. You become <span class="red">the messenger</span> for ideas anybody can&nbsp;apply.</p>
-    <p class="callout lead" style="margin-bottom:32px">And you're <span class="red">disproportionately well placed</span> to be that&nbsp;messenger.</p>
+    <p class="callout lead" style="margin-bottom:32px">I believe you're <span class="red">uniquely well placed</span> to be that&nbsp;messenger.</p>
     <div class="me six">
       <div class="tile flat"><span class="num n-b">1</span><h3>A Top 1% Network</h3><p>The rooms you're in, and the people who'd sit down with you.</p></div>
       <div class="tile flat"><span class="num n-g">2</span><h3>An Aspirational Lifestyle</h3><p>16 years of living your dream life. People want to see how.</p></div>
@@ -583,7 +631,8 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 
   <!-- BLOCK 0c: where it lands -->
   <div class="blk">
-    <p class="callout lead" style="margin-top:0;margin-bottom:32px">Today your channel is a home for <b>your guests</b>. Tomorrow it's the home of <span class="red">Life&nbsp;Design</span>.</p>
+    <p class="callout lead" style="margin-top:0">Today your channel doesn't have a clear enough value proposition, doesn't follow platform best practice, and isn't worth subscribing to <span class="red">(yet)</span>.</p>
+    <p class="callout" style="margin-bottom:32px">Tomorrow, we can build a YouTube channel that's <span class="red">the home of Life&nbsp;Design</span>. New ideas. Curated&nbsp;ideas.</p>
     <div class="gap">
     <div class="side">
       <div class="side-top"><b>Current</b></div>
@@ -662,6 +711,14 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
     <p>Educational thought leadership. <b>You teach</b>. We do <b>everything else</b>.</p>
   </div>
 
+  <!-- BLOCK 1-vsl: how it works, in my words -->
+  <div class="blk">
+    <div class="video own" id="vsl" data-src="https://next.frame.io/share/00991f2d-7ff1-46ee-a325-31dc965d5723/view/d2b56fb3-6862-4ac6-b956-a0a048d01612">
+      <img class="own-cover" src="assets/vsl-cover.jpg" alt="Saf explains how Talking Heads works">
+      <button class="own-play" aria-label="Play: how Talking Heads works"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span></button>
+    </div>
+  </div>
+
   <!-- BLOCK 1a: podcast moments to video ideas -->
   <div class="blk">
     <p class="callout" style="margin-top:0">Your audience already told you <span class="red">what they&nbsp;want</span>.</p>
@@ -684,8 +741,6 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
         <div class="flip-card idea"><div class="ft thumb"><div class="cthumb" style="--cs:clamp(11px,1.3vw,15px)"><span>3M journals <b>later</b></span><img src="assets/alex-big.jpg" alt=""></div></div><div><b>I Sold 3 Million Journals. Here's What I Learned About Happiness</b><small>Video idea</small></div></div>
       </div>
     </div>
-    <p class="callout lead">Your solo episode got <span class="red">17x the views</span> of a typical episode. <span class="nowrap">People want <span class="red">you</span>.</span></p>
-    <p class="src">Typical episode: median views of your 24 most recent full episodes, November 2026.</p>
   </div>
 
   <!-- BLOCK 1b: first four videos on Intelligent Change concepts -->
@@ -706,32 +761,80 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
     <div class="bento">
       <div class="tile w2">
         <div class="viz t-blue"><div class="rgrid"><i></i><i class="hit"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="hit"></i><i></i></div></div>
-        <h3>Huge Ideas</h3><p>We study what already works in your space and pick the ideas with the most pull.</p>
+        <h3>Strategy Deep Dive</h3><p>Weeks 1 to 2: we study what already works in your space and build your channel identity.</p>
+      </div>
+      <div class="tile">
+        <div class="viz t-red"><div class="frame"><span class="rec"><b></b>LOOM</span><span class="tc">05:00</span></div></div>
+        <h3>Brain Dump Looms</h3><p>Teach each idea to camera for 5 to 10 minutes. We take it from there.</p>
       </div>
       <div class="tile">
         <div class="viz t-yellow"><div class="doc"><em>Hook</em><i class="hl"></i><i></i><i class="s"></i><i></i><i class="s"></i></div></div>
-        <h3>Scripts</h3><p>Talking points built around a hook that holds.</p>
-      </div>
-      <div class="tile">
-        <div class="viz t-red"><div class="frame"><span class="rec"><b></b>REC</span><span class="tc">00:42:17</span></div></div>
-        <h3>Expert Guidance</h3><p>Direction on the day, and feedback on every cut.</p>
+        <h3>Scripts</h3><p>Talking points with word-for-word hooks. Ready in 5 working days.</p>
       </div>
       <div class="tile w2">
         <div class="viz v-thumb"><div class="tmock tlight"><div class="cthumb c2" style="--cs:15px;position:relative;inset:auto;width:100%;height:100%"><span>Do <b>one</b> thing a day</span><img src="assets/alex-big.jpg" alt=""></div></div></div>
-        <h3>Clickable Packaging</h3><p>Thumbnails by a dedicated designer. Several titles for every video, the strongest goes live.</p>
+        <h3>Clickable Packaging</h3><p>Titles and thumbnails by a dedicated designer, built to stand out.</p>
+      </div>
+      <div class="tile">
+        <div class="viz t-red"><div class="cal"><i></i><i></i><i></i><i></i><i></i><b></b><i></i><i></i><i></i><i></i><i></i><i></i><b></b><i></i><i></i><i></i><i></i><i></i><i></i><b></b><i></i></div></div>
+        <h3>Filming Days</h3><p>At least 4 videos in one day, booked 2 weeks ahead, with direction on the day.</p>
       </div>
       <div class="tile">
         <div class="viz t-blue"><div class="tl"><i class="ph"></i><div class="tr"><i style="width:22%"></i><i style="width:34%"></i><i style="width:18%"></i><i style="width:20%"></i></div><div class="tr b"><i style="width:12%;margin-left:14%"></i><i style="width:20%;margin-left:12%"></i><i style="width:14%;margin-left:10%"></i></div><div class="tr a"><i style="width:96%"></i></div></div></div>
-        <h3>Editing</h3><p>A top 1% team, plus your own motion graphics.</p>
-      </div>
-      <div class="tile">
-        <div class="viz v-ab t-yellow"><div class="mini"><em>A</em></div><div class="mini win"><em>B</em><span>Winner</span></div></div>
-        <h3>A/B Testing</h3><p>Titles and thumbnails tested on every video.</p>
+        <h3>Editing</h3><p>A top 1% team. Edits in 5 working days, checked by our Creative Lead first.</p>
       </div>
       <div class="tile" style="grid-column:1/-1">
         <div class="viz v-trend t-green"><svg viewBox="0 0 400 120" preserveAspectRatio="none"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4003b" stop-opacity=".18"/><stop offset="1" stop-color="#e4003b" stop-opacity="0"/></linearGradient></defs><path d="M0 104 C 50 100, 80 92, 120 88 S 190 82, 230 64 S 320 34, 400 12 L 400 120 L 0 120 Z" fill="url(#tg)"/><path d="M0 104 C 50 100, 80 92, 120 88 S 190 82, 230 64 S 320 34, 400 12" fill="none" stroke="#e4003b" stroke-width="3" vector-effect="non-scaling-stroke"/></svg></div>
-        <h3>Monthly Analytics Review</h3><p>What's working, what isn't, and what to double down on next.</p>
+        <h3>Monthly Review</h3><p>One north star metric, agreed at kickoff and reported every month.</p>
       </div>
+      <div class="tile" style="grid-column:1/-1">
+        <div class="team">
+          <div><b>Your YouTube Strategist</b><span>Owns your channel. Your one point of contact.</span></div>
+          <div><b>A Creative Lead</b><span>Sets and enforces the quality bar.</span></div>
+          <div><b>A Top 1% Editing Team</b><span>Plus your own motion graphics.</span></div>
+          <div><b>A Thumbnail Designer</b><span>Dedicated to your packaging.</span></div>
+        </div>
+        <h3>Your Team</h3><p>A fractional YouTube team, run day to day on Slack, Frame.io and Notion.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 1e: proof, full width case studies -->
+  <div class="blk">
+    <p class="callout lead" style="margin-top:0;margin-bottom:32px">We've done this for <span class="red">the&nbsp;biggest names in personal&nbsp;growth</span>.</p>
+    <div class="bigcases">
+      <a class="case bigcase" href="https://f.io/pQVb3XxC" target="_blank" rel="noopener" data-video="assets/video/ali.mp4">
+        <div class="case-img"><img src="assets/ali-abdaal.webp" alt="Ali Abdaal"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">1:59</span></div>
+        <div class="case-body">
+          <div class="case-ch"><img src="assets/av-ali.jpg" alt=""><div><b>Ali Abdaal<svg class="tick" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.6 14.2-4-4 1.4-1.4 2.6 2.6 5.8-5.8 1.4 1.4-7.2 7.2Z"/></svg></b><small>@aliabdaal · 6.7M subscribers</small></div></div>
+          <div class="case-result"><small>Subscribers</small><strong>3M → 6M</strong><span>while we worked together</span></div>
+          <span class="watch-cta">Watch Ali's story</span>
+        </div>
+      </a>
+      <a class="case bigcase" href="https://f.io/MpBT49zS" target="_blank" rel="noopener" data-video="assets/video/daniel.mp4">
+        <div class="case-img"><img src="assets/daniel-still.jpg" alt="Daniel Priestley"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">1:23</span></div>
+        <div class="case-body">
+          <div class="case-ch"><img src="assets/av-daniel.jpg" alt=""><div><b>Daniel Priestley<svg class="tick" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.6 14.2-4-4 1.4-1.4 2.6 2.6 5.8-5.8 1.4 1.4-7.2 7.2Z"/></svg></b><small>@DanielPriestley · 203K subscribers</small></div></div>
+          <div class="case-result"><small>Subscribers</small><strong>15K → 203K</strong><span>in 1 year with us</span></div>
+          <span class="watch-cta">Watch Daniel's story</span>
+        </div>
+      </a>
+      <a class="case bigcase" href="https://f.io/qN9uhGqz" target="_blank" rel="noopener" data-video="assets/video/james.mp4">
+        <div class="case-img"><img src="assets/james-conole.webp" alt="James Conole"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">2:13</span></div>
+        <div class="case-body">
+          <div class="case-ch"><img src="assets/av-james.jpg" alt=""><div><b>James Conole</b><small>@jamesconole-cfp · 216K subscribers</small></div></div>
+          <div class="case-result"><small>Views</small><strong>2M</strong><span>in our first 90 days</span></div>
+          <span class="watch-cta">Watch James's story</span>
+        </div>
+      </a>
+      <a class="case bigcase" href="https://f.io/nhDG5cUb" target="_blank" rel="noopener" data-video="assets/video/vishen.mp4">
+        <div class="case-img"><img src="assets/vishen-still.jpg" alt="Vishen Lakhiani"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">0:22</span></div>
+        <div class="case-body">
+          <div class="case-ch"><img src="assets/av-vishen.jpg" alt=""><div><b>Vishen Lakhiani</b><small>@vishen · Mindvalley founder</small></div></div>
+          <div class="case-result"><small>Subscribers</small><strong>0 → 50K</strong><span>in his first 20 videos. Most channels need 152 to reach 10K.</span></div>
+          <span class="watch-cta">Watch Vishen's story</span>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -747,8 +850,48 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 <section id="option-2"><div class="wrap">
   <div class="head">
     <span class="chip y mono">Option 2</span>
-    <h2>Something new: a creative director <span class="red">who lives your&nbsp;story</span></h2>
-    <p>I follow you for <b>two months</b>, capture your life, and produce it to <b>a high aesthetic</b> for YouTube and Instagram.</p>
+    <h2 class="o2-h2">Creative Director who follows you <span class="red">everywhere <span class="repw">in&#8209;person<span class="sstack" aria-hidden="true"><span class="vtile ntile stk pf-tile" style="--r:-11deg"><svg viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg></span><span class="vtile stk pf-tile" style="--r:12deg"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><radialGradient id="igh" cx="28%" cy="108%" r="130%"><stop offset="0" stop-color="#ffdd55"/><stop offset=".1" stop-color="#ffdd55"/><stop offset=".45" stop-color="#ff543e"/><stop offset=".62" stop-color="#e32f8b"/><stop offset=".9" stop-color="#7d3ae6"/></radialGradient></defs><rect x="1" y="1" width="22" height="22" rx="6.2" fill="url(#igh)"/><rect x="5.6" y="5.6" width="12.8" height="12.8" rx="3.8" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="15.9" cy="8.1" r=".95" fill="#fff"/></svg></span></span></span></span></h2>
+    <p>This isn't something I've ever offered before, not since I left my role with <b>Ali&nbsp;Abdaal</b> 2&nbsp;years&nbsp;ago.</p>
+    <p>As an experiment, I shadow you for <b>8 weeks</b>, capture your life, and produce it to <b>a high aesthetic</b> for YouTube and Instagram.</p>
+  </div>
+
+  <!-- BLOCK 2-jd: the job description -->
+  <div class="blk">
+    <div class="jd">
+      <div class="jd-top">
+        <div><small>The role</small><b>Creative Director and Head of Socials</b></div>
+        <div class="jd-pills"><span>8 weeks</span><span>In person, wherever you are</span><span>YouTube and Instagram</span></div>
+      </div>
+      <div class="jd-cols">
+        <div>
+          <h3>What I'll do</h3>
+          <ul class="ticks">
+            <li>Come everywhere you go: international trips, retreats, the Intelligent Change Summit, launch days.</li>
+            <li>Go behind the scenes of Intelligent Change and record how it's built.</li>
+            <li>Film your media work and commitments: the podcast, talks, events, meetings, your day to day.</li>
+            <li>Pick the moments worth posting. Your best moments happen between the finished videos.</li>
+            <li>Set the creative direction: editing style, formats, captions, colours, carousels and reels.</li>
+            <li>Own the story from capture to final cut, and hand templates and systems back to you.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What I bring</h3>
+          <ul class="ticks">
+            <li>Taste, cinematography and story sense.</li>
+            <li>A data-driven mindset and complete fluency in both platforms.</li>
+            <li>Own kit, a valid passport, and I can travel at short notice.</li>
+            <li>Capturing real moments without getting in your way.</li>
+            <li>The trust to represent your brand without you approving every last thing.</li>
+          </ul>
+          <h3 style="margin-top:22px">How you'll know it's working</h3>
+          <ul class="ticks score">
+            <li>Around 12 videos live across YouTube and Instagram.</li>
+            <li>Zero aesthetic drift. One look, everywhere.</li>
+            <li>You genuinely want to film more, because the experience is positive.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- BLOCK 2a: the value proposition -->
@@ -876,37 +1019,6 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <div class="summary">Two months. An experiment for both of us.</div>
 </div></section>
 
-<section id="why"><div class="wrap">
-  <div class="head">
-    <span class="chip b mono">Why Saf</span>
-    <h2>I've done this for <span class="red">the&nbsp;biggest names in personal&nbsp;growth</span></h2>
-  </div>
-
-  <div class="cases">
-    <a class="case" href="https://f.io/nhDG5cUb" target="_blank" rel="noopener" data-video="assets/video/vishen.mp4">
-      <div class="case-img"><img src="assets/vishen-still.jpg" alt="Vishen Lakhiani"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">0:22</span></div>
-      <div class="case-body">
-        <div class="case-ch"><img src="assets/av-vishen.jpg" alt=""><div><b>Vishen Lakhiani</b><small>@vishen · Mindvalley founder</small></div></div>
-        <div class="case-result"><small>Subscribers</small><strong>0 → 50K</strong><span>in his first 20 videos. Most channels need 152 to reach 10K.</span></div>
-      </div>
-    </a>
-    <a class="case" href="https://f.io/pQVb3XxC" target="_blank" rel="noopener" data-video="assets/video/ali.mp4">
-      <div class="case-img"><img src="assets/ali-abdaal.webp" alt="Ali Abdaal"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">1:59</span></div>
-      <div class="case-body">
-        <div class="case-ch"><img src="assets/av-ali.jpg" alt=""><div><b>Ali Abdaal<svg class="tick" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.6 14.2-4-4 1.4-1.4 2.6 2.6 5.8-5.8 1.4 1.4-7.2 7.2Z"/></svg></b><small>@aliabdaal · 6.7M subscribers</small></div></div>
-        <div class="case-result"><small>Subscribers</small><strong>3M → 6M</strong><span>while we worked together</span></div>
-      </div>
-    </a>
-    <a class="case" href="https://f.io/MpBT49zS" target="_blank" rel="noopener" data-video="assets/video/daniel.mp4">
-      <div class="case-img"><img src="assets/daniel-still.jpg" alt="Daniel Priestley"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">1:23</span></div>
-      <div class="case-body">
-        <div class="case-ch"><img src="assets/av-daniel.jpg" alt=""><div><b>Daniel Priestley<svg class="tick" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.6 14.2-4-4 1.4-1.4 2.6 2.6 5.8-5.8 1.4 1.4-7.2 7.2Z"/></svg></b><small>@DanielPriestley · 203K subscribers</small></div></div>
-        <div class="case-result"><small>Subscribers</small><strong>203K</strong><span>up from 15K in 1 year with us</span></div>
-      </div>
-    </a>
-  </div>
-</div></section>
-
 <section id="call"><div class="wrap">
   <div class="cta">
     <span class="chip mono">Next Step</span>
@@ -961,6 +1073,24 @@ hello.querySelector('.own-play').addEventListener('click', () => {
   f.allowFullscreen = true
   hello.classList.add('playing'); hello.appendChild(f)
 })
+</script>
+<script>
+// VSL: our cover, then the Frame.io player on click
+const vsl = document.getElementById('vsl')
+vsl.querySelector('.own-play').addEventListener('click', () => {
+  const f = document.createElement('iframe')
+  f.src = vsl.dataset.src
+  f.title = 'How Talking Heads works'
+  f.allow = 'autoplay; fullscreen; picture-in-picture'
+  f.allowFullscreen = true
+  vsl.classList.add('playing'); vsl.appendChild(f)
+})
+// Pop the platform stickers in when the Option 2 heading scrolls into view
+const stickers = [...document.querySelectorAll('.o2-h2 .stk')]
+stickers.forEach((el, i) => { el.style.transitionDelay = (0.15 + i * 0.18) + 's' })
+new IntersectionObserver((entries, obs) => {
+  if (entries[0].isIntersecting) { stickers.forEach(el => el.classList.add('in')); obs.disconnect() }
+}, { threshold: 0.6 }).observe(document.querySelector('.o2-h2'))
 </script>
 </body>
 </html>
