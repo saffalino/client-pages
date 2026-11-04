@@ -491,6 +491,25 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .terms.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:860px){.terms.four{grid-template-columns:1fr 1fr}.terms.four > div:nth-child(3){border-left:0}.terms.four > div:nth-child(n+3){border-top:1px solid var(--line-soft)}}
 @media (max-width:480px){.terms.four{grid-template-columns:1fr}.terms.four > div+div{border-left:0;border-top:1px solid var(--line-soft)}}
+
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.chart-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px 24px 20px;display:flex;flex-direction:column;gap:16px}
+.chart-note{font-size:15px;color:var(--ink-70);margin-top:auto}
+.chart-note b{color:var(--ink);font-weight:600}
+.slope{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;min-height:150px}
+.slope strong{display:block;font-size:clamp(44px,5vw,60px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.slope span{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-50);margin-top:6px}
+.slope > div:last-child{text-align:right}
+.slope svg{width:100%;height:80px}
+.slope path{fill:none;stroke:var(--red);stroke-width:2;vector-effect:non-scaling-stroke}
+.bars-svg{width:100%;height:auto;display:block;font-family:var(--mono)}
+.bars-svg .bar-lo{fill:#f4a3b8}.bars-svg .bar-hi{fill:var(--red)}
+.bars-svg rect:hover{fill:var(--red-dark)}
+.bars-svg .grid{stroke:var(--line);stroke-width:1;stroke-dasharray:3 3}
+.bars-svg .base{stroke:var(--ink-30);stroke-width:1}
+.bars-svg .ax{font-size:10px;fill:var(--ink-50)}
+.bars-svg .val{font-family:var(--f);font-size:26px;font-weight:800;letter-spacing:-.03em;fill:var(--ink)}
+@media (max-width:760px){.charts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -524,11 +543,46 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 <section id="gap"><div class="wrap">
   <div class="head">
     <span class="chip b mono">The Opportunity</span>
-    <h2>Your ideas are bigger <span class="red">than your&nbsp;channel</span></h2>
-    <p>You've sold <b>3 million journals</b>. Let's give the person behind them <b>a channel to match</b>.</p>
+    <h2>Life design is bigger than <span class="red">Alex&nbsp;Ikonn</span></h2>
+    <p>It's personal development built on <b>timeless principles</b>. In the age of AI, they matter <b>more, not less</b>.</p>
   </div>
 
-  <div class="gap">
+  <!-- BLOCK 0a: the urgency -->
+  <div class="blk">
+    <p class="callout" style="margin-top:0">We're lonelier than ever, and <span class="red">searching for&nbsp;meaning</span>.</p>
+    <div class="charts">
+      <div class="chart-card">
+        <small class="cs-label">Americans who host people at home every month</small>
+        <svg class="bars-svg" viewBox="0 -14 380 204" role="img" aria-label="Americans who host people at home every month: 42% in 1975, 12% in 2026"><rect class="bar-lo" x="60" y="27.2" width="110" height="142.8" rx="4"><title>1975: 42%</title></rect><text x="115.0" y="17.2" class="val" text-anchor="middle">42%</text><text x="115.0" y="188" class="ax" text-anchor="middle">1975</text><rect class="bar-hi" x="210" y="129.2" width="110" height="40.8" rx="4"><title>2026: 12%</title></rect><text x="265.0" y="119.2" class="val" text-anchor="middle">12%</text><text x="265.0" y="188" class="ax" text-anchor="middle">2026</text><line x1="0" y1="170" x2="380" y2="170" class="base"/></svg>
+        <p class="chart-note">Down by more than <b>two thirds</b>.</p>
+      </div>
+      <div class="chart-card">
+        <small class="cs-label">Extra minutes a day spent at home, compared with 2003</small>
+        <svg class="bars-svg" viewBox="0 -14 380 204" role="img" aria-label="Extra minutes a day Americans spend at home compared with 2003, rising to about 100 by 2022"><line x1="0" y1="48.6" x2="380" y2="48.6" class="grid"/><text x="0" y="43.6" class="ax">+100 min</text><rect class="bar-lo" x="0.0" y="168.5" width="18.1" height="1.5" rx="2"><title>2004: +0 minutes a day</title></rect><rect class="bar-lo" x="20.1" y="163.9" width="18.1" height="6.1" rx="2"><title>2005: +5 minutes a day</title></rect><rect class="bar-lo" x="40.2" y="166.4" width="18.1" height="3.6" rx="2"><title>2006: +3 minutes a day</title></rect><rect class="bar-lo" x="60.3" y="163.9" width="18.1" height="6.1" rx="2"><title>2007: +5 minutes a day</title></rect><rect class="bar-lo" x="80.4" y="156.6" width="18.1" height="13.4" rx="2"><title>2008: +11 minutes a day</title></rect><rect class="bar-lo" x="100.5" y="145.7" width="18.1" height="24.3" rx="2"><title>2009: +20 minutes a day</title></rect><rect class="bar-lo" x="120.6" y="149.4" width="18.1" height="20.6" rx="2"><title>2010: +17 minutes a day</title></rect><rect class="bar-lo" x="140.7" y="153.0" width="18.1" height="17.0" rx="2"><title>2011: +14 minutes a day</title></rect><rect class="bar-lo" x="160.8" y="146.9" width="18.1" height="23.1" rx="2"><title>2012: +19 minutes a day</title></rect><rect class="bar-lo" x="180.9" y="145.7" width="18.1" height="24.3" rx="2"><title>2013: +20 minutes a day</title></rect><rect class="bar-lo" x="201.1" y="139.6" width="18.1" height="30.4" rx="2"><title>2014: +25 minutes a day</title></rect><rect class="bar-lo" x="221.2" y="134.8" width="18.1" height="35.2" rx="2"><title>2015: +29 minutes a day</title></rect><rect class="bar-lo" x="241.3" y="143.3" width="18.1" height="26.7" rx="2"><title>2016: +22 minutes a day</title></rect><rect class="bar-lo" x="261.4" y="137.2" width="18.1" height="32.8" rx="2"><title>2017: +27 minutes a day</title></rect><rect class="bar-lo" x="281.5" y="134.8" width="18.1" height="35.2" rx="2"><title>2018: +29 minutes a day</title></rect><rect class="bar-lo" x="301.6" y="129.9" width="18.1" height="40.1" rx="2"><title>2019: +33 minutes a day</title></rect><rect class="bar-hi" x="321.7" y="9.7" width="18.1" height="160.3" rx="2"><title>2020: +132 minutes a day</title></rect><rect class="bar-hi" x="341.8" y="31.6" width="18.1" height="138.4" rx="2"><title>2021: +114 minutes a day</title></rect><rect class="bar-hi" x="361.9" y="48.6" width="18.1" height="121.4" rx="2"><title>2022: +100 minutes a day</title></rect><line x1="0" y1="170" x2="380" y2="170" class="base"/><text x="0" y="188" class="ax">2004</text><text x="380" y="188" class="ax" text-anchor="end">2022</text></svg>
+        <p class="chart-note"><b>Over an hour and a half more</b> a day at home.</p>
+      </div>
+    </div>
+    <p class="src">Source: Derek Thompson, “The Death of the American Host”, using DDB Needham, Data for Progress and the American Time Use Survey (Patrick Sharkey, Princeton).</p>
+  </div>
+
+  <!-- BLOCK 0b: the messenger -->
+  <div class="blk">
+    <p class="callout lead" style="margin-top:0">This is bigger than you, and bigger than Intelligent Change. You become <span class="red">the messenger</span> for ideas anybody can&nbsp;apply.</p>
+    <p class="callout lead" style="margin-bottom:32px">And you're <span class="red">disproportionately well placed</span> to be that&nbsp;messenger.</p>
+    <div class="me six">
+      <div class="tile flat"><span class="num n-b">1</span><h3>A Top 1% Network</h3><p>The rooms you're in, and the people who'd sit down with you.</p></div>
+      <div class="tile flat"><span class="num n-g">2</span><h3>An Aspirational Lifestyle</h3><p>16 years of living your dream life. People want to see how.</p></div>
+      <div class="tile flat"><span class="num n-y">3</span><h3>A Track Record</h3><p>Successful businesses, and more than 3 million journals sold.</p></div>
+      <div class="tile flat"><span class="num n-r">4</span><h3>Great on Camera</h3><p>Natural, warm and easy to watch. You've done this for years.</p></div>
+      <div class="tile flat"><span class="num n-b">5</span><h3>Timeless Ideas</h3><p>Gratitude, intention, presence. They work for anyone, anywhere.</p></div>
+      <div class="tile flat"><span class="num n-g">6</span><h3>A Refreshing Role Model</h3><p>In a world where Chris Williamson, Steven Bartlett and Alex Hormozi are the male role models.</p></div>
+    </div>
+  </div>
+
+  <!-- BLOCK 0c: where it lands -->
+  <div class="blk">
+    <p class="callout lead" style="margin-top:0;margin-bottom:32px">Today your channel is a home for <b>your guests</b>. Tomorrow it's the home of <span class="red">life&nbsp;design</span>.</p>
+    <div class="gap">
     <div class="side">
       <div class="side-top"><b>Current</b></div>
       <div class="yt">
@@ -595,7 +649,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
       <div class="big"><strong>100,000</strong><span>subscribers</span></div>
     </div>
   </div>
-  <p class="gap-note">Right now the channel is a home for <b>your guests</b>. We'd make it a home for <b>your ideas</b>.</p>
+  </div>
 </div></section>
 
 <!-- ================= OPTION 1 ================= -->
