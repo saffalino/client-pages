@@ -557,6 +557,22 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .ticks.score li::before{background:var(--red-100);color:var(--red)}
 @media (max-width:760px){.jd-cols{grid-template-columns:1fr;gap:20px}.jd-top,.jd-cols{padding-left:20px;padding-right:20px}}
 .facts-tiles .tile{justify-content:center}.facts-tiles h3{font-size:19px}.facts-tiles .num{margin-bottom:12px}
+/* FAQ toggle */
+.faq{margin-top:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;font-weight:700;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{position:relative;flex:none;width:30px;height:30px;border-radius:50%;background:var(--red-50)}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--red);border-radius:2px;transition:transform .2s}
+.faq summary i::after{transform:rotate(90deg)}
+.faq[open] summary i::after{transform:rotate(0)}
+.faq-body{padding:4px 26px 26px;border-top:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--ink-70);max-height:70vh;overflow-y:auto}
+.faq-body h4{font-size:17px;color:var(--ink);margin:26px 0 8px}
+.faq-body p{margin:0 0 10px}
+.faq-body b{color:var(--ink);font-weight:600}
+.faq-body ul,.faq-body ol{margin:0 0 12px;padding-left:22px}
+.faq-body li{margin:4px 0}
+.faq-body li ul{margin:4px 0 0}
+.faq-call{background:color-mix(in srgb,var(--marker) 20%,var(--white));border-radius:10px;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -566,7 +582,6 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <div class="links">
     <a href="#gap">The Opportunity</a><a href="#option-1">Option 1</a><a href="#option-2">Option 2</a>
   </div>
-  <a class="btn" href="https://calendar.app.google/qEfA6hQygffwn6h57" target="_blank" rel="noopener">Book a call</a>
 </div></nav>
 
 <header class="hero wrap" id="top">
@@ -813,9 +828,266 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <!-- BLOCK 1d: the details -->
   <div class="blk terms">
     <div><small>Output</small><strong>4 videos</strong><span>a month, long form</span></div>
-    <div><small>Investment</small><strong>$20,000</strong><span>a month</span></div>
+    <div><small>Investment</small><strong>£15,000</strong><span>a month</span></div>
     <div><small>Term</small><strong>6 months</strong><span>minimum, then month to month</span></div>
   </div>
+
+  <!-- BLOCK 1f: FAQ, the Expectation Setting doc verbatim -->
+  <details class="faq">
+    <summary><span>FAQ: how we work together</span><i aria-hidden="true"></i></summary>
+    <div class="faq-body">
+<h4>Hey there 👋</h4>
+<p>Welcome!</p>
+<p>This document explains how we work together over the next 6 months, and hopefully beyond. It contains what to expect from us, what we need from you, and how we build a YouTube channel into something truly incredible.</p>
+<p>Please read it end-to-end once, it'll save us both a lot of back-and-forth later on.</p>
+<h4>🔭 The big picture</h4>
+<p><b>You're buying a YouTube team, not individual videos.</b> Your investment funds a dedicated YouTube Strategist, a Creative Lead, a Video Editing Team, a Thumbnail Designer and a system — that ships 4 longform videos a month at top quality. Our job is to publish good work on a rhythm and optimise the hit rate over time.</p>
+<p><b>Not every video will hit.</b> Roughly 1 in 10 videos really takes off on YouTube, and that one pays for the other nine. Especially true in the first couple of months while we're calibrating your channel — hooks, retention curves, audience response. If you're expecting every video to be a home run, this isn't the right engagement. If you're expecting compounding channel growth over 6–12 months, it is.</p>
+<p class="faq-call">👉 According to TubeBuddy — the average YouTube channel requires 152 videos to hit 10,000 subscribers. That's almost 3 years of content.</p>
+<p><b>Growth is measured on a metric we agree at kickoff</b> — subs, newsletter sign-ups, leads, watch time, whatever actually matters for your business. We agree it once, together, and report against it monthly.</p>
+<p><b>This metric guides our strategy — it isn't a guarantee.</b> No serious agency can promise revenue, subs, or any specific outcome on YouTube. Anyone who tells you they can is lying. What we <i>can</i> promise is the team, the system, and the rigour to give you the best possible shot — and a clear north star to point every decision at.</p>
+<h4>📦 What's included</h4>
+<ul>
+<li><b>4 longform YouTube videos per month</b> — scripting, filming support, editing, thumbnails, titles, upload, and optimisation.
+</li>
+<li><b>A dedicated YouTube Strategist</b> who owns your channel and provides updates in Slack every week.
+</li>
+<li><b>A Creative Lead</b> who owns our quality bar — running internal reviews before anything reaches you, and shaping your channel's visual identity (style, branding, motion graphics direction).
+</li>
+<li><b>A top 1% Video Editing Team</b> that works under your strategist's direction.
+</li>
+<li><b>A thumbnail designer</b> who builds the best packaging concepts and designs.
+</li>
+<li><b>A monthly performance review</b> — what's working, what's not, what to double down on.
+</li>
+<li><b>A <u>bonus</u> video on 5-week months.</b> Some months have 5 Saturdays — that's a 5th video. We absorb it. No surcharge, no nickel-and-diming.
+</li></ul>
+<h4>🚫 What's not included</h4>
+<ul>
+<li>Shorts, podcast cutdowns, or reformatting your long-form content for other platforms. If you want cutdowns for your own use, we can provide the A-rolls for you to run that separately.
+</li>
+<li>Non-YouTube channels — Instagram, TikTok, X, newsletter. This isn't our zone of genius.
+</li>
+<li>Additional videos beyond the 4/month baseline. That's a separate scoped engagement.
+</li>
+<li><b>A/B testing videos that haven't taken off.</b> If it has a pulse, we'll always test it. If a video's dead, it's dead — we put that energy into the next one.
+</li>
+<li><b>Minor optimisations.</b> There are some things on YouTube like channel keywords which fall below the 0.1% impact bar in 2026. While it's important to have <i>something</i> there, our time is always best spent on producing better videos, better hooks, better retention.
+</li></ul>
+<h4>👥 Who you'll work with</h4>
+<ul>
+<li><b>Your YouTube Strategist</b> is your main day-to-day contact. They own your channel direction. They build the content strategy, write your scripts, and run the monthly performance review. They handle scheduling, deliverables, feedback, and all the "<i>where are we with X?</i>" questions.
+</li>
+<li><b>A Creative Lead</b> sets and enforces our quality bar. They run internal reviews before anything reaches you, and shape your channel's visual identity — style, branding, motion graphics. They work alongside your YouTube Strategist; you won't deal with them directly, but their hand is on the standard of every output.
+</li>
+<li><b>A video editing team and thumbnail designer</b> work under your strategist's direction. You don't brief them directly — feedback goes through your YouTube Strategist so you only deal with one person.
+</li>
+<li><b>Saf (founder)</b> oversees strategy across the agency but isn't your day-to-day contact. Saf may be on early onboarding calls or the occasional filming day, but your relationship is with your YouTube Strategist.
+</li></ul>
+<p><b>If something goes wrong</b> → contact your YouTube Strategist first, then Saf — in that order. Going straight to Saf doesn't speed anything up.</p>
+<p><b>We work on 9am–5pm GMT timezone</b> → We're a global team, but we align to the UK time zone. If you send a message outside those hours, you can expect a response the following working day.</p>
+<h4>🗓️ The first two months</h4>
+<p><b>Weeks 1–2 — strategy and identity. No filming yet.</b></p>
+<ul>
+<li>We build your Strategy Deep Dive from scratch and present it back to you.
+</li>
+<li>Together we agree on your first videos to go on the channel.
+</li>
+<li>We schedule your first filming day.
+</li>
+<li>In parallel, we design your channel identity — motion graphics, thumbnail identity, reusable visual assets, and channel banner.
+</li>
+<li>You won't see a finished video in the first two weeks. That's by design. We need that time to build the foundation that everything else sits on.
+</li></ul>
+<p><b>Week 3 — first filming day.</b> The soonest we can start production.</p>
+<p><b>Week 4 — first edited videos delivered.</b> Typically 2 videos, not 4. The 4-per-month rhythm kicks in from month 2.</p>
+<p><b>Weeks 5–8 — Channel Launch and Weekly Rhythm.</b> After the channel is launched, you'll be in a rhythm of monthly ideation, scripting, and filming, with weekly editing and uploading. We'll also move you from giving us feedback before a video goes live, to giving us feedback after a video has gone live (see The Feedback Model below).</p>
+<h4>⚙️ How we work</h4>
+<p><b>Ideas</b></p>
+<ul>
+<li>We will pull together new ideas for your channel once you've run out of ideas, or we identify a trending format that's working well right now.
+</li>
+<li>The ideas that we put together will be pre-validated and vetted by our YouTube Strategist, which will give you the best chance of success.
+</li>
+<li>Any ideas you come up with will be clearly labelled as such, so that we can learn from any performance differences.
+</li></ul>
+<p><b>🧠 Brain Dump Looms</b></p>
+<p>This is our favourite part of the process — it's where the gold lies.</p>
+<p>Before we write your talking-point scripts, we need a <b>Brain Dump Loom</b> for each video — a Loom where you teach the idea to camera as if you were explaining it to a friend over coffee. Camera on, relaxed, unscripted. <b>Nothing here goes on YouTube</b> — it's the raw material we shape into a script that sounds like <i>you</i> and works for the algorithm (we'll reorder points, sharpen the hook, add re-engagement beats).</p>
+<p><u>How it works:</u></p>
+<ul>
+<li><b>One Loom per video idea.</b> Filming days batch at least 4 videos, so we'll need 4 Brain Dumps ahead of each one.
+</li>
+<li><b>Due 5 working days before filming day</b> — so we have time to script and you have time to review.
+</li>
+<li><b>5–10 minutes is the sweet spot.</b> Under 5 isn't enough; longer is fine if there's genuine depth.
+</li>
+<li><b>Drop the link in Slack.</b> We'll embed it at the top of the Notion card as the reference for your script.
+</li></ul>
+<p><u>What to cover:</u></p>
+<p>Imagine a friend invites you to coffee. White tablecloth, two hot cups, she leans in and asks for advice — and the advice she's asking for is the title of the video we're about to make. <i>How would you explain it to her?</i> Be real. Forget the polish. Speak from the heart.</p>
+<ul>
+<li><b>Your angle.</b> What are you saying that nobody else is? What's your thesis? Where's the quality cut above what's already on YouTube?
+</li>
+<li><b>Talking points.</b> The main beats. We'll reorder them and add re-engagement moments — your job is to get the substance out.
+</li>
+<li><b>Props.</b> Stories, data, books, frameworks, numbers, quotes, anecdotes, screenshots — anything that helps you teach.
+</li></ul>
+<p><b>A tip:</b> five minutes of structured thought on a notepad before you record beats twenty minutes of rambling.</p>
+<p><b>Why camera, not written.</b> Tone, cadence, which words you lean into — those nuances are what we rebuild into the script, and writing strips them out.</p>
+<p><b>If you skip the Brain Dump,</b> you're skipping pre-production and winging filming day. We don't recommend it — the first 30 seconds of a YouTube video decide everything. Once your talking-point scripts are in hand, you're free to deviate on camera if you feel strongly — we can make calls in post. But the Brain Dump is what lets us hand you a fantastic script to deviate from.</p>
+<p><b>Scripts</b></p>
+<ul>
+<li>Scripts are delivered in <b>5 working days</b> from a complete brief.
+</li>
+<li>You have <b>48 hours</b> to review. Silence = approved.
+</li>
+<li><b>2 rounds of feedback</b> included.
+</li>
+<li>The standard is a talking-point script — we never do word-for-word unless it's agreed as an exception (for example, a highly researched video explainer format).
+</li></ul>
+<p><b>Filming</b></p>
+<ul>
+<li>Booked <b>2 weeks in advance</b> and blocked out in the calendar.
+</li>
+<li>You arrive camera-ready — on time, on script, hair, wardrobe, and fully briefed on the video scripts written inside your Notion page. You shouldn't be surprised, or reading it for the first time, when you sit in the chair.
+<ul>
+<li>Production is our job. Showing up ready is yours.
+</li></ul>
+</li>
+<li>If filming gets cancelled or moved at short notice and we run out of runway, those videos just don't happen that cycle. We can't produce videos when we don't have footage.
+</li>
+<li>Footage must be provided by Friday 5pm GMT to be included in the production cycle for the following week.
+</li>
+<li>You must be capable of self-filming. If you rely on someone else being there to be able to film, it creates a key dependency that can make monthly filming very difficult.
+<ul>
+<li>At the beginning, having Saf or your YouTube Strategist available can be helpful for direction — but once you've learned how this works and got into a rhythm, you should be able to do filming by yourself.
+</li></ul>
+</li></ul>
+<p><b>Footage (if you're filming yourself and sending it in)</b></p>
+<ul>
+<li>Uploaded to our shared Drive by the agreed cutoff. Miss the cutoff, miss the delivery — our editors work on a schedule.
+</li></ul>
+<p><b>Editing and feedback</b></p>
+<ul>
+<li>Edited videos are delivered in <b>5 working days</b>, for runtimes of 25 minutes or less.
+</li>
+<li>Longer runtimes take longer: <b>+1 working day per 10 minutes over 25 minutes.</b>
+<ul>
+<li>e.g. a 35-minute video = 6 days, or a 55-minute video = 8 days.
+</li></ul>
+</li>
+<li><b>48-hour feedback window</b> on each edit. Silence = approved and scheduled.
+</li>
+<li><b>Consolidated feedback only.</b> One message with all your notes = one round. We can't work with a stream of messages over the weekend.
+</li>
+<li><b>Timestamped feedback on raw footage.</b> If you want something flagged in the raw footage, give us the timestamp — we can't sit through hours of footage to interpret vague notes or feelings, so please be as specific as possible to respect our team's time.
+</li>
+<li><b>2 rounds of revisions per edit.</b> No additional rounds to avoid over-engineering or perfectionism creep.
+</li>
+<li><i>"I've changed my mind about the concept"</i> = new video on the next cycle, not a re-edit.
+</li>
+<li><b>Once a video is live, it stays live.</b> We can change the title, we can change the thumbnail, we can even remove segments. We can't change the video itself. We can't add sections in.
+<ul>
+<li>Rule of thumb: we don't re-upload published videos because it hurts the YouTube algorithm. Duplicate content gets flagged as bot behaviour, it's not worth it.
+</li></ul>
+</li></ul>
+<p><b>Uploads</b></p>
+<ul>
+<li>We control the upload schedule and aim for weekly videos released over the weekend.
+<ul>
+<li>From time to time, we may need to upload on a Monday to accommodate any last-minute feedback requests or important changes.
+</li>
+<li>This <u>doesn't</u> hurt the long-term growth potential of your video; it will find the right audience. A video released on a weekday will be considered the same as one released on a weekend.
+</li></ul>
+</li>
+<li>Titles, thumbnails, and descriptions best practices are led by our experience, and informed by your input.
+<ul>
+<li>If we have too many chefs in the kitchen, this doesn't work.
+</li>
+<li>If you want to challenge a thumbnail or title or creative decision, that's fine. We are led by the data. We are committed to winning.
+</li></ul>
+</li></ul>
+<p><b>AI Tools</b></p>
+<ul>
+<li>We use AI for B-roll generation and thumbnail elements as standard. These tools are what keep us on the cutting edge and ship faster. AI is extremely sophisticated and realistic, and anyone who isn't using them is going to be left behind.
+<ul>
+<li>If you have a principled objection to AI in your content, we're not the right fit.
+</li></ul>
+</li></ul>
+<h4>💬 Communication and Tools</h4>
+<ol>
+<li><b>Slack.</b>
+<ul>
+<li>This is where we'll share updates on everything related to your YouTube channel, including thumbnail designs.
+</li>
+<li><b>Please do not use WhatsApp</b>, or personal channels.
+<ul>
+<li>One Slack = one source of truth and shared history with links / media.
+</li></ul>
+</li>
+<li><b>Your YouTube Strategist is your first and fastest route to a reply.</b>
+</li>
+<li>We aim to reply the same working day during UK business hours (Mon–Fri, 9–5). You're welcome to message us, and we may even message you outside of these hours — but that should always be considered a gesture, not the norm of how we operate day to day. Our team need to sleep and spend time with their families — just like you.
+</li>
+<li><b>Not every reply is a full answer.</b> For bigger or more loaded questions, the first reply may be "<i>we've seen this, need to gather our thoughts and come back to you in X days</i>." For complex topics, we may move the conversation to a scheduled call rather than keep it in Slack.
+</li>
+<li><b>No out-of-hours messaging.</b> Nothing in YouTube is a true emergency. If something genuinely is: email with "URGENT" in the subject.
+</li></ul>
+</li>
+<li><b>Frame.io</b>
+<ul>
+<li>This is where we'll share our video edits with you, and how we collaborate with our team on feedback.
+</li></ul>
+</li>
+<li><b>Notion</b>
+<ul>
+<li>This is where your YouTube content hub lives. It contains your video ideas and scripts. It's where your YouTube Strategist will be fleshing out future videos.
+</li></ul>
+</li></ol>
+<h4>🔄 The feedback model</h4>
+<p>How feedback flows will shift once we've hit our stride — usually after week 4 (channel launch).</p>
+<p><b>Phase 1: Pre-upload review.</b> While we're calibrating to your voice and standards, you review each video before it goes live. 48-hour window. Feedback routed through your YouTube Strategist.</p>
+<p><b>Phase 2: Ship-then-feedback.</b> Once alignment is clear, videos go out on the agreed cadence without a pre-upload loop. You watch when you watch, give feedback when it comes up, and we fold it into future videos. This is how the best relationships work — the clients who grow the fastest are the ones who trust the team to ship, and use feedback to shape what comes next.</p>
+<p><b>What we need you comfortable with:</b> our execution will be slightly different from the way you would have done it. Not worse — a different flavour. If that distance feels intolerable, this engagement won't work for you, and it's better we name that now than find out in month three.</p>
+<h4>🤝 What we need from you</h4>
+<ul>
+<li><b>A 6-month commitment, paid up front.</b> Channel building takes time — anything shorter doesn't give the strategy room to land. Paying in full at kickoff lets us invest from day one, with no back-and-forth on billing. We revert to monthly billing after the 6-month term is over.
+</li>
+<li><b>Give us as much feedback as you can at the beginning.</b> The more we can learn from you while energy is high, the faster we can ramp up and you can trust us completely.
+</li>
+<li><b>Show up to filming prepared.</b>
+</li>
+<li><b>Hit the 48-hour feedback review windows</b> during the initial phase.
+</li>
+<li><b>One named decision-maker.</b> Let us know if that changes.
+</li>
+<li><b>Keep your YouTube Strategist informed</b> on anything that affects scheduling — travel, illness, launches, team changes.
+</li>
+<li><b>Trust the process for the first 90 days.</b> If something isn't working, raise it with us, but you must recognise that at the end of the cycle, we can reflect on what worked and didn't work.
+</li>
+<li><b>Come in expecting some videos to miss.</b> Our job is hit-rate optimisation, not 100% wins.
+</li></ul>
+<h4>🛡️ What you can count on from us</h4>
+<ul>
+<li><b>Delivery on cadence</b>, or advance notice if something will slip and why.
+</li>
+<li><b>Solid strategic direction</b>, even when it's not what you want to hear.
+</li>
+<li><b>Channel growth on the metric we agreed at kickoff.</b>
+</li>
+<li><b>No surprises on cost.</b> Everything in this document is accounted for. We're all in and leaving no stone unturned in seeing you win.
+</li>
+<li><b>A dedicated YouTube Strategist who owns every thread</b> so nothing gets dropped.
+</li>
+<li><b>Responsibility for the outcome.</b> Once you sign off on a video, it's on us to deliver on the strategy and fold learnings back into what comes next.
+</li></ul>
+<h4>📝 A final note</h4>
+<p>This engagement works best when both sides are on the same page from day one.</p>
+<p>If anything in this document feels unclear, different from what you expected, or unrealistic to commit to, please flag it now — not in month 3 🙂</p>
+<p>Thanks for trusting us with the channel, and welcome to Talking Heads.</p>
+    </div>
+  </details>
 </div></section>
 
 <!-- ================= OPTION 2 ================= -->
