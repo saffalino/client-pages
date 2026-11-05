@@ -120,6 +120,8 @@ section{padding:clamp(52px,6vw,80px) 0}
 
 /* The Gap */
 .gap{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.gap.solo{grid-template-columns:1fr;max-width:760px;margin:0 auto}
+.big strong .red{color:var(--red);font-size:inherit}
 .side{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm)}
 .side.future{background:linear-gradient(180deg,var(--red-50),var(--white) 40%);border-color:var(--red-100)}
 .side-top{display:flex;justify-content:space-between;font-weight:600;font-size:15px;margin-bottom:16px}
@@ -634,7 +636,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <div class="blk">
     <p class="callout lead" style="margin-top:0">Today your channel doesn't have a clear enough value proposition, doesn't follow platform best practice, and isn't worth subscribing to <span class="red">(yet)</span>.</p>
     <p class="callout" style="margin-bottom:32px">Tomorrow, we can build a YouTube channel that's <span class="red">the home of Life&nbsp;Design</span>. New ideas. Curated&nbsp;ideas.</p>
-    <div class="gap">
+    <div class="gap solo">
     <div class="side">
       <div class="side-top"><b>Current</b></div>
       <div class="yt">
@@ -665,41 +667,9 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
           </div>
         </div>
       </div>
-      <div class="big"><strong>6.89K</strong><span>subscribers</span></div>
+      <div class="big"><strong>6.89K <span class="red">&rarr; 100K</span></strong><span>subscribers</span></div>
     </div>
 
-    <div class="side future">
-      <div class="side-top"><b>Future</b></div>
-      <div class="yt">
-        <div class="yt-head">
-          <img class="yt-av" src="assets/alex-big.jpg" alt="">
-          <div>
-            <div class="yt-name">Alex Ikonn<svg class="yt-tick" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.6 14.2-4-4 1.4-1.4 2.6 2.6 5.8-5.8 1.4 1.4-7.2 7.2Z"/></svg></div>
-            <div class="yt-meta">@AlexIkonn · 100K subscribers · Life Design, every week</div>
-            <span class="yt-sub">Subscribe</span>
-          </div>
-        </div>
-        <div class="yt-tabs"><span>Home</span><span class="on">Videos</span><span>Shorts</span></div>
-        <div class="yt-grid">
-          <div>
-            <div class="thumb"><div class="cthumb" style="--cs:clamp(10px,1.15vw,14px)"><span>3M journals <b>later</b></span><img src="assets/alex-big.jpg" alt=""></div></div>
-            <div class="vt">I Sold 3 Million Journals. Here's What I Learned About Happiness</div>
-            <div class="vm">Alex Ikonn</div>
-          </div>
-          <div>
-            <div class="thumb"><div class="cthumb c2" style="--cs:clamp(10px,1.15vw,14px)"><span>Your life is a <b>design</b> problem</span><img src="assets/alex-big.jpg" alt=""></div></div>
-            <div class="vt">Your Life Is a Design Problem. Here's How to Solve It</div>
-            <div class="vm">Alex Ikonn</div>
-          </div>
-          <div>
-            <div class="thumb"><div class="cthumb c3" style="--cs:clamp(10px,1.15vw,14px)"><span>The story <b>running</b> your life</span><img src="assets/alex-big.jpg" alt=""></div></div>
-            <div class="vt">The Story You Tell Yourself Is Running Your Life</div>
-            <div class="vm">Alex Ikonn</div>
-          </div>
-        </div>
-      </div>
-      <div class="big"><strong>100,000</strong><span>subscribers</span></div>
-    </div>
   </div>
   </div>
 </div></section>
@@ -718,12 +688,13 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
       <img class="own-cover" src="assets/vsl-cover.jpg" alt="Saf explains how Talking Heads works">
       <button class="own-play" aria-label="Play: how Talking Heads works"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span></button>
     </div>
+    <p class="src" style="text-align:center">This is the standard service I offer to founders who want to grow their YouTube channels.</p>
   </div>
 
   <!-- BLOCK 1a: podcast moments to video ideas -->
   <div class="blk">
-    <p class="callout" style="margin-top:0">Your audience already told you <span class="red">what they&nbsp;want</span>.</p>
-    <p class="src" style="margin:8px 0 32px">We looked at your last 30 episodes. The big ideas win, by a mile.</p>
+    <p class="callout" style="margin-top:0">We can study your podcast to identify <span class="red">your best video&nbsp;ideas</span>.</p>
+    <p class="src" style="margin:8px 0 32px">For example.</p>
     <div class="flip-head"><span class="cs-label">From your podcast</span><i></i><span class="cs-label red">To your channel</span></div>
     <div class="flip">
       <div class="flip-row">
@@ -753,7 +724,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
       <div class="ic-card"><div class="thumb"><div class="cthumb" style="--cs:clamp(12px,1.35vw,15px)"><span>Design your <b>dream</b> year</span><img src="assets/alex-big.jpg" alt=""></div></div><div class="vt">How to Design Your Dream Year (Before It Starts)</div><div class="vm">Life Design</div></div>
       <div class="ic-card"><div class="thumb"><div class="cthumb c3" style="--cs:clamp(12px,1.35vw,15px)"><span>Self-actualise, <b>simply</b></span><img src="assets/alex-big.jpg" alt=""></div></div><div class="vt">Self-Actualisation Isn't Woo. It's a System</div><div class="vm">Intelligent Change</div></div>
     </div>
-    <p class="src">Concept titles and thumbnails. We'd research and test every one with you.</p>
+    <p class="src">Concept titles and thumbnails.</p>
   </div>
 
   <!-- BLOCK 1c: what we do -->
@@ -802,7 +773,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 
   <!-- BLOCK 1e: proof, full width case studies -->
   <div class="blk">
-    <p class="callout lead" style="margin-top:0;margin-bottom:32px">We've done this for <span class="red">the&nbsp;biggest names in personal&nbsp;growth</span>.</p>
+    <p class="callout lead" style="margin-top:0;margin-bottom:32px">I've done this for <span class="red">the&nbsp;biggest names in personal&nbsp;growth</span>.</p>
     <div class="bigcases">
       <a class="case bigcase" href="https://f.io/pQVb3XxC" target="_blank" rel="noopener" data-video="assets/video/ali.mp4">
         <div class="case-img"><img src="assets/ali-abdaal.webp" alt="Ali Abdaal"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">1:59</span></div>
@@ -824,7 +795,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
         <div class="case-img"><img src="assets/james-conole.webp" alt="James Conole"><span class="bigplay" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="bp-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span><span class="dur">2:13</span></div>
         <div class="case-body">
           <div class="case-ch"><img src="assets/av-james.jpg" alt=""><div><b>James Conole</b><small>@jamesconole-cfp · 216K subscribers</small></div></div>
-          <div class="case-result"><small>Views</small><strong>2M</strong><span>in our first 90 days</span></div>
+          <div class="case-result"><small>Views</small><strong>2M → 4M</strong></div>
           <span class="watch-cta">Watch James's story</span>
         </div>
       </a>
