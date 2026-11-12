@@ -573,24 +573,43 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .faq-body li{margin:4px 0}
 .faq-body li ul{margin:4px 0 0}
 .faq-call{background:color-mix(in srgb,var(--marker) 20%,var(--white));border-radius:10px;padding:12px 14px}
-/* Option 3: calendar */
-.cals{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.mcal{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px}
-.cal-m{font-weight:700;font-size:18px;margin-bottom:14px}
-.cal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
-.cal-h{font-family:var(--mono);font-size:11px;color:var(--ink-50);text-align:center;padding-bottom:4px}
-.cal-d{position:relative;min-height:64px;border-radius:10px;background:var(--paper);padding:6px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
-.cal-d.off{background:none}
-.cal-d.past{opacity:.45}
-.cal-d b{font-size:12px;font-weight:600;color:var(--ink-70)}
-.cal-d em{font-style:normal;font-size:10.5px;font-weight:600;line-height:1.2;color:var(--ink)}
-.p-st{background:#e6edfd}.p-pr{background:#eef0f2}.p-fi{background:var(--red-100)}.p-po{background:#e7f6ec}
-.p-re{background:var(--red)}.p-re b,.p-re em{color:#fff}
-.cal-d.kit::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--marker)}
+/* Option 3: calendar, macOS Calendar month view */
+.cals{display:grid;grid-template-columns:1fr;gap:24px}
+.acal{--ab:#ebebed;--sys:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-family:var(--sys);background:var(--white);border:1px solid #d9d9dc;border-radius:12px;box-shadow:var(--shadow-md);overflow:hidden}
+.acal-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px 12px}
+.acal-title{font-size:26px;font-weight:400;letter-spacing:-.01em;color:#1d1d1f}
+.acal-title b{font-weight:700}
+.acal-ctl{display:flex;gap:10px;align-items:center}
+.acal-ctl .seg,.acal-ctl .nav{display:inline-flex;background:#ededef;border-radius:7px;padding:2px;font-size:12px;color:#3a3a3c}
+.acal-ctl i{font-style:normal;padding:3px 10px;border-radius:5px}
+.acal-ctl .seg i.on{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.15);font-weight:500}
+.acal-dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-bottom:1px solid var(--ab)}
+.acal-dow span{text-align:right;padding:0 10px 6px;font-size:12px;color:#86868b}
+.acal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.acal-d{min-height:118px;border-right:1px solid var(--ab);border-bottom:1px solid var(--ab);padding:4px 0 6px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.acal-d:nth-child(7n){border-right:0}
+.acal-d.we{background:#fafafa}
+.acal-d .dn{display:flex;justify-content:flex-end;padding:0 6px 2px}
+.acal-d .dn i{font-style:normal;font-size:13px;color:#1d1d1f;min-width:24px;height:24px;padding:0 6px;border-radius:12px;display:grid;place-items:center}
+.acal-d.out .dn i{color:#b8b8bd}
+.acal-d.today .dn i{background:#ff3b30;color:#fff;font-weight:600}
+.ev{display:block;height:18px;font-size:11.5px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0 5px}
+.ev em{font-style:normal}
+.ev.sp{visibility:hidden}
+.ev.bar{margin:0 -1px;padding:0 6px;font-weight:600}
+.ev.bar.s{margin-left:5px;border-top-left-radius:4px;border-bottom-left-radius:4px}
+.ev.bar.e{margin-right:5px;border-top-right-radius:4px;border-bottom-right-radius:4px}
+.b-st{background:#d9e6ff;color:#0a4fcf}.b-fi{background:#ffd8d6;color:#c41a10}.b-po{background:#d6f3dd;color:#1a7f37}.b-kit{background:#fff0bf;color:#8a6100}
+.ev.live{background:#ff3b30;color:#fff;border-radius:4px;padding:0 6px;font-weight:600}
+.ev.dot{padding-left:13px;position:relative;color:#1d1d1f}
+.ev.dot::before{content:"";position:absolute;left:2px;top:6px;width:7px;height:7px;border-radius:50%;background:currentColor}
+.ev.dot em{color:#1d1d1f}
+.ev.d-st{color:#007aff}.ev.d-pr{color:#8e8e93}.ev.d-kit{color:#ffb800}.ev.d-fi{color:#ff3b30}.ev.d-re2{color:#af52de}.ev.d-hol{color:#8e8e93}
+.acal-d.out .ev{opacity:.55}
 .cal-key{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px;font-size:14px;color:var(--ink-70)}
 .cal-key span{display:inline-flex;align-items:center;gap:8px}
 .cal-key i{width:14px;height:14px;border-radius:4px;display:inline-block}
-.k-st{background:#e6edfd;border:1px solid #c9d6fa}.k-pr{background:#eef0f2;border:1px solid var(--line)}.k-kit{background:var(--marker)}.k-fi{background:var(--red-100);border:1px solid #f5c6d3}.k-po{background:#e7f6ec;border:1px solid #c3ebd1}.k-re{background:var(--red)}
+.k-st{background:#007aff}.k-pr{background:#8e8e93}.k-kit{background:#ffcc00}.k-fi{background:#ff3b30;opacity:.45}.k-po{background:#34c759;opacity:.55}.k-re{background:#ff3b30}
 .weeks{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .weeks > li{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px}
 .weeks small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
@@ -600,9 +619,15 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .weeks ul b{color:var(--ink);font-weight:600}
 .o3-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .o3-grid .tile h3{margin-top:2px}
+.o3-incl{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.o3-incl h3{font-size:18px}
+.o3-incl .ticks{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.o3-incl > p{font-size:clamp(18px,2vw,22px);font-weight:600;line-height:1.4;color:var(--ink)}
+.o3-incl > p b{color:var(--red);font-weight:600}
+@media (max-width:720px){.o3-incl{grid-template-columns:1fr}}
 #option-3 .head p+p{margin-top:8px}
 @media (max-width:960px){.cals{grid-template-columns:1fr}.weeks{grid-template-columns:1fr 1fr}.o3-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.weeks,.o3-grid{grid-template-columns:1fr}.mcal{padding:14px}.cal-g{gap:3px}.cal-d{min-height:46px;padding:4px 5px}.cal-d em{display:none}.cal-d b{font-size:11px}}
+@media (max-width:560px){.weeks,.o3-grid{grid-template-columns:1fr}.acal-bar{padding:12px}.acal-title{font-size:20px}.acal-ctl{display:none}.acal-dow span{text-align:center;padding:0 0 6px;font-size:11px}.acal-d{min-height:58px}.acal-d .dn{justify-content:center;padding:0 0 2px}.acal-d .dn i{font-size:12px;min-width:22px;height:22px;padding:0 4px}.ev{height:5px;margin:0 3px}.ev em{display:none}.ev.bar{margin:0 -1px}.ev.bar.s{margin-left:3px}.ev.bar.e{margin-right:3px}.ev.live{height:6px;padding:0}.ev.dot{height:7px;width:7px;padding:0;margin:0 auto}.ev.dot::before{left:0;top:0}.b-st{background:#5a9bff}.b-fi{background:#ff7b73}.b-po{background:#5fd27e}.b-kit{background:#ffcc00}}
 </style>
 </head>
 <body>
@@ -1291,7 +1316,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 
   <!-- BLOCK 3a: the calendar -->
   <div class="blk">
-    <div class="cals"><div class="mcal"><div class="cal-m">November</div><div class="cal-g"><span class="cal-h">M</span><span class="cal-h">T</span><span class="cal-h">W</span><span class="cal-h">T</span><span class="cal-h">F</span><span class="cal-h">S</span><span class="cal-h">S</span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d past"><b>1</b></span><span class="cal-d past"><b>2</b></span><span class="cal-d past"><b>3</b></span><span class="cal-d past"><b>4</b></span><span class="cal-d past"><b>5</b></span><span class="cal-d past"><b>6</b></span><span class="cal-d past"><b>7</b></span><span class="cal-d past"><b>8</b></span><span class="cal-d past"><b>9</b></span><span class="cal-d past"><b>10</b></span><span class="cal-d past"><b>11</b></span><span class="cal-d past"><b>12</b></span><span class="cal-d past"><b>13</b></span><span class="cal-d past"><b>14</b></span><span class="cal-d past"><b>15</b></span><span class="cal-d p-st"><b>16</b><em>Kick off</em></span><span class="cal-d p-st"><b>17</b><em>Deep dive</em></span><span class="cal-d p-st"><b>18</b></span><span class="cal-d p-st"><b>19</b></span><span class="cal-d p-st"><b>20</b></span><span class="cal-d"><b>21</b></span><span class="cal-d"><b>22</b></span><span class="cal-d p-st"><b>23</b></span><span class="cal-d p-st"><b>24</b></span><span class="cal-d p-st"><b>25</b></span><span class="cal-d p-st"><b>26</b><em>Present</em></span><span class="cal-d"><b>27</b></span><span class="cal-d"><b>28</b></span><span class="cal-d"><b>29</b></span><span class="cal-d p-pr kit"><b>30</b><em>Brain dumps</em></span></div></div><div class="mcal"><div class="cal-m">December</div><div class="cal-g"><span class="cal-h">M</span><span class="cal-h">T</span><span class="cal-h">W</span><span class="cal-h">T</span><span class="cal-h">F</span><span class="cal-h">S</span><span class="cal-h">S</span><span class="cal-d off"></span><span class="cal-d p-pr kit"><b>1</b><em>First look</em></span><span class="cal-d p-pr kit"><b>2</b></span><span class="cal-d p-pr kit"><b>3</b></span><span class="cal-d p-pr kit"><b>4</b><em>Scripts</em></span><span class="cal-d"><b>5</b></span><span class="cal-d"><b>6</b></span><span class="cal-d p-fi kit"><b>7</b></span><span class="cal-d p-fi kit"><b>8</b><em>Filming day</em></span><span class="cal-d p-fi kit"><b>9</b></span><span class="cal-d p-fi kit"><b>10</b></span><span class="cal-d p-fi kit"><b>11</b></span><span class="cal-d"><b>12</b></span><span class="cal-d"><b>13</b></span><span class="cal-d p-po kit"><b>14</b><em>Relaunch</em></span><span class="cal-d p-po"><b>15</b></span><span class="cal-d p-po"><b>16</b></span><span class="cal-d p-po"><b>17</b></span><span class="cal-d p-po"><b>18</b></span><span class="cal-d p-re"><b>19</b><em>Video 1</em></span><span class="cal-d p-re"><b>20</b><em>Video 2</em></span><span class="cal-d p-po"><b>21</b></span><span class="cal-d p-po"><b>22</b></span><span class="cal-d p-po"><b>23</b></span><span class="cal-d p-po"><b>24</b></span><span class="cal-d"><b>25</b><em>Christmas</em></span><span class="cal-d"><b>26</b></span><span class="cal-d p-re"><b>27</b><em>Video 3</em></span><span class="cal-d p-po"><b>28</b></span><span class="cal-d p-po"><b>29</b></span><span class="cal-d p-po"><b>30</b></span><span class="cal-d p-re"><b>31</b><em>Video 4</em></span></div></div></div>
+    <div class="cals"><div class="acal" aria-label="November 2026 calendar"><div class="acal-bar"><div class="acal-title"><b>November</b> 2026</div><div class="acal-ctl"><span class="seg"><i>Day</i><i>Week</i><i class="on">Month</i><i>Year</i></span><span class="nav"><i>&#8249;</i><i>Today</i><i>&#8250;</i></span></div></div><div class="acal-dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div><div class="acal-grid"><div class="acal-d out" data-d="2026-10-26"><span class="dn"><i>26</i></span></div><div class="acal-d out" data-d="2026-10-27"><span class="dn"><i>27</i></span></div><div class="acal-d out" data-d="2026-10-28"><span class="dn"><i>28</i></span></div><div class="acal-d out" data-d="2026-10-29"><span class="dn"><i>29</i></span></div><div class="acal-d out" data-d="2026-10-30"><span class="dn"><i>30</i></span></div><div class="acal-d out we" data-d="2026-10-31"><span class="dn"><i>31</i></span></div><div class="acal-d we" data-d="2026-11-01"><span class="dn"><i>Nov 1</i></span></div><div class="acal-d" data-d="2026-11-02"><span class="dn"><i>2</i></span></div><div class="acal-d" data-d="2026-11-03"><span class="dn"><i>3</i></span></div><div class="acal-d" data-d="2026-11-04"><span class="dn"><i>4</i></span></div><div class="acal-d" data-d="2026-11-05"><span class="dn"><i>5</i></span></div><div class="acal-d" data-d="2026-11-06"><span class="dn"><i>6</i></span></div><div class="acal-d we" data-d="2026-11-07"><span class="dn"><i>7</i></span></div><div class="acal-d we" data-d="2026-11-08"><span class="dn"><i>8</i></span></div><div class="acal-d" data-d="2026-11-09"><span class="dn"><i>9</i></span></div><div class="acal-d" data-d="2026-11-10"><span class="dn"><i>10</i></span></div><div class="acal-d" data-d="2026-11-11"><span class="dn"><i>11</i></span></div><div class="acal-d" data-d="2026-11-12"><span class="dn"><i>12</i></span></div><div class="acal-d" data-d="2026-11-13"><span class="dn"><i>13</i></span></div><div class="acal-d we" data-d="2026-11-14"><span class="dn"><i>14</i></span></div><div class="acal-d we" data-d="2026-11-15"><span class="dn"><i>15</i></span></div><div class="acal-d" data-d="2026-11-16"><span class="dn"><i>16</i></span><span class="ev bar b-st s"><em>Strategy Deep Dive</em></span><span class="ev dot d-st"><em>Kick off</em></span></div><div class="acal-d" data-d="2026-11-17"><span class="dn"><i>17</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d" data-d="2026-11-18"><span class="dn"><i>18</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d" data-d="2026-11-19"><span class="dn"><i>19</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d" data-d="2026-11-20"><span class="dn"><i>20</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d we" data-d="2026-11-21"><span class="dn"><i>21</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d we" data-d="2026-11-22"><span class="dn"><i>22</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d" data-d="2026-11-23"><span class="dn"><i>23</i></span><span class="ev bar b-st"><em>Strategy Deep Dive</em></span></div><div class="acal-d" data-d="2026-11-24"><span class="dn"><i>24</i></span><span class="ev bar b-st"><em></em></span></div><div class="acal-d" data-d="2026-11-25"><span class="dn"><i>25</i></span><span class="ev bar b-st e"><em></em></span></div><div class="acal-d" data-d="2026-11-26"><span class="dn"><i>26</i></span><span class="ev sp"></span><span class="ev dot d-st"><em>Present strategy</em></span></div><div class="acal-d" data-d="2026-11-27"><span class="dn"><i>27</i></span><span class="ev sp"></span></div><div class="acal-d we" data-d="2026-11-28"><span class="dn"><i>28</i></span><span class="ev sp"></span></div><div class="acal-d we" data-d="2026-11-29"><span class="dn"><i>29</i></span><span class="ev sp"></span></div><div class="acal-d" data-d="2026-11-30"><span class="dn"><i>30</i></span><span class="ev bar b-kit s"><em>Identity Kit</em></span><span class="ev dot d-pr"><em>Brain Dump Looms</em></span></div><div class="acal-d out" data-d="2026-12-01"><span class="dn"><i>Dec 1</i></span><span class="ev bar b-kit"><em></em></span><span class="ev dot d-kit"><em>First look</em></span></div><div class="acal-d out" data-d="2026-12-02"><span class="dn"><i>2</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d out" data-d="2026-12-03"><span class="dn"><i>3</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d out" data-d="2026-12-04"><span class="dn"><i>4</i></span><span class="ev bar b-kit"><em></em></span><span class="ev dot d-pr"><em>Scripts final</em></span><span class="ev dot d-kit"><em>Kit locked</em></span></div><div class="acal-d out we" data-d="2026-12-05"><span class="dn"><i>5</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d out we" data-d="2026-12-06"><span class="dn"><i>6</i></span><span class="ev bar b-kit"><em></em></span></div></div></div><div class="acal" aria-label="December 2026 calendar"><div class="acal-bar"><div class="acal-title"><b>December</b> 2026</div><div class="acal-ctl"><span class="seg"><i>Day</i><i>Week</i><i class="on">Month</i><i>Year</i></span><span class="nav"><i>&#8249;</i><i>Today</i><i>&#8250;</i></span></div></div><div class="acal-dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div><div class="acal-grid"><div class="acal-d out" data-d="2026-11-30"><span class="dn"><i>30</i></span><span class="ev bar b-kit s"><em>Identity Kit</em></span><span class="ev dot d-pr"><em>Brain Dump Looms</em></span></div><div class="acal-d" data-d="2026-12-01"><span class="dn"><i>Dec 1</i></span><span class="ev bar b-kit"><em></em></span><span class="ev dot d-kit"><em>First look</em></span></div><div class="acal-d" data-d="2026-12-02"><span class="dn"><i>2</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-03"><span class="dn"><i>3</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-04"><span class="dn"><i>4</i></span><span class="ev bar b-kit"><em></em></span><span class="ev dot d-pr"><em>Scripts final</em></span><span class="ev dot d-kit"><em>Kit locked</em></span></div><div class="acal-d we" data-d="2026-12-05"><span class="dn"><i>5</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d we" data-d="2026-12-06"><span class="dn"><i>6</i></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-07"><span class="dn"><i>7</i></span><span class="ev bar b-fi s"><em>Filming Week</em></span><span class="ev bar b-kit"><em>Identity Kit</em></span></div><div class="acal-d" data-d="2026-12-08"><span class="dn"><i>8</i></span><span class="ev bar b-fi"><em></em></span><span class="ev bar b-kit"><em></em></span><span class="ev dot d-fi"><em>Filming day</em></span></div><div class="acal-d" data-d="2026-12-09"><span class="dn"><i>9</i></span><span class="ev bar b-fi"><em></em></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-10"><span class="dn"><i>10</i></span><span class="ev bar b-fi"><em></em></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-11"><span class="dn"><i>11</i></span><span class="ev bar b-fi e"><em></em></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d we" data-d="2026-12-12"><span class="dn"><i>12</i></span><span class="ev sp"></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d we" data-d="2026-12-13"><span class="dn"><i>13</i></span><span class="ev sp"></span><span class="ev bar b-kit"><em></em></span></div><div class="acal-d" data-d="2026-12-14"><span class="dn"><i>14</i></span><span class="ev bar b-po s"><em>Production</em></span><span class="ev bar b-kit e"><em>Identity Kit</em></span><span class="ev dot d-re2"><em>Channel relaunch</em></span></div><div class="acal-d" data-d="2026-12-15"><span class="dn"><i>15</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span></div><div class="acal-d" data-d="2026-12-16"><span class="dn"><i>16</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span></div><div class="acal-d" data-d="2026-12-17"><span class="dn"><i>17</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span></div><div class="acal-d" data-d="2026-12-18"><span class="dn"><i>18</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span></div><div class="acal-d we" data-d="2026-12-19"><span class="dn"><i>19</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span><span class="ev live"><em>&#9654; Video 1 live</em></span></div><div class="acal-d we" data-d="2026-12-20"><span class="dn"><i>20</i></span><span class="ev bar b-po"><em></em></span><span class="ev sp"></span><span class="ev live"><em>&#9654; Video 2 live</em></span></div><div class="acal-d" data-d="2026-12-21"><span class="dn"><i>21</i></span><span class="ev bar b-po"><em>Production</em></span></div><div class="acal-d" data-d="2026-12-22"><span class="dn"><i>22</i></span><span class="ev bar b-po"><em></em></span></div><div class="acal-d" data-d="2026-12-23"><span class="dn"><i>23</i></span><span class="ev bar b-po"><em></em></span></div><div class="acal-d" data-d="2026-12-24"><span class="dn"><i>24</i></span><span class="ev bar b-po"><em></em></span></div><div class="acal-d" data-d="2026-12-25"><span class="dn"><i>25</i></span><span class="ev bar b-po"><em></em></span><span class="ev dot d-hol"><em>Christmas Day</em></span></div><div class="acal-d we" data-d="2026-12-26"><span class="dn"><i>26</i></span><span class="ev bar b-po"><em></em></span></div><div class="acal-d we" data-d="2026-12-27"><span class="dn"><i>27</i></span><span class="ev bar b-po"><em></em></span><span class="ev live"><em>&#9654; Video 3 live</em></span></div><div class="acal-d" data-d="2026-12-28"><span class="dn"><i>28</i></span><span class="ev bar b-po"><em>Production</em></span></div><div class="acal-d" data-d="2026-12-29"><span class="dn"><i>29</i></span><span class="ev bar b-po"><em></em></span></div><div class="acal-d" data-d="2026-12-30"><span class="dn"><i>30</i></span><span class="ev bar b-po e"><em></em></span></div><div class="acal-d" data-d="2026-12-31"><span class="dn"><i>31</i></span><span class="ev sp"></span><span class="ev live"><em>&#9654; Video 4 live</em></span></div><div class="acal-d out" data-d="2027-01-01"><span class="dn"><i>Jan 1</i></span><span class="ev sp"></span></div><div class="acal-d out we" data-d="2027-01-02"><span class="dn"><i>2</i></span><span class="ev sp"></span></div><div class="acal-d out we" data-d="2027-01-03"><span class="dn"><i>3</i></span><span class="ev sp"></span></div></div></div></div>
     <div class="cal-key">
       <span><i class="k-st"></i>Strategy deep dive</span>
       <span><i class="k-pr"></i>Brain dumps and scripts</span>
@@ -1339,10 +1364,27 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   </div>
 
   <!-- BLOCK 3d: the details -->
-  <div class="blk terms">
-    <div><small>Output</small><strong>4 videos</strong><span>plus clips and reels</span></div>
-    <div><small>Investment</small><strong>TBD</strong><span>+ travel costs</span></div>
-    <div><small>Term</small><strong>7 weeks</strong><span>16 Nov to 31 Dec</span></div>
+  <div class="blk">
+    <div class="form-card o3-incl">
+      <div>
+        <h3>Everything included</h3>
+        <ul class="ticks">
+          <li>All the gear</li>
+          <li>Strategy and research</li>
+          <li>Production</li>
+          <li>Thumbnail design</li>
+          <li>Channel banner design</li>
+          <li>Motion graphics</li>
+        </ul>
+      </div>
+      <p>Fully owned. End to end. No stone unturned. <b>We keep revising until you're happy.</b></p>
+    </div>
+    <div class="terms" style="margin-top:20px">
+      <div><small>Output</small><strong>4 videos</strong><span>plus clips and reels</span></div>
+      <div><small>Investment</small><strong>£15,000</strong><span>+ the cost of lights. I'll cover the rest.</span></div>
+      <div><small>Term</small><strong>6 weeks</strong><span>for the price of one month</span></div>
+    </div>
+    <div class="summary">6 weeks of work for the price of one month.</div>
   </div>
 </div></section>
 
@@ -1417,6 +1459,11 @@ if (location.hash) {
   const go = () => { const t = document.querySelector(location.hash); if (t) t.scrollIntoView({ behavior: 'instant' }) }
   addEventListener('load', () => { go(); setTimeout(go, 400) })
 }
+</script>
+<script>
+// Calendar: circle today's date, like Apple Calendar
+{ const t = new Date(), iso = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0')
+  document.querySelectorAll('.acal-d[data-d="' + iso + '"]').forEach(el => el.classList.add('today')) }
 </script>
 </body>
 </html>
