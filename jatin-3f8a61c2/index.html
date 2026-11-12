@@ -1,0 +1,1824 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jatin Naran: Strategy Deep Dive</title>
+<meta name="description" content="Jatin Naran's Strategy Deep Dive: positioning, the channel decision, the research, four launch videos and the launch plan.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&family=Space+Mono:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e4003b; --marker:#f7c25a; --cobalt:#1f4fe0; --red-dark:#a8002c; --red-50:#fef3f6; --red-100:#fbe3ea;
+  --green:#1b8a4a; --green-50:#edf7f1; --blue-50:#eef3fd; --yellow-50:#fdf6e3; --amber:#9a6a00;
+  --ink:#111417; --ink-70:#454c53; --ink-50:#6b737a; --ink-30:#959ea6;
+  --paper:#f7f8f8; --white:#fff; --line:#dee1e3; --line-soft:#ebeef0;
+  --shadow-sm:0 1px 2px rgba(17,20,23,.05),0 4px 12px -6px rgba(17,20,23,.10);
+  --shadow-md:0 1px 2px rgba(17,20,23,.05),0 16px 40px -18px rgba(17,20,23,.20);
+  --r-lg:22px; --r-md:16px;
+  --f:'Inter',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace; --yt:'Roboto',Arial,sans-serif;
+  --wrap:1080px; --gut:clamp(16px,4vw,32px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+html,body{overflow-x:clip}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.red{color:var(--red)}.cobalt{color:var(--cobalt)}.green{color:var(--green)}
+.nowrap{white-space:nowrap}
+
+/* Nav */
+.nav{position:sticky;top:12px;z-index:50;margin:12px auto 0;max-width:var(--wrap);padding:0 var(--gut)}
+.nav-in{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:var(--shadow-sm)}
+.who{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--yt);white-space:nowrap;margin-left:-12px}
+.who img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-size:15px;font-weight:500;color:#0f0f0f;line-height:1.2}
+.who small{display:block;font-size:12px;color:#606060;line-height:1.2}
+.links{display:flex;gap:4px;margin:0 auto;font-size:15px;color:var(--ink-70)}
+.links a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:999px;transition:background-color .3s,color .3s}.links a:hover{color:var(--ink)}
+.links a.on{background:rgba(17,20,23,.055);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px;border-radius:999px;padding:12px 22px;white-space:nowrap}
+.btn:hover{background:#000}
+
+/* Type */
+.chip{display:inline-block;background:var(--red-50);color:var(--red);border:1px solid var(--red-100);font-weight:600;font-size:14px;border-radius:999px;padding:6px 16px}
+.chip.b{background:#e6f5fc;color:#0b7fb8;border-color:#bfe6f8}
+.chip.g{background:#e7f6ec;color:var(--green);border-color:#c3ebd1}
+.chip.y{background:#fdf3dc;color:var(--amber);border-color:#f6e0a8}
+.chip.k{background:#f2f3f4;color:#2f3439;border-color:#e3e5e7}
+.chip.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px}
+.chip.tag{display:inline-flex;align-items:center;gap:10px;background:#f2f3f4;color:#2f3439;border-color:#e3e5e7;font-family:var(--mono);font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:9px 20px}
+.tag-yt{width:22px;height:16px;flex-shrink:0}
+h1,h2{font-weight:800;letter-spacing:-.035em;line-height:1.04;color:var(--ink)}
+h1{font-size:clamp(36px,6vw,68px);text-wrap:balance}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+h3{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+section{padding:clamp(52px,6vw,80px) 0}
+.head{text-align:center;max-width:860px;margin:0 auto 48px}
+.head .chip{margin-bottom:20px}
+.head p{margin-top:18px;font-size:18px;color:var(--ink-70);text-wrap:balance}
+.head p b{color:var(--ink);font-weight:500}
+.sub-head{text-align:center;max-width:760px;margin:clamp(64px,8vw,104px) auto 32px}
+.sub-head h3{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+.sub-head p{margin-top:12px;font-size:17px;color:var(--ink-70);text-wrap:balance}
+.sub-head p b{color:var(--ink);font-weight:500}
+.part{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);display:block;margin-bottom:14px}
+.callout{max-width:760px;margin:36px auto 0;text-align:center;font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.45;text-wrap:balance}
+.src{text-align:center;margin-top:16px;font-size:13px;color:var(--ink-30)}
+.hl{background:linear-gradient(transparent 55%,rgba(247,194,90,.75) 55%);padding:0 .08em}
+
+/* Hero */
+.hero{padding-top:clamp(36px,5vw,64px);text-align:center}
+.hero h1{margin:22px auto 0;max-width:1000px}
+.note{position:relative;z-index:0;white-space:nowrap}
+.note::before{content:'';position:absolute;z-index:-1;left:-.1em;right:-.12em;top:.44em;bottom:-.02em;background:var(--marker);mix-blend-mode:multiply;opacity:.85;clip-path:polygon(1% 18%,4% 2%,40% 6%,97% 0,100% 22%,99% 80%,96% 100%,55% 94%,3% 98%,0 66%);transform:rotate(-1deg) scaleX(0);transform-origin:left;animation:swipe .5s cubic-bezier(.6,.1,.3,1) .4s forwards}
+@keyframes swipe{to{transform:rotate(-1deg) scaleX(1)}}
+.note .arrow{position:absolute;left:calc(100% + .06em);top:.52em;width:.62em;height:.62em;overflow:visible}
+.note .arrow path{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw .5s ease-out .95s forwards}
+.note .arrow path+path{animation-delay:1.35s;animation-duration:.2s}
+.note .aside{position:absolute;left:calc(100% + 1.3em);top:2.02em;font-family:'Caveat',cursive;font-weight:600;font-size:.42em;letter-spacing:0;color:var(--red);transform:rotate(-5deg);opacity:0;animation:pop .4s ease-out 1.45s forwards;white-space:nowrap}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:rotate(-5deg) translateY(4px)}to{opacity:1;transform:rotate(-5deg)}}
+@media (prefers-reduced-motion:reduce){.note::before{animation:none;transform:rotate(-1deg)}.note .arrow path{animation:none;stroke-dashoffset:0}.note .aside{animation:none;opacity:1}}
+@media (max-width:960px){.hero h1{padding-bottom:.7em}.note .arrow{display:none}.note .aside{left:auto;right:-.1em;top:2.35em;font-size:.5em}}
+.sub{font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--ink-70);margin:22px auto 0;max-width:720px;text-wrap:balance}
+.sub b{color:var(--ink);font-weight:500}
+.hello{font-family:'Caveat',cursive;font-size:clamp(26px,3vw,32px);color:var(--red);transform:rotate(-3deg);display:inline-block;margin-top:28px}
+
+/* Hero stat strip */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:40px auto 0}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 20px;box-shadow:var(--shadow-sm)}
+.stat strong{display:block;font-size:clamp(36px,4.6vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:8px;color:var(--ink-70);font-size:15px;line-height:1.4}
+.stat.goal{background:linear-gradient(135deg,#3463f2,#1a3fc4);border-color:transparent;color:#fff;box-shadow:0 18px 40px -20px rgba(31,79,224,.55)}
+.stat.goal span{color:rgba(255,255,255,.85)}
+
+.work{max-width:1000px;margin:34px auto 0}
+.work-t{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);margin-bottom:12px}
+.work-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden}
+.work-g>div{padding:clamp(16px,2.4vw,24px) 14px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.work-g>div:nth-child(4n){border-right:0}.work-g>div:nth-child(n+5){border-bottom:0}
+.work-g b{display:block;font-size:clamp(38px,5vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.work-g span{display:block;margin-top:8px;font-size:14px;line-height:1.35;color:var(--ink-70)}
+@media (max-width:640px){.work-g{grid-template-columns:1fr 1fr}.work-g>div:nth-child(n){border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}.work-g>div:nth-child(2n){border-right:0}.work-g>div:nth-child(n+7){border-bottom:0}.work-g b{font-size:36px}.work-g span{font-size:13px}.sub br{display:none}}
+.letter.has-photo{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;max-width:900px;align-items:center}
+.letter-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
+@media (max-width:760px){.letter.has-photo{grid-template-columns:1fr;gap:18px}.letter-photo{aspect-ratio:4/3;object-position:50% 30%}}
+/* Hero progress: counter, goal bar, growth curve */
+.prog{max-width:1000px;margin:40px auto 0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(18px,3vw,28px);text-align:left}
+.prog-top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,44px);align-items:center}
+.counter{display:flex;align-items:center;gap:16px;font-family:var(--yt)}
+.counter img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
+.counter small{display:block;font-size:13px;color:#606060}
+.counter strong{display:block;font-size:clamp(40px,5.4vw,58px);font-weight:700;letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums;color:#0f0f0f}
+.gb-track{position:relative;height:14px;border-radius:999px;background:var(--line-soft)}
+.gb-track i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#6d8ef7,var(--cobalt))}
+.gb-track b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink-30);border-radius:2px}
+.gb-lab{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink-50);margin-top:10px}
+.gb-lab b{color:var(--cobalt);font-weight:800}
+.studio{margin:26px 0 0;padding-right:44px}
+.st-plot{position:relative;line-height:0}
+.st-plot>img{display:block;width:100%;height:auto;filter:saturate(1.5)}
+.bd{position:absolute;top:0;bottom:0;mix-blend-mode:multiply;pointer-events:none}
+.b0{background:rgba(17,20,23,.025)}.b1{background:rgba(31,79,224,.07)}.b2{background:rgba(247,194,90,.13)}.b3{background:rgba(228,0,59,.05)}
+.yl{position:absolute;left:calc(100% + 10px);transform:translateY(-50%);font-size:12px;line-height:1;color:var(--ink-50);font-family:var(--yt)}
+.mk{position:absolute;width:0;height:0;line-height:1}
+.mk b{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417;box-shadow:0 0 0 3px rgba(255,255,255,.8)}
+.mk em{position:absolute;right:14px;bottom:10px;white-space:nowrap;font-style:normal;font-size:13px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;box-shadow:var(--shadow-sm)}
+.mk.r em{left:14px;right:auto;bottom:auto;top:-6px;transform:translateY(-100%)}
+.mk.br em{left:12px;right:auto;bottom:auto;top:10px}
+.mk.live b{border-color:var(--red);background:var(--red);animation:ping 2s ease-out infinite}
+.mk.live em{top:16px;bottom:auto;right:-4px;color:#fff;background:var(--red);border-color:var(--red)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(228,0,59,.45)}70%{box-shadow:0 0 0 12px rgba(228,0,59,0)}100%{box-shadow:0 0 0 0 rgba(228,0,59,0)}}
+@media (prefers-reduced-motion:reduce){.mk.live b{animation:none}}
+.pin{position:absolute;width:0;height:0;line-height:1;z-index:2}
+.pin::before{content:'';position:absolute;left:-1px;width:2px;height:var(--stem);background:var(--ink-30)}
+.pin.up::before{bottom:0}.pin.down::before{top:0}
+.pin .dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417}
+.pc{position:absolute;left:50%;transform:translateX(-50%);width:clamp(110px,13vw,150px);background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;box-shadow:var(--shadow-md);text-decoration:none;color:var(--ink);transition:transform .2s}
+.pin.up .pc{bottom:var(--stem)}.pin.down .pc{top:var(--stem)}
+.pc:hover{transform:translateX(-50%) translateY(-2px)}
+.pc img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.pc em{display:block;font-style:normal;font-size:12px;color:var(--ink-50);padding:6px 3px 2px;white-space:nowrap}
+.pc em b{color:var(--ink);font-weight:800}
+.st-top{display:none}
+.st-ch{display:flex;margin-top:10px;gap:3px}
+.st-ch>span{flex:none;border-radius:6px;padding:7px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ch .c0{background:#f2f3f4;color:var(--ink-50)}.st-ch .c1{background:var(--blue-50);color:var(--cobalt)}.st-ch .c2{background:var(--yellow-50);color:var(--amber)}.st-ch .c3{background:var(--red-50);color:var(--red)}
+.st-ch .short,.mk .short{display:none}
+.st-x{position:relative;height:20px;margin-top:8px}
+.st-x span{position:absolute;transform:translateX(-50%);font-size:12px;color:var(--ink-50);white-space:nowrap}
+.st-x span:first-child{transform:none}.st-x span:last-child{transform:translateX(-100%)}
+.studio figcaption{margin-top:6px;font-size:12px;color:var(--ink-30)}
+@media (max-width:640px){
+  .studio{padding-right:34px}
+  .yl{font-size:10px;left:calc(100% + 6px)}
+  .mk b{left:-5px;top:-5px;width:10px;height:10px;border-width:2px}
+  .mk em{font-size:10.5px;padding:3px 7px;right:10px;bottom:7px}
+  .mk.live em{top:11px}
+  .mk.sm-hide{display:none}
+  .pc{display:none}.pin::before{display:none}.pin .dot{left:-5px;top:-5px;width:10px;height:10px;border-width:2px}
+  .st-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.st-top a{text-decoration:none;color:var(--ink-50)}.st-top img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}.st-top em{display:block;font-style:normal;font-size:11px;margin-top:4px}.st-top b{color:var(--ink)}
+  .st-ch>span{font-size:9px;letter-spacing:.02em;padding:6px 4px}
+  .st-ch .full,.mk .full{display:none}.st-ch .short,.mk .short{display:inline}
+  .st-x span{font-size:10px}.st-x span:nth-child(2),.st-x span:nth-child(5){display:none}
+}
+@media (max-width:760px){.prog-top{grid-template-columns:1fr;gap:18px}}
+
+/* Note from the strategist */
+.letter{max-width:760px;margin:44px auto 0;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(22px,4vw,34px);position:relative}
+.letter-who{display:flex;align-items:center;gap:14px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.avatar{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--red-50);color:var(--red);font-weight:800;font-size:18px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.letter-who b{display:block;font-size:17px}
+.letter-who small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.letter-body p{font-size:17px;line-height:1.65;color:var(--ink-70)}
+.letter-body p+p{margin-top:12px}
+.letter-body b{color:var(--ink);font-weight:600}
+.letter-body .sign{font-family:'Caveat',cursive;font-size:30px;color:var(--red);line-height:1;margin-top:16px}
+
+/* TL;DR */
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:56px auto 0;text-align:left}
+.tl{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px}
+.tl h3{font-size:18px}
+.tl ol{list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:10px}
+.tl li{counter-increment:n;position:relative;padding-left:30px;font-size:15px;color:var(--ink-70);line-height:1.5}
+.tl li b{color:var(--ink);font-weight:600}
+.tl li::before{content:counter(n);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;font-family:var(--mono);font-size:11px;display:grid;place-items:center;background:var(--line-soft);color:var(--ink-50)}
+.tl.g{border-top:4px solid var(--green)}.tl.g li::before{background:var(--green-50);color:var(--green)}
+.tl.r{border-top:4px solid var(--red)}.tl.r li::before{background:var(--red-50);color:var(--red)}
+.tl.b{border-top:4px solid var(--cobalt)}.tl.b li::before{background:var(--blue-50);color:var(--cobalt)}
+
+/* Generic grids and cards */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:18px}
+.card p{font-size:15px;color:var(--ink-70);line-height:1.55}
+.card p b{color:var(--ink);font-weight:600}
+.card .proof{margin-top:auto;padding-top:12px;font-size:14px;font-weight:600;line-height:1.45}
+.card .ic{font-size:26px;line-height:1;margin-bottom:6px}
+.num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:700;margin-bottom:6px}
+.t-blue{background:var(--blue-50)}.t-green{background:var(--green-50)}.t-yellow{background:var(--yellow-50)}.t-red{background:var(--red-50)}
+.card.t-blue,.card.t-green,.card.t-yellow,.card.t-red{border-color:transparent;box-shadow:none}
+.t-blue .num{background:#fff;color:var(--cobalt)}.t-blue .proof{color:var(--cobalt)}
+.t-green .num{background:#fff;color:var(--green)}.t-green .proof{color:var(--green)}
+.t-yellow .num{background:#fff;color:var(--amber)}.t-yellow .proof{color:var(--amber)}
+.t-red .num{background:#fff;color:var(--red)}.t-red .proof{color:var(--red)}
+.col-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;display:block}
+
+/* Goal bar */
+.summary{margin-top:28px;background:linear-gradient(135deg,#3463f2,#1a3fc4);color:#fff;box-shadow:0 18px 40px -20px rgba(31,79,224,.55);border-radius:var(--r-lg);padding:clamp(28px,5vw,44px);text-align:center}
+.summary strong{display:block;font-size:clamp(24px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.summary p{margin:12px auto 0;max-width:640px;font-size:17px;color:rgba(255,255,255,.88);text-wrap:balance}
+.summary p b{color:#fff}
+
+/* Bar charts (HTML, readable on phones) */
+.chart{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px 24px 18px}
+.chart-t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.chart-t b{font-size:16px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-50)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.bars{display:flex;align-items:flex-end;gap:clamp(3px,.8vw,10px);height:230px;padding-top:28px;border-bottom:2px solid var(--line)}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;min-width:0}
+.bar i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:#d5dae3;flex-shrink:0}
+.bar em{flex-shrink:0;font-style:normal;font-size:12px;font-weight:600;color:var(--ink-70);margin-bottom:4px;white-space:nowrap}
+.bar.c i{background:var(--cobalt)}.bar.y i{background:var(--marker)}.bar.r em{color:var(--red)}
+.bar .flag{position:absolute;bottom:calc(var(--h) + 26px);left:50%;transform:translateX(-50%);font-family:'Caveat',cursive;font-size:19px;line-height:1;color:var(--red);white-space:nowrap}
+.xl{display:flex;gap:clamp(3px,.8vw,10px);margin-top:8px}
+.xl span{flex:1;text-align:center;font-size:11px;color:var(--ink-50);line-height:1.25;min-width:0}
+.line-row{position:relative;height:90px;margin-top:22px;border-top:1px dashed var(--line)}
+.line-row svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ctr-lab{display:flex;gap:clamp(3px,.8vw,10px);margin-top:4px}
+.ctr-lab span{flex:1;text-align:center;font-size:11px;font-weight:600;color:var(--green);min-width:0}
+@media (max-width:640px){
+  .chart{padding:18px 14px 14px}
+  .bars{height:190px}
+  .bar em{font-size:9px;letter-spacing:-.02em}
+  .xl span,.ctr-lab span{font-size:8.5px}
+  .bar .flag{font-size:15px}
+  .bars.many .bar em{display:none}.bars.many .bar.k em{display:block}
+}
+
+/* Three-phase strip */
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ph{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow-sm)}
+.ph small{display:block;font-size:13px;font-weight:600;color:var(--ink-70);margin-bottom:12px}
+.ph-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:6px 0;border-top:1px solid var(--line-soft);font-size:13px;color:var(--ink-50)}
+.ph-row b{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.ph-row:first-of-type b{color:var(--cobalt)}.ph-row:last-child b{color:var(--red)}
+
+/* Big stat pair */
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;max-width:820px;margin:0 auto}
+.vs .stat{text-align:center}
+.vs .stat.win strong{color:var(--green)}.vs .stat.lose strong{color:var(--red)}
+.vs-mid{font-family:'Caveat',cursive;font-size:30px;color:var(--ink-30)}
+
+/* Thumbnails */
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.v{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;font-family:var(--yt)}
+.v-img{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--line-soft)}
+.v-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.v:hover .v-img img{transform:scale(1.03)}
+.v b{font-size:15px;font-weight:500;line-height:1.35;color:#0f0f0f}
+.v small{font-size:13px;color:#606060;line-height:1.4}
+.v small .x{color:var(--red);font-weight:600}
+.v .badge{align-self:flex-start;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.v .badge.g{background:var(--green);color:#fff}
+.v .badge.r{background:var(--red);color:#fff}
+
+/* Value props */
+.vp .v-img{margin-bottom:6px}
+.vp-tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+/* Comments */
+.wall{columns:2 360px;column-gap:16px}
+.cm{break-inside:avoid;margin:0 0 16px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px 10px;box-shadow:var(--shadow-sm)}
+.cm figcaption{font-size:13px;font-weight:600;color:var(--ink-70);margin-bottom:8px}
+.cm figcaption b{color:var(--ink)}
+.cm img{display:block;width:100%;height:auto}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pair .cm figcaption{display:flex;align-items:center;gap:8px}
+
+/* Hooks */
+.hook{border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.hook.good{background:var(--green-50)}.hook.ok{background:#f1f2f3}
+.hook-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hook-top b{font-size:16px}
+.hook-top span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.hook.good .hook-top span{color:var(--green)}.hook.ok .hook-top span{color:var(--ink-50)}
+.hook blockquote{font-size:15px;line-height:1.6;color:var(--ink-70);font-style:italic}
+.hook blockquote p+p{margin-top:8px}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{background:#f4f5f6;font-weight:600;font-size:13px;color:var(--ink-70);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+td.bad{color:var(--red);font-weight:600}
+td b{font-weight:600}
+
+/* Drop-downs: the full analysis */
+details.more{margin-top:28px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--white);box-shadow:var(--shadow-sm);overflow:hidden}
+details.more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;font-weight:600;font-size:15px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary .lbl{display:flex;align-items:center;gap:10px}
+details.more>summary .lbl small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);font-weight:400}
+details.more>summary .plus{flex:none;width:28px;height:28px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-size:18px;line-height:1;color:var(--ink-70);transition:transform .25s}
+details.more[open]>summary .plus{transform:rotate(45deg)}
+details.more>summary:hover{background:#fafbfb}
+.more-body{padding:6px 22px 26px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:20px}
+.more-body h4{font-size:16px;font-weight:700;margin-top:10px}
+.more-body p,.more-body li{font-size:15px;color:var(--ink-70);line-height:1.6}
+.more-body p b,.more-body li b{color:var(--ink);font-weight:600}
+.more-body ul,.more-body ol{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.more-body figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line-soft)}
+.more-body figure figcaption{font-size:13px;color:var(--ink-50);margin-top:8px}
+.note-box{background:var(--paper);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink-70)}
+.note-box b{color:var(--ink)}
+.script{background:var(--paper);border-left:3px solid var(--red);border-radius:0 12px 12px 0;padding:14px 16px;font-style:italic;color:var(--ink-70);font-size:15px}
+.script small{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);margin-bottom:6px}
+
+/* Formula list */
+.formulas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fx{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.fx strong{flex:none;min-width:58px;text-align:center;font-size:18px;font-weight:800;letter-spacing:-.02em;border-radius:10px;padding:6px 8px}
+.fx.up strong{background:var(--green-50);color:var(--green)}.fx.dn strong{background:var(--red-50);color:var(--red)}.fx.mid strong{background:var(--yellow-50);color:var(--amber)}
+.fx span{font-size:14px;color:var(--ink-70);line-height:1.4}
+.fx span b{display:block;color:var(--ink);font-size:15px;font-weight:600}
+
+/* Remakes */
+.remake{display:flex;flex-direction:column;gap:12px}
+.remake .from{font-family:var(--yt);font-size:13px;color:#606060;line-height:1.4}
+.remake .to{background:var(--red-50);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;line-height:1.35}
+.remake .to small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+
+/* Projection chart */
+.proj{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px}
+.proj svg{display:block;width:100%;height:auto;overflow:visible}
+.proj text{font-family:var(--f);font-size:13px;fill:var(--ink-50)}
+.proj .lab{font-weight:700;font-size:14px}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.path{border-radius:var(--r-md);padding:14px 16px;font-size:14px;color:var(--ink-70);line-height:1.45}
+.path strong{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.path b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+.path.well{background:var(--green-50)}.path.well strong{color:var(--green)}
+.path.okay{background:var(--blue-50)}.path.okay strong{color:var(--cobalt)}
+.path.none{background:var(--red-50)}.path.none strong{color:var(--red)}
+@media (max-width:640px){.proj{padding:14px}.proj text{font-size:26px}.proj .lab{font-size:28px}.proj .ms{display:none}}
+
+/* Benchmarks */
+.bench h3{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bench h3 small{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.06em;color:var(--ink-50)}
+.bench .big{font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1;margin:8px 0 2px}
+.bench ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.bench li{font-size:14px;color:var(--ink-70);line-height:1.5;padding-left:16px;position:relative}
+.bench li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--ink-30)}
+.bench li b{color:var(--ink);font-weight:600}
+
+/* Collabs */
+.collab{display:flex;flex-direction:column;gap:10px}
+.collab .who-c{display:flex;align-items:center;gap:12px}
+.collab .who-c i{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:15px;color:#fff}
+.collab .who-c b{font-size:16px;line-height:1.2}
+.collab .who-c small{display:block;font-size:13px;color:var(--ink-50)}
+.collab .idea{background:var(--paper);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;line-height:1.4}
+.collab .idea small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);margin-bottom:2px}
+
+/* Ideas */
+.ideas{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.idea-row{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.idea-row>b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-size:12px}
+.idea-row div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.idea-row strong{font-size:15px;font-weight:600;line-height:1.35}
+.idea-row .meta{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:11px;font-weight:600;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.p1{background:var(--green-50);color:var(--green)}.p2{background:var(--blue-50);color:var(--cobalt)}.p3{background:var(--red-50);color:var(--red)}.p4{background:var(--yellow-50);color:var(--amber)}
+.pill.thumb{background:#14171b;color:#fff;font-style:italic}
+.pill.live{background:var(--green);color:#fff}
+
+/* Rollout timeline */
+.live-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;box-shadow:var(--shadow-sm);max-width:820px;margin:0 auto 28px}
+@media (max-width:640px){.live-card{grid-template-columns:1fr;gap:12px}}
+.weeks{list-style:none;display:flex;flex-direction:column;gap:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.wk{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line-soft)}
+.wk:last-child{border-bottom:0}
+.wk time{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-50)}
+.wk time b{display:block;font-family:var(--f);font-size:14px;letter-spacing:0;color:var(--ink)}
+.wk strong{font-size:15px;font-weight:600;line-height:1.35}
+.wk strong small{display:block;font-weight:400;font-size:13px;color:var(--ink-50);margin-top:2px}
+.st{font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.st.live{background:var(--green);color:#fff}.st.edit{background:var(--yellow-50);color:var(--amber)}.st.plan{background:var(--paper);color:var(--ink-50)}
+.wk.is-live{background:var(--green-50)}
+@media (max-width:640px){.wk{grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px}.wk time{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.wk time b{display:inline}}
+
+/* Milestones */
+.miles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;position:relative}
+.mile{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-sm)}
+.mile small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.mile strong{display:block;font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:6px 0}
+.mile:last-child strong{color:var(--cobalt)}
+.mile p{font-size:14px;color:var(--ink-70)}
+
+/* Checklists */
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;gap:12px;font-size:15px;line-height:1.45;color:var(--ink-70)}
+.checks li::before{content:'';flex:none;width:20px;height:20px;border-radius:6px;border:2px solid var(--line);margin-top:1px}
+.checks li b{color:var(--ink);font-weight:600}
+
+/* Do more / less */
+.doc-l{list-style:none;display:flex;flex-direction:column;gap:10px}
+.doc-l li{display:flex;gap:10px;font-size:15px;line-height:1.45}
+.doc-l li::before{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px}
+.do .doc-l li::before{content:'+';background:var(--green);color:#fff}
+.dont .doc-l li::before{content:'\2212';background:var(--red);color:#fff}
+
+footer{padding:48px 0 64px;text-align:center;color:var(--ink-30);font-size:13px}
+footer p{max-width:720px;margin:0 auto}
+
+@media (max-width:1120px){.links{display:none}.nav-in{justify-content:space-between}}
+@media (max-width:900px){
+  .tldr,.g3,.vgrid,.paths,.miles{grid-template-columns:1fr}
+  .g4,.phases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .g2,.g4,.formulas,.ideas,.pair{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr 1fr;gap:8px}.ph{padding:12px}.ph-row b{font-size:17px}
+  .vs{grid-template-columns:1fr;gap:8px}.vs-mid{text-align:center}
+  .vgrid{gap:22px}
+  details.more>summary{padding:14px 16px}.more-body{padding:4px 16px 20px}
+  .nav-in{padding-left:16px}
+  .btn{padding:10px 16px;font-size:14px}
+  .who small{display:none}
+}
+
+/* Calm pass: fewer colours, fewer boxes, more air */
+section{padding:clamp(72px,9vw,128px) 0}
+.head{margin-bottom:clamp(40px,5vw,64px)}
+.head p{font-size:19px;line-height:1.55;max-width:680px;margin-left:auto;margin-right:auto}
+.sub-head{margin:clamp(88px,10vw,140px) auto 36px}
+.sub-head p{font-size:18px;line-height:1.55}
+.g2,.g3,.g4{gap:20px}
+.card{box-shadow:none;border:1px solid var(--line-soft);padding:28px 28px 30px;gap:10px}
+.card h3{font-size:19px;line-height:1.3}
+.card p{font-size:16px;line-height:1.6}
+.card .ic{display:none}
+.card.t-blue,.card.t-green,.card.t-yellow,.card.t-red{background:var(--white);border:1px solid var(--line-soft)}
+.t-blue .num,.t-green .num,.t-yellow .num,.t-red .num{background:var(--paper)}
+.stat,.chart,.proj,.mile,.idea-row,.fx,.weeks,.cm,details.more,.tbl-wrap,.cs-card{box-shadow:none}
+.stat,.chart,.proj,.mile{border-color:var(--line-soft)}
+.summary{box-shadow:none}
+.callout{margin-top:48px}
+details.more{margin-top:40px;border-color:var(--line-soft)}
+.hook{padding:26px 28px}
+.hook blockquote{font-size:16px}
+.vgrid{gap:28px 22px}
+/* Chart labels: no white circles over the curve */
+.pin .dot{display:none}
+.mk:not(.live) b{display:none}
+.mk.br em{left:18px;top:16px}
+
+/* Rollout calendar (Notion-style) */
+.cal{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.cal-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:18px 20px 14px}
+.cal-top b{font-size:16px}
+.cal-top>span{font-size:13px;color:var(--ink-50)}
+.cal-key{margin-left:auto;display:flex;gap:14px;font-size:12px;color:var(--ink-50)}
+.cal-key i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:0}
+.k-live{background:var(--green)}.k-edit{background:var(--marker)}.k-plan{background:#c9ced3}.k-shoot{background:var(--cobalt)}
+.cal-dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cal-dow span{padding:8px 10px;font-size:12px;color:var(--ink-50);text-align:right}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cd{position:relative;min-height:104px;padding:6px 6px 8px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.cd:nth-child(7n){border-right:0}
+.cd:nth-last-child(-n+7){border-bottom:0}
+.cd.we{background:#fbfbfb}
+.dn{display:block;text-align:right;font-size:12px;color:var(--ink-50);padding:2px 4px 6px}
+.cd.alt .dn{color:var(--ink-30)}
+.cd.today .dn{text-align:right}
+.cd.today .dn b{display:inline-block;min-width:22px;padding:2px 6px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;text-align:center}
+.ev{position:relative;z-index:1;border-radius:6px;padding:6px 8px;font-size:12px;font-weight:600;line-height:1.3;background:#f1f2f3;color:var(--ink);box-shadow:0 1px 0 rgba(17,20,23,.06),inset 0 0 0 1px rgba(17,20,23,.06);}
+.ev small{display:block;font-size:10.5px;font-weight:600;color:var(--ink-50);margin-bottom:2px}
+.ev.live{background:var(--green-50);box-shadow:inset 3px 0 0 var(--green),inset 0 0 0 1px #c3ebd1}
+.ev.live small{color:var(--green)}
+.ev.edit{background:#fdf3dc;box-shadow:inset 3px 0 0 var(--marker),inset 0 0 0 1px #f6e0a8}
+.ev.edit small{color:var(--amber)}
+.ev.plan{box-shadow:inset 3px 0 0 #c9ced3,inset 0 0 0 1px rgba(17,20,23,.06)}
+.ev.shoot{background:var(--blue-50);color:var(--cobalt);box-shadow:inset 3px 0 0 var(--cobalt)}
+.ev.shoot small{color:var(--cobalt)}
+.ev.span4{width:calc(400% + 36px)}
+@media (min-width:641px){.weeks{display:none}}
+@media (max-width:640px){.cal{display:none}}
+
+/* Comment stacks: label outside, screenshot as the top card of a pile */
+.stacks{gap:clamp(28px,4vw,48px);align-items:start}
+.stk-lab{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-bottom:22px}
+.stk-lab p{font-size:17px;font-weight:600;color:var(--ink)}
+.stack{position:relative;isolation:isolate;margin:0 14px 22px}
+.stack::before,.stack::after{content:'';position:absolute;inset:0;border-radius:16px;background:#fff;border:1px solid var(--line);z-index:-1}
+.stack::before{transform:translate(10px,10px) rotate(1.6deg);box-shadow:var(--shadow-sm)}
+.stack::after{transform:translate(20px,20px) rotate(3.2deg);z-index:-2;opacity:.8}
+.stack img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px;box-shadow:var(--shadow-md)}
+.stk-col:last-child .stack::before{transform:translate(-10px,10px) rotate(-1.6deg)}
+.stk-col:last-child .stack::after{transform:translate(-20px,20px) rotate(-3.2deg)}
+.k-gap{background:#fff;border:1.5px dashed var(--red)}
+.ev.gap{background:#fff;color:var(--ink-70);font-weight:500;box-shadow:inset 0 0 0 1.5px var(--red-100);border:1px dashed var(--red)}
+.ev.gap small{color:var(--red)}
+.st.gapst{background:var(--red-50);color:var(--red)}
+.wk.is-gap{background:#fffafb}
+
+/* ===== Jatin page additions ===== */
+:root{--purple:#6b3fd4;--purple-50:#f2edfd}
+section.tight{padding-top:clamp(56px,7vw,96px)}
+.sub-head .part{margin-bottom:10px}
+
+/* Hero: two channels + road */
+.two-ch{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc{border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;background:var(--paper)}
+.tc small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.tc b{display:block;font-size:17px;margin-top:4px}
+.tc span{display:block;font-size:13px;color:var(--ink-70);line-height:1.4;margin-top:4px}
+.tc.new{background:var(--blue-50);border-color:#d3defb}.tc.new small{color:var(--cobalt)}
+.road{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:22px;position:relative}
+.road::before{content:'';position:absolute;left:12px;right:12px;top:11px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--line),#6d8ef7 70%,var(--cobalt))}
+.road li{position:relative;padding:28px 10px 0 0}
+.road li::before{content:'';position:absolute;left:4px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #6d8ef7}
+.road li.goal::before{background:var(--cobalt);border-color:var(--cobalt);box-shadow:0 0 0 5px var(--blue-50)}
+.road small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.road b{display:block;font-size:15px;line-height:1.3;margin-top:3px}
+.road li.goal b{color:var(--cobalt)}
+@media (max-width:760px){.two-ch{grid-template-columns:1fr}.road{grid-template-columns:1fr 1fr;row-gap:18px}.road::before{display:none}}
+
+/* Promise checklist */
+.promise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:1000px;margin:0 auto}
+.pr{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:18px 18px 16px;transition:border-color .2s,transform .2s}
+.pr:hover{border-color:var(--green);transform:translateY(-1px)}
+.pr>i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--green);position:relative;margin-top:1px}
+.pr>i::after{content:'';position:absolute;left:9px;top:5px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.pr div{flex:1;min-width:0}
+.pr b{display:block;font-size:16px;line-height:1.35}
+.pr span{display:block;font-size:14px;color:var(--ink-70);line-height:1.5;margin-top:4px}
+.pr em{flex:none;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-50);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.src a{color:var(--ink-50)}
+.tl.y{border-top:4px solid var(--marker)}.tl.y li::before{background:var(--yellow-50);color:var(--amber)}
+@media (max-width:760px){.promise{grid-template-columns:1fr}.pr{flex-wrap:wrap}.pr em{margin-left:40px}}
+
+/* Figures */
+.fig{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(10px,2vw,18px);margin:0}
+.fig img{display:block;width:100%;height:auto;border-radius:10px}
+.fig figcaption{font-size:13px;color:var(--ink-50);margin-top:10px;line-height:1.5;padding:0 4px}
+.meta-line{font-size:14px !important;color:var(--ink-50) !important}
+.comp-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.comp-list details.more{margin-top:0}
+.comp-list .vgrid{gap:22px 18px}
+.tbl-t{font-size:16px;font-weight:700;margin:28px 0 12px}
+
+/* Comparison tables */
+table.cmp th.hi{background:var(--blue-50);color:var(--cobalt)}
+table.cmp td.hi{background:#f7f9fe;color:var(--ink);font-weight:500}
+table.ans td:last-child{white-space:nowrap}
+table.ans a{color:var(--cobalt);font-weight:600;text-decoration:none}
+table.ans td:first-child{width:32%}
+
+/* Channel statement */
+.letter.statement{border-left:4px solid var(--red)}
+.letter.statement .letter-body p{font-size:18px;color:var(--ink)}
+.xy{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:900px;margin:22px auto 0}
+.xy span{background:var(--white);border:1px solid var(--line-soft);border-radius:999px;padding:9px 16px;font-size:14px;color:var(--ink-70)}
+.xy b{color:var(--ink);font-weight:600}
+
+/* Levers */
+.levers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.levers a.card{text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;padding:22px 20px 24px}
+.levers a.card:hover{transform:translateY(-2px);border-color:var(--cobalt)}
+.levers .card h3{font-size:17px}.levers .card p{font-size:14px}
+@media (max-width:1000px){.levers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.levers{grid-template-columns:1fr}}
+
+/* Hook colour key */
+.hp{background:rgba(228,0,59,.09)}.hs{background:rgba(247,194,90,.28)}.hpr{background:rgba(27,138,74,.12)}
+.key{display:inline-block;border-radius:6px;padding:2px 10px;margin:0 3px;color:var(--ink-70);font-size:12px}
+
+/* Pillars */
+.pil{border-top:4px solid var(--line) !important}
+.pil.p-1{border-top-color:var(--cobalt) !important}.pil.p-1 .col-label{color:var(--cobalt)}
+.pil.p-2{border-top-color:var(--purple) !important}.pil.p-2 .col-label{color:var(--purple)}
+.pil.p-3{border-top-color:var(--green) !important}.pil.p-3 .col-label{color:var(--green)}
+.pil .pain{font-family:'Caveat',cursive;font-size:22px;line-height:1.25;color:var(--ink)}
+.pil .proof{color:var(--ink-70);font-weight:500}
+.pp1{background:var(--blue-50);color:var(--cobalt)}
+.pp2{background:var(--purple-50);color:var(--purple)}
+.pp3{background:var(--green-50);color:var(--green)}
+.pill.score{background:#14171b;color:#fff}
+.pill{background:#f2f3f4;color:var(--ink-70)}
+.pill.live{background:var(--green);color:#fff}
+
+/* Launch videos */
+.lv{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(20px,3vw,36px);background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(16px,2.6vw,28px);margin-top:20px;align-items:start}
+.lv-media{position:sticky;top:96px;display:flex;flex-direction:column;gap:14px}
+.tslot{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#111417}
+.tslot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.tph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(14px,2vw,22px);background:radial-gradient(120% 90% at 85% 20%,#2a3a6b 0%,#14192a 55%,#0d0f14 100%);color:#fff}
+.tph.p2{background:radial-gradient(120% 90% at 85% 20%,#4b2f8f 0%,#1d1533 55%,#0e0c14 100%)}
+.tph-l{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px dashed rgba(255,255,255,.4);border-radius:999px;padding:4px 10px}
+.tph b{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.95;text-transform:uppercase}
+.tph small{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.72);margin-top:10px;max-width:90%}
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.refs>span{grid-column:1/-1;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.refs a{text-decoration:none;color:var(--ink-50);font-family:var(--yt)}
+.refs img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.refs em{display:block;font-style:normal;font-size:12px;margin-top:5px}
+.refs em b{color:var(--red)}
+.lv-body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.lv-tags{display:flex;gap:6px;flex-wrap:wrap}
+.lv-tags .pill{font-size:12px;padding:4px 11px}
+.lv-body>h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.lv-vp{font-size:16px;color:var(--ink-70);line-height:1.55}
+.lv-stat{display:flex;gap:14px;align-items:center;background:var(--paper);border-radius:12px;padding:12px 14px}
+.lv-stat b{flex:none;font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--green)}
+.lv-stat span{font-size:14px;color:var(--ink-70);line-height:1.45}
+.lv .hook{padding:20px 22px}
+.lv .hook blockquote{font-style:normal;color:var(--ink);font-size:16px}
+mark{background:rgba(247,194,90,.55);color:inherit;border-radius:4px;padding:0 3px;font-style:normal}
+details.more.mini{margin-top:0}
+details.more.mini>summary{padding:12px 16px;font-size:14px}
+ol.steps{display:flex;flex-direction:column;gap:6px;padding-left:24px}
+ol.steps li{font-weight:600;color:var(--ink)!important}
+.lv-link{align-self:flex-start;font-weight:600;font-size:15px;color:var(--cobalt);text-decoration:none}
+.lv-link:hover{text-decoration:underline}
+@media (max-width:860px){.lv{grid-template-columns:1fr}.lv-media{position:static}}
+
+/* Ideas */
+.idea-row.is-launch{border-color:var(--green);box-shadow:0 0 0 3px var(--green-50)}
+.idea-row.bonus{background:var(--paper)}
+.idea-row>b{font-size:11px}
+.exg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.exg img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line-soft)}
+.ideas-more h4{margin-top:18px}
+@media (max-width:640px){.exg{grid-template-columns:1fr 1fr}}
+
+/* Launch plan */
+a.card.lw{text-decoration:none;color:inherit}
+.wk .pill{justify-self:end}
+.big-t{font-size:46px !important;font-weight:800;letter-spacing:-.04em;line-height:1 !important;color:var(--green) !important}
+@media (max-width:960px){.hero h1{padding-bottom:0}}
+.fx.dn{display:flex;text-align:left;padding:14px 16px;font-size:inherit;color:inherit}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="who" href="#top"><img src="assets/av-jatin.jpg" alt=""><span><b>Jatin Naran</b><small>Strategy Deep Dive</small></span></a>
+  <div class="links">
+    <a href="#context">Context</a><a href="#space">The Space</a><a href="#strategy">The Strategy</a><a href="#ideas">The Ideas</a><a href="#plan">Launch Plan</a>
+  </div>
+  <a class="btn" href="#launch">Launch videos</a>
+</div></nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap" id="top">
+  <span class="chip tag"><svg class="tag-yt" viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg>Prepared for Jatin Naran · November 2026</span>
+  <h1>Jatin Naran's Business YouTube Channel <span class="note">Strategy Deep Dive</span></h1>
+  <p class="sub">Far more people <b class="nowrap">want a business</b> than run one. <br>Here's how you become the person <b class="nowrap">they learn from</b>.</p>
+  <div class="work"><span class="work-t">The work behind this plan</span><div class="work-g"><div><b data-n="6006">6,006</b><span>videos scored against their own channel</span></div><div><b data-n="77">77</b><span>business channels in the sample</span></div><div><b data-n="15">15</b><span>learner topics searched on YouTube</span></div><div><b data-n="14">14</b><span>channels studied up close</span></div><div><b data-n="365">365</b><span>days of your YouTube Analytics</span></div><div><b data-n="30">30</b><span>of your hooks measured at 0:30</span></div><div><b data-n="4">4</b><span>launch videos ready to film</span></div><div><b data-n="14">14</b><span>data-backed ideas in the pipeline</span></div></div></div>
+
+  <div class="prog">
+    <div class="prog-top">
+      <div class="counter"><img src="assets/av-jatin.jpg" alt=""><div><small>@jatznaran · subscribers today</small><strong>290K</strong></div></div>
+      <div class="two-ch">
+        <div class="tc"><small>Current channel</small><b>Your Amazon FBA asset</b><span>Renamed, still ranking for FBA searches and feeding your coaching</span></div>
+        <div class="tc new"><small>New channel</small><b>Your personal brand</b><span>For successful professionals who want a business of their own</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter has-photo" id="note">
+    <img class="letter-photo" src="assets/gio.jpg" alt="Gio Vescovi">
+    <div class="letter-main">
+    <div class="letter-who">
+      <div><b>Gio Vescovi</b><small>YouTube Strategist, Talking Heads Media</small></div>
+    </div>
+    <div class="letter-body">
+      <p>Hey Jatz,</p>
+      <p>I've loved working on this one. Going through your story, one thing kept standing out: <b>you did it with no leg up</b>. No money behind you, no contacts, businesses that didn't work, and today three businesses on a four-day week. Very few people in this space can say that, and it's exactly what your future viewer needs to hear.</p>
+      <p>Everything we promised to answer in the proposal is in here, with the data behind it, plus <b>four launch videos ready for you to film</b>.</p>
+      <p>Can't wait to see the first one go live!</p>
+      <p class="sign">Gio</p>
+    </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROMISED ============ -->
+<section id="promised" class="tight"><div class="wrap">
+  <div class="head">
+    <span class="chip g mono">What we promised</span>
+    <h2>Every question from the proposal, <span class="red">answered</span></h2>
+    <p>In the proposal we set out what this deep dive would answer. Here's each one, ticked off, with where to find it.</p>
+  </div>
+  <div class="promise">
+    <a class="pr" href="#launch"><i></i><div><b>🎬 4 launch videos, ready to film</b><span>A title, the thumbnail direction, and the hook scripted word for word with talking points underneath, for each one. Final thumbnail designs follow next week. Plus the outlined ideas for the uploads after launch.</span></div><em>Part 4</em></a>
+    <a class="pr" href="#positioning"><i></i><div><b>🧩 Positioning and the common thread</b><span>The single idea beyond the FBA label, which angle wins on the data, and what only you can say.</span></div><em>Part 1 and 3</em></a>
+    <a class="pr" href="#lever1"><i></i><div><b>🚦 The channel decision</b><span>New channel vs rename, with real examples, how we seed the launch without dragging FBA across, and what happens to the 290K channel.</span></div><em>Lever 1 and Part 5</em></a>
+    <a class="pr" href="#space"><i></i><div><b>🎨 Market and niche research</b><span>Who's winning, which topics and formats pull views, and the gap a real operator can own that a guru can't.</span></div><em>Part 2</em></a>
+    <a class="pr" href="#packaging"><i></i><div><b>🖼️ Packaging and CTR</b><span>What winning titles and thumbnails look like, and how you stop the scroll without leaning on a revenue number.</span></div><em>Part 2e</em></a>
+    <a class="pr" href="#plan"><i></i><div><b>🗺️ Strategic recommendations</b><span>The fastest-impact moves for launch, and a roadmap for the first 30 days, the first 5 to 10 uploads and months 3 to 6.</span></div><em>Part 5</em></a>
+  </div>
+  <p class="src">Every question gets a one-line answer in <a href="#answers">the table at the end</a>.</p>
+
+  <div class="tldr">
+    <div class="tl b"><h3>🧭 Who you are</h3><ol>
+      <li><b>Built from scratch, with no leg up.</b> An immigrant family, one room with five family members for two years, a 9-to-5, no business mind, businesses that failed; today three businesses with a team on a four-day week.</li>
+      <li><b>That's your unfair advantage.</b> You're proof that a real business doesn't need a leg up: no family money, no contacts, no business background. You're one step ahead of your viewer, and you give it all away for free.</li>
+      <li><b>Your current channel is the operator version:</b> FBA how-to for sellers, found through search. It stays your Amazon asset.</li>
+    </ol></div>
+    <div class="tl y"><h3>🔍 What the space tells us</h3><ol>
+      <li><b>Learners, not operators.</b> Far more people want a business than run one: the top videos on starting a business get 34 to 40x the monthly views of growing or scaling ones, and the same creator's learner videos typically get 2x their operator videos.</li>
+      <li><b>What learners click:</b> life lessons is the biggest open gap (55.3K views a month, 53% outliers), then productivity and which business; the first steps and starting with nothing are your strongest clicks (1.75x and 1.52x).</li>
+      <li><b>How to present it:</b> years of experience in one video. Full courses (1.36x) and time-boxed titles (1.23x) lead across 77 business channels, at 15 to 25 minutes.</li>
+      <li><b>How to package it:</b> you in a place of authority, not the dashboard. Learner channels put an authority cue on 50% to 100% of their best thumbnails; your FBA channel, on 0%.</li>
+    </ol></div>
+    <div class="tl g"><h3>🪜 What we do</h3><ol>
+      <li><b>A new channel, built for one viewer:</b> successful professionals who want a business of their own.</li>
+      <li><b>Three pillars, 40 / 40 / 20:</b> Start From Nothing, Wisdom and Life Lessons, and Productivity and Time.</li>
+      <li><b>The levers on every video:</b> topics learners click, years of experience in one video, Promise → Stakes → Proof in the first 30 seconds, and your story as the unfair advantage.</li>
+      <li><b>A launch weekend:</b> two videos, Friday and Sunday, each pointing to the other, then one every Saturday. The 4 launch videos are ready to film.</li>
+    </ol></div>
+  </div>
+</div></section>
+
+<!-- ============ PART 1 ============ -->
+<section id="context"><div class="wrap">
+  <div class="head">
+    <span class="chip k mono">Part 1 · The Context</span>
+    <h2>A personal brand that gets <span class="red">15K+ views on every video</span> within 6&nbsp;months</h2>
+    <p>And moves people up the funnel to know you: your Facebook ads already bring the leads. This is a <b>new channel</b>. Your current channel stays as your Amazon FBA lead-gen asset (renamed, e.g. "Jatin Naran Business"), and the new one is the personal brand, for a broader audience.</p>
+  </div>
+
+  <div class="sub-head" style="margin-top:0">
+    <h3>What makes you different</h3>
+  </div>
+  <div class="g2">
+    <div class="card t-blue"><span class="col-label cobalt">🥊 Built from scratch, with no leg up</span><p>Your family moved to the UK with very little, and for two years you lived in one room with five family members. No business mind growing up, a 9-to-5, dyslexia, little money and no contacts. Property, an MLM, dropshipping and trading robots failed; so did your first two Amazon products. <b>The third one worked</b>, and today you run three businesses with a team on a four-day week.</p></div>
+    <div class="card t-blue"><span class="col-label cobalt">🤝 One step ahead, giving it away</span><p>Many successful people assume the founders they watch had a leg up: family money, contacts, a business background. You had none of it, and today you run three businesses doing <b>over $250K a month</b> together, after $1M in Amazon sales of your own, $2.5M in 10 months from the agency and coaching model, and <b>$7M+ in results for your clients</b>, most of it built alongside full-time jobs. On this channel you're one step ahead of your viewer, giving away everything you learned, for free.</p></div>
+  </div>
+  <p class="callout"><span class="hl">That's your unfair advantage.</span> Every video carries the story: in the hook as the stakes, on the thumbnail as the person who made it, and inside the video as the lessons it taught you.</p>
+
+  <div class="sub-head">
+    <h3>What we take from your current channel</h3>
+    <p>Your FBA channel is the operator version of you: Amazon how-to for sellers. It isn't where the new audience is, but it tells us <b>four things we build on</b>.</p>
+  </div>
+  <div class="g4">
+    <div class="card"><div class="num">1</div><h3>Why a new channel</h3><p><b>51%</b> of your engaged views came from search at the start of the year, led by "amazon fba", and only <b>1.1%</b> of your monthly viewers are regulars. Broad business videos get 0.8x your typical video; FBA how-to gets 1.26x.</p></div>
+    <div class="card"><div class="num">2</div><h3>Your hooks work when they follow one structure</h3><p>Your best 10 keep <b>70%</b> of viewers at 0:30, your worst 10 <b>58%</b>, and the best ones follow Promise → Stakes → Proof.</p></div>
+    <div class="card"><div class="num">3</div><h3>Full guides are your hits</h3><p>Complete and beginner guides made <b>4 of your 5</b> videos at 3x+.</p></div>
+    <div class="card"><div class="num">4</div><h3>Your biggest outlier already has the learner look</h3><p><i>The BEST Part-Time Business in 2026</i> (<b>11.5x</b>): you in a calm room with one idea. 90% of your other thumbnails are operator or mixed.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>Growth on YouTube</h3>
+    <p>What success looks like in 6 months: <b>15K+ views on every video</b> (your form). Everything on this page sits on top of these four.</p>
+  </div>
+  <div class="g4">
+    <div class="card t-green"><h3>🎯 The outlier format beats the topic</h3><p>A proven format on a good topic travels; a great topic in a weak format doesn't.</p></div>
+    <div class="card t-blue"><h3>⏱️ Watch time, not subscribers</h3><p>YouTube pushes videos people watch to the end. Subscribers follow.</p></div>
+    <div class="card t-yellow"><h3>📈 Consistency compounds</h3><p>One video a week, every week.</p></div>
+    <div class="card t-red"><h3>🧾 Authority plus proof beats advice alone</h3><p>Your receipts (real numbers, real businesses, real clients) are what separate you from the advice channels.</p></div>
+  </div>
+
+  <details class="more">
+    <summary><span class="lbl">🗒️ Our notes on you <small>Onboarding form, our calls and your podcast interviews</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <h4>The business</h4>
+      <ul>
+        <li><b>What it is:</b> Amazon FBA coaching and done-for-you, plus a hybrid agency and coaching business. Three businesses in total.</li>
+        <li><b>Who buys:</b> people building an Amazon business, most of them alongside a full-time job.</li>
+        <li><b>The business priority:</b> brand awareness. Facebook ads already bring leads (tracked in Hyros); YouTube's job is to make more people know and trust you.</li>
+      </ul>
+      <h4>The story</h4>
+      <ul>
+        <li>An immigrant family where "money was always a problem" (your words): your mum moved to the UK first, and you and your siblings followed years later. For two years after the move, you lived in one room with five family members.</li>
+        <li>No entrepreneurial mind growing up: as a child or a teenager, you never saw yourself as a business person.</li>
+        <li>Dyslexic: "one book takes me… two and a half months". You learn through podcasts and people instead, and call it a strength: "I would think of different ways I can do this rather than doing the same way as what everyone's doing."</li>
+        <li>Studied computer science with a 9-to-5 alongside, and didn't want "the next 40 years" of that.</li>
+        <li>Tried property at 18 to 19 (spent on courses, "never took any action"), then an MLM, dropshipping and Forex trading robots, before Amazon FBA at the end of 2020.</li>
+        <li>Failed your first 2 Amazon products, lost money and nearly quit. The third one changed everything.</li>
+        <li>Starting several businesses at once cost you 5 years.</li>
+        <li>Now: business owner, husband, family man and person of faith. Now lives in Dubai.</li>
+        <li>Works 4 days a week, mostly. "Success means more when you still have time to enjoy it."</li>
+        <li>Personality on camera: from multi-character comedy skits explaining money (2021 to 2023 TikToks, median 2.1M views) to calm talking head, tier lists and stage talks today.</li>
+      </ul>
+      <h4>The credibility</h4>
+      <ul>
+        <li>$1M in Amazon sales of your own</li>
+        <li>$7M+ in trackable client results, "most are doing it alongside their full time job"</li>
+        <li>3 businesses, over $250K a month combined</li>
+        <li>$2.5M in 10 months from the hybrid agency and coaching model</li>
+        <li>Audience elsewhere: TikTok 1.2M followers, Instagram 269K, YouTube 290K</li>
+      </ul>
+      <h4>Who you serve</h4>
+      <div class="script"><small>In your words</small>"I help ambitious professionals build a second income without creating a second job."</div>
+      <ul>
+        <li>"They earn well, are time-poor, and want a second income without a second job. Speak to the person one step behind me."</li>
+        <li>Viewer win: "Build a meaningful second income without creating another full-time job".</li>
+      </ul>
+      <div class="note-box">Added by us: on the new channel this moves on from "a second income" to <b>a business of your own</b> (see Part 3).</div>
+      <h4>How you want to show up</h4>
+      <div class="g2">
+        <div class="card do t-green"><span class="col-label green">Do</span><ul class="doc-l"><li>Show receipts</li><li>Lead with story, then the lesson</li><li>Show the whole person</li><li>Frame business as ownership and freedom</li><li>Show the machine (systems, teams, numbers)</li><li>Calm and confident, "an operator, not a hype man"</li><li>About 80% identity-rich content, 20% pure how-to</li></ul></div>
+        <div class="card dont t-red"><span class="col-label red">Don't</span><ul class="doc-l"><li>Guru or get-rich-quick energy</li><li>Lambos, cash fanning or fake urgency</li><li>"Quit your job" or "escape the 9 to 5"</li><li>Hustle-porn: "The whole point is building big without burning your life down"</li><li>Clickbait</li><li>Being seen as "the Amazon guy". You feel like an imposter on personal finance and on e-commerce outside Amazon</li></ul></div>
+      </div>
+    </div>
+  </details>
+</div></section>
+
+<!-- ============ PART 2 ============ -->
+<section id="space"><div class="wrap">
+  <div class="head">
+    <span class="chip g mono">Part 2 · What the Space Tells Us</span>
+    <h2>The key insight: <span class="red">learners, not operators</span></h2>
+    <p>Business YouTube talks to two groups. Beginners chasing a quick win get side hustles, AI tools and "the laziest way to make money". Operators already running a business get hiring, systems and scaling. The far bigger group in between, <b>people who want a real business of their own</b>, gets neither.</p>
+  </div>
+  <div class="vs">
+    <div class="stat win"><strong>34–40x</strong><span>more monthly views for the top videos on <b>starting</b> a business (28.8K) than on growing or scaling one (724 to 842)</span></div>
+    <div class="vs-mid">and</div>
+    <div class="stat win"><strong>2x</strong><span>same creator, same channel: learner videos vs their operator videos (Alex Hormozi, Matt Gray, Will Barron: 2.0x to 2.2x)</span></div>
+  </div>
+  <div class="g2" style="max-width:820px;margin:18px auto 0;text-align:center">
+    <div class="stat"><strong class="green">84x</strong><span><i>If I had to Start A Business With Zero Money, I'd do THIS</i> (Brandon Dawson), against his own channel's typical video</span></div>
+    <div class="stat"><strong class="green">4–6x</strong><span>more subscribers per 1,000 views on Daniel Priestley's learner videos (24 to 39) than his operator ones (6.5)</span></div>
+  </div>
+  <p class="src">Across 6,006 videos from 77 business channels, starting titles get 1.44x their channel's typical video; growing titles 0.98x and scaling 0.75x.</p>
+  <p class="callout">That's your lane: <span class="hl">real business wisdom for learners</span>, from someone who started with nothing.</p>
+  <p class="src">Part 2 answers five questions in order: a) who to talk to, b) what they click, c) who's winning with them, d) how to present it, and e) how to package it.</p>
+
+  <!-- a -->
+  <div class="sub-head">
+    <span class="part">a) Who to talk to</span>
+    <h3>Far more people want a business than run one, and they click more</h3>
+    <p>On every channel in this doc that makes both, learner titles beat operator titles, typically by <b>2.0x</b>, and most of the big names barely make operator videos at all.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/learner_operator.jpg" alt="Learner vs operator titles on the same channel" loading="lazy"><figcaption>The same creator, a different viewer: inside one channel the face, the production and the audience stay the same, and only the viewer the title speaks to changes.</figcaption></figure>
+  <div class="g2" style="margin-top:20px">
+    <div class="card"><h3>All 5 channels that make both win with learners</h3><p>Matt Gray (2.2x), Will Barron (2.2x), Alex Hormozi (2.0x), Natalie Dawson (1.7x) and Ross Harkness (1.3x). Alex Hormozi's learner videos typically get 1.21x his usual (<i>If I Started A Business in 2026, I'd Do This</i>, 2.1M views), his "helping business owners scale" videos <b>0.60x</b>.</p></div>
+    <div class="card"><h3>The biggest names mostly don't make operator videos at all</h3><p>Simon Squibb, Ali Abdaal and Mark Tilbury made none in the last year; Dan Martell, Leila Hormozi, Codie Sanchez and Daniel Priestley one or two each. Across all 14 channels, operator titles are 13% of uploads and typically get <b>0.61x</b>, against 1.08x for everything else.</p></div>
+  </div>
+  <div class="card t-yellow" style="margin-top:20px"><h3>The same split on Daniel Priestley's channel</h3><p>Broad learner promises ("make your first $1M", "Give Me 29 Minutes") brought most of his 200K subscribers; operator topics (hiring, selling a business) turned the fewest viewers into subscribers: <b>6.5 per 1,000</b>, against 24 to 39 for the winners.</p></div>
+  <p class="src">Long-form only, 1 Nov 2025 to 27 Oct 2026; each video vs its channel's median (public views). Operator = only for someone already running a business (teams, hiring, scaling, owners with revenue); learner = everything else.</p>
+
+  <!-- b -->
+  <div class="sub-head">
+    <span class="part">b) What they click</span>
+    <h3>Starting a business draws the most searches and the best clicks</h3>
+    <p>Business YouTube splits by where the viewer is. Starting a business: <b>28.8K</b> views a month for a typical top-20 video, and its titles get <b>1.44x</b>. Every stage after it is searched far less.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/stage_niches.jpg" alt="Business stages: search demand and how videos do" loading="lazy"><figcaption>Left: how much each stage gets searched. Right: how each stage's videos do against their own channel's usual video, across 6,006 videos from 77 business channels.</figcaption></figure>
+  <div class="g4" style="margin-top:20px">
+    <div class="card"><span class="col-label" style="color:var(--ink-50)">The quick win</span><h3>27.6K · 1.38x</h3><p>Side hustles, AI income, passive income. Its tactics fill 203 of the 278 starting titles. The promise is a fast buck: <b>not your viewer</b>.</p></div>
+    <div class="card t-green" style="border:1.5px solid var(--green)"><span class="col-label green">Our niche</span><h3>Starting a business · 28.8K · 1.44x</h3><p>28% become 3x+ outliers. Real-business titles with no AI or ideas-list angle still get <b>1.36x</b>. Channels under 100K make 37% of its top 20.</p></div>
+    <div class="card"><span class="col-label cobalt">The first $100K</span><h3>1.7K · 1.37x</h3><p>Searched far less, but its few titles click. It's where your story turned, so it gets a smaller share.</p></div>
+    <div class="card"><span class="col-label red">The operators</span><h3>724 to 842 · 0.98x and 0.75x</h3><p>Growing and scaling: tiny searches, titles at or below the channel's usual.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>The 15 topics, scored the 1of10 way</h3>
+    <p><b>Which business</b> (57% outliers), <b>life lessons</b> (53%) and <b>productivity</b> (47%) make the most outliers. For your real-business version, the first steps (1.75x) and starting with nothing (1.52x) are the strongest topics among the 77 business channels.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/topic_outliers.jpg" alt="Outlier rates for the 15 topics" loading="lazy"><figcaption>Every video in the top 20 of each topic's searches: its views ÷ its own channel's median. Left, the share at 3x+ (10x+ in brackets); right, the typical score.</figcaption></figure>
+  <div class="formulas" style="margin-top:20px">
+    <div class="fx up"><strong>57%</strong><span><b>Which business</b>Though the ideas lists carry it: real-business titles get 1.07x</span></div>
+    <div class="fx up"><strong>53%</strong><span><b>Life lessons</b>The biggest topic: 55.3K views a month</span></div>
+    <div class="fx up"><strong>47%</strong><span><b>Productivity</b>And the one business channels make that clicks (1.33x)</span></div>
+    <div class="fx up"><strong>45%</strong><span><b>First customers and wealth mindset</b>First customers is barely made: 6 titles across 77 channels</span></div>
+    <div class="fx up"><strong>1.75x</strong><span><b>The first steps (real-business titles)</b>Your strongest click; fewer outliers in search (36%)</span></div>
+    <div class="fx up"><strong>1.52x</strong><span><b>Starting with nothing</b>Your story; 27% outliers in search</span></div>
+    <div class="fx mid"><strong>42%</strong><span><b>AI and early-days money</b>AI stays a tool inside the videos</span></div>
+    <div class="fx dn"><strong>21%</strong><span><b>Should I start, the job, the founder's mindset</b>The fewest outliers (21% to 22%)</span></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>Rising and fading</h3>
+    <p>People search YouTube less for how to start a business than a year ago ("how to start a business" <b>down 24%</b>). Only AI (+41%) and personal brand (+22%) are up. So the new channel can't count on search: <b>it has to win the click on browse and suggested.</b></p>
+  </div>
+  <figure class="fig"><img src="assets/dd/rising_fading.jpg" alt="Search trends by topic" loading="lazy"></figure>
+
+  <div class="g2" style="margin-top:28px">
+    <div class="card do t-green"><span class="col-label green">💡 The topics to own</span>
+      <ul class="doc-l">
+        <li><span><b>The first steps and starting with nothing, through to the first $100K:</b> your strongest clicks (1.75x and 1.52x; the first $100K 1.37x), and your own story.</span></li>
+        <li><span><b>Which business, told through real businesses:</b> the most outliers (57%), carried by lists. Pillar 1.</span></li>
+        <li><span><b>Life lessons and productivity:</b> big, broad and full of outliers (53% and 47%). Life lessons is Pillar 2; productivity, with your four-day week as the proof, is Pillar 3.</span></li>
+        <li><span><b>AI as a tool inside the business,</b> not the headline.</span></li>
+      </ul>
+    </div>
+    <div class="card dont t-red"><span class="col-label red">Leave out</span>
+      <ul class="doc-l">
+        <li>Side hustles and beginner tactics</li>
+        <li>E-commerce and dropshipping</li>
+        <li>"Escape your job" (0.56x)</li>
+        <li>Generic money-mindset titles from business channels (0.81x); wealth told through access or an outcome stays, in Pillar 2</li>
+        <li>How-to for founders past $100K (0.98x) or $1M (0.75x)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-head">
+    <h3>Where a new channel gets in</h3>
+    <p>A brand-new channel gets in where small channels already get seen. Four topics are big and open to them: <b>life lessons, productivity, wealth mindset and which business</b>. There, a small channel's video in the top 20 typically gets 9.7K to 21.4K views a month, and more than half out-view their own subscriber count.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/gap_map.jpg" alt="Gap map: demand vs room for a newcomer" loading="lazy"><figcaption>Colours = the pillar each topic feeds (blue Pillar 1, purple Pillar 2, green Pillar 3). Further right = more demand; higher = more room for a newcomer. Bubble size = the share of small-channel videos that got more views than the channel has subscribers.</figcaption></figure>
+  <div class="g3" style="margin-top:20px">
+    <div class="card t-green"><h3>The open gaps</h3><p>Life lessons, productivity, wealth mindset and which business: <b>58% to 70%</b> of small-channel videos break out.</p></div>
+    <div class="card t-yellow"><h3>Big but harder for a newcomer</h3><p>Confidence (25.0K demand, small channels get 3.4K) and AI (35.7K demand, small channels get <b>1.4K</b>).</p></div>
+    <div class="card t-blue"><h3>So</h3><p>A new channel gets seen first on life lessons and wealth mindset (Pillar 2), productivity (Pillar 3) and which business (Pillar 1). AI stays a tool inside the videos.</p></div>
+  </div>
+  <details class="more">
+    <summary><span class="lbl">The numbers <small>All 15 topics</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <div class="tbl-wrap"><table>
+        <tr><th>Topic</th><th>Demand (views a month)</th><th>Room: small channels</th><th>Breakout rate</th><th>Top 20 from 1M+ channels</th></tr>
+        <tr><td>15. Life lessons and discipline</td><td class="n"><b>55.3K</b></td><td class="n">21.4K (44 videos)</td><td class="n">59%</td><td class="n">40%</td></tr>
+        <tr><td>10. AI as a tool to start</td><td class="n">35.7K</td><td class="n">1.4K (28 videos)</td><td class="n">32%</td><td class="n">38%</td></tr>
+        <tr><td>13. Productivity and time</td><td class="n">26.4K</td><td class="n">17.9K (45 videos)</td><td class="n">62%</td><td class="n">19%</td></tr>
+        <tr><td>11. Confidence and self-belief</td><td class="n">25.0K</td><td class="n">3.4K (34 videos)</td><td class="n">47%</td><td class="n">29%</td></tr>
+        <tr><td>14. Wealth and money mindset</td><td class="n">17.2K</td><td class="n">11.2K (73 videos)</td><td class="n">58%</td><td class="n">22%</td></tr>
+        <tr><td>2. Which business?</td><td class="n">14.3K</td><td class="n">9.7K (33 videos)</td><td class="n"><b>70%</b></td><td class="n">20%</td></tr>
+        <tr><td>12. Personal brand</td><td class="n">6.4K</td><td class="n">2.4K (61 videos)</td><td class="n">31%</td><td class="n">13%</td></tr>
+        <tr><td>5. First customers</td><td class="n">2.5K</td><td class="n">1.7K (54 videos)</td><td class="n">33%</td><td class="n">13%</td></tr>
+        <tr><td>4. The first steps</td><td class="n">1.9K</td><td class="n">1.2K (49 videos)</td><td class="n">43%</td><td class="n">24%</td></tr>
+        <tr><td>6. Money in the early days</td><td class="n">1.7K</td><td class="n">1.4K (68 videos)</td><td class="n">38%</td><td class="n">13%</td></tr>
+        <tr><td>3. Starting with nothing</td><td class="n">1.5K</td><td class="n">654 (40 videos)</td><td class="n">18%</td><td class="n">25%</td></tr>
+        <tr><td>8. Surviving the first years</td><td class="n">351</td><td class="n">1.1K (51 videos)</td><td class="n">31%</td><td class="n">13%</td></tr>
+        <tr><td>7. Your job and your business</td><td class="n">108</td><td class="n">307 (50 videos)</td><td class="n">24%</td><td class="n">11%</td></tr>
+        <tr><td>1. Should I start?</td><td class="n">60</td><td class="n">296 (47 videos)</td><td class="n">23%</td><td class="n">7%</td></tr>
+        <tr><td>9. The founder's mindset</td><td class="n">40</td><td class="n">296 (43 videos)</td><td class="n">16%</td><td class="n">13%</td></tr>
+      </table></div>
+      <p class="src" style="text-align:left">Long-form only, last 365 days (14+ days old), signed out, US English, public views a month, pulled 10 Nov 2026. Small channels = 1K to 100K subscribers. Search results are a proxy for browse and suggested, where your channel will grow.</p>
+    </div>
+  </details>
+
+  <!-- c -->
+  <div class="sub-head">
+    <span class="part">c) Who's winning with them</span>
+    <h3>Your competitive set</h3>
+    <p>The quickest way to know what will work on your channel is to <b>look at channels already winning with a similar audience</b>. When the same pattern wins on several channels, it's a proven idea we can bring to yours, not a guess.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/comp_space_cards.jpg" alt="The six channels in the competitive set" loading="lazy"></figure>
+
+  <div class="comp-list">
+  <details class="more">
+    <summary><span class="lbl">Will Barron <small>Under 100K · 6 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_will.jpg" alt="Will Barron's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/@wbarron" target="_blank" rel="noopener">Will Barron</a> · 18.3K subscribers · 38 long-form videos in 365 days · typical 8.5K views (0.47 per subscriber) · 16.2 min median length</p>
+      <p><b>Niche:</b> growing a service business (sales, systems, clients). Most of it is business made simple, which works for someone who has just started too: 28 of 38 titles, and all 6 outliers. What trails is how-to for owners with a sales team or past $1M (0.6x).</p>
+      <p><b>Why it's in the set:</b> it's the voice you want ("an operator, not a hype man"), and it proves that voice travels without an audience: under 100K subscribers, yet the typical video reaches 0.47 views per subscriber. We borrow the tone and the framing, not the topic.</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/8IK0ttGnc1o" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/8IK0ttGnc1o.jpg" alt="" loading="lazy"></div><b>Growing a Business Isn't Hard. It's Misunderstood.</b><small>213K views · <span class="x">24.9x</span> · 14 min</small></a>
+        <a class="v" href="https://youtu.be/MO3vBmrYyHI" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/MO3vBmrYyHI.jpg" alt="" loading="lazy"></div><b>Running Business is Hard Untill You Focus on These 4 Tasks</b><small>170K views · <span class="x">19.9x</span> · 17 min</small></a>
+        <a class="v" href="https://youtu.be/ltI6fVjNCSk" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ltI6fVjNCSk.jpg" alt="" loading="lazy"></div><b>If You Only Watch One Business Video, Make It This</b><small>141K views · <span class="x">16.5x</span> · 24 min</small></a>
+        <a class="v" href="https://youtu.be/5swDtQFyIws" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/5swDtQFyIws.jpg" alt="" loading="lazy"></div><b>If You Don't Understand Sales Systems, You Don't Understand Business</b><small>96K views · <span class="x">11.2x</span> · 24 min</small></a>
+        <a class="v" href="https://youtu.be/DFLdvi_hBSE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/DFLdvi_hBSE.jpg" alt="" loading="lazy"></div><b>The Psychology of Building a Successful Service Business</b><small>93K views · <span class="x">10.9x</span> · 20 min</small></a>
+        <a class="v" href="https://youtu.be/lf5JpYadExM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/lf5JpYadExM.jpg" alt="" loading="lazy"></div><b>Coaching Over 1000 Business Owners Taught Me This</b><small>75K views · <span class="x">8.8x</span> · 17 min</small></a>
+      </div>
+      <h4>Title formulas that worked</h4>
+      <ul><li><b>Running a business is simple, once you see it:</b> Growing a Business Isn't Hard. It's Misunderstood. (24.9x)</li><li><b>If you only watch one video, make it this</b> (16.5x)</li><li><b>Experience as proof:</b> Coaching Over 1000 Business Owners Taught Me This (8.8x)</li></ul>
+      <h4>Patterns</h4>
+      <ul><li>A calm, experienced operator at a whiteboard; the hits make running a business feel simple</li><li>Narrow how-to (pricing, CRM, leads, prospects) sits at 0.1 to 0.4x</li><li>Most views come from people who don't follow the channel</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">Ross Harkness <small>Under 100K · 9 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_ross.jpg" alt="Ross Harkness's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/channel/UCCKLNC83b571kYbaizPOs_w" target="_blank" rel="noopener">Ross Harkness</a> · 74K subscribers · 50 long-form videos in 365 days · typical 4.5K views · 12.1 min median length</p>
+      <p><b>Niche:</b> running a business with systems, and managing your time. The time and productivity titles work for anyone, starting or not: 29 of 50 titles and 6 of 9 outliers. The systems-for-a-team titles are for owners who already have one (0.89x).</p>
+      <p><b>Why it's in the set:</b> it's the productivity gap from our topic research, done by an operator. We borrow the productivity topic and his "is hard until" titles, not the systems-for-established-owners audience.</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/h_VhZs4fX8o" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/h_VhZs4fX8o.jpg" alt="" loading="lazy"></div><b>How to be so productive it feels illegal</b><small>174K views · <span class="x">38.5x</span> · 19 min</small></a>
+        <a class="v" href="https://youtu.be/GetUViFjCOM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/GetUViFjCOM.jpg" alt="" loading="lazy"></div><b>How to build systems so good, your business runs itself</b><small>165K views · <span class="x">36.6x</span> · 11 min</small></a>
+        <a class="v" href="https://youtu.be/vDvj0m4XX4Q" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/vDvj0m4XX4Q.jpg" alt="" loading="lazy"></div><b>Business is hard until you focus on these 3 tasks</b><small>141K views · <span class="x">31.4x</span> · 10 min</small></a>
+        <a class="v" href="https://youtu.be/U9x_GUhRs5A" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/U9x_GUhRs5A.jpg" alt="" loading="lazy"></div><b>I'm begging you to manage your time like this</b><small>110K views · <span class="x">24.3x</span> · 11 min</small></a>
+        <a class="v" href="https://youtu.be/1u5zhnq8N7w" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/1u5zhnq8N7w.jpg" alt="" loading="lazy"></div><b>Business is hard until you manage your time like this</b><small>50K views · <span class="x">11.1x</span> · 8 min</small></a>
+        <a class="v" href="https://youtu.be/1fYQOCTlySY" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/1fYQOCTlySY.jpg" alt="" loading="lazy"></div><b>Business is hard until you organise it like this</b><small>23K views · <span class="x">5.1x</span> · 10 min</small></a>
+      </div>
+      <h4>Title formulas that worked</h4>
+      <ul><li><b>[Business] is hard until you [do this]:</b> 31.4x, 11.1x, 5.1x</li><li><b>So good it feels illegal</b> (38.5x)</li><li><b>I'm begging you to [do this]</b> (24.3x)</li><li><b>So good, your business runs itself</b> (36.6x)</li></ul>
+      <h4>Patterns</h4>
+      <ul><li>Productivity and time titles do slightly better than his systems titles (1.03x vs 0.97x), and take two of his top four</li><li>The same formula over and over ("Business is hard until you...", 17 titles): a few break out, most sit under his typical video</li><li>The hits are short for the set: 8 to 19 minutes</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">Matt Gray <small>Over 100K · 18 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_matt.jpg" alt="Matt Gray's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/channel/UChYHKRass0kZvBkVKQuZElQ" target="_blank" rel="noopener">Matt Gray</a> · 293K subscribers · 84 long-form videos in 365 days · typical 17K views · 17.1 min median length</p>
+      <p><b>Niche:</b> personal brand and content for founders, plus discipline and self-improvement. Almost all of it applies to someone building from scratch: 68 of 84 titles and 17 of 18 outliers. What trails is advice for owners with teams and $4M+ businesses (0.54x).</p>
+      <p><b>Why it's in the set:</b> a founder who covers three of our 15 topics beyond starting (discipline, productivity, personal brand) in an operator's voice, and the strongest user of the time-boxed format in the set. We borrow the discipline topic and the time-boxed titles; his personal-brand how-tos sit under his typical video (0.83x).</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/-eS14mBhnhA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/-eS14mBhnhA.jpg" alt="" loading="lazy"></div><b>how to force yourself to be consistent and do hard things</b><small>607K views · <span class="x">36.3x</span> · 13 min</small></a>
+        <a class="v" href="https://youtu.be/0H4uouOn7lI" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/0H4uouOn7lI.jpg" alt="" loading="lazy"></div><b>how to BEAT the new LinkedIn algorithm in 16 minutes</b><small>316K views · <span class="x">18.9x</span> · 17 min</small></a>
+        <a class="v" href="https://youtu.be/lRe3iKyAXQA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/lRe3iKyAXQA.jpg" alt="" loading="lazy"></div><b>If You Only Watch One Personal Brand Video, Make It This</b><small>177K views · <span class="x">10.6x</span> · 16 min</small></a>
+        <a class="v" href="https://youtu.be/CQVBR5oVc-A" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/CQVBR5oVc-A.jpg" alt="" loading="lazy"></div><b>business is hard until you design it like this</b><small>163K views · <span class="x">9.7x</span> · 30 min</small></a>
+        <a class="v" href="https://youtu.be/uyeRi2Lc954" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/uyeRi2Lc954.jpg" alt="" loading="lazy"></div><b>The 5 levels of business in 12 minutes</b><small>140K views · <span class="x">8.4x</span> · 13 min</small></a>
+        <a class="v" href="https://youtu.be/9oRWxopIQ9o" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/9oRWxopIQ9o.jpg" alt="" loading="lazy"></div><b>if you don't understand Elon Musk, you don't understand business</b><small>137K views · <span class="x">8.2x</span> · 20 min</small></a>
+      </div>
+      <h4>Title formulas that worked</h4>
+      <ul><li><b>[N] levels / [topic] in [N] minutes:</b> 8.4x, 18.9x, 3.9x</li><li><b>How to force yourself to [do the hard thing]</b> (36.3x)</li><li><b>If you only watch one [X] video, make it this</b> (10.6x)</li><li><b>If you don't understand [X], you don't understand business</b> (8.2x)</li></ul>
+      <h4>Patterns</h4>
+      <ul><li>Discipline and self-improvement is his smallest sub-niche (18% of videos) but his best (1.62x)</li><li>Personal brand is what he makes most (43%), and it sits under his typical video (0.83x)</li><li>1.7 long-form videos a week: the most in the set</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">Michia Rohrssen <small>Over 100K · 8 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_michia.jpg" alt="Michia Rohrssen's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/@askmichia" target="_blank" rel="noopener">Michia Rohrssen</a> · 112K subscribers · 22 long-form videos in 365 days · typical 14K views · 14.5 min median length</p>
+      <p><b>Niche:</b> starting a business and business with AI, from a founder with a $110M exit, plus wealth. 15 of 22 titles speak to someone starting, with 7 of 8 outliers; the founder-life vlogs trail (0.41x).</p>
+      <p><b>Why it's in the set:</b> the topics overlap ours (starting a business, AI), but the channel doesn't show up in our niche searches; added by us. It shows how a founder's proof (the $110M exit) and hands-on Claude videos land, next to wealth-gap hooks.</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/18Vg_z0QTa4" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/18Vg_z0QTa4.jpg" alt="" loading="lazy"></div><b>If you didn't have rich parents, please watch this</b><small>257K views · <span class="x">18.0x</span> · 15 min</small></a>
+        <a class="v" href="https://youtu.be/-O6MEtleOdA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/-O6MEtleOdA.jpg" alt="" loading="lazy"></div><b>How to make Claude Code less dumb</b><small>211K views · <span class="x">14.8x</span> · 17 min</small></a>
+        <a class="v" href="https://youtu.be/ctk7JQ1pv4k" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ctk7JQ1pv4k.jpg" alt="" loading="lazy"></div><b>How I'm building a $1b empire in Japan</b><small>159K views · <span class="x">11.1x</span> · 16 min</small></a>
+        <a class="v" href="https://youtu.be/6rYqmyjHU4o" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/6rYqmyjHU4o.jpg" alt="" loading="lazy"></div><b>What billionaires know that millionaires don't</b><small>131K views · <span class="x">9.2x</span> · 12 min</small></a>
+        <a class="v" href="https://youtu.be/_t9RoEUDUPQ" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_t9RoEUDUPQ.jpg" alt="" loading="lazy"></div><b>How the Top 0.001% Build Wealth Faster Than Everybody Else</b><small>129K views · <span class="x">9.0x</span> · 18 min</small></a>
+        <a class="v" href="https://youtu.be/Tz881ee0f8M" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/Tz881ee0f8M.jpg" alt="" loading="lazy"></div><b>Watch me launch a million dollar startup with AI (live)</b><small>90K views · <span class="x">6.3x</span> · 22 min</small></a>
+      </div>
+      <h4>Title formulas that worked</h4>
+      <ul><li><b>A wealth-gap hook:</b> If you didn't have rich parents, please watch this (18.0x) · What billionaires know that millionaires don't (9.2x)</li><li><b>Claude, hands-on:</b> 14.8x and 6.3x</li><li><b>Building in public:</b> How I'm building a $1b empire in Japan (11.1x)</li></ul>
+      <h4>Patterns</h4>
+      <ul><li>Wealth-gap titles and hands-on Claude videos win; founder-life vlogs and travel sit at 0.2 to 0.7x</li><li>A face with one short line, and the $110M exit as proof</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">Daniel Priestley <small>Over 100K · 4 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_daniel.jpg" alt="Daniel Priestley's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/@danielpriestley" target="_blank" rel="noopener">Daniel Priestley</a> · 211K subscribers · 19 long-form videos in 365 days · typical 87K views (0.41 per subscriber) · 18.4 min median length</p>
+      <p><b>Niche:</b> business wisdom for founders at every stage. Most of it applies to someone starting or just started: 16 of 19 titles in the last 12 months, and all 4 outliers. Selling a business and hiring trail (0.21x).</p>
+      <p><b>Why it's in the set:</b> you named him as a reference. He's the calm, credible authority you want to project. We borrow the authority and the "N years of knowledge in N minutes" format, not the founder topics.</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/tVLnzcoM5LE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/tVLnzcoM5LE.jpg" alt="" loading="lazy"></div><b>25 Years of Sales Knowledge in 34 Minutes</b><small>636K views · <span class="x">7.3x</span> · 34 min</small></a>
+        <a class="v" href="https://youtu.be/fymfTFftN-g" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/fymfTFftN-g.jpg" alt="" loading="lazy"></div><b>What I Learned From Being Around The Top 0.01%</b><small>512K views · <span class="x">5.9x</span> · 22 min</small></a>
+        <a class="v" href="https://youtu.be/QI_aGzPUOK8" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/QI_aGzPUOK8.jpg" alt="" loading="lazy"></div><b>How to Become Famous in Your Industry (and Make $1 Million)</b><small>325K views · <span class="x">3.7x</span> · 15 min</small></a>
+        <a class="v" href="https://youtu.be/D8RFe2_kOlA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/D8RFe2_kOlA.jpg" alt="" loading="lazy"></div><b>Why You Must Build a Personal Brand</b><small>290K views · <span class="x">3.3x</span> · 17 min</small></a>
+        <a class="v" href="https://youtu.be/m_D2yOUapNQ" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/m_D2yOUapNQ.jpg" alt="" loading="lazy"></div><b>How to Get Attention from Rich People</b><small>136K views · 1.6x · 19 min</small></a>
+        <a class="v" href="https://youtu.be/cOBCjNXl4LE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/cOBCjNXl4LE.jpg" alt="" loading="lazy"></div><b>How to Generate So Many Leads, You Can Double Your Prices</b><small>142K views · 1.6x · 20 min</small></a>
+      </div>
+      <h4>Title formulas that worked</h4>
+      <ul><li><b>N years of knowledge in N minutes:</b> 25 Years of Sales Knowledge in 34 Minutes (7.3x)</li><li><b>Access to the top tier:</b> What I Learned From Being Around The Top 0.01% (5.9x)</li></ul>
+      <h4>Patterns</h4>
+      <ul><li>Only 19 long-form videos in 365 days, median 87K views</li><li>The same format on money (25 Years of Money Advice in 31 Minutes) got 0.4x</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">Deya <small>Over 100K · 2 videos at 3x+</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/comp_deya.jpg" alt="Deya's channel" loading="lazy"></figure>
+      <p class="meta-line"><a href="https://www.youtube.com/@MyNameIsDeya" target="_blank" rel="noopener">Deya</a> · 249K subscribers · 8 long-form videos in 365 days · typical 53K views · 18.1 min median length</p>
+      <p><b>Niche:</b> starting a business and side income, plus self-education and creativity. 6 of 8 titles speak to someone starting, including both outliers.</p>
+      <p><b>Why it's in the set:</b> one of the few channels in the set inside your niche, with a calm, self-taught voice for ambitious young professionals. She posts rarely, so each video is big.</p>
+      <div class="vgrid">
+        <a class="v" href="https://youtu.be/qITpEEGskck" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/qITpEEGskck.jpg" alt="" loading="lazy"></div><b>I studied creativity for 365 days &amp; here's what I learned.</b><small>626K views · <span class="x">11.7x</span> · 27 min</small></a>
+        <a class="v" href="https://youtu.be/eYym3GXaWfs" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/eYym3GXaWfs.jpg" alt="" loading="lazy"></div><b>High-Income Skills Anyone can Learn to Make $5K/month in 2026</b><small>431K views · <span class="x">8.1x</span> · 17 min</small></a>
+        <a class="v" href="https://youtu.be/S5zVIvsAKLM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/S5zVIvsAKLM.jpg" alt="" loading="lazy"></div><b>Businesses I Would Start in 2026 (If I Had to Start Over)</b><small>120K views · 2.2x · 20 min</small></a>
+        <a class="v" href="https://youtu.be/JEbpzybCeZ8" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/JEbpzybCeZ8.jpg" alt="" loading="lazy"></div><b>the only way to hit 100k subs on YouTube in 2027</b><small>76K views · 1.4x · 16 min</small></a>
+        <a class="v" href="https://youtu.be/SE401zf_fgM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/SE401zf_fgM.jpg" alt="" loading="lazy"></div><b>don't try to start a $1M business, start a side quest instead.</b><small>31K views · 0.6x · 16 min</small></a>
+        <a class="v" href="https://youtu.be/J24Z91Wk8oQ" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/J24Z91Wk8oQ.jpg" alt="" loading="lazy"></div><b>how to study business WITHOUT business school (my full curriculum)</b><small>29K views · 0.5x · 27 min</small></a>
+      </div>
+      <h4>Patterns</h4>
+      <ul><li>Calm titles, often lower case, and a short line on the thumbnail</li><li>The long how-to builds trail: <i>how I'd start a $100k/year business in 2027</i> (42 min, 0.43x)</li></ul>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary><span class="lbl">The big dogs <small>8 channels at the top, and why they aren't the competitor set</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <div class="tbl-wrap"><table>
+        <tr><th>Channel</th><th>Size</th><th>What to take</th><th>What to refuse</th></tr>
+        <tr><td><b>Mark Tilbury</b></td><td class="n">9.4M</td><td>The experiment format: <i>I Tried The LAZIEST Way to Make Money With AI</i></td><td>Mass-market "make money" with no audience filter</td></tr>
+        <tr><td><b>Alex Hormozi</b></td><td class="n">4.6M</td><td>Authority with numbers as proof; his learner videos (1.21x his usual)</td><td>Hustle and volume energy</td></tr>
+        <tr><td><b>Dan Martell</b></td><td class="n">3.2M</td><td>"Buy back your time", the closest big name to working less</td><td>Speaking to founders who already have a team</td></tr>
+        <tr><td><b>Simon Squibb</b></td><td class="n">2.5M</td><td>The warmth and the push to start</td><td>The street-interview and dreamer framing</td></tr>
+        <tr><td><b>Ali Abdaal</b></td><td class="n">6.7M</td><td>Evidence-based and calm, for ambitious professionals. <b>The main reference</b></td><td>The student and gear era</td></tr>
+        <tr><td><b>Codie Sanchez</b></td><td class="n">2.3M</td><td>Business wisdom with a big promise; making "boring" businesses aspirational</td><td>"Buy a business instead of starting one", the opposite of your promise</td></tr>
+        <tr><td><b>Natalie Dawson</b></td><td class="n">1.1M</td><td>Aspiration and access made personal: <i>How to Small Talk with the Top 1%</i> (20.3x)</td><td>Guest interviews (0.16x to 0.25x), luxury and style</td></tr>
+        <tr><td><b>Leila Hormozi</b></td><td class="n">1.8M</td><td>Business wisdom as personal growth, time-boxed: <i>52 Minutes of Business Advice You Can't Afford to Ignore</i> (3.6x)</td><td>Operator how-to for teams (0.53x) and vlogs</td></tr>
+      </table></div>
+      <div class="note-box"><b>Why these channels aren't in our competitor set:</b> they sit at the top of a saturated space and sell big success and fast scale. Their names do a lot of the work, so their videos get clicked for who's in them, and that isn't how a new channel grows. Most built their audiences on older algorithm habits. So the competitor set above is channels growing today on the strength of their content.</div>
+    </div>
+  </details>
+  </div>
+
+  <div class="sub-head">
+    <h3>What wins across these 6 channels: years of experience, made simple, in one video</h3>
+    <p>Across the 6 channels, <b>162 of 221 titles (73%)</b> are useful to someone starting, and they hold <b>42 of the 47 outliers</b>. Titles only for established owners trail at 0.62x. Learners, not operators.</p>
+  </div>
+  <div class="g3">
+    <div class="card t-blue"><div class="num">1</div><h3>Years of experience, compressed</h3><p>Time-boxed titles get <b>2.72x</b> their channel's typical video with your competitors, and 1.23x across 221 videos on 77 business channels. <i>25 Years of Sales Knowledge in 34 Minutes</i> (7.3x).</p><div class="proof">For you: "what N years of building from nothing taught me", in one video</div></div>
+    <div class="card t-blue"><div class="num">2</div><h3>Make business feel simple</h3><p><i>Growing a Business Isn't Hard. It's Misunderstood.</i> (24.9x), <i>Business is hard until you focus on these 3 tasks</i> (31.4x). The "is hard until" title runs on 21 videos across 4 channels (1.20x).</p><div class="proof">For you: calm, clear, earned</div></div>
+    <div class="card t-blue"><div class="num">3</div><h3>Productivity and discipline, from someone living it</h3><p><i>How to be so productive it feels illegal</i> (38.5x), <i>how to force yourself to be consistent and do hard things</i> (36.3x).</p><div class="proof">For you: the four-day week, and how you run three businesses</div></div>
+    <div class="card t-blue"><div class="num">4</div><h3>Push people to start</h3><p><i>If I Started A Business in 2026, I'd Do This</i> (Alex Hormozi, 5.4x, 2.1M views). Starting titles get 1.44x, growing titles 0.98x.</p><div class="proof">For you: this is the lane nobody in the set owns</div></div>
+    <div class="card t-blue"><div class="num">5</div><h3>Access and collaborations</h3><p>Take the viewer into rooms they can't get into: <i>Everything I Learned From Being Around The Top 0.01%</i> (Natalie Dawson, 19.4x). Daniel's Diary of a CEO collab made his biggest subscriber month of the year (26K).</p><div class="proof">For you: your network on camera</div></div>
+    <div class="card t-red"><h3>What doesn't work</h3><p>Warnings and contrarian titles (0.83x), founder-life vlogs (0.2x to 0.7x), personal-brand how-tos (0.83x), and narrow how-to for owners who already run a business (0.1x to 0.4x).</p></div>
+  </div>
+
+  <details class="more">
+    <summary><span class="lbl">📈 Titles that blew up, things to steal, things to avoid <small>Part 2c</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <h4>Titles that blew up</h4>
+      <ul>
+        <li><b>Productivity and discipline:</b> <i>How to be so productive it feels illegal</i> (38.5x) · <i>how to force yourself to be consistent and do hard things</i> (36.3x) · <i>I'm begging you to manage your time like this</i> (24.3x) · <i>Business is hard until you manage your time like this</i> (11.1x)</li>
+        <li><b>Business made simple, by someone who did it:</b> <i>How to build systems so good, your business runs itself</i> (36.6x) · <i>Business is hard until you focus on these 3 tasks</i> (31.4x) · <i>Growing a Business Isn't Hard. It's Misunderstood.</i> (24.9x) · <i>If You Only Watch One Business Video, Make It This</i> (16.5x) · <i>25 Years of Sales Knowledge in 34 Minutes</i> (7.3x)</li>
+        <li><b>Wealth and ambition:</b> <i>If you didn't have rich parents, please watch this</i> (18.0x) · <i>How I'm building a $1b empire in Japan</i> (11.1x)</li>
+        <li><b>Experience and access:</b> <i>I studied creativity for 365 days &amp; here's what I learned.</i> (11.7x)</li>
+        <li><b>Personal brand:</b> <i>how to BEAT the new LinkedIn algorithm in 16 minutes</i> (18.9x) · <b>AI tested live:</b> <i>How to make Claude Code less dumb</i> (14.8x)</li>
+      </ul>
+      <div class="g2">
+        <div class="card do t-green"><span class="col-label green">✅ Things to steal</span><ul class="doc-l">
+          <li><span><b>Make it simple.</b> "Boring / simple" is in 11% of the space's top 20% vs 3% of the rest.</span></li>
+          <li><span><b>A push to start.</b> Starting titles 1.44x, growing 0.98x.</span></li>
+          <li><span><b>Earned credibility plus a real number, said calmly.</b> The classy version of money: results and time, not cash.</span></li>
+          <li><span><b>Experience, compressed.</b> 2.72x with your competitors.</span></li>
+          <li><span><b>AI as a tool, tested live.</b> 29% of the top 20% vs 10% of the rest.</span></li>
+          <li><span><b>Numbered lists:</b> 49% become 3x+ outliers, 74% for which business.</span></li>
+          <li><span><b>15 to 25 minutes.</b></span></li>
+        </ul></div>
+        <div class="card dont t-red"><span class="col-label red">❌ Things to avoid</span><ul class="doc-l">
+          <li><span><b>Quit / escape the 9-5.</b> Off-brand, and weak: 0.56x.</span></li>
+          <li><span><b>"Laptop / from home / online."</b> 0.5K vs 1.6K views a month.</span></li>
+          <li><span><b>Cars and flexing.</b> Everything you said no to.</span></li>
+          <li><span><b>Beginner tactics.</b> PDFs, one-person AI businesses, store setups.</span></li>
+          <li><span><b>Store-setup tutorials.</b> Median 0.7K a month.</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </details>
+
+  <!-- d -->
+  <div class="sub-head">
+    <span class="part">d) How to present it</span>
+    <h3>A topic gets the click when the title presents it right</h3>
+    <p>Across 6,006 videos from 77 business channels, four formats beat the channel's typical video. Your 6 competitors point the same way: time-boxed <b>2.72x</b>, full courses <b>1.34x</b>.</p>
+  </div>
+  <div class="formulas">
+    <div class="fx up"><strong>1.36x</strong><span><b>Full courses and step by step</b>537 videos</span></div>
+    <div class="fx up"><strong>1.34x</strong><span><b>Experiments ("I tried")</b>Across the 77 channels</span></div>
+    <div class="fx up"><strong>1.23x</strong><span><b>Time-boxed</b>"25 years of sales knowledge in 34 minutes", 221 videos</span></div>
+    <div class="fx up"><strong>1.13x</strong><span><b>Lists</b>74% outliers for which business</span></div>
+    <div class="fx mid"><strong>0.99x</strong><span><b>Plain promises</b>Average</span></div>
+    <div class="fx dn"><strong>0.61x</strong><span><b>Warnings (0.90x), commentary (0.67x), "lessons from experience" (0.61x)</b>These trail</span></div>
+  </div>
+  <figure class="fig" style="margin-top:20px"><img src="assets/dd/formats77.jpg" alt="Title formats across 77 business channels" loading="lazy"></figure>
+  <details class="more">
+    <summary><span class="lbl">🧩 The best format for each of the 15 topics <small>Part 2d</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <p>Scored the 1of10 way across the 15 topics, time-boxed titles make the most outliers (<b>65% at 3x+</b>, 37 videos), then lists (49%) and full courses (44%), against 38% for all topic videos.</p>
+      <figure><img src="assets/dd/topic_formats.jpg" alt="Best format per topic" loading="lazy"><figcaption>Each cell is the share of that topic's videos in that format that became 3x+ outliers. Green beats the topic's own rate, red trails it.</figcaption></figure>
+      <ul>
+        <li><b>Lists</b> win for which business (74%, 47 videos), the first steps (50%) and starting with nothing (38% against 27%); they trail for confidence (14%).</li>
+        <li><b>Full courses</b> win for first customers (58%), early-days money (53%) and AI (50%).</li>
+        <li><b>Plain "how to" promises</b> hold up in life lessons (59%), wealth mindset (53%) and personal brand (43%), but trail in which business (25%), early-days money (17%) and starting with nothing (15%).</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="sub-head">
+    <h3>Video length: aim for 15 to 25 minutes</h3>
+    <p>15 to 20 minutes is the best length, both with your competitors and across the 15 topics; 20 to 30 is close behind, and under 10 is the weakest in both. An occasional longer masterclass.</p>
+  </div>
+  <div class="g4">
+    <div class="stat" style="border-color:var(--green);box-shadow:0 0 0 3px var(--green-50)"><strong class="green">1.41x</strong><span>15 to 20 min with your competitors (34% at 3x+, 62 videos)</span></div>
+    <div class="stat"><strong>1.31x</strong><span>20 to 30 min with your competitors</span></div>
+    <div class="stat"><strong class="red">0.65x</strong><span>under 10 min: 45% land at the bottom</span></div>
+    <div class="stat"><strong>14 min</strong><span>your current typical length; 9 of 53 run 20+ minutes</span></div>
+  </div>
+  <figure class="fig" style="margin-top:20px"><img src="assets/dd/length_outliers.jpg" alt="Video length and outliers" loading="lazy"><figcaption>Outliers run longer than the bottom videos: 17 minutes vs 13 with your competitors, 17 vs 11 across the topics.</figcaption></figure>
+
+  <!-- e -->
+  <div class="sub-head" id="packaging">
+    <span class="part">e) How to package it</span>
+    <h3>Thumbnails for learners, not operators</h3>
+    <p>Your FBA thumbnails were built for operators, and they worked for them: dashboards, sales numbers, products and Amazon. Channels that speak to learners <b>put the person in a place of authority</b>, in a setting the viewer aspires to, with a few words that name the idea.</p>
+  </div>
+  <div class="vs">
+    <div class="stat win"><strong>50–100%</strong><span>of the learner channels' best thumbnails carry an authority cue</span></div>
+    <div class="vs-mid">vs</div>
+    <div class="stat lose"><strong>0%</strong><span>on your FBA channel's best</span></div>
+  </div>
+  <figure class="fig" style="margin-top:24px"><img src="assets/dd/thumb_styles.jpg" alt="Thumbnail styles by channel" loading="lazy"></figure>
+  <div class="g2" style="margin-top:20px">
+    <div class="card"><h3>The style follows the audience</h3><p>Competitors that talk to owners use mostly operator thumbnails (Ross Harkness 75%, Will Barron 69%); the channels that talk to people who want more from life use learner thumbnails (Michia Rohrssen 81%, Natalie Dawson and Leila Hormozi 83%).</p></div>
+    <div class="card"><h3>Inside each channel, authority separates the hits</h3><p>An authority cue (a premium office, a stage or mic, a city, famous people, books) sits on <b>34%</b> of the competitors' best thumbnails against 20% of their worst, and on <b>67%</b> of the big dogs' best against 33%.</p></div>
+    <div class="card"><h3>Your FBA channel is the operator version</h3><p>58% operator and 32% mixed across 40 designed thumbnails; products or Amazon on 79% of your best, a $ figure on 50% of your best and 69% of your worst.</p></div>
+    <div class="card"><h3>Why it matters more now</h3><p>The new channel grows on browse and suggested, where the thumbnail earns the click from people who don't know you yet. Your current CTR (5.0% to 6.6%) is measured on small, mostly search impressions.</p></div>
+  </div>
+  <figure class="fig" style="margin-top:20px"><img src="assets/dd/thumb_examples.jpg" alt="Learner vs operator thumbnail examples" loading="lazy"></figure>
+
+  <div class="sub-head">
+    <h3>What makes a learner thumbnail</h3>
+  </div>
+  <div class="g4">
+    <div class="card t-red"><div class="num">1</div><h3>One focal point</h3><p>The eye lands on one place first. Your face plus one thing.</p></div>
+    <div class="card t-red"><div class="num">2</div><h3>You, in a place of authority</h3><p>An office, a stage, a city, a room the viewer wants to be in, or next to someone they know. Show the success, don't tell it.</p></div>
+    <div class="card t-red"><div class="num">3</div><h3>A few big words that name the idea</h3><p>4 words or fewer, like YOU HAVE 15 SECONDS. No dashboards, sales screens or product shots.</p></div>
+    <div class="card t-red"><div class="num">4</div><h3>Easy to read on a phone and a TV</h3><p>High contrast, large text. 44% of your long-form watch time is on a phone, 20% on a TV.</p></div>
+  </div>
+  <div class="summary">
+    <strong>Keep you; change what's around you</strong>
+    <p>We keep your face, your expression, your colour grading and the few big words, so every thumbnail still feels like you. What changes is <b>from the dashboard to the room</b>: your office, a stage, Dubai, your team. And <b>a new colour scheme</b>: the black, yellow and Amazon orange is what makes your thumbnails read as Amazon.</p>
+  </div>
+</div></section>
+
+<!-- ============ PART 3 ============ -->
+<section id="strategy"><div class="wrap">
+  <div class="head">
+    <span class="chip b mono">Part 3 · The Strategy</span>
+    <h2>A new channel, <span class="red">one fully produced video a week</span></h2>
+    <p>For successful professionals who want a business of their own, from someone who built three businesses from scratch, with no leg up, and now shares everything he learned, <b>for free</b>.</p>
+  </div>
+
+  <div class="sub-head" id="positioning" style="margin-top:0">
+    <h3>Positioning</h3>
+    <p>Your position comes from two things: <b>your story, built from scratch with no leg up</b>, told to <b>a learner, not an operator</b>. You're still an operator; the new channel's content is for people who want to become one.</p>
+  </div>
+  <div class="tbl-wrap"><table class="cmp">
+    <tr><th></th><th>Operator content (your FBA channel)</th><th class="hi">Learner content (your new channel)</th></tr>
+    <tr><td><b>Who it's for</b></td><td>Owners already running a business or a team</td><td class="hi">People who want to build something of their own</td></tr>
+    <tr><td><b>What they want</b></td><td>To fix one specific problem</td><td class="hi">To know it's possible, where to start and what it takes</td></tr>
+    <tr><td><b>The title</b></td><td>How to hire your first manager; systems for your team</td><td class="hi">Give me 20 minutes and I'll teach you how to make your first $1M</td></tr>
+    <tr><td><b>The thumbnail</b></td><td>Dashboards, charts, products</td><td class="hi">You, in a place of authority, and one idea</td></tr>
+    <tr><td><b>What it does for the channel</b></td><td>A small, loyal group; good for leads</td><td class="hi">The broad audience that grows the channel</td></tr>
+  </table></div>
+
+  <div class="sub-head">
+    <h3>Every video answers "can someone like me do this?" with a&nbsp;yes</h3>
+    <p>Through the three value props that built Priestley's channel.</p>
+  </div>
+  <div class="g3">
+    <div class="card t-green"><span class="vp-tag green">Access</span><p>You don't need money, contacts or a business background. <b>You started with none of them</b>, with dyslexia.</p></div>
+    <div class="card t-blue"><span class="vp-tag cobalt">High value, all in one place</span><p>A course's worth in one video: full courses, <b>"give me 20 minutes"</b>.</p></div>
+    <div class="card t-red"><span class="vp-tag red">Mastery</span><p>The real thing from someone who has done it: <b>three businesses, $1M of your own sales, $7M+ for clients</b>.</p></div>
+  </div>
+
+  <div class="summary" style="margin-top:40px">
+    <strong>The founder who started with nothing and built three businesses, sharing everything it really takes to start yours, for free.</strong>
+    <p><b>The promise:</b> you don't need money, contacts or a head start to build a real business. Your story is the proof, not the topic.</p>
+  </div>
+  <div class="g2" style="margin-top:20px">
+    <div class="card do t-green"><span class="col-label green">What you are</span>
+      <ul class="doc-l">
+        <li><span><b>Who it's for:</b> successful professionals (a good job, a good income, ambition) who want a business of their own, and new founders getting through their first years.</span></li>
+        <li><span><b>What you talk about:</b> which business to start, how to start with little money and no contacts, the first customers, leaving the job, the first years, and growing past them. AI comes up as a tool, not as the topic.</span></li>
+        <li><span><b>How you show it:</b> real business wisdom, the way Ali Abdaal and Daniel Priestley do it: lessons, principles and frameworks from experience, with your story as the proof.</span></li>
+        <li><span><b>The proof:</b> no money or connections, dyslexia, businesses that didn't work until Amazon did: your first $100K and the freedom to leave your job. Today: an agency, coaching, a team, $7M+ in client results.</span></li>
+      </ul>
+    </div>
+    <div class="card dont t-red"><span class="col-label red">What you're not</span>
+      <ul class="doc-l">
+        <li>Not a money-machine channel ("the laziest way to make $10K a month")</li>
+        <li>Not an escape-the-9-to-5 channel: it trails across the space (0.56x), and it isn't you</li>
+        <li>Not an operator channel: no hiring, team systems or scaling past $1M (0.75x)</li>
+        <li>Not "the Amazon guy". Amazon is the proof, not the identity</li>
+        <li>Not a side hustle channel, and not beginner tactics</li>
+        <li>Not personal finance or investing</li>
+        <li>Not for students chasing their first $1K</li>
+        <li>No flexing: no Lambos, cash fanning or fake urgency</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-head">
+    <h3>How it feels to watch you</h3>
+    <p>Viewers leave feeling they can build something real, wherever they're starting from, <b>without giving up their life for it</b>. Empowered, not exhausted.</p>
+  </div>
+  <div class="tbl-wrap"><table class="cmp">
+    <tr><th></th><th>Hustle energy (Alex Hormozi, Iman Gadzhi)</th><th class="hi">Your energy (closer to Ali Abdaal)</th></tr>
+    <tr><td><b>The message</b></td><td>Work harder than everyone; sacrifice now</td><td class="hi">Work smarter and keep your life</td></tr>
+    <tr><td><b>The tone</b></td><td>Intense, loud, urgent</td><td class="hi">Calm, warm, confident</td></tr>
+    <tr><td><b>The proof</b></td><td>How hard you grind</td><td class="hi">How far you came: from nothing to a business with a team</td></tr>
+    <tr><td><b>What the viewer feels</b></td><td>Guilty for not doing more</td><td class="hi">Capable: "If he did it from nothing, I can do it too"</td></tr>
+    <tr><td><b>What we see</b></td><td>The office at midnight, the gym, the cash</td><td class="hi">The family, the day off, the machine running</td></tr>
+  </table></div>
+  <p class="callout">Lead with the business, the lesson or the first step, and prove it with your story. <span class="hl">More money and more freedom is what the video delivers, not the hook.</span></p>
+
+  <div class="sub-head">
+    <h3>Your channel statement</h3>
+  </div>
+  <div class="letter statement">
+    <div class="letter-body">
+      <p>Hi, I'm <b>Jatz</b>.</p>
+      <p>Money was always tight growing up, and back in 2019 I was on £10 an hour in an IT job I hated. No money behind me, no contacts.</p>
+      <p>Before getting it right, I got a lot of it wrong. Property courses I never used. An MLM. Dropshipping. Two Amazon products that flopped. The third one worked, and it let me leave my job.</p>
+      <p>Today I run three businesses with a team, and most weeks I work four days only.</p>
+      <p>So on this channel, I'll show you how to start a business of your own, step by step, even if you're starting with nothing. <b>Including all the parts I got wrong, so you don't have to.</b></p>
+    </div>
+  </div>
+  <div class="xy">
+    <span>I help people with a job <b>pick the right business to start</b></span>
+    <span>I help people with no money or contacts <b>start anyway</b></span>
+    <span>I help first-time founders <b>get their first customers</b></span>
+    <span>I help new business owners <b>get through the first years</b></span>
+    <span>I help ambitious people <b>build big without burning their life down</b></span>
+  </div>
+
+  <div class="sub-head">
+    <h3>The 5 strategic levers</h3>
+    <p>How do we know this will work? Each lever comes straight from Part 2.</p>
+  </div>
+  <div class="levers">
+    <a class="card t-blue" href="#lever1"><div class="num">1</div><h3>A new channel, built for one viewer</h3><p>Your current audience came for Amazon FBA, so broad videos stall there.</p></a>
+    <a class="card t-blue" href="#lever2"><div class="num">2</div><h3>Topics people already click, proven with your receipts</h3><p>Three pillars for the same learner.</p></a>
+    <a class="card t-blue" href="#lever3"><div class="num">3</div><h3>Years of experience, compressed into one video</h3><p>Time-boxed titles, lists, full courses, at 15 to 25 minutes.</p></a>
+    <a class="card t-blue" href="#lever4"><div class="num">4</div><h3>The 3-part hook</h3><p>Promise → Stakes → Proof, the first point inside 30 seconds.</p></a>
+    <a class="card t-red" href="#lever5"><div class="num">5</div><h3>Your unfair advantage: you built it from scratch</h3><p>In a crowded space, your story is the reason to watch you.</p></a>
+  </div>
+
+  <!-- Lever 1 -->
+  <div class="sub-head" id="lever1">
+    <span class="part">Lever 1</span>
+    <h3>A new channel</h3>
+    <p>Your current audience came for Amazon FBA, so YouTube shows your broad videos to the wrong people first and they stall. A new channel starts with <b>every viewer coming for the new content</b>, and the current one keeps working as your Amazon asset.</p>
+  </div>
+  <div class="g4">
+    <div class="stat"><strong>51%</strong><span>of engaged views came from search at the start of the year: "amazon fba", "amazon fba for beginners"</span></div>
+    <div class="stat"><strong class="red">0.8x</strong><span>your broad business videos, vs 1.26x for FBA how-to</span></div>
+    <div class="stat"><strong class="red">1.1%</strong><span>of monthly viewers are regulars; 80% are new. No loyal base would follow a rename</span></div>
+    <div class="stat"><strong>290K</strong><span>stays your Amazon FBA lead-gen asset, renamed, still ranking and feeding your coaching</span></div>
+  </div>
+  <div class="card t-green" style="margin-top:20px"><span class="col-label green">It's been done: Vishen Lakhiani</span><h3>We launched a new channel with him in May 2026</h3><p>His original channel (@VishenLakhiani, 221K subscribers) had posted mostly Shorts since 2024, and its long-form videos typically get 3.8K views. We launched @vishen on a two-video launch weekend (2 and 3 May). Six months later: <b>61.3K subscribers</b>, 1.48M views across 22 long-form videos, a typical video of <b>20.8K views</b> (about 5x the original channel's) and 5 videos past 100K. 1K subscribers in 4 days, 10K in about 9 weeks, 50K in under 5 months.</p><div class="proof">Also: Daniel Priestley's new channel went from 0 to 200K in a year, and Chris Donnelly reached 10K from his first 8 videos.</div></div>
+  <h4 class="tbl-t">Your current channel vs your new channel</h4>
+  <div class="tbl-wrap"><table class="cmp">
+    <tr><th></th><th>Current channel (@jatznaran)</th><th class="hi">New channel</th></tr>
+    <tr><td><b>Job</b></td><td>Amazon FBA lead generation</td><td class="hi">Personal brand and awareness (your Facebook ads bring the leads)</td></tr>
+    <tr><td><b>Who watches</b></td><td>People searching for Amazon FBA how-tos. 62% are 25 to 44, 80% male. UK 29%, US 25%, India 20%</td><td class="hi">Successful professionals, 25 to 45, who want a business of their own</td></tr>
+    <tr><td><b>What they want</b></td><td>Step-by-step Amazon tutorials. 38 of 125 comments are questions, mostly Seller Central how-tos</td><td class="hi">To know it's possible for someone like them, where to start and what it really takes</td></tr>
+    <tr><td><b>Content</b></td><td>29 of 53 videos FBA how-to, 15 broad business, 9 student case studies</td><td class="hi">About 80% identity-rich, 20% pure how-to</td></tr>
+    <tr><td><b>How people find it</b></td><td>Search: 38% of engaged views now (51% at the start of the year)</td><td class="hi">Browse and suggested: videos that travel beyond people who already know you</td></tr>
+    <tr><td><b>Loyalty</b></td><td>1.1% regulars; 80% new</td><td class="hi">Built from video one, with one video a week</td></tr>
+    <tr><td><b>What works there</b></td><td>FBA how-to (1.26x); broad business 0.8x; case studies 0.02x</td><td class="hi">Experience compressed into one video (time-boxed 2.72x, full courses 1.34x)</td></tr>
+    <tr><td><b>How you show up</b></td><td>"The Amazon guy"</td><td class="hi">Built from scratch: from one room and no business mind to three businesses; calm, not hype; husband, family man</td></tr>
+  </table></div>
+
+  <!-- Lever 2 -->
+  <div class="sub-head" id="lever2">
+    <span class="part">Lever 2</span>
+    <h3>Topics people already click, proven with your receipts</h3>
+    <p>Your niche is <b>starting a business</b>, the most searched stage with the best click, through three pillars. Every video is proven with your own numbers and your clients'. AI is a tool inside, not the niche.</p>
+  </div>
+  <div class="g3">
+    <div class="card"><h3>The three pillars</h3><p>Start From Nothing (40%), Wisdom and Life Lessons (40%) and Productivity and Time (20%), each built on the topics learners click.</p></div>
+    <div class="card"><h3>The proof goes in the picture</h3><p>In the thumbnail and the first 30 seconds, not in a title formula. On the thumbnail: you, in a place of authority.</p></div>
+    <div class="card"><h3>The job is who it's for, never the hook</h3><p>"Escape your job" gets 0.56x. Leave out side hustles, generic "start an online business" (0.75x), e-commerce and dropshipping.</p></div>
+  </div>
+  <p class="callout">Nobody else in this niche started from nothing and now runs a product business, an agency and coaching. <span class="hl">Every topic is one you've lived.</span></p>
+
+  <!-- Lever 3 -->
+  <div class="sub-head" id="lever3">
+    <span class="part">Lever 3</span>
+    <h3>Years of experience, compressed into one video</h3>
+    <p>The way Daniel Priestley and Matt Gray do it: years packed into one video, with your story as the proof and your numbers inside. <b>15 to 25 minutes.</b> Put the lesson inside the video and the outcome in the title.</p>
+  </div>
+  <div class="g4">
+    <div class="stat"><strong>1.36x</strong><span>full courses across 77 business channels (537 videos)</span></div>
+    <div class="stat"><strong>1.34x</strong><span>with your 6 competitors</span></div>
+    <div class="stat"><strong>44%</strong><span>outliers across the 15 topics</span></div>
+    <div class="stat" style="border-color:var(--green);box-shadow:0 0 0 3px var(--green-50)"><strong class="green">4 of 5</strong><span>of your own 3x+ videos were complete or beginner guides</span></div>
+  </div>
+  <div class="formulas" style="margin-top:20px">
+    <div class="fx up"><strong>24.9x</strong><span><b>[Thing] Isn't Hard. It's Misunderstood.</b>Will Barron</span></div>
+    <div class="fx up"><strong>18.0x</strong><span><b>If You Didn't Have [Rich Parents], Please Watch This</b>Michia Rohrssen</span></div>
+    <div class="fx up"><strong>8.8x</strong><span><b>Coaching Over 1000 [People] Taught Me This</b>Will Barron</span></div>
+    <div class="fx dn"><strong>Skip</strong><span><b>Aimed at teens, a first $1K or "the laziest way"</b>Not for your channel, however well it did</span></div>
+  </div>
+
+  <!-- Lever 4 -->
+  <div class="sub-head" id="lever4">
+    <span class="part">Lever 4</span>
+    <h3>The 3-part hook: Promise → Stakes → Proof</h3>
+    <p>The first 30 seconds decide who stays. Across 30 long-form videos on your current channel, the typical video keeps <b>66%</b> at 0:30 and 55% at 1:00.</p>
+  </div>
+  <div class="vs">
+    <div class="stat win"><strong>70%</strong><span>still watching at 0:30 on your best 10 hooks (62% at 1:00)</span></div>
+    <div class="vs-mid">vs</div>
+    <div class="stat lose"><strong>58%</strong><span>on your worst 10 (47% at 1:00)</span></div>
+  </div>
+  <figure class="fig" style="margin-top:24px"><img src="assets/dd/hook_curves.png" alt="Retention in the first 30 seconds: top 10 vs bottom 10" loading="lazy"><figcaption>Videos holding more viewers at 1:00 have clearly higher overall % watched (correlation 0.72). The best 10 are watched 37% of the way through, the worst 10 25%.</figcaption></figure>
+  <div class="g2" style="margin-top:20px">
+    <div class="hook good"><div class="hook-top"><b>If I Started Amazon in 2026, I'd Do This Immediately</b><span>72% at 0:30</span></div><blockquote><p><span class="hp">"If I started an Amazon business in 2026, I'll focus on this for the next 90 days.</span> <span class="hpr">I like to call it the Amazon control panel and it's the exact thing that's helped me scale my own Amazon store from $0 to $50,000 per month…</span> <span class="hs">Poor product research is consistently the number one reason most Amazon sellers fail… 500 units of products nobody wants sitting in an Amazon warehouse."</span></p></blockquote></div>
+    <div class="hook good"><div class="hook-top"><b>Seriously, Watch This Before Starting Amazon FBA</b><span>72% at 0:30</span></div><blockquote><p><span class="hp">"Seriously, before you start Amazon FBA, you need to hear this.</span> <span class="hs">20% of new businesses fail within their first year and 60% within 3 years. What I'm about to share with you can stop you from being part of that 60%.</span> <span class="hpr">I've been in business for almost 5 years now and made close to 2 million online."</span></p></blockquote></div>
+  </div>
+  <p class="src"><span class="key hp">Promise</span> <span class="key hs">Stakes</span> <span class="key hpr">Proof</span></p>
+  <div class="g3" style="margin-top:20px">
+    <div class="card t-red"><h3>The bottom hooks spend the opening on setup</h3><p>Criteria, scoring rules and "here's a bit of context" come before the first point.</p></div>
+    <div class="card t-red"><h3>They take detours</h3><p>Bill Gates, the Dunning-Kruger effect, and "this is not financial advice" inside the first minute.</p></div>
+    <div class="card t-red"><h3>Lowering the bar loses people</h3><p>"Don't expect to hit these type of numbers", then a savings account as the first idea in a video promising $15K a week.</p></div>
+  </div>
+  <div class="summary">
+    <strong>The rule for every opening</strong>
+    <p><b>Promise → Stakes → Proof</b>, with the first point inside 30 seconds. No "in this video", no criteria, no context, no disclaimers up front. Write the first 30 seconds word for word, even if the rest is notes. <b>Your calm delivery stays:</b> the rule sets the structure, you bring the voice.</p>
+  </div>
+
+  <!-- Lever 5 -->
+  <div class="sub-head" id="lever5">
+    <span class="part">Lever 5</span>
+    <h3>Your unfair advantage: you built it from scratch</h3>
+    <p>Any business channel can talk about starting a business. What no one else has is your story. The story leads every video, your results and your clients' prove it worked, and <b>you show it rather than tell it</b>.</p>
+  </div>
+  <div class="g4">
+    <div class="card t-yellow"><h3>In the hook</h3><p>The story is the stakes. "I lived in one room with five family members" does more than any title formula.</p></div>
+    <div class="card t-yellow"><h3>On the thumbnail</h3><p>You as the person who made it, in a place of authority, not the dashboard.</p></div>
+    <div class="card t-yellow"><h3>Inside the video</h3><p>Every lesson comes from a chapter: the failed businesses, the first two Amazon products, the five years lost.</p></div>
+    <div class="card t-yellow"><h3>The tone</h3><p>One step ahead, giving it away for free. Never "look how rich I am"; always "if I could, you can".</p></div>
+  </div>
+  <h4 class="tbl-t">The proof that backs the story up</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>Proof</th><th>What it is for you</th><th>Where it shows up</th></tr>
+    <tr><td><b>5. The lived story (leads)</b></td><td>An immigrant family, one room with five family members, a 9-to-5, no business mind, dyslexia, the businesses that failed before Amazon</td><td>The stakes in every hook; Pillar 2</td></tr>
+    <tr><td><b>1. Your own results</b></td><td>$1M in Amazon sales of your own, three businesses, a four-day week</td><td>The proof line of every hook; your office, your team and your week on screen</td></tr>
+    <tr><td><b>2. Other people's results</b></td><td>$7M+ in client results, most of it built alongside full-time jobs</td><td>Clients on camera with their numbers</td></tr>
+    <tr><td><b>3. Borrowed authority</b></td><td>Famous founders, studies and data your viewer already trusts</td><td>Famous names lift business titles: 32.8% at 2x+ against 27.3%</td></tr>
+    <tr><td><b>4. Access</b></td><td>Your team, your office, Dubai, the people in your network, collaborations</td><td>Thumbnails and B-roll; collaborations</td></tr>
+  </table></div>
+  <div class="note-box" style="margin-top:16px"><b>Proof in the picture, not the title formula.</b> We tested 6,006 business titles: only famous names lift (32.8% against 27.3%); titles with your own result in them are flat (26.0%). So your proof belongs in the thumbnail, the first 30 seconds and the story.</div>
+  <p class="callout">Which parts of the story are you happy to tell on camera, and what can we show? <span class="hl">The substance has to be yours; we'll help you package it.</span></p>
+</div></section>
+
+<!-- ============ PART 4 ============ -->
+<section id="ideas"><div class="wrap">
+  <div class="head">
+    <span class="chip y mono">Part 4 · The Ideas</span>
+    <h2>Three pillars, <span class="red">40 / 40 / 20</span></h2>
+    <p>Each for a slightly different learner inside the same core audience: people who want to build something of their own. Your experience, compressed into one video, is the format across all three.</p>
+  </div>
+  <div class="g3">
+    <div class="card pil p-1"><span class="col-label">🚀 Pillar 1 · 40%</span><h3>Start From Nothing</h3><p><b>For the ready-to-start professional:</b> which business to start, the first steps, starting with little money and no contacts, the first customers and the road to the first $100K.</p><p class="pain">"I don't have the money, the contacts or a plan, so maybe it's not for me."</p><div class="proof">First steps 1.75x · starting with nothing 1.52x · which business 57% outliers. Trust and leads: closest to your coaching</div></div>
+    <div class="card pil p-2"><span class="col-label">💡 Pillar 2 · 40%</span><h3>Wisdom and Life Lessons</h3><p><b>For the aspiring builder:</b> what building from nothing taught you: mindset and confidence, money and ambition, the lessons nobody teaches you.</p><p class="pain">"I know I'm capable of more, but something's holding me back."</p><div class="proof">Life lessons: 55.3K views a month, 53% outliers. Reach: the biggest audience</div></div>
+    <div class="card pil p-3"><span class="col-label">📈 Pillar 3 · 20%</span><h3>Productivity and Time</h3><p><b>For the busy achiever:</b> how you plan your week, protect your focus and run three businesses on four days, set up so someone with a job can copy it.</p><p class="pain">"I'm busy all the time and still not where I want to be."</p><div class="proof">47% outliers, 62% of small channels break out. Discovery: new people in</div></div>
+  </div>
+  <div class="summary" style="margin-top:20px">
+    <strong>"I'm Jatz. I started with no money, no contacts and no business mind, and I built three businesses. If I could, you can."</strong>
+    <p>Your promise to the viewer: I'll share everything I learned, <b>for free</b>, so you can start yours.</p>
+  </div>
+  <details class="more">
+    <summary><span class="lbl">The pillars in full <small>Who, the pain, the click, the data</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <figure><img src="assets/dd/pillar_cards.jpg" alt="The three content pillars" loading="lazy"></figure>
+      <h4>1. Start From Nothing</h4>
+      <p><b>What makes them click:</b> a clear first step from someone who started with nothing, with a real result. <b>Where it takes them:</b> "If he did it from nothing, I can start." They subscribe for the next step.</p>
+      <p><b>Why the data supports it:</b> real-business titles on the first steps get 1.75x and on starting with nothing 1.52x, the strongest of the 15 topics; "how to start a business" alone draws 71.1K views a month for a typical top-20 video. 45% of first-customer videos are outliers, yet only 6 starting titles cover it; full courses win there (58%). Which business makes the most outliers (57%), with lists as the winning format (74%): real-business lists, not idea lists.</p>
+      <h4>2. Wisdom and Life Lessons</h4>
+      <p><b>What makes them click:</b> a big outcome or a room they can't get into, from someone who came from nothing (<i>If You Didn't Have Rich Parents, Please Watch This</i>, 18.0x; <i>Everything I Learned From Being Around The Top 0.01%</i>, 19.4x). <b>Where it takes them:</b> "If he could, I can." Then into Pillar 1 for the how.</p>
+      <p><b>The rule:</b> lead with the outcome or the access, never the word. Titles that say "lessons" or "wisdom" get 0.71x and "the psychology of" 0.54x, while access titles ("the top 1%", "what rich people know") get 1.32x. Search for life lessons is fading (-20%), so the topic has to earn the click on browse.</p>
+      <h4>3. Productivity and Time</h4>
+      <p><b>What makes them click:</b> a promise about their time or their discipline, from someone visibly living it. <b>Where it takes them:</b> "He runs three businesses on four days a week; how?" Then into Pillars 1 and 2.</p>
+      <p><b>Why the data supports it:</b> 26.4K views a month for a typical top-20 video, 47% outliers, 62% of small-channel videos break out; business channels' productivity titles get 1.33x. At 20%, it's the discovery lane, not the core.</p>
+    </div>
+  </details>
+
+  <!-- LAUNCH VIDEOS -->
+  <div class="sub-head" id="launch">
+    <span class="part">Launch videos</span>
+    <h3>The first 4, ready to film</h3>
+    <p>Three from Pillar 1, your strongest clicks and the closest to your coaching, and one from Pillar 2. Each has its title, the thumbnail direction, a <b>word-for-word hook</b> and the talking points underneath. The final thumbnail designs follow next week.</p>
+  </div>
+
+  <article class="lv" id="lv1">
+    <div class="lv-media">
+      <div class="tslot"><img src="assets/launch/1.jpg" alt="Thumbnail: If You Only Watch One Business Video, Make It This" onerror="this.remove()"><div class="tph"><span class="tph-l">Direction · final design next week</span><b>WATCH THIS FIRST</b><small>You at a whiteboard with six numbered steps, the first one circled</small></div></div>
+      <div class="refs"><span>Built from these outliers</span>
+        <a href="https://youtu.be/ltI6fVjNCSk" target="_blank" rel="noopener"><img src="assets/thumbs/ltI6fVjNCSk.jpg" alt="" loading="lazy"><em>Will Barron · <b>16.5x</b></em></a>
+        <a href="https://youtu.be/lRe3iKyAXQA" target="_blank" rel="noopener"><img src="assets/thumbs/lRe3iKyAXQA.jpg" alt="" loading="lazy"><em>Matt Gray · <b>10.6x</b></em></a>
+      </div>
+    </div>
+    <div class="lv-body">
+      <div class="lv-tags"><span class="pill live">Launch Friday</span><span class="pill pp1">Pillar 1 · Start From Nothing</span></div>
+      <h3>If You Only Watch One Business Video, Make It This</h3>
+      <p class="lv-vp">Every step from "I want to start a business" to my first customers, in the right order, from someone who started with no money behind him and no contacts, and learned each step by getting it wrong first.</p>
+      <div class="lv-stat"><b>38%</b><span>of 16 matching videos hit 3x+. It works when the video really is the whole thing: the copies that weren't got 0.9x to 1.1x.</span></div>
+      <div class="hook good"><div class="hook-top"><b>The hook, word for word</b><span>Promise → Stakes → Proof</span></div><blockquote>
+        <p>"Why is it that some people start a business and it takes off, while others can't really get past the first idea?</p>
+        <p>After getting almost every step wrong myself, then building three businesses that do over <mark>[$250K]</mark> a month together, and helping my clients do over <mark>[$7 million]</mark> in sales, I realised one thing.</p>
+        <p>Whether you're still in your job, you've just started, or you've already got a few customers, starting a business fundamentally only comes down to six steps, in one order.</p>
+        <p>Pick the model. Keep your income. Learn to get attention and to sell. Prove someone will pay. Buy your time back. And run one business at a time.</p>
+        <p>If you do these six in order, you win. And if you skip one, you stay stuck. Let's get into it."</p>
+      </blockquote></div>
+      <details class="more mini">
+        <summary><span class="lbl">The talking points and the second hook</span><span class="plus">+</span></summary>
+        <div class="more-body">
+          <ol class="steps"><li>Pick a Business Model, Not a Business Idea</li><li>Keep Your Income While You Build</li><li>Learn the Two Skills That Make Money</li><li>Prove Someone Will Pay, Before You Build Everything</li><li>Work Out Your Hourly Value, and Buy Your Time Back</li><li>One Business at a Time</li></ol>
+          <p>Every step opens with one of your own failures and ends with a rule. Tools on screen: the four-question model filter, the hourly-value sum, the one-page SOP. A re-hook before each step; 18 to 25 minutes.</p>
+          <div class="script"><small>Hook 2</small>"We all know someone who always says they're going to start a business but never do. There's a reason for that. A few years ago I was about £4,000 in debt, and I had to borrow £100 from my girlfriend. So I spent the next <mark>[number]</mark> years figuring out how people actually build a business from nothing… But I'm the living proof that you don't actually need any of that."</div>
+          <p><b>Title options:</b> If You Only Watch One Video About Starting a Business, Make It This · Everything I Learned Starting a Business From Nothing, in One Video</p>
+        </div>
+      </details>
+      <a class="lv-link" href="https://app.notion.com/p/415ea28b37c081a2b9d5db08c002a48e" target="_blank" rel="noopener">Open the full script →</a>
+    </div>
+  </article>
+
+  <article class="lv" id="lv2">
+    <div class="lv-media">
+      <div class="tslot"><img src="assets/launch/2.jpg" alt="Thumbnail: Business Is a Video Game. Here's How to Win." onerror="this.remove()"><div class="tph p2"><span class="tph-l">Direction · final design next week</span><b>LEVEL UP</b><small>You with a game controller, a level bar behind you from LEVEL 0 to LEVEL 6</small></div></div>
+      <div class="refs"><span>Built from these outliers</span>
+        <a href="https://youtu.be/SRw52w4iGV4" target="_blank" rel="noopener"><img src="assets/thumbs/SRw52w4iGV4.jpg" alt="" loading="lazy"><em>Katie Clarke · <b>6.9x</b></em></a>
+        <a href="https://youtu.be/uyeRi2Lc954" target="_blank" rel="noopener"><img src="assets/thumbs/uyeRi2Lc954.jpg" alt="" loading="lazy"><em>Matt Gray · <b>8.4x</b></em></a>
+      </div>
+    </div>
+    <div class="lv-body">
+      <div class="lv-tags"><span class="pill live">Launch Sunday</span><span class="pill pp2">Pillar 2 · Wisdom and Life Lessons</span></div>
+      <h3>Business Is a Video Game. Here's How to Win.</h3>
+      <p class="lv-vp">The plan you followed from nothing to three businesses, laid out level by level: what each level looks like, the boss that stops most people there, and the plan to get to the next one.</p>
+      <div class="lv-stat"><b>2 of 5</b><span>matching videos hit 3x+ (Life is a Video Game: 6.9x and 6.0x), plus Matt Gray's levels of business at 8.4x.</span></div>
+      <div class="hook good"><div class="hook-top"><b>The hook, word for word</b><span>Promise → Stakes → Proof</span></div><blockquote>
+        <p>"Most people fail at business because they don't know the rules of the game.</p>
+        <p>I know this first hand because I, myself, didn't play it right and failed several times: I got into a pyramid scheme, failed at dropshipping, and flopped two Amazon products before I got it right.</p>
+        <p>Today I run three businesses with a team, making <mark>$250K/month</mark>, and I work only four days a week.</p>
+        <p>What changed was realising that building a business works like a game, and every level has its own rules… I only started winning once I worked out which level I was on, and played that level right.</p>
+        <p>In this video I'm going to take you through the seven levels of business and how to play this game to win. Let's start with level zero, before you've made a single pound."</p>
+      </blockquote></div>
+      <details class="more mini">
+        <summary><span class="lbl">The talking points and the second hook</span><span class="plus">+</span></summary>
+        <div class="more-body">
+          <ol class="steps" start="0"><li>The Starting Character</li><li>The Tutorial That Never Ends</li><li>Losing Lives (and Why You Need a Save Point)</li><li>The Grind (Your First $100,000)</li><li>Multiplayer (Your First Team)</li><li>Side Quests (the Boss That Cost Me Five Years)</li><li>Choosing Your Own Game</li></ol>
+          <p>Each level: your story, the boss that stops most people there, and the plan to level up. Game language as a thread, not a gimmick: save points, lives, bosses, side quests, XP. 15 to 20 minutes.</p>
+          <div class="script"><small>Hook 2</small>"Building a business is almost exactly like a game. Think about it. You start at level one with nothing. Every level you clear unlocks something new, a skill, a bit more money, your first team member, and every level has its own boss you have to work out how to beat…"</div>
+          <p><b>Title options:</b> Life Is a Video Game (Here's How You Win), the exact title of the 6.9x and 6.0x outliers · The 7 Levels of Building a Business From Nothing</p>
+        </div>
+      </details>
+      <a class="lv-link" href="https://app.notion.com/p/415ea28b37c081c0a7b0ef2ec8ce2b75" target="_blank" rel="noopener">Open the full script →</a>
+    </div>
+  </article>
+
+  <article class="lv" id="lv3">
+    <div class="lv-media">
+      <div class="tslot"><img src="assets/launch/3.jpg" alt="Thumbnail: I Am (Politely) Begging You to Start a Business Before It's Too Late" onerror="this.remove()"><div class="tph"><span class="tph-l">Direction · final design next week</span><b>PLEASE START</b><small>You, hands together, earnest</small></div></div>
+      <div class="refs"><span>Built from these outliers</span>
+        <a href="https://youtu.be/pSUxU-YPKNQ" target="_blank" rel="noopener"><img src="assets/thumbs/pSUxU-YPKNQ.jpg" alt="" loading="lazy"><em>Brandon Bryant · <b>21.7x</b></em></a>
+        <a href="https://youtu.be/L8GHyKCH0NE" target="_blank" rel="noopener"><img src="assets/thumbs/L8GHyKCH0NE.jpg" alt="" loading="lazy"><em>Noelle Randall · <b>19.8x</b></em></a>
+      </div>
+    </div>
+    <div class="lv-body">
+      <div class="lv-tags"><span class="pill">Week 2</span><span class="pill pp1">Pillar 1 · Start From Nothing</span></div>
+      <h3>I Am (Politely) Begging You to Start a Business Before It's Too Late</h3>
+      <p class="lv-vp">Ten reasons to start a business this year, none of them "quit your job", ending with the first step to take this week.</p>
+      <div class="lv-stat"><b>30%</b><span>of 23 matching videos hit 3x+. The title carries it: the should-I-start topic on its own makes only 22% outliers.</span></div>
+      <div class="hook good"><div class="hook-top"><b>The hook, word for word</b><span>Promise → Stakes → Proof</span></div><blockquote>
+        <p>"I'm politely begging you to start a business before it's too late. And I don't mean before someone else starts a business with your idea. I mean before you run out of time.</p>
+        <p>Here's something I see all the time. Someone comes to me at <mark>[35]</mark>. Good job. <mark>[£70,000]</mark> a year. Savings in the bank. A business idea they've had for years. And they tell me, Jatz, I think I'll start next year, once things calm down at work. Just to be safe.</p>
+        <p>And my first question is: safe from what? Because I can show you exactly how much more you'll have saved by next year. What I can't give you back is that year.</p>
+        <p>Now, I know I'm the guy who tells you to keep your job… But I also don't want you at 50 years old, mad at me going, why didn't I start when I had the energy and drive to do so?"</p>
+      </blockquote></div>
+      <details class="more mini">
+        <summary><span class="lbl">The ten reasons and the second hook</span><span class="plus">+</span></summary>
+        <div class="more-body">
+          <ol class="steps"><li>Starting Has Never Been This Cheap</li><li>You Don't Have to Quit Your Job to Start</li><li>One Income Means One Person Decides Your Ceiling</li><li>Waiting Doesn't Make It Safer, It Just Makes It Later</li><li>You Don't Need a Head Start</li><li>Your Job Has Already Given You an Edge</li><li>Failing Is Cheap Now, and It Teaches You Faster Than Any Course</li><li>The Skills Stay With You, Even When a Business Doesn't</li><li>A Salary Pays You for Time, Ownership Pays You for What You Build</li><li>Time Is the Real Prize</li></ol>
+          <p>Ends on <b>your first step this week</b>: write down three problems people pay to solve, have five conversations, and offer to solve it for the first one who'd pay. 15 to 20 minutes.</p>
+          <div class="script"><small>Hook 2</small>"Most people think waiting one more year to start a business is the safe, responsible choice. But it's actually not… If you're on £60,000 a year and you wait one more year, you might end up with about £10,000 more in savings. But you just traded a whole year of learning the skills that pay you for the rest of your life."</div>
+        </div>
+      </details>
+      <a class="lv-link" href="https://app.notion.com/p/415ea28b37c08184a418dbc3709b2067" target="_blank" rel="noopener">Open the full script →</a>
+    </div>
+  </article>
+
+  <article class="lv" id="lv4">
+    <div class="lv-media">
+      <div class="tslot"><img src="assets/launch/4.jpg" alt="Thumbnail: If I Started Over With $0, Here's My Exact Plan to $1M" onerror="this.remove()"><div class="tph"><span class="tph-l">Direction · final design next week</span><b>MY EXACT PLAN</b><small>You beside a simple ladder: $0, $1K, $100K, $1M</small></div></div>
+      <div class="refs"><span>Built from these outliers</span>
+        <a href="https://youtu.be/Ht2LluZ7pLk" target="_blank" rel="noopener"><img src="assets/thumbs/Ht2LluZ7pLk.jpg" alt="" loading="lazy"><em>Rose Han · <b>8.6x</b></em></a>
+        <a href="https://youtu.be/QJ8q9XbI3Ys" target="_blank" rel="noopener"><img src="assets/thumbs/QJ8q9XbI3Ys.jpg" alt="" loading="lazy"><em>Vincent Chan · <b>4.5x</b></em></a>
+      </div>
+    </div>
+    <div class="lv-body">
+      <div class="lv-tags"><span class="pill">Week 3</span><span class="pill pp1">Pillar 1 · Start From Nothing</span></div>
+      <h3>If I Started Over With $0, Here's My Exact Plan to $1M</h3>
+      <p class="lv-vp">The exact plan you'd follow from $0 today: what you'd do first, in what order, the money milestone at each stage, and what you'd skip this time.</p>
+      <div class="lv-stat"><b>33%</b><span>of 12 matching videos hit 3x+. Rose Han's version got 8.6x and 1.8M views. Real-business titles on starting with nothing get 1.52x.</span></div>
+      <div class="hook good"><div class="hook-top"><b>The hook, word for word</b><span>Promise → Stakes → Proof</span></div><blockquote>
+        <p>"I built a business that's done over <mark>[$1 million]</mark> in sales, but before that, I'd been £4,000 in debt, I'd borrowed £100 from my girlfriend, and I was on £10 an hour in an IT job I hated.</p>
+        <p>But now, I run three businesses with a team, on 4 days a week.</p>
+        <p>So, if I had to go way back and start over today, here's exactly what I would do.</p>
+        <p>Stage number one."</p>
+      </blockquote></div>
+      <details class="more mini">
+        <summary><span class="lbl">The stages and the second hook</span><span class="plus">+</span></summary>
+        <div class="more-body">
+          <ol class="steps"><li>Keep Your Income, Find Your Hours (week one)</li><li>Pick Something You Can Sell With $0 (weeks two to four)</li><li>The First $1,000 (month two)</li><li>To $10,000 a Month (months three to six)</li><li>The First $100,000, and Buying Your Time Back</li><li>From $100,000 to $1 Million</li><li>What I'd Skip This Time</li></ol>
+          <p>Each stage is tied to a money milestone, so every stage is a re-hook. Honest about timing: a $1M business is years, not 12 months. 15 to 20 minutes.</p>
+          <div class="script"><small>Hook 2</small>"After years building businesses from nothing and helping my clients build theirs, I've learned something most people with a good job aren't prepared for. You could have a genius idea for a business and all the money you need to get started, and still never make it happen… You need a plan."</div>
+          <p><b>Title options:</b> If I Had to Start Over With $0, Here's Exactly What I'd Do · I Started With Nothing. If I Did It Again, Here's My Exact Plan</p>
+        </div>
+      </details>
+      <a class="lv-link" href="https://app.notion.com/p/415ea28b37c081c5a945d41e9ad857ac" target="_blank" rel="noopener">Open the full script →</a>
+    </div>
+  </article>
+  <p class="src"><mark>[Brackets]</mark> are your numbers to confirm before filming. Only the hooks are word for word; everything else is talking points, in your own words.</p>
+
+  <!-- PIPELINE -->
+  <div class="sub-head">
+    <span class="part">The pipeline</span>
+    <h3>The first 10, plus 4 bonus ideas</h3>
+    <p>The first 10 uploads on the 40 / 40 / 20 split. For each title's formula, we scored every long-form video from the last 12 months in the top 20 against its own channel's typical video. <b>3x+</b> means at least three times its channel's typical views.</p>
+  </div>
+  <ol class="ideas">
+    <li class="idea-row"><b>1</b><div><strong>Business Is Hard Until You Build Systems Like This</strong><span class="meta"><span class="pill pp3">Productivity</span><span class="pill">Upload 6</span><span class="pill score">61% of 18 at 3x+</span></span></div></li>
+    <li class="idea-row"><b>2</b><div><strong>Give Me X Minutes and I'll Teach You How to Make $1M</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill">Upload 8</span><span class="pill score">50% of 14 at 3x+</span></span></div></li>
+    <li class="idea-row is-launch"><b>3</b><div><strong>If You Only Watch One Business Video, Make It This</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill live">Launch Friday</span><span class="pill score">38% of 16</span></span></div></li>
+    <li class="idea-row is-launch"><b>4</b><div><strong>I Am (Politely) Begging You to Start a Business</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill live">Upload 3</span><span class="pill score">30% of 23</span></span></div></li>
+    <li class="idea-row"><b>5</b><div><strong>Do This Every Morning, It'll Blow Up Your Business</strong><span class="meta"><span class="pill pp3">Productivity</span><span class="pill">Upload 9</span><span class="pill score">57% of 7 at 3x+</span></span></div></li>
+    <li class="idea-row is-launch"><b>6</b><div><strong>If I Started Over With $0, Here's My Exact Plan to $1M</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill live">Upload 4</span><span class="pill score">33% of 12</span></span></div></li>
+    <li class="idea-row is-launch"><b>7</b><div><strong>Business Is a Video Game. Here's How to Win</strong><span class="meta"><span class="pill pp2">Wisdom</span><span class="pill live">Launch Sunday</span><span class="pill score">40% of 5</span></span></div></li>
+    <li class="idea-row"><b>8</b><div><strong>Give Me X Minutes and I'll Eliminate Your Self-Doubt Forever</strong><span class="meta"><span class="pill pp2">Wisdom</span><span class="pill">Upload 7</span><span class="pill score">Time-boxed 1.23x</span></span></div></li>
+    <li class="idea-row"><b>9</b><div><strong>If You Didn't Have Rich Parents, Please Watch This</strong><span class="meta"><span class="pill pp2">Wisdom</span><span class="pill">Upload 5</span><span class="pill score">1 real hit, 18.0x</span></span></div></li>
+    <li class="idea-row"><b>10</b><div><strong>The Psychology of Making Money</strong><span class="meta"><span class="pill pp2">Wisdom</span><span class="pill">Upload 10</span><span class="pill score">Mixed: hits at 10x+</span></span></div></li>
+    <li class="idea-row bonus"><b>B1</b><div><strong>I Tried X Business Ideas. These 3 Made Me Rich</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill">Bonus</span><span class="pill score">33% of 15</span></span></div></li>
+    <li class="idea-row bonus"><b>B2</b><div><strong>The 1-Page Business Plan That Made Me X</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill">Bonus</span><span class="pill score">50% of 6</span></span></div></li>
+    <li class="idea-row bonus"><b>B3</b><div><strong>How to Build Systems (So Your Business Runs Without You)</strong><span class="meta"><span class="pill pp3">Productivity</span><span class="pill">Bonus</span><span class="pill score">56% of 9</span></span></div></li>
+    <li class="idea-row bonus"><b>B4</b><div><strong>Watch This Before Starting Any Business in 2027</strong><span class="meta"><span class="pill pp1">Start From Nothing</span><span class="pill">Bonus</span><span class="pill score">Thin data</span></span></div></li>
+  </ol>
+
+  <details class="more">
+    <summary><span class="lbl">Why each idea works, with the examples <small>Part 4</small></span><span class="plus">+</span></summary>
+    <div class="more-body ideas-more">
+      <h4>1. Business Is Hard Until You Build Systems Like This</h4>
+      <p><b>Value prop:</b> the weekly systems that let you run three businesses on a four-day week, set up so someone with a job can copy them. <b>Why:</b> the strongest formula in the pipeline with the most data: 61% of 18 at 3x+, typical 3.3x. Ross Harkness 31.4x, Ali Abdaal's <i>Success Is Hard Until You Build Systems Like This</i> 12.7x (1.8M views), Matt Gray 9.7x.</p>
+      <div class="exg"><img src="assets/dd/i1_1.jpg" alt="" loading="lazy"><img src="assets/dd/i1_2.jpg" alt="" loading="lazy"><img src="assets/dd/i1_3.jpg" alt="" loading="lazy"><img src="assets/dd/i1_4.jpg" alt="" loading="lazy"><img src="assets/dd/i1_5.jpg" alt="" loading="lazy"></div>
+      <h4>2. Give Me X Minutes and I'll Teach You How to Make $1M</h4>
+      <p><b>Value prop:</b> the road from zero to $1M, compressed into 20 minutes, starting with the first $100K, from someone who did it with no money and no contacts. <b>Why:</b> 50% of 14 at 3x+, typical 2.7x. Natasha Willis 54.6x, Iman Gadzhi 8.4x. Time-boxed is the top format with the competitors (2.72x).</p>
+      <div class="exg"><img src="assets/dd/i2_1.jpg" alt="" loading="lazy"><img src="assets/dd/i2_2.jpg" alt="" loading="lazy"><img src="assets/dd/i2_3.jpg" alt="" loading="lazy"></div>
+      <h4>3. If You Only Watch One Business Video, Make It This</h4>
+      <p><b>Why:</b> 38% of 16 at 3x+. Will Barron 16.5x, Matt Gray's personal-brand version 10.6x. Copies by Ross Harkness (1.1x) and Brandon Bryant (0.9x) didn't land: it works when the video really is the whole thing.</p>
+      <div class="exg"><img src="assets/dd/i3_1.jpg" alt="" loading="lazy"><img src="assets/dd/i3_2.jpg" alt="" loading="lazy"></div>
+      <h4>4. I Am (Politely) Begging You to Start a Business Before It's Too Late</h4>
+      <p><b>Why:</b> 30% of 23 at 3x+. Brandon Bryant's original 21.7x, and Noelle Randall used the same title and got 19.8x.</p>
+      <div class="exg"><img src="assets/dd/i4_1.jpg" alt="" loading="lazy"><img src="assets/dd/i4_2.jpg" alt="" loading="lazy"></div>
+      <h4>5. Do This Every Morning, It'll Blow Up Your Business</h4>
+      <p><b>Value prop:</b> the morning routine you run three businesses from on a four-day week. <b>Why:</b> 57% of 7 at 3x+, typical 3.7x. The big hits promise a change to your life: <i>Do This Every Morning and Your Entire Life Will Change</i> (29.6x).</p>
+      <div class="exg"><img src="assets/dd/i5_1.png" alt="" loading="lazy"><img src="assets/dd/i5_2.jpg" alt="" loading="lazy"></div>
+      <h4>6. If I Started Over With $0, Here's My Exact Plan to $1M</h4>
+      <p><b>Why:</b> 33% of 12 at 3x+. Rose Han 8.6x (1.8M views), Ken McElroy 4.9x, Vincent Chan 4.5x.</p>
+      <div class="exg"><img src="assets/dd/i6_1.jpg" alt="" loading="lazy"><img src="assets/dd/i6_2.jpg" alt="" loading="lazy"><img src="assets/dd/i6_3.jpg" alt="" loading="lazy"></div>
+      <h4>7. Business Is a Video Game. Here's How to Win</h4>
+      <p><b>Why:</b> the formula wins with "Life", not "Business": 6.9x and 6.0x; <i>Marketing is a game</i> got 0.6x. Levels work in business too: Matt Gray's levels of business 8.4x.</p>
+      <div class="exg"><img src="assets/dd/i7_1.jpg" alt="" loading="lazy"><img src="assets/dd/i7_2.jpg" alt="" loading="lazy"><img src="assets/dd/i7_3.png" alt="" loading="lazy"><img src="assets/dd/i7_4.jpg" alt="" loading="lazy"><img src="assets/dd/i7_5.jpg" alt="" loading="lazy"></div>
+      <h4>8. Give Me X Minutes and I'll Eliminate Your Self-Doubt Forever</h4>
+      <p><b>Value prop:</b> the doubts that should have stopped you (dyslexic, no business mind, one room with five family members, businesses that failed) and what you did about each one. <b>Why:</b> Leila Hormozi's <i>Give Me 42 Minutes To Destroy Your Self-Doubt</i> 1.4x and <i>In 22 Minutes, I'll Make You Insanely Decisive</i> 2.7x. We haven't scanned this exact formula yet.</p>
+      <div class="exg"><img src="assets/dd/i8_1.jpg" alt="" loading="lazy"></div>
+      <h4>9. If You Didn't Have Rich Parents, Please Watch This</h4>
+      <p><b>Value prop:</b> what you had to learn about money and business that nobody in your family could teach you. <b>Why:</b> Michia Rohrssen's 18.0x, his biggest video of the year. Thin data, but it's your story told as a promise.</p>
+      <div class="exg"><img src="assets/dd/i9_1.jpg" alt="" loading="lazy"></div>
+      <h4>10. The Psychology of Making Money</h4>
+      <p><b>Why:</b> big hits but uneven: Natalie Dawson 10.4x and Will Barron 10.9x, Codie Sanchez 1.6x; "the psychology of" titles typically get 0.54x. A stronger version: <i>The Psychology of Making Your First $100K (From Someone Who Grew Up With Nothing)</i>.</p>
+      <div class="exg"><img src="assets/dd/i10_1.jpg" alt="" loading="lazy"><img src="assets/dd/i10_2.jpg" alt="" loading="lazy"><img src="assets/dd/i10_3.jpg" alt="" loading="lazy"></div>
+      <h4>Bonus ideas</h4>
+      <p><b>B1. I Tried X Business Ideas. These 3 Made Me Rich:</b> the businesses you really tried, which failed and which paid, with the numbers. 33% of 15 at 3x+ (12.6x, 7.3x).</p>
+      <div class="exg"><img src="assets/dd/b1_1.jpg" alt="" loading="lazy"><img src="assets/dd/b1_2.jpg" alt="" loading="lazy"></div>
+      <p><b>B2. The 1-Page Business Plan That Made Me X:</b> filled in live, with the real result. Thin data (6 videos, 50% at 3x+), but the first steps topic gets 1.75x.</p>
+      <div class="exg"><img src="assets/dd/b2_1.jpg" alt="" loading="lazy"><img src="assets/dd/b2_2.jpg" alt="" loading="lazy"></div>
+      <p><b>B3. How to Build Systems (So Your Business Runs Without You):</b> what you stopped doing, what you handed over. 56% of 9 at 3x+. Keep it about your week, not a team you don't have yet.</p>
+      <div class="exg"><img src="assets/dd/b3_1.jpg" alt="" loading="lazy"><img src="assets/dd/b3_2.jpg" alt="" loading="lazy"><img src="assets/dd/b3_3.jpg" alt="" loading="lazy"><img src="assets/dd/b3_4.jpg" alt="" loading="lazy"><img src="assets/dd/b3_5.jpg" alt="" loading="lazy"></div>
+      <p><b>B4. Watch This Before Starting Any Business in 2027:</b> the mistakes that cost you years. Thin data; "before you" titles work in early money (46.7x).</p>
+      <div class="exg"><img src="assets/dd/b4_1.jpg" alt="" loading="lazy"><img src="assets/dd/b4_2.jpg" alt="" loading="lazy"><img src="assets/dd/b4_3.jpg" alt="" loading="lazy"><img src="assets/dd/b4_4.jpg" alt="" loading="lazy"></div>
+    </div>
+  </details>
+</div></section>
+
+<!-- ============ PART 5 ============ -->
+<section id="plan"><div class="wrap">
+  <div class="head">
+    <span class="chip mono">Part 5 · The Launch Plan</span>
+    <h2>Two videos on launch weekend, then <span class="red">every Saturday</span></h2>
+    <p>Each launch video points to the other, so a viewer who finishes one goes straight to the next, and both get an extra push in the first days, <b>when YouTube is deciding who a new channel is for</b>.</p>
+  </div>
+  <div class="g2">
+    <a class="card t-green lw" href="#lv1"><span class="col-label green">Friday · launch day</span><h3>If You Only Watch One Business Video, Make It This</h3><p>The front door: the whole path in one video.</p><div class="proof">Points to Sunday: "now find out which level you're on, and how to beat it"</div></a>
+    <a class="card t-green lw" href="#lv2"><span class="col-label green">Sunday</span><h3>Business Is a Video Game. Here's How to Win</h3><p>The levels, from nothing to three businesses.</p><div class="proof">Points to Friday: "for every step in order, start here"</div></a>
+  </div>
+  <p class="callout">The end screen, a pinned comment and the first line of the description on both. Together they give a new viewer <span class="hl">the whole path, and where they are on it</span>.</p>
+
+  <div class="sub-head">
+    <h3>Seeding the launch without dragging FBA across</h3>
+    <p>Your audience already knows you: <b>TikTok 1.2M, Instagram 269K, YouTube 290K</b>, and your email list.</p>
+  </div>
+  <div class="g4">
+    <div class="card"><div class="num">1</div><h3>Point them across once, at launch</h3><p>An email on Friday and a reminder on Sunday, Instagram and TikTok posts and stories on both days, and one community post on your current channel.</p></div>
+    <div class="card"><div class="num">2</div><h3>Never in the titles or thumbnails</h3><p>The new channel never says Amazon or FBA. People find it through you, not through the label.</p></div>
+    <div class="card"><div class="num">3</div><h3>Why only at launch</h3><p>Your first viewers help YouTube decide who to show the channel to next. After that, the channel wins its own viewers on browse and suggested.</p></div>
+    <div class="card"><div class="num">4</div><h3>After the launch weekend</h3><p>A story for each Saturday video in the first month, then an email only for the big ones.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>The first 30 days</h3>
+  </div>
+  <ol class="weeks">
+    <li class="wk"><time>2 weeks before<b>Launch prep</b></time><strong>The new channel's name, handle, banner and About (your story in three lines); the new colour scheme; rename the current channel</strong><span class="st plan">You + us</span></li>
+    <li class="wk"><time>2 weeks before<b>Launch prep</b></time><strong>Fill in the [bracketed] numbers in the hooks on the 4 script pages; choose the proof to lean into</strong><span class="st edit">You</span></li>
+    <li class="wk"><time>1 week before<b>Filming</b></time><strong>Film the first 6 videos (the 4 launch videos plus videos 5 and 6), hooks word for word<small>Plus B-roll (your office, your team, a normal workday) and 3 to 5 headshots</small></strong><span class="st edit">You</span></li>
+    <li class="wk"><time>1 week before<b>Packaging</b></time><strong>Thumbnails for the first 6 videos; end screens and pinned comments ready</strong><span class="st plan">Us</span></li>
+    <li class="wk"><time>1 week before<b>Tracking</b></time><strong>Lead tracking for YouTube in Hyros</strong><span class="st edit">You</span></li>
+    <li class="wk is-live"><time>Launch weekend<b>Fri + Sun</b></time><strong>Friday and Sunday videos, pointing to each other; email, socials and the community post</strong><span class="st live">You + us</span></li>
+    <li class="wk"><time>Days 3 to 30<b>Saturdays</b></time><strong>Videos 3 to 6 on the next four Saturdays; a first thumbnail test on the launch videos</strong><span class="st plan">Us</span></li>
+    <li class="wk"><time>Every Monday<b>Review</b></time><strong>Click-through rate, % still watching at 0:30 (aim for your best hooks' 70%), share of views from browse and suggested, subscribers per 1,000 views</strong><span class="st plan">Us</span></li>
+  </ol>
+
+  <div class="sub-head">
+    <h3>Uploads 1 to 10</h3>
+  </div>
+  <ol class="weeks">
+    <li class="wk is-live"><time>Upload 1<b>Week 1 · Fri</b></time><strong>If You Only Watch One Business Video, Make It This</strong><span class="pill pp1">Pillar 1</span></li>
+    <li class="wk is-live"><time>Upload 2<b>Week 1 · Sun</b></time><strong>Business Is a Video Game. Here's How to Win</strong><span class="pill pp2">Pillar 2</span></li>
+    <li class="wk"><time>Upload 3<b>Week 2 · Sat</b></time><strong>I Am (Politely) Begging You to Start a Business Before It's Too Late</strong><span class="pill pp1">Pillar 1</span></li>
+    <li class="wk"><time>Upload 4<b>Week 3 · Sat</b></time><strong>If I Started Over With $0, Here's My Exact Plan to $1M</strong><span class="pill pp1">Pillar 1</span></li>
+    <li class="wk"><time>Upload 5<b>Week 4 · Sat</b></time><strong>If You Didn't Have Rich Parents, Please Watch This</strong><span class="pill pp2">Pillar 2</span></li>
+    <li class="wk"><time>Upload 6<b>Week 5 · Sat</b></time><strong>Business Is Hard Until You Build Systems Like This</strong><span class="pill pp3">Pillar 3</span></li>
+    <li class="wk"><time>Upload 7<b>Week 6 · Sat</b></time><strong>Give Me X Minutes and I'll Eliminate Your Self-Doubt Forever</strong><span class="pill pp2">Pillar 2</span></li>
+    <li class="wk"><time>Upload 8<b>Week 7 · Sat</b></time><strong>Give Me X Minutes and I'll Teach You How to Make $1M</strong><span class="pill pp1">Pillar 1</span></li>
+    <li class="wk"><time>Upload 9<b>Week 8 · Sat</b></time><strong>Do This Every Morning, It'll Blow Up Your Business</strong><span class="pill pp3">Pillar 3</span></li>
+    <li class="wk"><time>Upload 10<b>Week 9 · Sat</b></time><strong>The Psychology of Making Money</strong><span class="pill pp2">Pillar 2</span></li>
+  </ol>
+
+  <div class="sub-head">
+    <h3>Months 3 to 6</h3>
+    <p><b>Saturdays, every week.</b> Consistency compounds: it's what grows a new channel.</p>
+  </div>
+  <div class="g3">
+    <div class="card t-blue"><h3>Every 5 uploads</h3><p>Review the pillars and formats against the numbers, and give more weeks to the ones that hit, within the 40 / 40 / 20 shape.</p></div>
+    <div class="card t-blue"><h3>The first collaboration by month 3</h3><p>Someone your viewer already watches (Access, Lever 5).</p></div>
+    <div class="card t-blue"><h3>A first masterclass</h3><p>A full course of 30 to 45 minutes on the topic that hits hardest in the first 10 uploads. Full courses get 1.36x.</p></div>
+    <div class="card t-blue"><h3>Leads</h3><p>From month 2, read the YouTube leads in Hyros alongside the views, so we know which videos bring people to your coaching.</p></div>
+    <div class="card t-blue"><h3>Saturdays, every week</h3><p>One video a week, every week. No gaps.</p></div>
+    <div class="card t-green" style="border:1.5px solid var(--green)"><h3>The target</h3><p class="big-t">15K+</p><p>views on every video by month 6 (your goal).</p></div>
+  </div>
+
+  <div class="sub-head" id="answers">
+    <h3>The questions we promised, answered</h3>
+    <p>From the proposal, one line each, with where to read more.</p>
+  </div>
+  <div class="tbl-wrap"><table class="ans">
+    <tr><th>The question</th><th>The answer</th><th>Where</th></tr>
+    <tr><td><b>Positioning:</b> what single idea makes your next chapter coherent, beyond the FBA label?</td><td>You don't need money, contacts or a head start to build a real business. You built it from scratch, with no leg up, and you share everything it takes, for free.</td><td><a href="#positioning">Part 3</a></td></tr>
+    <tr><td>Which angle wins: broader e-commerce, operations, marketing, or working less while making more?</td><td>Starting a real business: its titles get 1.44x. Operations and marketing sit in growing and scaling (0.98x and 0.75x, barely searched). E-commerce stays occasional. Working less while making more becomes Pillar 3.</td><td><a href="#space">Part 2b</a></td></tr>
+    <tr><td>What can only you say?</td><td>Your story, built from scratch with no leg up, and your results and your clients' ($7M+), shown rather than told.</td><td><a href="#lever5">Lever 5</a></td></tr>
+    <tr><td><b>Channel decision:</b> new channel or rename, with real examples?</td><td>A new channel: only 1.1% of monthly viewers are regulars and 51% of engaged views came from FBA search, so a rename keeps the wrong audience. Vishen Lakhiani's new channel: 10K in about 9 weeks, 61.3K in 6 months; Daniel Priestley 0 to 200K in a year; Chris Donnelly 10K from his first 8 videos.</td><td><a href="#lever1">Lever 1</a></td></tr>
+    <tr><td>If new: how do we seed the launch without dragging FBA across?</td><td>Point your audience across once, at launch: email, Instagram, TikTok and one community post, all to the two launch videos. Never Amazon or FBA in the titles or thumbnails.</td><td><a href="#plan">Part 5</a></td></tr>
+    <tr><td>What happens to the current channel?</td><td>It stays your Amazon FBA lead-gen asset, renamed, and keeps ranking for FBA searches and feeding your coaching.</td><td><a href="#lever1">Lever 1</a></td></tr>
+    <tr><td><b>Market:</b> who's winning, and why?</td><td>Channels that pack years of experience into one video: full courses (1.36x) and time-boxed titles (1.23x); time-boxed gets 2.72x with your 6 competitors.</td><td><a href="#space">Part 2c, d</a></td></tr>
+    <tr><td>Which topics and formats pull views?</td><td>Which business (57% outliers), life lessons (53%) and productivity (47%); the first steps (1.75x) and starting with nothing (1.52x). Formats: full courses, experiments, time-boxed and lists.</td><td><a href="#space">Part 2b, d</a></td></tr>
+    <tr><td>Where's the gap you can own that a guru can't?</td><td>Real business wisdom for learners starting from nothing: nobody does it. A new channel gets in on life lessons, productivity, wealth mindset and which business, where 58% to 70% of small-channel videos break out.</td><td><a href="#space">Part 2b</a></td></tr>
+    <tr><td><b>Packaging:</b> what wins in the business space, and which formulas fit you?</td><td>Learner thumbnails: you in a place of authority, one idea in a few big words, no dashboards. The proven title formulas are in the launch videos and the pipeline.</td><td><a href="#packaging">Part 2e</a></td></tr>
+    <tr><td>How do you stop the scroll without leaning on a revenue number?</td><td>Put yourself in the frame as the authority, not the dashboard: an authority cue on 50% to 100% of learner channels' best thumbnails, 0% on your FBA channel's best. A $ figure on its own trails (0.73x).</td><td><a href="#packaging">Part 2e</a></td></tr>
+    <tr><td><b>Recommendations:</b> the fastest-impact moves for launch?</td><td>A two-video launch weekend where each video points to the other, then the five levers on every video.</td><td><a href="#plan">Part 5</a></td></tr>
+    <tr><td>A roadmap: the first 30 days, the first 5 to 10 uploads, months 3 to 6?</td><td>The 30 days step by step, the first 10 uploads on a calendar (40 / 40 / 20), and the checkpoints for months 3 to 6, towards 15K+ views a video.</td><td><a href="#plan">Part 5</a></td></tr>
+    <tr><td><b>4 launch videos:</b> title, thumbnail and a word-for-word hook for each</td><td>Four launch videos, each with its own script page: title options, word-for-word hooks, talking points and the thumbnail direction with its outlier references (final designs next week); 14 ideas in the pipeline.</td><td><a href="#launch">Part 4</a></td></tr>
+  </table></div>
+
+  <div class="sub-head" id="next">
+    <h3>Next steps</h3>
+  </div>
+  <div class="g2">
+    <div class="card"><span class="col-label red">What we need from you</span>
+      <ul class="checks">
+        <li><span><b>Confirm your headline numbers</b> for camera: $1M of your own sales, $7M+ for clients (one of your videos says $5M), three businesses at $250K+ a month, a four-day week</span></li>
+        <li><span>Tell us which parts of the story you're happy to share on camera: the family, dyslexia, the pyramid scheme, the debt</span></li>
+        <li><span>Fill in the [bracketed] details on the 4 script pages, including the third Amazon product</span></li>
+        <li><span>Choose the one call to action for the new channel</span></li>
+        <li><span>Pick a filming day for the first 6 videos</span></li>
+      </ul>
+    </div>
+    <div class="card"><span class="col-label cobalt">What we'll do</span>
+      <ul class="checks">
+        <li><span><b>Send the final thumbnails</b> for the 4 launch videos next week</span></li>
+        <li><span>Name, handle, banner and About for the new channel, and the new colour scheme</span></li>
+        <li><span>Script videos 5 and 6 so the first shoot covers 6 videos</span></li>
+        <li><span>Plan the launch weekend: end screens, pinned comments, email and social copy</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b>About the data.</b> Long-form only unless stated. The big sample covers 6,006 videos from 77 business channels published 1 Nov 2025 to 27 Oct 2026, each scored against its own channel's median. The 15 topics cover 1,383 videos from the top 20 YouTube search results per topic, pulled 10 Nov 2026 (signed out, US English). Your channel's retention, traffic and audience come from YouTube Studio. Search demand is a proxy for browse and suggested, where the new channel will grow.</p>
+  <p style="margin-top:14px">Prepared by Talking Heads · Private, for Jatin Naran</p>
+</div></footer>
+
+<script>
+// Count the proof-of-work numbers up when they scroll into view
+(function () {
+  var els = document.querySelectorAll('.work-g b[data-n]');
+  if (!els.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      var el = e.target, to = +el.dataset.n, t0 = null;
+      (function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400), k = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * k).toLocaleString('en-GB'); if (p < 1) requestAnimationFrame(step); })(performance.now());
+    });
+  }, { threshold: .4 });
+  els.forEach(function (el) { el.textContent = '0'; io.observe(el); });
+})();
+
+// Highlight the nav link for the section in view
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.links a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var y = window.scrollY + 140, cur = -1;
+    secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+</script>
+</body>
+</html>
