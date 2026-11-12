@@ -573,6 +573,36 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .faq-body li{margin:4px 0}
 .faq-body li ul{margin:4px 0 0}
 .faq-call{background:color-mix(in srgb,var(--marker) 20%,var(--white));border-radius:10px;padding:12px 14px}
+/* Option 3: calendar */
+.cals{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mcal{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px}
+.cal-m{font-weight:700;font-size:18px;margin-bottom:14px}
+.cal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal-h{font-family:var(--mono);font-size:11px;color:var(--ink-50);text-align:center;padding-bottom:4px}
+.cal-d{position:relative;min-height:64px;border-radius:10px;background:var(--paper);padding:6px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.cal-d.off{background:none}
+.cal-d.past{opacity:.45}
+.cal-d b{font-size:12px;font-weight:600;color:var(--ink-70)}
+.cal-d em{font-style:normal;font-size:10.5px;font-weight:600;line-height:1.2;color:var(--ink)}
+.p-st{background:#e6edfd}.p-pr{background:#eef0f2}.p-fi{background:var(--red-100)}.p-po{background:#e7f6ec}
+.p-re{background:var(--red)}.p-re b,.p-re em{color:#fff}
+.cal-d.kit::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--marker)}
+.cal-key{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px;font-size:14px;color:var(--ink-70)}
+.cal-key span{display:inline-flex;align-items:center;gap:8px}
+.cal-key i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.k-st{background:#e6edfd;border:1px solid #c9d6fa}.k-pr{background:#eef0f2;border:1px solid var(--line)}.k-kit{background:var(--marker)}.k-fi{background:var(--red-100);border:1px solid #f5c6d3}.k-po{background:#e7f6ec;border:1px solid #c3ebd1}.k-re{background:var(--red)}
+.weeks{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.weeks > li{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px}
+.weeks small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.weeks h3{font-size:18px;margin:4px 0 10px}
+.weeks ul{list-style:none;display:grid;gap:8px}
+.weeks ul li{font-size:14px;line-height:1.5;color:var(--ink-70)}
+.weeks ul b{color:var(--ink);font-weight:600}
+.o3-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.o3-grid .tile h3{margin-top:2px}
+#option-3 .head p+p{margin-top:8px}
+@media (max-width:960px){.cals{grid-template-columns:1fr}.weeks{grid-template-columns:1fr 1fr}.o3-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.weeks,.o3-grid{grid-template-columns:1fr}.mcal{padding:14px}.cal-g{gap:3px}.cal-d{min-height:46px;padding:4px 5px}.cal-d em{display:none}.cal-d b{font-size:11px}}
 </style>
 </head>
 <body>
@@ -580,7 +610,7 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 <nav class="nav"><div class="nav-in">
   <a class="who" href="#top"><img src="assets/av-alex.jpg" alt=""><span><b>Alex Ikonn</b><small>@AlexIkonnPodcast</small></span></a>
   <div class="links">
-    <a href="#gap">The Opportunity</a><a href="#option-1">Option 1</a><a href="#option-2">Option 2</a>
+    <a href="#gap">The Opportunity</a><a href="#option-1">Option 1</a><a href="#option-2">Option 2</a><a href="#option-3">Option 3</a>
   </div>
 </div></nav>
 
@@ -1250,6 +1280,72 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
   <div class="summary">8 weeks over a travelling period. An experiment for both of us.</div>
 </div></section>
 
+<!-- ================= OPTION 3 ================= -->
+<section id="option-3"><div class="wrap">
+  <div class="head">
+    <span class="chip b mono">Option 3: Sprint</span>
+    <h2>Launch your channel <span class="red">before the new&nbsp;year</span></h2>
+    <p>A strategy deep dive, one filming week, and <b>4 videos live on YouTube</b> by 31&nbsp;December.</p>
+    <p>A first date for both of us.</p>
+  </div>
+
+  <!-- BLOCK 3a: the calendar -->
+  <div class="blk">
+    <div class="cals"><div class="mcal"><div class="cal-m">November</div><div class="cal-g"><span class="cal-h">M</span><span class="cal-h">T</span><span class="cal-h">W</span><span class="cal-h">T</span><span class="cal-h">F</span><span class="cal-h">S</span><span class="cal-h">S</span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d off"></span><span class="cal-d past"><b>1</b></span><span class="cal-d past"><b>2</b></span><span class="cal-d past"><b>3</b></span><span class="cal-d past"><b>4</b></span><span class="cal-d past"><b>5</b></span><span class="cal-d past"><b>6</b></span><span class="cal-d past"><b>7</b></span><span class="cal-d past"><b>8</b></span><span class="cal-d past"><b>9</b></span><span class="cal-d past"><b>10</b></span><span class="cal-d past"><b>11</b></span><span class="cal-d past"><b>12</b></span><span class="cal-d past"><b>13</b></span><span class="cal-d past"><b>14</b></span><span class="cal-d past"><b>15</b></span><span class="cal-d p-st"><b>16</b><em>Kick off</em></span><span class="cal-d p-st"><b>17</b><em>Deep dive</em></span><span class="cal-d p-st"><b>18</b></span><span class="cal-d p-st"><b>19</b></span><span class="cal-d p-st"><b>20</b></span><span class="cal-d"><b>21</b></span><span class="cal-d"><b>22</b></span><span class="cal-d p-st"><b>23</b></span><span class="cal-d p-st"><b>24</b></span><span class="cal-d p-st"><b>25</b></span><span class="cal-d p-st"><b>26</b><em>Present</em></span><span class="cal-d"><b>27</b></span><span class="cal-d"><b>28</b></span><span class="cal-d"><b>29</b></span><span class="cal-d p-pr kit"><b>30</b><em>Brain dumps</em></span></div></div><div class="mcal"><div class="cal-m">December</div><div class="cal-g"><span class="cal-h">M</span><span class="cal-h">T</span><span class="cal-h">W</span><span class="cal-h">T</span><span class="cal-h">F</span><span class="cal-h">S</span><span class="cal-h">S</span><span class="cal-d off"></span><span class="cal-d p-pr kit"><b>1</b><em>First look</em></span><span class="cal-d p-pr kit"><b>2</b></span><span class="cal-d p-pr kit"><b>3</b></span><span class="cal-d p-pr kit"><b>4</b><em>Scripts</em></span><span class="cal-d"><b>5</b></span><span class="cal-d"><b>6</b></span><span class="cal-d p-fi kit"><b>7</b></span><span class="cal-d p-fi kit"><b>8</b><em>Filming day</em></span><span class="cal-d p-fi kit"><b>9</b></span><span class="cal-d p-fi kit"><b>10</b></span><span class="cal-d p-fi kit"><b>11</b></span><span class="cal-d"><b>12</b></span><span class="cal-d"><b>13</b></span><span class="cal-d p-po kit"><b>14</b><em>Relaunch</em></span><span class="cal-d p-po"><b>15</b></span><span class="cal-d p-po"><b>16</b></span><span class="cal-d p-po"><b>17</b></span><span class="cal-d p-po"><b>18</b></span><span class="cal-d p-re"><b>19</b><em>Video 1</em></span><span class="cal-d p-re"><b>20</b><em>Video 2</em></span><span class="cal-d p-po"><b>21</b></span><span class="cal-d p-po"><b>22</b></span><span class="cal-d p-po"><b>23</b></span><span class="cal-d p-po"><b>24</b></span><span class="cal-d"><b>25</b><em>Christmas</em></span><span class="cal-d"><b>26</b></span><span class="cal-d p-re"><b>27</b><em>Video 3</em></span><span class="cal-d p-po"><b>28</b></span><span class="cal-d p-po"><b>29</b></span><span class="cal-d p-po"><b>30</b></span><span class="cal-d p-re"><b>31</b><em>Video 4</em></span></div></div></div>
+    <div class="cal-key">
+      <span><i class="k-st"></i>Strategy deep dive</span>
+      <span><i class="k-pr"></i>Brain dumps and scripts</span>
+      <span><i class="k-kit"></i>Identity kit</span>
+      <span><i class="k-fi"></i>Filming week</span>
+      <span><i class="k-po"></i>Production</span>
+      <span><i class="k-re"></i>Video goes live</span>
+    </div>
+    <p class="src" style="text-align:center">Filming dates to confirm with you. Everything else moves with them.</p>
+  </div>
+
+  <!-- BLOCK 3b: week by week -->
+  <div class="blk">
+    <ol class="weeks">
+      <li><small>16 to 26 Nov</small><h3>Strategy Deep Dive</h3><ul>
+        <li><b>Mon 16 Nov.</b> Kick off. You send the Best Year Journal.</li>
+        <li><b>16 to 25 Nov.</b> We study your YouTube data, newsletters and who owns Life Design today.</li>
+        <li><b>Thu 26 Nov.</b> We present the strategy and lock your 4 videos.</li></ul></li>
+      <li><small>30 Nov to 4 Dec</small><h3>Prep</h3><ul>
+        <li><b>Mon 30 Nov.</b> Your 4 Brain Dump Looms.</li>
+        <li><b>Tue 1 Dec.</b> First look at your identity kit.</li>
+        <li><b>Fri 4 Dec.</b> Scripts finalised. Identity kit locked.</li></ul></li>
+      <li><small>7 to 11 Dec</small><h3>Filming Week</h3><ul>
+        <li><b>Tue 8 Dec.</b> Filming day. 2 videos in the morning, 2 in the afternoon.</li>
+        <li><b>All week.</b> I capture clips and reels for Intelligent Change.</li></ul></li>
+      <li><small>14 to 31 Dec</small><h3>Relaunch and Release</h3><ul>
+        <li><b>Mon 14 Dec.</b> Channel relaunch: new name, banner and positioning.</li>
+        <li><b>19 and 20 Dec.</b> Launch weekend. Videos 1 and 2.</li>
+        <li><b>Sun 27 Dec.</b> Video 3.</li>
+        <li><b>Thu 31 Dec.</b> Video 4, for New Year planning.</li></ul></li>
+    </ol>
+  </div>
+
+  <!-- BLOCK 3c: what you get -->
+  <div class="blk">
+    <p class="callout lead" style="margin-top:0;margin-bottom:32px">What you <span class="red">walk away&nbsp;with</span>.</p>
+    <div class="o3-grid">
+      <div class="tile flat"><span class="num n-b">1</span><h3>Your Strategy Deep Dive</h3><p>The ideas, formats and white space in Life Design. Yours to keep, whoever makes the videos.</p></div>
+      <div class="tile flat"><span class="num n-g">2</span><h3>A Repositioned Channel</h3><p>Clear value proposition, new banner, and a reason to subscribe.</p></div>
+      <div class="tile flat"><span class="num n-y">3</span><h3>Your Identity Kit</h3><p>Motion graphics, thumbnail style, channel banner. The full shebang.</p></div>
+      <div class="tile flat"><span class="num n-r">4</span><h3>4 Launch Videos</h3><p>Validated ideas, produced and released before the new year.</p></div>
+      <div class="tile flat"><span class="num n-b">5</span><h3>Clips and Reels</h3><p>Cut from filming week, for you and Intelligent Change.</p></div>
+      <div class="tile flat"><span class="num n-g">6</span><h3>A System for 2027</h3><p>One filming week a month. No waiting for inspiration.</p></div>
+    </div>
+  </div>
+
+  <!-- BLOCK 3d: the details -->
+  <div class="blk terms">
+    <div><small>Output</small><strong>4 videos</strong><span>plus clips and reels</span></div>
+    <div><small>Investment</small><strong>TBD</strong><span>+ travel costs</span></div>
+    <div><small>Term</small><strong>7 weeks</strong><span>16 Nov to 31 Dec</span></div>
+  </div>
+</div></section>
+
 <footer>
   <a class="brand" href="#top"><i></i>Talking Heads</a>
   Made for Alex
@@ -1314,6 +1410,13 @@ stickers.forEach((el, i) => { el.style.transitionDelay = (0.15 + i * 0.18) + 's'
 new IntersectionObserver((entries, obs) => {
   if (entries[0].isIntersecting) { stickers.forEach(el => el.classList.add('in')); obs.disconnect() }
 }, { threshold: 0.6 }).observe(document.querySelector('.o2-h2'))
+</script>
+<script>
+// Deep links like /alex/#option-3: re-snap once images and fonts have loaded and shifted the layout
+if (location.hash) {
+  const go = () => { const t = document.querySelector(location.hash); if (t) t.scrollIntoView({ behavior: 'instant' }) }
+  addEventListener('load', () => { go(); setTimeout(go, 400) })
+}
 </script>
 </body>
 </html>
