@@ -695,6 +695,7 @@ table.lp-cal tbody th{font-family:var(--f);font-size:13px;letter-spacing:0;text-
 table.lp-cal td{vertical-align:top;padding:6px;border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft);height:56px}
 table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green-50)}
 .ev{display:block;font-size:12px;line-height:1.3;border-radius:8px;padding:4px 7px;margin-bottom:4px;background:var(--paper);color:var(--ink-70)}
+table.lp-cal td.span .ev{display:inline-block;margin-right:4px}
 .ev.up{font-weight:700}
 .ev.up.p1{background:var(--red-50);color:var(--red-dark)}
 .ev.up.p2{background:var(--purple-50);color:var(--purple)}
@@ -1798,14 +1799,14 @@ table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green
   </div>
   <div class="lp-view" id="lp-list" role="tabpanel" aria-labelledby="lp-t-list">
     <ol class="lp-list">
-      <li class="lp-phase"><b>2 weeks before launch</b><span>Set up</span></li>
-      <li class="lp-row"><time>2 weeks before<b>Channel</b></time><strong>The new channel's name, handle, banner and About (your story in three lines); the new colour scheme; rename the current channel</strong><span class="st edit">You</span></li>
-      <li class="lp-row"><time>2 weeks before<b>Scripts</b></time><strong>Fill in the [bracketed] numbers in the hooks on the 4 script pages; choose the proof to lean into</strong><span class="st edit">You</span></li>
-      <li class="lp-phase"><b>1 week before launch</b><span>Film and package</span></li>
-      <li class="lp-row"><time>1 week before<b>Filming</b></time><strong>Film the first 6 videos (the 4 launch videos plus videos 5 and 6), hooks word for word<small>Plus B-roll (your office, your team, a normal workday) and 3 to 5 headshots</small></strong><span class="st edit">You</span></li>
-      <li class="lp-row"><time>1 week before<b>Packaging</b></time><strong>Final thumbnails for the 4 launch videos</strong><span class="st plan">Us</span></li>
-      <li class="lp-row"><time>1 week before<b>Packaging</b></time><strong>End screens and pinned comments ready for the launch weekend</strong><span class="st edit">You</span></li>
-      <li class="lp-row"><time>1 week before<b>Tracking</b></time><strong>Lead tracking for YouTube in Hyros</strong><span class="st edit">You</span></li>
+      <li class="lp-phase"><b>This week</b><span>Thumbnails</span></li>
+      <li class="lp-row"><time>Thu 19 Nov<b>Packaging</b></time><strong>Final thumbnails for the 4 launch videos</strong><span class="st plan">Us</span></li>
+      <li class="lp-phase"><b>Before launch</b><span>Set up, film and package</span></li>
+      <li class="lp-row"><time>Before launch<b>Channel</b></time><strong>The new channel's name, handle and About (your story in three lines); rename the current channel</strong><span class="st edit">You</span></li>
+      <li class="lp-row"><time>Before launch<b>Scripts</b></time><strong>Fill in the [bracketed] details on the 4 script pages; confirm your headline numbers and the call to action</strong><span class="st edit">You</span></li>
+      <li class="lp-row"><time>Before launch<b>Filming</b></time><strong>Film the first 6 videos (the 4 launch videos plus videos 5 and 6), hooks word for word<small>Plus B-roll (your office, your team, a normal workday) and 3 to 5 headshots</small></strong><span class="st edit">You</span></li>
+      <li class="lp-row"><time>Before launch<b>Packaging</b></time><strong>End screens and pinned comments ready for the launch weekend</strong><span class="st edit">You</span></li>
+      <li class="lp-row"><time>Before launch<b>Tracking</b></time><strong>Lead tracking for YouTube in Hyros</strong><span class="st edit">You</span></li>
       <li class="lp-phase"><b>Week 1 · launch weekend</b><span>Two videos, each pointing to the other</span></li>
       <li class="lp-row is-live"><time>Friday<b>Upload 1</b></time><strong>If You Only Watch One Business Video, Make It This<small>The front door. Email your list, Instagram and TikTok posts and stories. Points to Sunday: here's how I did it with no leg up</small></strong><span class="pill pp1">Pillar 1</span></li>
       <li class="lp-row is-live"><time>Sunday<b>Upload 2</b></time><strong>If You Didn't Have Rich Parents, Please Watch This<small>The story. Reminder email, posts and stories, and one community post on your current channel. Points to Friday: for every step in order, start here</small></strong><span class="pill pp2">Pillar 2</span></li>
@@ -1828,8 +1829,8 @@ table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green
     <div class="lp-cal-wrap"><table class="lp-cal">
         <thead><tr><th></th><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th><th scope="col">Sun</th></tr></thead>
         <tbody>
-          <tr><th scope="row">2 weeks before</th><td><span class="ev you">Channel name, handle, banner, About, colours</span><span class="ev you">Fill in the hook numbers</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><th scope="row">1 week before</th><td><span class="ev you">Lead tracking in Hyros</span></td><td></td><td><span class="ev you">Film the first 6 videos, B-roll, headshots</span></td><td></td><td><span class="ev us">Final thumbnails for the 4 launch videos</span><span class="ev you">End screens, pinned comments</span></td><td></td><td></td></tr>
+          <tr><th scope="row">This week</th><td></td><td></td><td></td><td><span class="ev us">19 Nov · Final thumbnails for the 4 launch videos</span></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">Before launch</th><td colspan="7" class="span"><span class="ev you">Channel name, handle, About</span><span class="ev you">Fill in the script details</span><span class="ev you">Film the first 6 videos, B-roll, headshots</span><span class="ev you">End screens, pinned comments</span><span class="ev you">Lead tracking in Hyros</span></td></tr>
           <tr class="is-launch"><th scope="row">Week 1</th><td></td><td></td><td></td><td></td><td><span class="ev up p1">1 · One Business Video</span><span class="ev you">Email, posts, stories</span></td><td></td><td><span class="ev up p2">2 · Rich Parents</span><span class="ev you">Reminder email, community post</span></td></tr>
           <tr><th scope="row">Week 2</th><td></td><td></td><td></td><td></td><td></td><td><span class="ev up p1">3 · Begging You to Start</span><span class="ev you">Story</span></td><td></td></tr>
           <tr><th scope="row">Week 3</th><td></td><td></td><td></td><td></td><td></td><td><span class="ev up p1">4 · Started Over With $0</span><span class="ev you">Story</span></td><td></td></tr>
@@ -1875,7 +1876,7 @@ table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green
     </div>
     <div class="card"><span class="col-label cobalt">What we'll do</span>
       <ul class="checks">
-        <li><span><b>Send the final thumbnails</b> for the 4 launch videos next week</span></li>
+        <li><span><b>Send the final thumbnails</b> for the 4 launch videos on Thursday 19 November</span></li>
         <li><span>Send this deep dive as a PDF so you have a copy to keep</span></li>
       </ul>
     </div>
