@@ -668,6 +668,46 @@ details.more{margin-top:28px}
 .kstats{max-width:900px;margin:0 auto;text-align:center}
 .stat strong .dash{display:inline;margin:0 .08em;letter-spacing:0;font-size:inherit;color:inherit}
 .vs{align-items:stretch}.vs .stat{display:flex;flex-direction:column;justify-content:center}.vs .vs-mid{align-self:center}
+
+/* Launch plan: list and calendar views */
+.lp-tabs{display:inline-flex;gap:4px;padding:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;margin:4px 0 20px}
+.lp-tabs button{font:600 14px var(--f);border:0;background:transparent;color:var(--ink-70);padding:8px 18px;border-radius:999px;cursor:pointer}
+.lp-tabs button[aria-selected="true"]{background:var(--white);color:var(--ink);box-shadow:var(--shadow-sm)}
+.lp-tabs button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.lp-view[hidden]{display:none}
+.lp-list{list-style:none;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.lp-phase{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 20px;background:var(--paper);border-bottom:1px solid var(--line-soft)}
+.lp-phase b{font-size:14px;font-weight:700;color:var(--ink)}
+.lp-phase span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.lp-row{display:grid;grid-template-columns:120px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line-soft)}
+.lp-row:last-child{border-bottom:0}
+.lp-row time{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-50)}
+.lp-row time b{display:block;font-family:var(--f);font-size:14px;letter-spacing:0;color:var(--ink)}
+.lp-row strong{font-size:15px;font-weight:600;line-height:1.35}
+.lp-row strong small{display:block;font-weight:400;font-size:13px;color:var(--ink-50);margin-top:2px}
+.lp-row.is-live{background:var(--green-50)}
+.lp-row .pill{justify-self:end}
+.lp-cal-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg)}
+table.lp-cal{min-width:760px;table-layout:fixed;font-size:12px}
+table.lp-cal th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-50);font-weight:400;padding:10px 8px;text-align:left;background:var(--paper)}
+table.lp-cal thead th:first-child{width:104px}
+table.lp-cal tbody th{font-family:var(--f);font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600;vertical-align:top}
+table.lp-cal td{vertical-align:top;padding:6px;border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft);height:56px}
+table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green-50)}
+.ev{display:block;font-size:12px;line-height:1.3;border-radius:8px;padding:4px 7px;margin-bottom:4px;background:var(--paper);color:var(--ink-70)}
+.ev.up{font-weight:700}
+.ev.up.p1{background:var(--red-50);color:var(--red-dark)}
+.ev.up.p2{background:var(--purple-50);color:var(--purple)}
+.ev.up.p3{background:var(--green-50);color:var(--green)}
+.ev.you{background:var(--yellow-50);color:var(--amber)}
+.ev.us{background:var(--paper);color:var(--ink-70);border:1px dashed var(--line)}
+.ev.rev{background:var(--blue-50);color:var(--cobalt)}
+.lp-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lp-legend .ev{display:inline-block;margin:0}
+.lp-after{margin-top:14px;font-size:15px;color:var(--ink-70);line-height:1.6}
+.lp-target{margin-top:24px}
+.lp-target .big-t{font-size:28px;font-weight:800;color:var(--green);margin-right:6px}
+@media (max-width:640px){.lp-row{grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px}.lp-row time{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.lp-row time b{display:inline}.lp-phase{padding:12px 16px}}
 </style>
 </head>
 <body>
@@ -1752,66 +1792,74 @@ details.more{margin-top:28px}
     <h2>Two videos on launch weekend, then <span class="red">every Saturday</span></h2>
     <p>Each launch video points to the other, so a viewer who finishes one goes straight to the next, and both get an extra push in the first days, <b>when YouTube is deciding who a new channel is for</b>.</p>
   </div>
-  <div class="g2">
-    <a class="card t-green lw" href="#lv1"><span class="col-label green">Friday · launch day</span><h3>If You Only Watch One Business Video, Make It This</h3><p>The front door: the whole path in one video.</p><div class="proof">Points to Sunday: "here's how I did it with no leg up"</div></a>
-    <a class="card t-green lw" href="#lv2"><span class="col-label green">Sunday</span><h3>If You Didn't Have Rich Parents, Please Watch This</h3><p>The story: from one room and no contacts to three businesses.</p><div class="proof">Points to Friday: "for every step in order, start here"</div></a>
+  <div class="lp-tabs" role="tablist" aria-label="Launch plan view">
+    <button type="button" role="tab" id="lp-t-list" aria-controls="lp-list" aria-selected="true">Week by week</button>
+    <button type="button" role="tab" id="lp-t-cal" aria-controls="lp-cal" aria-selected="false" tabindex="-1">Calendar</button>
   </div>
-  <p class="callout">The end screen, a pinned comment and the first line of the description on both. Together they give a new viewer <span class="hl">the whole path, and where they are on it</span>.</p>
-
-  <div class="sub-head">
-    <h3>Seeding the launch without dragging FBA across</h3>
-    <p>Your audience already knows you: <b>TikTok 1.2M, Instagram 269K, YouTube 290K</b>, and your email list.</p>
+  <div class="lp-view" id="lp-list" role="tabpanel" aria-labelledby="lp-t-list">
+    <ol class="lp-list">
+      <li class="lp-phase"><b>2 weeks before launch</b><span>Set up</span></li>
+      <li class="lp-row"><time>2 weeks before<b>Channel</b></time><strong>The new channel's name, handle, banner and About (your story in three lines); the new colour scheme; rename the current channel</strong><span class="st plan">You + us</span></li>
+      <li class="lp-row"><time>2 weeks before<b>Scripts</b></time><strong>Fill in the [bracketed] numbers in the hooks on the 4 script pages; choose the proof to lean into</strong><span class="st edit">You</span></li>
+      <li class="lp-phase"><b>1 week before launch</b><span>Film and package</span></li>
+      <li class="lp-row"><time>1 week before<b>Filming</b></time><strong>Film the first 6 videos (the 4 launch videos plus videos 5 and 6), hooks word for word<small>Plus B-roll (your office, your team, a normal workday) and 3 to 5 headshots</small></strong><span class="st edit">You</span></li>
+      <li class="lp-row"><time>1 week before<b>Packaging</b></time><strong>Thumbnails for the first 6 videos; end screens and pinned comments ready</strong><span class="st plan">Us</span></li>
+      <li class="lp-row"><time>1 week before<b>Tracking</b></time><strong>Lead tracking for YouTube in Hyros</strong><span class="st edit">You</span></li>
+      <li class="lp-phase"><b>Week 1 · launch weekend</b><span>Two videos, each pointing to the other</span></li>
+      <li class="lp-row is-live"><time>Friday<b>Upload 1</b></time><strong>If You Only Watch One Business Video, Make It This<small>The front door. Email your list, Instagram and TikTok posts and stories. Points to Sunday: here's how I did it with no leg up</small></strong><span class="pill pp1">Pillar 1</span></li>
+      <li class="lp-row is-live"><time>Sunday<b>Upload 2</b></time><strong>If You Didn't Have Rich Parents, Please Watch This<small>The story. Reminder email, posts and stories, and one community post on your current channel. Points to Friday: for every step in order, start here</small></strong><span class="pill pp2">Pillar 2</span></li>
+      <li class="lp-phase"><b>Weeks 2 to 8</b><span>One video every Saturday, a review every Monday</span></li>
+      <li class="lp-row"><time>Every Monday<b>Review</b></time><strong>Click-through rate, % still watching at 0:30 (aim for your best hooks' 70%), share of views from browse and suggested, subscribers per 1,000 views</strong><span class="st plan">Us</span></li>
+      <li class="lp-row"><time>Week 2 · Sat<b>Upload 3</b></time><strong>I Am (Politely) Begging You to Start a Business Before It's Too Late<small>A story for each Saturday video in the first month</small></strong><span class="pill pp1">Pillar 1</span></li>
+      <li class="lp-row"><time>Week 2<b>Testing</b></time><strong>A first thumbnail test on the launch videos</strong><span class="st plan">Us</span></li>
+      <li class="lp-row"><time>Week 3 · Sat<b>Upload 4</b></time><strong>If I Started Over With $0, Here's My Exact Plan to $1M</strong><span class="pill pp1">Pillar 1</span></li>
+      <li class="lp-row"><time>Week 4 · Sat<b>Upload 5</b></time><strong>Business Is Hard Until You Build Systems Like This</strong><span class="pill pp3">Pillar 3</span></li>
+      <li class="lp-row"><time>Week 5 · Sat<b>Upload 6</b></time><strong>Give Me X Minutes and I'll Eliminate Your Self-Doubt Forever<small>From here, an email only for the big ones</small></strong><span class="pill pp2">Pillar 2</span></li>
+      <li class="lp-row"><time>Week 6 · Sat<b>Upload 7</b></time><strong>Give Me X Minutes and I'll Teach You How to Make $1M</strong><span class="pill pp1">Pillar 1</span></li>
+      <li class="lp-row"><time>Week 7 · Sat<b>Upload 8</b></time><strong>Do This Every Morning, It'll Blow Up Your Business</strong><span class="pill pp3">Pillar 3</span></li>
+      <li class="lp-row"><time>Week 8 · Sat<b>Upload 9</b></time><strong>The Psychology of Making Money</strong><span class="pill pp2">Pillar 2</span></li>
+      <li class="lp-phase"><b>Months 3 to 6</b><span>Keep going, every Saturday</span></li>
+      <li class="lp-row"><time>From month 2<b>Leads</b></time><strong>Read the YouTube leads in Hyros alongside the views, so we know which videos bring people to your coaching</strong></li>
+      <li class="lp-row"><time>Every 5 uploads<b>Review</b></time><strong>Review the pillars and formats against the numbers, and give more weeks to the ones that hit, within the 40 / 40 / 20 shape</strong></li>
+      <li class="lp-row"><time>By month 3<b>Collab</b></time><strong>The first collaboration: someone your viewer already watches (Access, Lever 5)</strong></li>
+      <li class="lp-row"><time>Months 3 to 6<b>Masterclass</b></time><strong>A first masterclass: a full course of 30 to 45 minutes on the topic that hits hardest in the first 9 uploads. Full courses get 1.36x</strong></li>
+    </ol>
   </div>
-  <div class="g4">
-    <div class="card"><div class="num">1</div><h3>Point them across once, at launch</h3><p>An email on Friday and a reminder on Sunday, Instagram and TikTok posts and stories on both days, and one community post on your current channel.</p></div>
-    <div class="card"><div class="num">2</div><h3>Never in the titles or thumbnails</h3><p>The new channel never says Amazon or FBA. People find it through you, not through the label.</p></div>
-    <div class="card"><div class="num">3</div><h3>Why only at launch</h3><p>Your first viewers help YouTube decide who to show the channel to next. After that, the channel wins its own viewers on browse and suggested.</p></div>
-    <div class="card"><div class="num">4</div><h3>After the launch weekend</h3><p>A story for each Saturday video in the first month, then an email only for the big ones.</p></div>
-  </div>
-
-  <div class="sub-head">
-    <h3>The first 30 days</h3>
-  </div>
-  <ol class="weeks">
-    <li class="wk"><time>2 weeks before<b>Launch prep</b></time><strong>The new channel's name, handle, banner and About (your story in three lines); the new colour scheme; rename the current channel</strong><span class="st plan">You + us</span></li>
-    <li class="wk"><time>2 weeks before<b>Launch prep</b></time><strong>Fill in the [bracketed] numbers in the hooks on the 4 script pages; choose the proof to lean into</strong><span class="st edit">You</span></li>
-    <li class="wk"><time>1 week before<b>Filming</b></time><strong>Film the first 6 videos (the 4 launch videos plus videos 5 and 6), hooks word for word<small>Plus B-roll (your office, your team, a normal workday) and 3 to 5 headshots</small></strong><span class="st edit">You</span></li>
-    <li class="wk"><time>1 week before<b>Packaging</b></time><strong>Thumbnails for the first 6 videos; end screens and pinned comments ready</strong><span class="st plan">Us</span></li>
-    <li class="wk"><time>1 week before<b>Tracking</b></time><strong>Lead tracking for YouTube in Hyros</strong><span class="st edit">You</span></li>
-    <li class="wk is-live"><time>Launch weekend<b>Fri + Sun</b></time><strong>Friday and Sunday videos, pointing to each other; email, socials and the community post</strong><span class="st live">You + us</span></li>
-    <li class="wk"><time>Days 3 to 30<b>Saturdays</b></time><strong>Videos 3 to 6 on the next four Saturdays; a first thumbnail test on the launch videos</strong><span class="st plan">Us</span></li>
-    <li class="wk"><time>Every Monday<b>Review</b></time><strong>Click-through rate, % still watching at 0:30 (aim for your best hooks' 70%), share of views from browse and suggested, subscribers per 1,000 views</strong><span class="st plan">Us</span></li>
-  </ol>
-
-  <div class="sub-head">
-    <h3>The first 9 uploads</h3>
-  </div>
-  <ol class="weeks">
-    <li class="wk is-live"><time>Upload 1<b>Week 1 · Fri</b></time><strong>If You Only Watch One Business Video, Make It This</strong><span class="pill pp1">Pillar 1</span></li>
-    <li class="wk is-live"><time>Upload 2<b>Week 1 · Sun</b></time><strong>If You Didn't Have Rich Parents, Please Watch This</strong><span class="pill pp2">Pillar 2</span></li>
-    <li class="wk"><time>Upload 3<b>Week 2 · Sat</b></time><strong>I Am (Politely) Begging You to Start a Business Before It's Too Late</strong><span class="pill pp1">Pillar 1</span></li>
-    <li class="wk"><time>Upload 4<b>Week 3 · Sat</b></time><strong>If I Started Over With $0, Here's My Exact Plan to $1M</strong><span class="pill pp1">Pillar 1</span></li>
-    <li class="wk"><time>Upload 5<b>Week 4 · Sat</b></time><strong>Business Is Hard Until You Build Systems Like This</strong><span class="pill pp3">Pillar 3</span></li>
-    <li class="wk"><time>Upload 6<b>Week 5 · Sat</b></time><strong>Give Me X Minutes and I'll Eliminate Your Self-Doubt Forever</strong><span class="pill pp2">Pillar 2</span></li>
-    <li class="wk"><time>Upload 7<b>Week 6 · Sat</b></time><strong>Give Me X Minutes and I'll Teach You How to Make $1M</strong><span class="pill pp1">Pillar 1</span></li>
-    <li class="wk"><time>Upload 8<b>Week 7 · Sat</b></time><strong>Do This Every Morning, It'll Blow Up Your Business</strong><span class="pill pp3">Pillar 3</span></li>
-    <li class="wk"><time>Upload 9<b>Week 8 · Sat</b></time><strong>The Psychology of Making Money</strong><span class="pill pp2">Pillar 2</span></li>
-  </ol>
-
-  <div class="sub-head">
-    <h3>Months 3 to 6</h3>
-    <p><b>Saturdays, every week.</b> Consistency compounds: it's what grows a new channel.</p>
-  </div>
-  <div class="g3">
-    <div class="card t-blue"><h3>Every 5 uploads</h3><p>Review the pillars and formats against the numbers, and give more weeks to the ones that hit, within the 40 / 40 / 20 shape.</p></div>
-    <div class="card t-blue"><h3>The first collaboration by month 3</h3><p>Someone your viewer already watches (Access, Lever 5).</p></div>
-    <div class="card t-blue"><h3>A first masterclass</h3><p>A full course of 30 to 45 minutes on the topic that hits hardest in the first 9 uploads. Full courses get 1.36x.</p></div>
-    <div class="card t-blue"><h3>Leads</h3><p>From month 2, read the YouTube leads in Hyros alongside the views, so we know which videos bring people to your coaching.</p></div>
-    <div class="card t-blue"><h3>Saturdays, every week</h3><p>One video a week, every week. No gaps.</p></div>
-    <div class="card t-green" style="border:1.5px solid var(--green)"><h3>The target</h3><p class="big-t">15K+</p><p>views on every video by month 6 (your goal).</p></div>
+  <div class="lp-view" id="lp-cal" role="tabpanel" aria-labelledby="lp-t-cal" hidden>
+    <div class="lp-cal-wrap"><table class="lp-cal">
+        <thead><tr><th></th><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th><th scope="col">Sun</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">2 weeks before</th><td><span class="ev you">Channel name, handle, banner, About, colours</span><span class="ev you">Fill in the hook numbers</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">1 week before</th><td><span class="ev you">Lead tracking in Hyros</span></td><td></td><td><span class="ev you">Film the first 6 videos, B-roll, headshots</span></td><td></td><td><span class="ev us">Thumbnails, end screens, pinned comments</span></td><td></td><td></td></tr>
+          <tr class="is-launch"><th scope="row">Week 1</th><td></td><td></td><td></td><td></td><td><span class="ev up p1">1 · One Business Video</span><span class="ev you">Email, posts, stories</span></td><td></td><td><span class="ev up p2">2 · Rich Parents</span><span class="ev you">Reminder email, community post</span></td></tr>
+          <tr><th scope="row">Week 2</th><td><span class="ev rev">Weekly review</span></td><td></td><td><span class="ev us">Thumbnail test on launch videos</span></td><td></td><td></td><td><span class="ev up p1">3 · Begging You to Start</span><span class="ev you">Story</span></td><td></td></tr>
+          <tr><th scope="row">Week 3</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p1">4 · Started Over With $0</span><span class="ev you">Story</span></td><td></td></tr>
+          <tr><th scope="row">Week 4</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p3">5 · Systems</span><span class="ev you">Story</span></td><td></td></tr>
+          <tr><th scope="row">Week 5</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p2">6 · Self-Doubt</span></td><td></td></tr>
+          <tr><th scope="row">Week 6</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p1">7 · $1M in X Minutes</span></td><td></td></tr>
+          <tr><th scope="row">Week 7</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p3">8 · Every Morning</span></td><td></td></tr>
+          <tr><th scope="row">Week 8</th><td><span class="ev rev">Weekly review</span></td><td></td><td></td><td></td><td></td><td><span class="ev up p2">9 · Psychology of Money</span></td><td></td></tr>
+        </tbody>
+      </table></div>
+    <div class="lp-legend"><span class="ev up p1">Upload</span><span class="ev you">You</span><span class="ev us">Us</span><span class="ev rev">Review</span></div>
+    <p class="lp-after"><b>Months 3 to 6:</b> a video every Saturday and a review every Monday; leads read in Hyros from month 2; a pillar review every 5 uploads; the first collaboration by month 3; then a first masterclass.</p>
   </div>
 
+  <div class="card t-green lp-target"><h3>The target</h3><p><b class="big-t">15K+</b> views on every video by month 6 (your goal).</p></div>
 
+  <details class="more">
+    <summary><span class="lbl">How the launch weekend works</span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <p><b>The two videos point to each other</b> through the end screen, a pinned comment and the first line of the description. Friday is the front door, the whole path in one video; Sunday is the story. Together they give a new viewer the whole path, and where they are on it.</p>
+      <p><b>Seeding without dragging FBA across.</b> Your audience already knows you: TikTok 1.2M, Instagram 269K, YouTube 290K, and your email list.</p>
+      <ul>
+        <li><b>Point them across once, at launch:</b> an email on Friday and a reminder on Sunday, Instagram and TikTok posts and stories on both days, and one community post on your current channel.</li>
+        <li><b>Never in the titles or thumbnails:</b> the new channel never says Amazon or FBA. People find it through you, not through the label.</li>
+        <li><b>Why only at launch:</b> your first viewers help YouTube decide who to show the channel to next. After that, the channel wins its own viewers on browse and suggested.</li>
+        <li><b>After the launch weekend:</b> a story for each Saturday video in the first month, then an email only for the big ones.</li>
+      </ul>
+    </div>
+  </details>
 
   <div class="sub-head" id="next">
     <h3>Next steps</h3>
@@ -1867,6 +1915,25 @@ details.more{margin-top:28px}
     links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+
+// Launch plan: switch between the week-by-week list and the calendar
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.lp-tabs [role=tab]'));
+  if (!tabs.length) return;
+  function show(t) {
+    tabs.forEach(function (x) {
+      var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; show(n); n.focus();
+    });
+  });
 })();
 </script>
 </body>
