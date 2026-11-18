@@ -703,27 +703,28 @@ blockquote.empty{font-weight:500;font-size:14px;color:var(--ink-50)}
 .pbtn span{font-size:15px;font-weight:600}
 .pbtn.blue{background:var(--cobalt);border-color:var(--cobalt);color:#fff;box-shadow:0 10px 24px -12px rgba(31,79,224,.6)}
 .pbtn.primary{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 10px 24px -12px rgba(228,0,59,.6)}
-/* Option cards: rows line up across both cards */
+/* Option cards: rows line up across both cards on desktop */
 @media (min-width:861px){
   .opts{grid-template-rows:repeat(8,auto);row-gap:0}
   .opts .opt{display:grid;grid-row:span 8;grid-template-rows:subgrid;row-gap:0}
+  .opts .opt > .cs-label,.opts .opt > .pbtn{align-self:end}
+  .opts .opt > .cterm,.opts .opt > .myrec{align-self:start}
 }
 .opts .opt > *{margin:0}
-.opts .opt > .cs-label{margin-bottom:10px;align-self:end}
+.opts .opt > .cs-label{margin-bottom:10px}
 .opts .opt > h3{margin-bottom:20px;font-size:clamp(22px,2vw,26px)}
 @media (min-width:1100px){.opts .opt > h3{white-space:nowrap}}
-.opts .opt > .cterm{margin-bottom:28px;align-self:start}
+.opts .opt > .cterm{margin-bottom:28px}
 .opts .opt > .outs{margin-bottom:28px}
 .opts .opt > small.incl{margin-bottom:14px}
 .opts .opt > ul{margin-bottom:28px;gap:14px}
-.opts .opt > .ribbon.blue{background:var(--cobalt);box-shadow:0 6px 16px -6px rgba(31,79,224,.5);display:inline-flex;align-items:center;gap:8px}
+.opts .opt > .myrec{margin-bottom:24px}
+.opts .opt > .pbtn{margin-top:auto}
+.opts .outs > small{margin-bottom:6px}
+.ribbon.blue{background:var(--cobalt);box-shadow:0 6px 16px -6px rgba(31,79,224,.5);display:inline-flex;align-items:center;gap:8px}
 .ribbon.blue i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.ribbon.blue i{animation:none}}
 @media (min-width:1121px){.nav-in{position:relative}.nav-in .links{position:absolute;left:50%;transform:translateX(-50%);margin:0}}
-.myrec{margin-bottom:24px;align-self:start}
-.opts .opt > .pbtn{align-self:end}
-.opts .outs > small{margin-bottom:6px}
-.opt .myrec{margin-bottom:24px}
 .myrec{margin:-6px 0 22px;background:var(--paper);border-radius:var(--r-md);padding:14px 16px;font-size:15px;line-height:1.5;color:var(--ink)}
 .opt.two .myrec{background:#fff;border:1px solid var(--red-100)}
 .myrec small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
