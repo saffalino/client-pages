@@ -196,6 +196,14 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   .owns > li{padding:18px 18px 18px 58px}
   .owns > li::before{left:16px;top:18px}
 }
+.team{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+.faces{display:flex;align-items:center}
+.faces > *{width:44px;height:44px;border-radius:50%;border:3px solid var(--paper);margin-left:-12px;flex:none;box-shadow:var(--shadow-sm)}
+.faces > *:first-child{margin-left:0}
+.faces img{object-fit:cover;background:var(--line-soft)}
+.faces .more{display:grid;place-items:center;background:var(--ink);color:var(--white);font:700 12px/1 var(--mono);letter-spacing:-.02em}
+.team small{font-size:15px;color:var(--ink-70)}
+.team small b{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -209,6 +217,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   <span class="chip mono"><i></i>We&rsquo;re hiring</span>
   <h1>Join the team behind the <span class="mark">fastest growing</span> education channels on YouTube</h1>
   <p class="sub">We&rsquo;re the small team behind <b class="nowrap">Ali Abdaal</b>, <b class="nowrap">Daniel Priestley</b> and <b class="nowrap">Vishen Lakhiani</b> and more.</p>
+  <div class="team"><div class="faces"><img src="assets/team/saf.jpg" alt="Saf" title="Saf" width="44" height="44"><img src="assets/team/gio.jpg" alt="Gio" title="Gio" width="44" height="44"><img src="assets/team/najma.jpg" alt="Najma" title="Najma" width="44" height="44"><img src="assets/team/sanket.jpg" alt="Sanket" title="Sanket" width="44" height="44"><img src="assets/team/saiyam.jpg" alt="Saiyam" title="Saiyam" width="44" height="44"><span class="more" aria-label="and 5 more">+5</span></div></div>
 </section>
 
 <section class="wrap" id="roles">
@@ -252,7 +261,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     <p>Three steps. No trick questions.</p>
   </div>
   <ol class="steps">
-    <li class="step"><b>1</b><h3>Apply</h3><p>A short form. Show us your best work, not a cover letter.</p></li>
+    <li class="step"><b>1</b><h3>Apply</h3><p>A 10 minute form and a short Loom. Show us your best work, not a cover letter.</p></li>
     <li class="step"><b>2</b><h3>Paid Trial Task</h3><p>A small, real piece of work.</p></li>
     <li class="step"><b>3</b><h3>Interview With Saf</h3><p>We talk through your task, your core competencies and culture fit, then make a final decision.</p></li>
   </ol>
