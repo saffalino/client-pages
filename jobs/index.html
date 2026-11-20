@@ -204,19 +204,122 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 .faces .more{display:grid;place-items:center;background:var(--ink);color:var(--white);font:700 12px/1 var(--mono);letter-spacing:-.02em}
 .team small{font-size:15px;color:var(--ink-70)}
 .team small b{color:var(--ink);font-weight:600}
+.chip.tag{display:inline-flex;align-items:center;gap:10px;background:#f2f3f4;color:#2f3439;border:1px solid #e3e5e7;font-family:var(--mono);font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:9px 20px;border-radius:999px}
+.tag-yt{width:22px;height:16px;flex-shrink:0}
+.cobalt{color:#1f4fe0}
+.hl{background-image:linear-gradient(transparent 56%,rgba(247,194,90,.75) 56%,rgba(247,194,90,.75) 92%,transparent 92%);background-repeat:no-repeat;background-size:0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .06em;animation:hlswipe .7s cubic-bezier(.6,.1,.3,1) .4s forwards}
+@keyframes hlswipe{to{background-size:100% 100%}}
+@media (prefers-reduced-motion:reduce){.hl{animation:none;background-size:100% 100%}}
+.who{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap;color:var(--ink)}
+.who .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--white);border:1px solid var(--line)}
+.who .logo svg{width:20px;height:14px}
+.who b{display:block;font-size:15px;font-weight:600;line-height:1.2}
+.who small{display:block;font-size:12px;color:var(--ink-50);line-height:1.2}
+.step{overflow:hidden}
+.step .ph{display:block;width:calc(100% + 48px);margin:-24px -24px 20px;aspect-ratio:4/3;object-fit:cover;background:var(--line-soft)}
+.who .thm{height:26px;width:auto;display:block;mix-blend-mode:multiply}
+.who .sep{width:1px;height:22px;background:var(--line)}
+.who .careers{font-size:15px;font-weight:500;color:var(--ink-50)}
+.band{margin-top:clamp(64px,8vw,104px);position:relative}
+.band img{display:block;width:100%;height:clamp(320px,42vw,560px);object-fit:cover;object-position:center calc(52% - 100px)}
+.band figcaption{position:absolute;left:var(--gut);bottom:20px;font:400 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(17,20,23,.55);backdrop-filter:blur(6px);padding:9px 14px;border-radius:999px}
+@media (min-width:1200px){.band figcaption{left:calc((100vw - var(--wrap))/2 + var(--gut))}}
+.values{list-style:none;margin:0 auto;padding:12px 0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:1000px}
+.values li{position:relative;width:310px;margin:6px -6px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 26px 28px;box-shadow:var(--shadow-md);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;transform:rotate(var(--r)) translateY(var(--y))}
+.values li:nth-child(1){--r:-3deg;--y:8px;z-index:1}
+.values li:nth-child(2){--r:2deg;--y:-14px;z-index:2}
+.values li:nth-child(3){--r:-1.5deg;--y:18px;z-index:1}
+.values li:nth-child(4){--r:2.5deg;--y:4px;z-index:2}
+.values li:nth-child(5){--r:-2deg;--y:-10px;z-index:3}
+.values li:hover{transform:rotate(0) translateY(calc(var(--y) - 8px));box-shadow:0 2px 4px rgba(17,20,23,.06),0 28px 60px -24px rgba(17,20,23,.32);z-index:5}
+.values .n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font:700 12px/1 var(--mono);margin-bottom:18px;background:var(--red-50);color:var(--red)}
+.values li:nth-child(2) .n{background:#e6f5fc;color:#0b7fb8}
+.values li:nth-child(3) .n{background:#fdf3dc;color:#9a6a00}
+.values li:nth-child(4) .n{background:#e7f6ec;color:#1b8a4a}
+.values li:nth-child(5) .n{background:#eef1fd;color:#1f4fe0}
+.values h3{margin:0 0 8px;font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.values p{margin:0;color:var(--ink-70);font-size:16px;line-height:1.55}
+@media (max-width:700px){.values{flex-direction:column;align-items:center;gap:0}.values li{width:min(100%,360px);margin:-6px 0}}
+@media (prefers-reduced-motion:reduce){.values li{transition:none}}
+.values .src{display:inline-block;margin-top:14px;font:400 11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-50);text-decoration:none;border-bottom:1px solid var(--line)}
+.values .src i{font-style:normal;color:var(--ink-70)}
+.values .src:hover{color:var(--cobalt,#1f4fe0);border-color:currentColor}
+.values .pg{color:inherit;text-decoration:underline;text-decoration-color:var(--cobalt,#1f4fe0);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.values .pg:hover{color:#1f4fe0}
+.why{padding-top:clamp(64px,8vw,104px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:center}
+.why .kicker{font:400 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+.why h2{font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 22px}
+.why .block{margin-top:26px}
+.why .block b{display:block;font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);margin-bottom:8px}
+.why .block p{margin:0;color:var(--ink-70);font-size:18px;line-height:1.6}
+.why .block p strong{color:var(--ink);font-weight:600}
+.note-photo{margin:0;justify-self:center;background:#fff;padding:12px 12px 14px;border-radius:6px;box-shadow:var(--shadow-md);transform:rotate(3deg);max-width:360px;transition:transform .3s}
+.note-photo:hover{transform:rotate(0)}
+.note-photo img{display:block;width:100%;height:auto;border-radius:3px}
+.note-photo figcaption{font:400 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);margin-top:10px;text-align:center}
+@media (max-width:800px){.why{grid-template-columns:1fr}.note-photo{max-width:300px}}
+.values p strong{font-weight:500;color:var(--ink)}
+.why .block p+p{margin-top:8px}
+.links{display:flex;gap:4px;margin:0 auto;font-size:15px;color:var(--ink-70)}
+.links a{white-space:nowrap;text-decoration:none;color:inherit;padding:6px 12px;border-radius:999px;transition:background-color .3s,color .3s}
+.links a:hover{color:var(--ink)}
+.links a.on{background:rgba(17,20,23,.055);color:var(--ink)}
+@media (max-width:960px){.links{display:none}}
+#roles,#why,#values,#hiring{scroll-margin-top:110px}
+html{scroll-behavior:smooth}
+.step .ph-loom{display:grid;place-items:center;background:linear-gradient(180deg,#eef0f2,#e4e7ea)}
+.step .ph-loom .icon{display:block;width:clamp(84px,9vw,116px);aspect-ratio:1;border-radius:23%;overflow:hidden;background:#1a67e0;box-shadow:0 2px 6px rgba(17,20,23,.08),0 22px 44px -16px rgba(26,103,224,.45)}
+.step .ph-loom .icon img{display:block;width:100%;height:100%;transform:scale(1.08)}
+.why{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.why > div:first-child{max-width:540px}
+.why .block p{font-size:17px}
+.notes{position:relative;justify-self:center;width:min(100%,440px);aspect-ratio:3/4.2;margin:24px 0}
+.notes .note-photo{position:absolute;inset:0;margin:0;max-width:none;width:100%;padding:12px 12px 40px;border-radius:6px;background:#fff;box-shadow:var(--shadow-md);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.notes .note-photo img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.notes .back{transform:rotate(-6deg) translate(-26px,10px);filter:saturate(.9)}
+.notes .front{transform:rotate(3deg) translate(14px,-6px)}
+.notes:hover .back{transform:rotate(-9deg) translate(-46px,14px)}
+.notes:hover .front{transform:rotate(1deg) translate(18px,-10px)}
+@media (max-width:800px){.notes{width:min(80%,340px);margin:32px auto 8px}}
+.notes-wrap{margin:0;justify-self:center;width:min(100%,440px);display:flex;flex-direction:column;align-items:center}
+.notes-wrap .notes{width:100%}
+.notes-wrap figcaption{margin-top:28px;font:400 12px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50)}
+@media (max-width:800px){.notes-wrap{width:min(80%,340px);margin:0 auto}}
+.notes-wrap figcaption{text-align:center}
+.notes-wrap figcaption b{display:block;font:500 16px/1.3 var(--f);letter-spacing:-.01em;text-transform:none;color:var(--ink);margin-bottom:6px}
+.notes-wrap figcaption span{display:block}
+.notes .note-photo{padding:12px 12px 84px}
+.notes .pc{position:absolute;left:12px;right:12px;bottom:0;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin:0}
+.notes .pc b{font:500 16px/1.25 var(--f);letter-spacing:-.01em;color:var(--ink)}
+.notes .pc span{margin-top:5px;font:400 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.notes-wrap{aspect-ratio:auto}
+.pull{padding-top:clamp(72px,9vw,120px);text-align:center;max-width:880px}
+.pull blockquote{margin:0;font-size:clamp(32px,4.4vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:800;color:var(--ink);text-wrap:balance}
+.pull blockquote .hl{animation:none;background-size:100% 100%}
+.pull .by{display:inline-flex;align-items:center;gap:12px;margin-top:28px;text-align:left}
+.pull .by img{width:48px;height:48px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow-sm)}
+.pull .by b{display:block;font-size:16px;font-weight:600}
+.pull .by small{display:block;font:400 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50)}
+.pull{padding-bottom:clamp(72px,9vw,112px)}
+.pull-cta{margin-top:36px}
+.pull .refer{margin:22px auto 0;max-width:520px;color:var(--ink-50);font-size:15px}
+.promise{margin:0;font-style:italic;font-size:17px;line-height:1.4;color:var(--ink-70);text-align:right}
+.promise cite{display:block;margin-top:4px;font:normal 400 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50)}
+@media (max-width:640px){.promise{text-align:left}}
 </style>
 </head>
 <body>
 <header class="nav"><div class="nav-in">
-  <a class="brand" href="./"><i></i>Talking Heads</a>
+  <a class="who" href="./"><img class="thm" src="assets/thm-logo.png" alt="Talking Heads" width="101" height="26"><span class="sep"></span><span class="careers">Careers</span></a>
+  <nav class="links" aria-label="Sections"><a href="#roles">Open Roles</a><a href="#why">Why We Exist</a><a href="#values">Our Values</a><a href="#hiring">How We Hire</a></nav>
   <div class="nav-right"><a class="btn btn-red" href="#roles">See open roles</a></div>
 </div></header>
 
 <main>
 <section class="hero wrap">
-  <span class="chip mono"><i></i>We&rsquo;re hiring</span>
-  <h1>Join the team behind the <span class="mark">fastest growing</span> education channels on YouTube</h1>
-  <p class="sub">We&rsquo;re the small team behind <b class="nowrap">Ali Abdaal</b>, <b class="nowrap">Daniel Priestley</b> and <b class="nowrap">Vishen Lakhiani</b> and more.</p>
+  <span class="chip tag"><svg class="tag-yt" viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg>We&rsquo;re hiring</span>
+  <h1>Join the team behind the <span class="cobalt">fastest growing</span> <span class="hl">education channels on YouTube</span></h1>
+  <p class="sub">Shape the future of YouTube with <b class="nowrap">Ali Abdaal</b>, <b class="nowrap">Daniel Priestley</b>, <b class="nowrap">Vishen Lakhiani</b> and more.</p>
   <div class="team"><div class="faces"><img src="assets/team/saf.jpg" alt="Saf" title="Saf" width="44" height="44"><img src="assets/team/gio.jpg" alt="Gio" title="Gio" width="44" height="44"><img src="assets/team/najma.jpg" alt="Najma" title="Najma" width="44" height="44"><img src="assets/team/sanket.jpg" alt="Sanket" title="Sanket" width="44" height="44"><img src="assets/team/saiyam.jpg" alt="Saiyam" title="Saiyam" width="44" height="44"><span class="more" aria-label="and 5 more">+5</span></div></div>
 </section>
 
@@ -255,15 +358,41 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   </ul>
 </section>
 
-<section class="how wrap">
+<figure class="band"><img src="assets/photos/office.jpg" alt="The Talking Heads office near Waterloo, London" loading="lazy"><figcaption>Our London office</figcaption></figure>
+
+<section class="why wrap" id="why">
+  <div>
+    <span class="kicker">Why we exist</span>
+    <h2>Transform <span class="cobalt">1 billion lives</span> through YouTube education</h2>
+    <div class="block"><b>Our mission</b><p>We&rsquo;re on a mission to build <strong>the world&rsquo;s best educational YouTube channels</strong>.</p><p>We earn clicks, attention and subscribers.</p><p>All in service of the incredible experts we admire and feel lucky to call our clients.</p></div>
+    <div class="block"><b>Our vision</b><p>We want to be <strong>a force for good on YouTube</strong>, making the kind of content we&rsquo;d want to watch ourselves.</p><p>Education that was once gatekept behind closed doors becomes <strong>free, accessible and engaging</strong> for every person in the world.</p><p>The common enemy is <strong>brainrot content</strong>.</p></div>
+  </div>
+  <figure class="notes-wrap"><div class="notes"><figure class="note-photo back"><img src="assets/photos/notebook-mission.jpg" alt="" loading="lazy"></figure><figure class="note-photo front"><img src="assets/photos/notebook.jpg" alt="Saf&rsquo;s handwritten notes on the Talking Heads mission and values" loading="lazy"><figcaption class="pc"><b>How this company was born</b><span>London to New York, on the way to a client shoot</span></figcaption></figure></div></figure>
+</section>
+
+<section class="how wrap" id="values">
+  <div class="how-head">
+    <h2>Our Core Values</h2>
+    <p>Not posters on a wall. How we actually work, every day.</p>
+  </div>
+  <ol class="values">
+    <li><span class="n">01</span><h3>Excellence</h3><p>We&rsquo;re in the <a class="pg" href="https://www.youtube.com/shorts/eSs2lDXfWSg" target="_blank" rel="noopener"><strong>pursuit of greatness</strong></a>. We&rsquo;re never satisfied with where we are, because there&rsquo;s a better version of ourselves to pursue tomorrow. We&rsquo;re all A-players, so someone else&rsquo;s excellence never intimidates us. We do it for the <strong>love of the game</strong>.</p></li>
+    <li><span class="n">02</span><h3>Radical Ownership</h3><p>If something goes wrong, <strong>we look at ourselves first</strong>. We <a class="pg" href="https://readingraphics.com/book-summary-principles-ray-dalio/" target="_blank" rel="noopener" title="Ray Dalio, Principles: Own your outcomes">own outcomes, not tasks</a>, and we own our growth. Candid feedback comes naturally: we can take as good as we give, because <strong>the best idea wins</strong>. <strong>Full trust, full autonomy</strong>.</p></li>
+    <li><span class="n">03</span><h3>Urgency</h3><p>We&rsquo;re comfortable with <strong>ruthless reprioritisation</strong>, and we move quickly to execute. We question every timeline. <strong>AI takes the busywork off our plate.</strong> <a class="pg" href="https://paulgraham.com/wealth.html" target="_blank" rel="noopener" title="Paul Graham, How to Make Wealth">Our advantage is that we&rsquo;re small</a>: we finish things before bigger teams ever get sign-off.</p></li>
+    <li><span class="n">04</span><h3>Overcommunication</h3><p>We&rsquo;re <strong>remote-first</strong> across every time zone, so precise language matters. If there&rsquo;s ambiguity or a hidden assumption, <strong>we send the message</strong>. We celebrate the people who <strong>record a Loom</strong> so everyone has exactly what they need. <strong>Responsive and proactive</strong>, never perfectionist and reactive.</p></li>
+    <li><span class="n">05</span><h3>Seek the Win-Win</h3><p><strong>A rising tide lifts all boats</strong>. We always <strong>give more than we take</strong>, with our teammates, partners and clients. If someone&rsquo;s winning at another&rsquo;s expense, we change the shape of things until everyone wins. Generous, and respectful of boundaries.</p></li>
+  </ol>
+</section>
+
+<section class="how wrap" id="hiring">
   <div class="how-head">
     <h2>How we hire</h2>
     <p>Three steps. No trick questions.</p>
   </div>
   <ol class="steps">
-    <li class="step"><b>1</b><h3>Apply</h3><p>A 10 minute form and a short Loom. Show us your best work, not a cover letter.</p></li>
-    <li class="step"><b>2</b><h3>Paid Trial Task</h3><p>A small, real piece of work.</p></li>
-    <li class="step"><b>3</b><h3>Interview With Saf</h3><p>We talk through your task, your core competencies and culture fit, then make a final decision.</p></li>
+    <li class="step"><span class="ph ph-loom"><span class="icon"><img src="assets/photos/loom.png" alt="Loom" width="120" height="120"></span></span><b>1</b><h3>Apply</h3><p>A 5 minute form and a short Loom. Show us your best work, not a cover letter.</p></li>
+    <li class="step"><img class="ph" src="assets/photos/edit.jpg" alt="A thumbnail being built in After Effects" loading="lazy" style="object-position:center 55%"><b>2</b><h3>Paid Trial Task</h3><p>A small, real piece of work.</p></li>
+    <li class="step"><img class="ph" src="assets/photos/whiteboard.jpg" alt="Saf mapping out a strategy on a whiteboard" loading="lazy" style="object-position:center 40%"><b>3</b><h3>Final Round Interview</h3><p>We talk through your task, your core competencies and culture fit, then make a final decision.</p></li>
   </ol>
 </section>
 
@@ -277,5 +406,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   <span>&copy; 2026 Talking Heads</span>
   <a href="https://talkingheads.media/">talkingheads.media</a>
 </div></footer>
+<script>
+(()=>{const L=[...document.querySelectorAll('.links a')];const S=L.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){L.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-40% 0px -55% 0px'});
+S.forEach(x=>x&&io.observe(x));})();
+</script>
 </body>
 </html>
