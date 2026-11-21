@@ -215,6 +215,24 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 .who .thm{height:26px;width:auto;display:block;mix-blend-mode:multiply}
 .who .sep{width:1px;height:22px;background:var(--line)}
 .who .careers{font-size:15px;font-weight:500;color:var(--ink-50)}
+.watch{margin-bottom:18px;display:flex;flex-direction:column;align-items:center}
+.watch-label{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font:400 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.watch-label i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.watch video{display:block;width:auto;height:min(500px,58vh);aspect-ratio:9/16;max-width:100%;border-radius:18px;background:#111;box-shadow:var(--shadow-md);object-fit:cover}
+@media (max-width:900px){.watch{margin:0 auto 22px}.watch-label{align-self:center}.watch video{height:auto;width:min(100%,320px)}}
+@media (min-width:901px) and (max-height:1050px){.aside{position:static}}
+.refs{list-style:none;margin:16px 0 8px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.refs{grid-template-columns:1fr;gap:20px}}
+.refs li{margin:0;padding:0}
+.refs li::before{display:none}
+.refs p{margin:10px 2px 0;font-size:14px;line-height:1.45;color:var(--ink-70)}
+.refs p b{color:var(--ink);font-weight:600}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:14px;overflow:hidden;background:#111;cursor:pointer;box-shadow:var(--shadow-sm)}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.yt:hover img{transform:scale(1.03)}
+.yt-play{position:absolute;inset:0;display:grid;place-items:center}
+.yt-play svg{width:46px;height:33px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
@@ -281,11 +299,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
     <h2>The style we&rsquo;re after</h2>
     <p>You&rsquo;ll need to be able to make videos like these:</p>
-    <ul>
-      <li><a href="https://youtu.be/FW2-QA73Vuw" target="_blank" rel="noopener"><b>Daniel Priestley</b>: How I Made $10 Million From Appearing on Diary of a CEO</a></li>
-      <li><a href="https://youtu.be/az1Zh-FNSno" target="_blank" rel="noopener"><b>Daniel Priestley</b>: The $1 Million Landing Page (Works For Normal People)</a></li>
-      <li><a href="https://youtu.be/s-DKTyOKfNI" target="_blank" rel="noopener"><b>Daniel Priestley</b>: The Entrepreneur Mindset: How to Become Obsessed</a></li>
-      <li><a href="https://www.youtube.com/shorts/YL7zhpxyovo" target="_blank" rel="noopener"><b>Ali Abdaal</b>: 3 Strategies for Sustainable Success (short form)</a></li>
+    <ul class="refs">
+      <li><button class="yt" type="button" data-yt="FW2-QA73Vuw" aria-label="Play example 1"><img src="https://i.ytimg.com/vi/FW2-QA73Vuw/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"><svg viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z" fill="#ff0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span></button></li>
+      <li><button class="yt" type="button" data-yt="az1Zh-FNSno" aria-label="Play example 2"><img src="https://i.ytimg.com/vi/az1Zh-FNSno/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"><svg viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z" fill="#ff0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span></button></li>
+      <li><button class="yt" type="button" data-yt="s-DKTyOKfNI" aria-label="Play example 3"><img src="https://i.ytimg.com/vi/s-DKTyOKfNI/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"><svg viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26Z" fill="#ff0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span></button></li>
     </ul>
     <h3>What success looks like</h3>
     <ul class="success">
@@ -345,6 +362,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     </div>
   </article>
   <aside class="aside">
+    <div class="watch">
+      <span class="watch-label"><i></i>Watch this first &middot; 3 min</span>
+      <video controls playsinline preload="none" poster="../assets/video/editor-hiring-reel.jpg"><source src="../assets/video/editor-hiring-reel.mp4" type="video/mp4"></video>
+    </div>
     <div class="card">
       <dl>
         <div><dt>Team</dt><dd>Post-production</dd></div>
@@ -397,6 +418,9 @@ if (share) share.addEventListener('click', async () => {
   const t = document.querySelector('.toast'); t.classList.add('on');
   setTimeout(() => t.classList.remove('on'), 1800);
 });
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.yt;b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube video"></iframe>';},{once:true}));
 </script>
 </body>
 </html>
