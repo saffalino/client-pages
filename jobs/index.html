@@ -306,6 +306,25 @@ html{scroll-behavior:smooth}
 .promise{margin:0;font-style:italic;font-size:17px;line-height:1.4;color:var(--ink-70);text-align:right}
 .promise cite{display:block;margin-top:4px;font:normal 400 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50)}
 @media (max-width:640px){.promise{text-align:left}}
+/* fixes: values never overlap, why section stacks on mobile */
+.values{gap:48px 18px;padding:16px 0 32px}
+.values li{margin:0}
+@media (max-width:900px){
+  .why{grid-template-columns:1fr;gap:40px}
+  .why > div:first-child{max-width:none}
+  .notes-wrap{width:min(86%,380px);margin:0 auto}
+}
+@media (max-width:700px){
+  .values{flex-direction:column;align-items:stretch;gap:20px}
+  .values li{width:auto;transform:rotate(calc(var(--r) * .4))}
+  .values li:hover{transform:rotate(0)}
+  .notes .note-photo{padding:10px 10px 70px}
+  .notes .pc{height:70px;left:10px;right:10px}
+  .notes .pc b{font-size:15px}
+  .notes .pc span{font-size:9.5px;letter-spacing:.08em}
+  .notes .back{transform:rotate(-5deg) translate(-14px,8px)}
+  .notes .front{transform:rotate(2.5deg) translate(8px,-4px)}
+}
 </style>
 </head>
 <body>
@@ -387,7 +406,6 @@ html{scroll-behavior:smooth}
 <section class="how wrap" id="hiring">
   <div class="how-head">
     <h2>How we hire</h2>
-    <p>Three steps. No trick questions.</p>
   </div>
   <ol class="steps">
     <li class="step"><span class="ph ph-loom"><span class="icon"><img src="assets/photos/loom.png" alt="Loom" width="120" height="120"></span></span><b>1</b><h3>Apply</h3><p>A 5 minute form and a short Loom. Show us your best work, not a cover letter.</p></li>
