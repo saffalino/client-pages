@@ -710,6 +710,8 @@ table.lp-cal td.span .ev{display:inline-block;margin-right:4px}
 .lp-target .big-t{font-size:28px;font-weight:800;color:var(--green);margin-right:6px}
 @media (max-width:640px){.lp-row{grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px}.lp-row time{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.lp-row time b{display:inline}.lp-phase{padding:12px 16px}}
 /* SPACING: stacked blocks need air (context layer, section 11) */
+.fig + :is(.g2,.g3,.g4,.fig,.tbl-wrap,.note-box), :is(.g2,.g3,.g4) + :is(.g2,.g3,.g4,.fig,.tbl-wrap,.note-box), .tbl-wrap + :is(.g2,.g3,.g4,.fig,.note-box), .note-box + :is(.g2,.g3,.g4,.fig){margin-top:24px}
+</style>
 </head>
 <body>
 <nav class="nav"><div class="nav-in">
@@ -955,8 +957,6 @@ table.lp-cal td.span .ev{display:inline-block;margin-right:4px}
 <footer><div class="wrap">
   <p><b>About the data.</b> Your channel: YouTube Studio and the Data API for @Pedromadao, all formats, lifetime to 22 Nov 2026 (your long uploads are live replays, so they're included). The space: 47 topics searched on YouTube (signed out, US English) and 783 channels in the space: 7,007 long-form videos, each scored against its own channel's median. Packaging: the last 50 titles of 272 money and business channels. Length: 4,692 videos made for YouTube from 161 of them (live streams, recorded talks, sermons, podcasts and interviews left out). Outliers are 3x+ that median with 30K+ views, published 23 Nov 2025 to 22 Nov 2026. Subscriber counts pulled 23 Nov 2026. Views after 27 Aug 2026 are counted the new way.</p>
   <p style="margin-top:14px">Prepared by Talking Heads · Private, for Pedro Adao</p>
-</div></footer>
-
 </div></footer>
 
 <script>
