@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Pedro Challenge Banner</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: one readable column of numbered brief steps; images full width; swatches in a row. */
+:root{
+  --bg:#f6f6f4; --surface:#ffffff; --fg:#14161c; --muted:#5b6170; --line:#e2e2de;
+  --orange:#EB6E22; --navy:#11142C; --teal:#31C2B7; --grey:#ECECEC;
+  --accent:#d9591a; --ok:#1d8a4e; --no:#c2412d; --flag:#fff3d9; --flag-fg:#6b5000;
+  --display:"Space Grotesk",Inter,system-ui,sans-serif; --body:Inter,system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121318; --surface:#1b1d24; --fg:#ecebe6; --muted:#a3a7b2; --line:#2e313b;
+  --accent:#f08a4b; --ok:#4cc07f; --no:#ea7461; --flag:#3a2f14; --flag-fg:#f0d48c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121318; --surface:#1b1d24; --fg:#ecebe6; --muted:#a3a7b2; --line:#2e313b;
+  --accent:#f08a4b; --ok:#4cc07f; --no:#ea7461; --flag:#3a2f14; --flag-fg:#f0d48c; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:880px;margin:0 auto;padding-block:44px 90px;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(28px,5vw,40px)} h2{font-size:24px} h3{font-size:16px}
+p{margin:0;max-width:68ch} a{color:var(--accent)}
+.eyebrow{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line);padding-bottom:28px}
+section{display:flex;flex-direction:column;gap:16px;min-width:0}
+.step{display:flex;gap:12px;align-items:baseline}
+.step b{font:700 13px var(--mono);color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fact span{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fact strong{font-size:17px}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figure img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+figcaption{font-size:14px;color:var(--muted)}
+.copy{background:var(--navy);color:#fff;border-radius:14px;padding:26px 22px;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center}
+.copy .k{font:700 13px var(--mono);letter-spacing:.2em;color:var(--teal)}
+.copy .t{font:700 clamp(28px,6vw,46px)/1.05 var(--display);letter-spacing:.01em}
+.copy .d{font:600 18px var(--body)}
+.copy .u{margin-top:8px;background:var(--orange);color:#fff;font:700 15px var(--mono);padding:6px 14px;border-radius:6px;letter-spacing:.04em}
+.lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card.keep{border-top:4px solid var(--ok)} .card.drop{border-top:4px solid var(--no)}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.sw div{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.sw i{display:block;height:64px}
+.sw p{padding:8px 10px;font:12px/1.4 var(--mono)}
+.spec{position:relative;aspect-ratio:2560/1440;max-width:100%;background:repeating-linear-gradient(45deg,var(--grey),var(--grey) 10px,#e2e2e2 10px,#e2e2e2 20px);border-radius:10px;border:1px solid var(--line);overflow:hidden}
+.spec .tv{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:flex-start;padding:8px 10px;font:12px var(--mono);color:#555}
+.spec .desk{position:absolute;left:0;right:0;top:50%;height:29.4%;transform:translateY(-50%);background:rgba(17,20,44,.35);display:flex;align-items:flex-start;justify-content:flex-start;padding:6px 10px;font:12px var(--mono);color:#fff}
+.spec .safe{position:absolute;left:50%;top:50%;width:48.2%;height:23.5%;transform:translate(-50%,-50%);background:var(--orange);display:flex;align-items:center;justify-content:center;text-align:center;font:700 12px var(--mono);color:#fff;padding:4px}
+.flag{background:var(--flag);color:var(--flag-fg);border-radius:10px;padding:14px 16px;font-size:15px}
+.links{display:flex;flex-direction:column;gap:8px}
+.links a{font-weight:600}
+.small{font-size:14px;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+
+<main>
+<header>
+  <div class="eyebrow">Brief for Saf · Pedro Adao · 24 Nov 2026</div>
+  <h1>The 31-Day Wisdom Challenge banner</h1>
+  <p>Pedro's YouTube banner for December and January. Its one job: get viewers to sign up for the 2027 challenge. We only need this version now. An evergreen banner comes after the challenge ends.</p>
+  <div class="facts">
+    <div class="fact"><span>Live by</span><strong>Before 7 Dec</strong><p class="small">His $3M ad push starts 7 Dec; most of it runs 26 Dec to 3 Jan.</p></div>
+    <div class="fact"><span>Runs until</span><strong>31 Jan 2027</strong><p class="small">Challenge runs 1 to 31 January.</p></div>
+    <div class="fact"><span>Who sees it</span><strong>Women 45+</strong><p class="small">71% of his subscribed viewers, plus people who see his ads and look him up.</p></div>
+  </div>
+</header>
+
+<section>
+  <div class="step"><b>01</b><h2>The action and the words</h2></div>
+  <p>One action: <b>join the challenge at 31daywisdomchallenge.com</b>. Suggested copy, top to bottom:</p>
+  <div class="copy">
+    <div class="k">2027</div>
+    <div class="t">31-DAY WISDOM CHALLENGE</div>
+    <div class="d">with Pedro Adao · Starts January 1st</div>
+    <div class="u">31DAYWISDOMCHALLENGE.COM</div>
+  </div>
+  <p class="small">A rough sketch of the copy order and brand colours, not a design. Don't say "free": the 2027 challenge is $31 (Pedro on our kickoff call).</p>
+</section>
+
+<section>
+  <div class="step"><b>02</b><h2>Reference: Make More Offers Challenge</h2></div>
+  <figure><img src="assets/ref-mmo.jpg" alt="Make More Offers Challenge banner: a grid of video-call participants tinted blue behind a white title and URL"><figcaption>The challenge banner reference: a big title, the URL as its own line, and a tinted grid of real participants behind it. It feels like a live event full of people without needing faces you can recognise.</figcaption></figure>
+  <ul>
+    <li>Swap the blue tint for Pedro's navy (#11142C), with orange for the URL and teal for small accents.</li>
+    <li>Background idea: a grid of real participants from past Wisdom Challenge calls, if Pedro's team has screenshots. That's social proof without the 20-face guest collage.</li>
+    <li>Add Pedro's face on one side so the channel still reads as his.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="step"><b>03</b><h2>What's on his banner today</h2></div>
+  <figure><img src="assets/current-banner.jpg" alt="Pedro's current banner: 2026 31-Day Wisdom Challenge, starting January 1st, a collage of about 20 guest faces and four testimonial bubbles"><figcaption>Current banner (as it shows on desktop).</figcaption></figure>
+  <div class="lists">
+    <div class="card keep"><h3>Keep</h3><ul><li>The challenge name and "Starting January 1st"</li><li>The URL on its own bar</li><li>Navy as the base colour</li></ul></div>
+    <div class="card drop"><h3>Change or drop</h3><ul><li>"2026" becomes 2027</li><li>The collage of about 20 guests: too small on a phone, and the 2027 guest list isn't confirmed</li><li>The four testimonial bubbles: unreadable on mobile</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="step"><b>04</b><h2>Brand assets</h2></div>
+  <div class="links">
+    <a href="https://pedroadao.com/press-kit-media/" target="_blank" rel="noopener">Pedro's press and media kit (bio, approved photo, marketing reels)</a>
+    <a href="https://drive.google.com/drive/folders/11d441Sz6SUD8y6FGMrxu58DDscDFPAA5" target="_blank" rel="noopener">"Pedro Logo &amp; Colors" folder: logos, colour guide PDF, icon</a>
+  </div>
+  <div class="sw">
+    <div><i style="background:#EB6E22"></i><p>Orange<br>#EB6E22</p></div>
+    <div><i style="background:#11142C"></i><p>Navy<br>#11142C</p></div>
+    <div><i style="background:#31C2B7"></i><p>Teal<br>#31C2B7</p></div>
+    <div><i style="background:#ECECEC"></i><p>Light grey<br>#ECECEC</p></div>
+    <div><i style="background:#FFFFFF"></i><p>White<br>#FFFFFF</p></div>
+  </div>
+  <p class="small">From "Pedro Adao Colors.pdf" in his brand folder. The folder dates from 2020 to 2022, but it's still linked from his website, so we treat it as current. No fonts are listed; his website uses a tall condensed headline face, and the current banner a rounded bold sans.</p>
+  <div class="flag"><b>Avoid:</b> crosses, church imagery or anything that feels like cheesy Christian culture. On his onboarding form Pedro said he hates that look and doesn't want crosses or "cringy religious looking stuff".</div>
+</section>
+
+<section>
+  <div class="step"><b>05</b><h2>Photos of Pedro</h2></div>
+  <figure style="max-width:180px"><img src="assets/avatar.jpg" alt="Pedro's YouTube profile picture: smiling, white KINGDOM hoodie, orange background"><figcaption>His YouTube profile picture.</figcaption></figure>
+  <ul>
+    <li>He said on the onboarding form he has photos and can shoot new ones quickly, but didn't send a folder. <b>Ask Pedro, or his assistant if he has one.</b></li>
+    <li>Public options: the approved stage photo in the <a href="https://pedroadao.com/press-kit-media/" target="_blank" rel="noopener">media kit</a>, and recent studio photos of him holding his new book on <a href="https://www.faithfulbook.com" target="_blank" rel="noopener">faithfulbook.com</a>.</li>
+    <li>Best: stills from the <b>Monday 30 Nov filming day</b>. They'll match the new videos.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="step"><b>06</b><h2>Size and safe area</h2></div>
+  <div class="spec" role="img" aria-label="Banner layout: full image 2560 by 1440, desktop strip in the middle third, safe area 1235 by 338 in the centre">
+    <div class="tv">2560 × 1440 · shows in full on TV</div>
+    <div class="desk">2560 × 423 · desktop crop</div>
+    <div class="safe">1235 × 338 safe area<br>all text and the URL go here</div>
+  </div>
+  <p class="small">Upload at 2560 × 1440 px (16:9), 6 MB max. Phones show only the centre 1235 × 338 px, so the title, date and URL must fit there. Check it on a phone before it goes live.</p>
+</section>
+
+<section>
+  <div class="step"><b>07</b><h2>Change at the same time</h2></div>
+  <ul>
+    <li><b>The link under his channel name</b> currently goes to kingdomwealthreset.com/step1. Point it to 31daywisdomchallenge.com for December and January.</li>
+    <li><b>The channel description</b> still opens with "The Industry Leading Expert On Challenge Marketing". Pedro told us he doesn't want to be seen as an online marketing guy, so it should lead with the Kingdom and money instead.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="step"><b>08</b><h2>Later: the evergreen banner</h2></div>
+  <figure><img src="assets/ref-gabe.png" alt="Gabe Bult banner: his photo on the left, his name large in the centre, three topic words on the right"><figcaption>Reference for after January: Gabe Bult (the creator Pedro called his closest style match). Face, name, and three words for what the channel is about. Not needed now.</figcaption></figure>
+</section>
+
+<section>
+  <div class="step"><b>09</b><h2>To ask Pedro</h2></div>
+  <ul>
+    <li>A folder of recent photos, or a time on 30 Nov to shoot banner stills.</li>
+    <li>Screenshots of past challenge calls for the participant grid.</li>
+    <li>Whether he has an assistant who can send assets.</li>
+    <li>Any fonts his team uses for the challenge and the Faithful book.</li>
+  </ul>
+</section>
+</main>
+
+</body>
+</html>
