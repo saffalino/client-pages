@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedro Adao: Mini Deep Dive</title>
+<meta name="description" content="Pedro Adao's Mini Deep Dive: who he is, his channel and audience today, the faith and money space, and the first video ideas.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&family=Space+Mono:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e4003b; --marker:#f7c25a; --cobalt:#1f4fe0; --red-dark:#a8002c; --red-50:#fef3f6; --red-100:#fbe3ea;
+  --green:#1b8a4a; --green-50:#edf7f1; --blue-50:#eef3fd; --yellow-50:#fdf6e3; --amber:#9a6a00;
+  --ink:#111417; --ink-70:#454c53; --ink-50:#6b737a; --ink-30:#959ea6;
+  --paper:#f7f8f8; --white:#fff; --line:#dee1e3; --line-soft:#ebeef0;
+  --shadow-sm:0 1px 2px rgba(17,20,23,.05),0 4px 12px -6px rgba(17,20,23,.10);
+  --shadow-md:0 1px 2px rgba(17,20,23,.05),0 16px 40px -18px rgba(17,20,23,.20);
+  --r-lg:22px; --r-md:16px;
+  --f:'Inter',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace; --yt:'Roboto',Arial,sans-serif;
+  --wrap:1080px; --gut:clamp(16px,4vw,32px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+html,body{overflow-x:clip}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.red{color:var(--red)}.cobalt{color:var(--cobalt)}.green{color:var(--green)}
+.nowrap{white-space:nowrap}
+
+/* Nav */
+.nav{position:sticky;top:12px;z-index:50;margin:12px auto 0;max-width:var(--wrap);padding:0 var(--gut)}
+.nav-in{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:var(--shadow-sm)}
+.who{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--yt);white-space:nowrap;margin-left:-12px}
+.who img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-size:15px;font-weight:500;color:#0f0f0f;line-height:1.2}
+.who small{display:block;font-size:12px;color:#606060;line-height:1.2}
+.links{display:flex;gap:4px;margin:0 auto;font-size:15px;color:var(--ink-70)}
+.links a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:999px;transition:background-color .3s,color .3s}.links a:hover{color:var(--ink)}
+.links a.on{background:rgba(17,20,23,.055);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px;border-radius:999px;padding:12px 22px;white-space:nowrap}
+.btn:hover{background:#000}
+
+/* Type */
+.chip{display:inline-block;background:var(--red-50);color:var(--red);border:1px solid var(--red-100);font-weight:600;font-size:14px;border-radius:999px;padding:6px 16px}
+.chip.b{background:#e6f5fc;color:#0b7fb8;border-color:#bfe6f8}
+.chip.g{background:#e7f6ec;color:var(--green);border-color:#c3ebd1}
+.chip.y{background:#fdf3dc;color:var(--amber);border-color:#f6e0a8}
+.chip.k{background:#f2f3f4;color:#2f3439;border-color:#e3e5e7}
+.chip.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px}
+.chip.tag{display:inline-flex;align-items:center;gap:10px;background:#f2f3f4;color:#2f3439;border-color:#e3e5e7;font-family:var(--mono);font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:9px 20px}
+.tag-yt{width:22px;height:16px;flex-shrink:0}
+h1,h2{font-weight:800;letter-spacing:-.035em;line-height:1.04;color:var(--ink)}
+h1{font-size:clamp(36px,6vw,68px);text-wrap:balance}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+h3{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+section{padding:clamp(52px,6vw,80px) 0}
+.head{text-align:center;max-width:860px;margin:0 auto 48px}
+.head .chip{margin-bottom:20px}
+.head p{margin-top:18px;font-size:18px;color:var(--ink-70);text-wrap:balance}
+.head p b{color:var(--ink);font-weight:500}
+.sub-head{text-align:center;max-width:760px;margin:clamp(64px,8vw,104px) auto 32px}
+.sub-head h3{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+.sub-head p{margin-top:12px;font-size:17px;color:var(--ink-70);text-wrap:balance}
+.sub-head p b{color:var(--ink);font-weight:500}
+.part{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);display:block;margin-bottom:14px}
+.callout{max-width:760px;margin:36px auto 0;text-align:center;font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.45;text-wrap:balance}
+.src{text-align:center;margin-top:16px;font-size:13px;color:var(--ink-30)}
+.hl{background:linear-gradient(transparent 55%,rgba(247,194,90,.75) 55%);padding:0 .08em}
+
+/* Hero */
+.hero{padding-top:clamp(36px,5vw,64px);text-align:center}
+.hero h1{margin:22px auto 0;max-width:1000px}
+.note{position:relative;z-index:0;white-space:nowrap}
+.note::before{content:'';position:absolute;z-index:-1;left:-.1em;right:-.12em;top:.44em;bottom:-.02em;background:var(--marker);mix-blend-mode:multiply;opacity:.85;clip-path:polygon(1% 18%,4% 2%,40% 6%,97% 0,100% 22%,99% 80%,96% 100%,55% 94%,3% 98%,0 66%);transform:rotate(-1deg) scaleX(0);transform-origin:left;animation:swipe .5s cubic-bezier(.6,.1,.3,1) .4s forwards}
+@keyframes swipe{to{transform:rotate(-1deg) scaleX(1)}}
+.note .arrow{position:absolute;left:calc(100% + .06em);top:.52em;width:.62em;height:.62em;overflow:visible}
+.note .arrow path{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw .5s ease-out .95s forwards}
+.note .arrow path+path{animation-delay:1.35s;animation-duration:.2s}
+.note .aside{position:absolute;left:calc(100% + 1.3em);top:2.02em;font-family:'Caveat',cursive;font-weight:600;font-size:.42em;letter-spacing:0;color:var(--red);transform:rotate(-5deg);opacity:0;animation:pop .4s ease-out 1.45s forwards;white-space:nowrap}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:rotate(-5deg) translateY(4px)}to{opacity:1;transform:rotate(-5deg)}}
+@media (prefers-reduced-motion:reduce){.note::before{animation:none;transform:rotate(-1deg)}.note .arrow path{animation:none;stroke-dashoffset:0}.note .aside{animation:none;opacity:1}}
+@media (max-width:960px){.hero h1{padding-bottom:.7em}.note .arrow{display:none}.note .aside{left:auto;right:-.1em;top:2.35em;font-size:.5em}}
+.sub{font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--ink-70);margin:22px auto 0;max-width:720px;text-wrap:balance}
+.sub b{color:var(--ink);font-weight:500}
+.hello{font-family:'Caveat',cursive;font-size:clamp(26px,3vw,32px);color:var(--red);transform:rotate(-3deg);display:inline-block;margin-top:28px}
+
+/* Hero stat strip */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:40px auto 0}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 20px;box-shadow:var(--shadow-sm)}
+.stat strong{display:block;font-size:clamp(36px,4.6vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:8px;color:var(--ink-70);font-size:15px;line-height:1.4}
+.stat.goal{background:linear-gradient(135deg,#3463f2,#1a3fc4);border-color:transparent;color:#fff;box-shadow:0 18px 40px -20px rgba(31,79,224,.55)}
+.stat.goal span{color:rgba(255,255,255,.85)}
+
+.work{max-width:1000px;margin:34px auto 0}
+.work-t{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);margin-bottom:12px}
+.work-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden}
+.work-g>div{padding:clamp(16px,2.4vw,24px) 14px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.work-g>div:nth-child(4n){border-right:0}.work-g>div:nth-child(n+5){border-bottom:0}
+.work-g b{display:block;font-size:clamp(38px,5vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.work-g span{display:block;margin-top:8px;font-size:14px;line-height:1.35;color:var(--ink-70)}
+@media (max-width:640px){.work-g{grid-template-columns:1fr 1fr}.work-g>div:nth-child(n){border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}.work-g>div:nth-child(2n){border-right:0}.work-g>div:nth-child(n+7){border-bottom:0}.work-g b{font-size:36px}.work-g span{font-size:13px}.sub br{display:none}}
+.letter.has-photo{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;max-width:900px;align-items:center}
+.letter-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
+@media (max-width:760px){.letter.has-photo{grid-template-columns:1fr;gap:18px}.letter-photo{aspect-ratio:4/3;object-position:50% 30%}}
+/* Hero progress: counter, goal bar, growth curve */
+.prog{max-width:1000px;margin:40px auto 0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(18px,3vw,28px);text-align:left}
+.prog-top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,44px);align-items:center}
+.counter{display:flex;align-items:center;gap:16px;font-family:var(--yt)}
+.counter img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
+.counter small{display:block;font-size:13px;color:#606060}
+.counter strong{display:block;font-size:clamp(40px,5.4vw,58px);font-weight:700;letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums;color:#0f0f0f}
+.gb-track{position:relative;height:14px;border-radius:999px;background:var(--line-soft)}
+.gb-track i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#6d8ef7,var(--cobalt))}
+.gb-track b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink-30);border-radius:2px}
+.gb-lab{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink-50);margin-top:10px}
+.gb-lab b{color:var(--cobalt);font-weight:800}
+.studio{margin:26px 0 0;padding-right:44px}
+.st-plot{position:relative;line-height:0}
+.st-plot>img{display:block;width:100%;height:auto;filter:saturate(1.5)}
+.bd{position:absolute;top:0;bottom:0;mix-blend-mode:multiply;pointer-events:none}
+.b0{background:rgba(17,20,23,.025)}.b1{background:rgba(31,79,224,.07)}.b2{background:rgba(247,194,90,.13)}.b3{background:rgba(228,0,59,.05)}
+.yl{position:absolute;left:calc(100% + 10px);transform:translateY(-50%);font-size:12px;line-height:1;color:var(--ink-50);font-family:var(--yt)}
+.mk{position:absolute;width:0;height:0;line-height:1}
+.mk b{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417;box-shadow:0 0 0 3px rgba(255,255,255,.8)}
+.mk em{position:absolute;right:14px;bottom:10px;white-space:nowrap;font-style:normal;font-size:13px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;box-shadow:var(--shadow-sm)}
+.mk.r em{left:14px;right:auto;bottom:auto;top:-6px;transform:translateY(-100%)}
+.mk.br em{left:12px;right:auto;bottom:auto;top:10px}
+.mk.live b{border-color:var(--red);background:var(--red);animation:ping 2s ease-out infinite}
+.mk.live em{top:16px;bottom:auto;right:-4px;color:#fff;background:var(--red);border-color:var(--red)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(228,0,59,.45)}70%{box-shadow:0 0 0 12px rgba(228,0,59,0)}100%{box-shadow:0 0 0 0 rgba(228,0,59,0)}}
+@media (prefers-reduced-motion:reduce){.mk.live b{animation:none}}
+.pin{position:absolute;width:0;height:0;line-height:1;z-index:2}
+.pin::before{content:'';position:absolute;left:-1px;width:2px;height:var(--stem);background:var(--ink-30)}
+.pin.up::before{bottom:0}.pin.down::before{top:0}
+.pin .dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #111417}
+.pc{position:absolute;left:50%;transform:translateX(-50%);width:clamp(110px,13vw,150px);background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;box-shadow:var(--shadow-md);text-decoration:none;color:var(--ink);transition:transform .2s}
+.pin.up .pc{bottom:var(--stem)}.pin.down .pc{top:var(--stem)}
+.pc:hover{transform:translateX(-50%) translateY(-2px)}
+.pc img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.pc em{display:block;font-style:normal;font-size:12px;color:var(--ink-50);padding:6px 3px 2px;white-space:nowrap}
+.pc em b{color:var(--ink);font-weight:800}
+.st-top{display:none}
+.st-ch{display:flex;margin-top:10px;gap:3px}
+.st-ch>span{flex:none;border-radius:6px;padding:7px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ch .c0{background:#f2f3f4;color:var(--ink-50)}.st-ch .c1{background:var(--blue-50);color:var(--cobalt)}.st-ch .c2{background:var(--yellow-50);color:var(--amber)}.st-ch .c3{background:var(--red-50);color:var(--red)}
+.st-ch .short,.mk .short{display:none}
+.st-x{position:relative;height:20px;margin-top:8px}
+.st-x span{position:absolute;transform:translateX(-50%);font-size:12px;color:var(--ink-50);white-space:nowrap}
+.st-x span:first-child{transform:none}.st-x span:last-child{transform:translateX(-100%)}
+.studio figcaption{margin-top:6px;font-size:12px;color:var(--ink-30)}
+@media (max-width:640px){
+  .studio{padding-right:34px}
+  .yl{font-size:10px;left:calc(100% + 6px)}
+  .mk b{left:-5px;top:-5px;width:10px;height:10px;border-width:2px}
+  .mk em{font-size:10.5px;padding:3px 7px;right:10px;bottom:7px}
+  .mk.live em{top:11px}
+  .mk.sm-hide{display:none}
+  .pc{display:none}.pin::before{display:none}.pin .dot{left:-5px;top:-5px;width:10px;height:10px;border-width:2px}
+  .st-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.st-top a{text-decoration:none;color:var(--ink-50)}.st-top img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}.st-top em{display:block;font-style:normal;font-size:11px;margin-top:4px}.st-top b{color:var(--ink)}
+  .st-ch>span{font-size:9px;letter-spacing:.02em;padding:6px 4px}
+  .st-ch .full,.mk .full{display:none}.st-ch .short,.mk .short{display:inline}
+  .st-x span{font-size:10px}.st-x span:nth-child(2),.st-x span:nth-child(5){display:none}
+}
+@media (max-width:760px){.prog-top{grid-template-columns:1fr;gap:18px}}
+
+/* Note from the strategist */
+.letter{max-width:760px;margin:44px auto 0;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(22px,4vw,34px);position:relative}
+.letter-who{display:flex;align-items:center;gap:14px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.avatar{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--red-50);color:var(--red);font-weight:800;font-size:18px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.letter-who b{display:block;font-size:17px}
+.letter-who small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.letter-body p{font-size:17px;line-height:1.65;color:var(--ink-70)}
+.letter-body p+p{margin-top:12px}
+.letter-body b{color:var(--ink);font-weight:600}
+.letter-body .sign{font-family:'Caveat',cursive;font-size:30px;color:var(--red);line-height:1;margin-top:16px}
+
+/* TL;DR */
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:56px auto 0;text-align:left}
+.tl{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px}
+.tl h3{font-size:18px}
+.tl ol{list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:10px}
+.tl li{counter-increment:n;position:relative;padding-left:30px;font-size:15px;color:var(--ink-70);line-height:1.5}
+.tl li b{color:var(--ink);font-weight:600}
+.tl li::before{content:counter(n);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;font-family:var(--mono);font-size:11px;display:grid;place-items:center;background:var(--line-soft);color:var(--ink-50)}
+.tl.g{border-top:4px solid var(--green)}.tl.g li::before{background:var(--green-50);color:var(--green)}
+.tl.r{border-top:4px solid var(--red)}.tl.r li::before{background:var(--red-50);color:var(--red)}
+.tl.b{border-top:4px solid var(--cobalt)}.tl.b li::before{background:var(--blue-50);color:var(--cobalt)}
+
+/* Generic grids and cards */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:18px}
+.card p{font-size:15px;color:var(--ink-70);line-height:1.55}
+.card p b{color:var(--ink);font-weight:600}
+.card .proof{margin-top:auto;padding-top:12px;font-size:14px;font-weight:600;line-height:1.45}
+.card .ic{font-size:26px;line-height:1;margin-bottom:6px}
+.num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:700;margin-bottom:6px}
+.t-blue{background:var(--blue-50)}.t-green{background:var(--green-50)}.t-yellow{background:var(--yellow-50)}.t-red{background:var(--red-50)}
+.card.t-blue,.card.t-green,.card.t-yellow,.card.t-red{border-color:transparent;box-shadow:none}
+.t-blue .num{background:#fff;color:var(--cobalt)}.t-blue .proof{color:var(--cobalt)}
+.t-green .num{background:#fff;color:var(--green)}.t-green .proof{color:var(--green)}
+.t-yellow .num{background:#fff;color:var(--amber)}.t-yellow .proof{color:var(--amber)}
+.t-red .num{background:#fff;color:var(--red)}.t-red .proof{color:var(--red)}
+.col-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;display:block}
+
+/* Goal bar */
+.summary{margin-top:28px;background:linear-gradient(135deg,#3463f2,#1a3fc4);color:#fff;box-shadow:0 18px 40px -20px rgba(31,79,224,.55);border-radius:var(--r-lg);padding:clamp(28px,5vw,44px);text-align:center}
+.summary strong{display:block;font-size:clamp(24px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.summary p{margin:12px auto 0;max-width:640px;font-size:17px;color:rgba(255,255,255,.88);text-wrap:balance}
+.summary p b{color:#fff}
+
+/* Bar charts (HTML, readable on phones) */
+.chart{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px 24px 18px}
+.chart-t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.chart-t b{font-size:16px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-50)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.bars{display:flex;align-items:flex-end;gap:clamp(3px,.8vw,10px);height:230px;padding-top:28px;border-bottom:2px solid var(--line)}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;min-width:0}
+.bar i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:#d5dae3;flex-shrink:0}
+.bar em{flex-shrink:0;font-style:normal;font-size:12px;font-weight:600;color:var(--ink-70);margin-bottom:4px;white-space:nowrap}
+.bar.c i{background:var(--cobalt)}.bar.y i{background:var(--marker)}.bar.r em{color:var(--red)}
+.bar .flag{position:absolute;bottom:calc(var(--h) + 26px);left:50%;transform:translateX(-50%);font-family:'Caveat',cursive;font-size:19px;line-height:1;color:var(--red);white-space:nowrap}
+.xl{display:flex;gap:clamp(3px,.8vw,10px);margin-top:8px}
+.xl span{flex:1;text-align:center;font-size:11px;color:var(--ink-50);line-height:1.25;min-width:0}
+.line-row{position:relative;height:90px;margin-top:22px;border-top:1px dashed var(--line)}
+.line-row svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ctr-lab{display:flex;gap:clamp(3px,.8vw,10px);margin-top:4px}
+.ctr-lab span{flex:1;text-align:center;font-size:11px;font-weight:600;color:var(--green);min-width:0}
+@media (max-width:640px){
+  .chart{padding:18px 14px 14px}
+  .bars{height:190px}
+  .bar em{font-size:9px;letter-spacing:-.02em}
+  .xl span,.ctr-lab span{font-size:8.5px}
+  .bar .flag{font-size:15px}
+  .bars.many .bar em{display:none}.bars.many .bar.k em{display:block}
+}
+
+/* Three-phase strip */
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ph{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow-sm)}
+.ph small{display:block;font-size:13px;font-weight:600;color:var(--ink-70);margin-bottom:12px}
+.ph-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:6px 0;border-top:1px solid var(--line-soft);font-size:13px;color:var(--ink-50)}
+.ph-row b{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.ph-row:first-of-type b{color:var(--cobalt)}.ph-row:last-child b{color:var(--red)}
+
+/* Big stat pair */
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;max-width:820px;margin:0 auto}
+.vs .stat{text-align:center}
+.vs .stat.win strong{color:var(--green)}.vs .stat.lose strong{color:var(--red)}
+.vs-mid{font-family:'Caveat',cursive;font-size:30px;color:var(--ink-30)}
+
+/* Thumbnails */
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.v{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;font-family:var(--yt)}
+.v-img{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--line-soft)}
+.v-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.v:hover .v-img img{transform:scale(1.03)}
+.v b{font-size:15px;font-weight:500;line-height:1.35;color:#0f0f0f}
+.v small{font-size:13px;color:#606060;line-height:1.4}
+.v small .x{color:var(--red);font-weight:600}
+.v .badge{align-self:flex-start;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.v .badge.g{background:var(--green);color:#fff}
+.v .badge.r{background:var(--red);color:#fff}
+
+/* Value props */
+.vp .v-img{margin-bottom:6px}
+.vp-tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+/* Comments */
+.wall{columns:2 360px;column-gap:16px}
+.cm{break-inside:avoid;margin:0 0 16px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px 10px;box-shadow:var(--shadow-sm)}
+.cm figcaption{font-size:13px;font-weight:600;color:var(--ink-70);margin-bottom:8px}
+.cm figcaption b{color:var(--ink)}
+.cm img{display:block;width:100%;height:auto}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pair .cm figcaption{display:flex;align-items:center;gap:8px}
+
+/* Hooks */
+.hook{border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.hook.good{background:var(--green-50)}.hook.ok{background:#f1f2f3}
+.hook-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hook-top b{font-size:16px}
+.hook-top span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.hook.good .hook-top span{color:var(--green)}.hook.ok .hook-top span{color:var(--ink-50)}
+.hook blockquote{font-size:15px;line-height:1.6;color:var(--ink-70);font-style:italic}
+.hook blockquote p+p{margin-top:8px}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{background:#f4f5f6;font-weight:600;font-size:13px;color:var(--ink-70);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+td.bad{color:var(--red);font-weight:600}
+td b{font-weight:600}
+
+/* Drop-downs: the full analysis */
+details.more{margin-top:28px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--white);box-shadow:var(--shadow-sm);overflow:hidden}
+details.more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;font-weight:600;font-size:15px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary .lbl{display:flex;align-items:center;gap:10px}
+details.more>summary .lbl small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);font-weight:400}
+details.more>summary .plus{flex:none;width:28px;height:28px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-size:18px;line-height:1;color:var(--ink-70);transition:transform .25s}
+details.more[open]>summary .plus{transform:rotate(45deg)}
+details.more>summary:hover{background:#fafbfb}
+.more-body{padding:6px 22px 26px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:20px}
+.more-body h4{font-size:16px;font-weight:700;margin-top:10px}
+.more-body p,.more-body li{font-size:15px;color:var(--ink-70);line-height:1.6}
+.more-body p b,.more-body li b{color:var(--ink);font-weight:600}
+.more-body ul,.more-body ol{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.more-body figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line-soft)}
+.more-body figure figcaption{font-size:13px;color:var(--ink-50);margin-top:8px}
+.note-box{background:var(--paper);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink-70)}
+.note-box b{color:var(--ink)}
+.script{background:var(--paper);border-left:3px solid var(--red);border-radius:0 12px 12px 0;padding:14px 16px;font-style:italic;color:var(--ink-70);font-size:15px}
+.script p+p{margin-top:8px}
+.script small{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);margin-bottom:6px}
+
+/* Formula list */
+.formulas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fx{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.fx strong{flex:none;min-width:58px;text-align:center;font-size:18px;font-weight:800;letter-spacing:-.02em;border-radius:10px;padding:6px 8px}
+.fx.up strong{background:var(--green-50);color:var(--green)}.fx.dn strong{background:var(--red-50);color:var(--red)}.fx.mid strong{background:var(--yellow-50);color:var(--amber)}
+.fx span{font-size:14px;color:var(--ink-70);line-height:1.4}
+.fx span b{display:block;color:var(--ink);font-size:15px;font-weight:600}
+
+/* Remakes */
+.remake{display:flex;flex-direction:column;gap:12px}
+.remake .from{font-family:var(--yt);font-size:13px;color:#606060;line-height:1.4}
+.remake .to{background:var(--red-50);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;line-height:1.35}
+.remake .to small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+
+/* Projection chart */
+.proj{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px}
+.proj svg{display:block;width:100%;height:auto;overflow:visible}
+.proj text{font-family:var(--f);font-size:13px;fill:var(--ink-50)}
+.proj .lab{font-weight:700;font-size:14px}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.path{border-radius:var(--r-md);padding:14px 16px;font-size:14px;color:var(--ink-70);line-height:1.45}
+.path strong{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.path b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+.path.well{background:var(--green-50)}.path.well strong{color:var(--green)}
+.path.okay{background:var(--blue-50)}.path.okay strong{color:var(--cobalt)}
+.path.none{background:var(--red-50)}.path.none strong{color:var(--red)}
+@media (max-width:640px){.proj{padding:14px}.proj text{font-size:26px}.proj .lab{font-size:28px}.proj .ms{display:none}}
+
+/* Benchmarks */
+.bench h3{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bench h3 small{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.06em;color:var(--ink-50)}
+.bench .big{font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1;margin:8px 0 2px}
+.bench ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.bench li{font-size:14px;color:var(--ink-70);line-height:1.5;padding-left:16px;position:relative}
+.bench li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--ink-30)}
+.bench li b{color:var(--ink);font-weight:600}
+
+/* Collabs */
+.collab{display:flex;flex-direction:column;gap:10px}
+.collab .who-c{display:flex;align-items:center;gap:12px}
+.collab .who-c i{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:15px;color:#fff}
+.collab .who-c b{font-size:16px;line-height:1.2}
+.collab .who-c small{display:block;font-size:13px;color:var(--ink-50)}
+.collab .idea{background:var(--paper);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;line-height:1.4}
+.collab .idea small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50);margin-bottom:2px}
+
+/* Ideas */
+.ideas{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.idea-row{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.idea-row>b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-size:12px}
+.idea-row div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.idea-row strong{font-size:15px;font-weight:600;line-height:1.35}
+.idea-row .meta{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:11px;font-weight:600;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.p1{background:var(--green-50);color:var(--green)}.p2{background:var(--blue-50);color:var(--cobalt)}.p3{background:var(--red-50);color:var(--red)}.p4{background:var(--yellow-50);color:var(--amber)}
+.pill.thumb{background:#14171b;color:#fff;font-style:italic}
+.pill.live{background:var(--green);color:#fff}
+
+/* Rollout timeline */
+.live-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;box-shadow:var(--shadow-sm);max-width:820px;margin:0 auto 28px}
+@media (max-width:640px){.live-card{grid-template-columns:1fr;gap:12px}}
+.weeks{list-style:none;display:flex;flex-direction:column;gap:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.wk{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line-soft)}
+.wk:last-child{border-bottom:0}
+.wk time{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-50)}
+.wk time b{display:block;font-family:var(--f);font-size:14px;letter-spacing:0;color:var(--ink)}
+.wk strong{font-size:15px;font-weight:600;line-height:1.35}
+.wk strong small{display:block;font-weight:400;font-size:13px;color:var(--ink-50);margin-top:2px}
+.st{font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.st.live{background:var(--green);color:#fff}.st.edit{background:var(--yellow-50);color:var(--amber)}.st.plan{background:var(--paper);color:var(--ink-50)}
+.wk.is-live{background:var(--green-50)}
+@media (max-width:640px){.wk{grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px}.wk time{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.wk time b{display:inline}}
+
+/* Milestones */
+.miles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;position:relative}
+.mile{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-sm)}
+.mile small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.mile strong{display:block;font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:6px 0}
+.mile:last-child strong{color:var(--cobalt)}
+.mile p{font-size:14px;color:var(--ink-70)}
+
+/* Checklists */
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;gap:12px;font-size:15px;line-height:1.45;color:var(--ink-70)}
+.checks li::before{content:'';flex:none;width:20px;height:20px;border-radius:6px;border:2px solid var(--line);margin-top:1px}
+.checks li b{color:var(--ink);font-weight:600}
+
+/* Do more / less */
+.doc-l{list-style:none;display:flex;flex-direction:column;gap:10px}
+.doc-l li{display:flex;gap:10px;font-size:15px;line-height:1.45}
+.doc-l li::before{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px}
+.do .doc-l li::before{content:'+';background:var(--green);color:#fff}
+.dont .doc-l li::before{content:'\2212';background:var(--red);color:#fff}
+
+footer{padding:48px 0 64px;text-align:center;color:var(--ink-30);font-size:13px}
+footer p{max-width:720px;margin:0 auto}
+
+@media (max-width:1120px){.links{display:none}.nav-in{justify-content:space-between}}
+@media (max-width:900px){
+  .tldr,.g3,.vgrid,.paths,.miles{grid-template-columns:1fr}
+  .g4,.phases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .g2,.g4,.formulas,.ideas,.pair{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr 1fr;gap:8px}.ph{padding:12px}.ph-row b{font-size:17px}
+  .vs{grid-template-columns:1fr;gap:8px}.vs-mid{text-align:center}
+  .vgrid{gap:22px}
+  details.more>summary{padding:14px 16px}.more-body{padding:4px 16px 20px}
+  .nav-in{padding-left:16px}
+  .btn{padding:10px 16px;font-size:14px}
+  .who small{display:none}
+}
+
+/* Calm pass: fewer colours, fewer boxes, more air */
+section{padding:clamp(72px,9vw,128px) 0}
+.head{margin-bottom:clamp(40px,5vw,64px)}
+.head p{font-size:19px;line-height:1.55;max-width:680px;margin-left:auto;margin-right:auto}
+.sub-head{margin:clamp(88px,10vw,140px) auto 36px}
+.sub-head p{font-size:18px;line-height:1.55}
+.g2,.g3,.g4{gap:20px}
+.card{box-shadow:none;border:1px solid var(--line-soft);padding:28px 28px 30px;gap:10px}
+.card h3{font-size:19px;line-height:1.3}
+.card p{font-size:16px;line-height:1.6}
+.card .ic{display:none}
+.card.t-blue,.card.t-green,.card.t-yellow,.card.t-red{background:var(--white);border:1px solid var(--line-soft)}
+.t-blue .num,.t-green .num,.t-yellow .num,.t-red .num{background:var(--paper)}
+.stat,.chart,.proj,.mile,.idea-row,.fx,.weeks,.cm,details.more,.tbl-wrap,.cs-card{box-shadow:none}
+.stat,.chart,.proj,.mile{border-color:var(--line-soft)}
+.summary{box-shadow:none}
+.callout{margin-top:48px}
+details.more{margin-top:40px;border-color:var(--line-soft)}
+.hook{padding:26px 28px}
+.hook blockquote{font-size:16px}
+.vgrid{gap:28px 22px}
+/* Chart labels: no white circles over the curve */
+.pin .dot{display:none}
+.mk:not(.live) b{display:none}
+.mk.br em{left:18px;top:16px}
+
+/* Rollout calendar (Notion-style) */
+.cal{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.cal-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:18px 20px 14px}
+.cal-top b{font-size:16px}
+.cal-top>span{font-size:13px;color:var(--ink-50)}
+.cal-key{margin-left:auto;display:flex;gap:14px;font-size:12px;color:var(--ink-50)}
+.cal-key i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:0}
+.k-live{background:var(--green)}.k-edit{background:var(--marker)}.k-plan{background:#c9ced3}.k-shoot{background:var(--cobalt)}
+.cal-dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cal-dow span{padding:8px 10px;font-size:12px;color:var(--ink-50);text-align:right}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.cd{position:relative;min-height:104px;padding:6px 6px 8px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.cd:nth-child(7n){border-right:0}
+.cd:nth-last-child(-n+7){border-bottom:0}
+.cd.we{background:#fbfbfb}
+.dn{display:block;text-align:right;font-size:12px;color:var(--ink-50);padding:2px 4px 6px}
+.cd.alt .dn{color:var(--ink-30)}
+.cd.today .dn{text-align:right}
+.cd.today .dn b{display:inline-block;min-width:22px;padding:2px 6px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;text-align:center}
+.ev{position:relative;z-index:1;border-radius:6px;padding:6px 8px;font-size:12px;font-weight:600;line-height:1.3;background:#f1f2f3;color:var(--ink);box-shadow:0 1px 0 rgba(17,20,23,.06),inset 0 0 0 1px rgba(17,20,23,.06);}
+.ev small{display:block;font-size:10.5px;font-weight:600;color:var(--ink-50);margin-bottom:2px}
+.ev.live{background:var(--green-50);box-shadow:inset 3px 0 0 var(--green),inset 0 0 0 1px #c3ebd1}
+.ev.live small{color:var(--green)}
+.ev.edit{background:#fdf3dc;box-shadow:inset 3px 0 0 var(--marker),inset 0 0 0 1px #f6e0a8}
+.ev.edit small{color:var(--amber)}
+.ev.plan{box-shadow:inset 3px 0 0 #c9ced3,inset 0 0 0 1px rgba(17,20,23,.06)}
+.ev.shoot{background:var(--blue-50);color:var(--cobalt);box-shadow:inset 3px 0 0 var(--cobalt)}
+.ev.shoot small{color:var(--cobalt)}
+.ev.span4{width:calc(400% + 36px)}
+@media (min-width:641px){.weeks{display:none}}
+@media (max-width:640px){.cal{display:none}}
+
+/* Comment stacks: label outside, screenshot as the top card of a pile */
+.stacks{gap:clamp(28px,4vw,48px);align-items:start}
+.stk-lab{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-bottom:22px}
+.stk-lab p{font-size:17px;font-weight:600;color:var(--ink)}
+.stack{position:relative;isolation:isolate;margin:0 14px 22px}
+.stack::before,.stack::after{content:'';position:absolute;inset:0;border-radius:16px;background:#fff;border:1px solid var(--line);z-index:-1}
+.stack::before{transform:translate(10px,10px) rotate(1.6deg);box-shadow:var(--shadow-sm)}
+.stack::after{transform:translate(20px,20px) rotate(3.2deg);z-index:-2;opacity:.8}
+.stack img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px;box-shadow:var(--shadow-md)}
+.stk-col:last-child .stack::before{transform:translate(-10px,10px) rotate(-1.6deg)}
+.stk-col:last-child .stack::after{transform:translate(-20px,20px) rotate(-3.2deg)}
+.k-gap{background:#fff;border:1.5px dashed var(--red)}
+.ev.gap{background:#fff;color:var(--ink-70);font-weight:500;box-shadow:inset 0 0 0 1.5px var(--red-100);border:1px dashed var(--red)}
+.ev.gap small{color:var(--red)}
+.st.gapst{background:var(--red-50);color:var(--red)}
+.wk.is-gap{background:#fffafb}
+
+/* ===== Jatin page additions ===== */
+:root{--purple:#6b3fd4;--purple-50:#f2edfd}
+section.tight{padding-top:clamp(56px,7vw,96px)}
+.sub-head .part{margin-bottom:10px}
+
+/* Hero: two channels + road */
+.two-ch{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc{border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;background:var(--paper)}
+.tc small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.tc b{display:block;font-size:17px;margin-top:4px}
+.tc span{display:block;font-size:13px;color:var(--ink-70);line-height:1.4;margin-top:4px}
+.tc.new{background:var(--blue-50);border-color:#d3defb}.tc.new small{color:var(--cobalt)}
+.road{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:22px;position:relative}
+.road::before{content:'';position:absolute;left:12px;right:12px;top:11px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--line),#6d8ef7 70%,var(--cobalt))}
+.road li{position:relative;padding:28px 10px 0 0}
+.road li::before{content:'';position:absolute;left:4px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #6d8ef7}
+.road li.goal::before{background:var(--cobalt);border-color:var(--cobalt);box-shadow:0 0 0 5px var(--blue-50)}
+.road small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.road b{display:block;font-size:15px;line-height:1.3;margin-top:3px}
+.road li.goal b{color:var(--cobalt)}
+@media (max-width:760px){.two-ch{grid-template-columns:1fr}.road{grid-template-columns:1fr 1fr;row-gap:18px}.road::before{display:none}}
+
+/* Promise checklist */
+.promise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:1000px;margin:0 auto}
+.pr{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:18px 18px 16px;transition:border-color .2s,transform .2s}
+.pr:hover{border-color:var(--green);transform:translateY(-1px)}
+.pr>i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--green);position:relative;margin-top:1px}
+.pr>i::after{content:'';position:absolute;left:9px;top:5px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.pr div{flex:1;min-width:0}
+.pr b{display:block;font-size:16px;line-height:1.35}
+.pr span{display:block;font-size:14px;color:var(--ink-70);line-height:1.5;margin-top:4px}
+.pr em{flex:none;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-50);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.src a{color:var(--ink-50)}
+.tl.y{border-top:4px solid var(--marker)}.tl.y li::before{background:var(--yellow-50);color:var(--amber)}
+@media (max-width:760px){.promise{grid-template-columns:1fr}.pr{flex-wrap:wrap}.pr em{margin-left:40px}}
+
+/* Figures */
+.fig{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(10px,2vw,18px);margin:0}
+.fig img{display:block;width:100%;height:auto;border-radius:10px}
+.fig figcaption{font-size:13px;color:var(--ink-50);margin-top:10px;line-height:1.5;padding:0 4px}
+.meta-line{font-size:14px !important;color:var(--ink-50) !important}
+.comp-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.comp-list details.more{margin-top:0}
+.comp-list .vgrid{gap:22px 18px}
+.tbl-t{font-size:16px;font-weight:700;margin:28px 0 12px}
+
+/* Comparison tables */
+table.cmp th.hi{background:var(--blue-50);color:var(--cobalt)}
+table.cmp td.hi{background:#f7f9fe;color:var(--ink);font-weight:500}
+table.ans td:last-child{white-space:nowrap}
+table.ans a{color:var(--cobalt);font-weight:600;text-decoration:none}
+table.ans td:first-child{width:32%}
+
+/* Channel statement */
+.letter.statement{border-left:4px solid var(--red)}
+.letter.statement .letter-body p{font-size:18px;color:var(--ink)}
+.xy{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:900px;margin:22px auto 0}
+.xy span{background:var(--white);border:1px solid var(--line-soft);border-radius:999px;padding:9px 16px;font-size:14px;color:var(--ink-70)}
+.xy b{color:var(--ink);font-weight:600}
+
+/* Levers */
+.levers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.levers a.card{text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;padding:22px 20px 24px}
+.levers a.card:hover{transform:translateY(-2px);border-color:var(--cobalt)}
+.levers .card h3{font-size:17px}.levers .card p{font-size:14px}
+@media (max-width:1000px){.levers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.levers{grid-template-columns:1fr}}
+
+/* Hook colour key */
+.hp{background:rgba(228,0,59,.09)}.hs{background:rgba(247,194,90,.28)}.hpr{background:rgba(27,138,74,.12)}
+.key{display:inline-block;border-radius:6px;padding:2px 10px;margin:0 3px;color:var(--ink-70);font-size:12px}
+
+/* Pillars */
+.pil{border-top:4px solid var(--line) !important}
+.pil.p-1{border-top-color:var(--cobalt) !important}.pil.p-1 .col-label{color:var(--cobalt)}
+.pil.p-2{border-top-color:var(--purple) !important}.pil.p-2 .col-label{color:var(--purple)}
+.pil.p-3{border-top-color:var(--green) !important}.pil.p-3 .col-label{color:var(--green)}
+.pil .pain{font-family:'Caveat',cursive;font-size:22px;line-height:1.25;color:var(--ink)}
+.pil .proof{color:var(--ink-70);font-weight:500}
+.pp1{background:var(--blue-50);color:var(--cobalt)}
+.pp2{background:var(--purple-50);color:var(--purple)}
+.pp3{background:var(--green-50);color:var(--green)}
+.pill.score{background:#14171b;color:#fff}
+.pill{background:#f2f3f4;color:var(--ink-70)}
+.pill.live{background:var(--green);color:#fff}
+
+/* Launch videos */
+.lv{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(20px,3vw,36px);background:var(--white);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(16px,2.6vw,28px);margin-top:20px;align-items:start}
+.lv-media{position:sticky;top:96px;display:flex;flex-direction:column;gap:14px}
+.tslot{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#111417}
+.tslot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.tph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(14px,2vw,22px);background:radial-gradient(120% 90% at 85% 20%,#2a3a6b 0%,#14192a 55%,#0d0f14 100%);color:#fff}
+.tph.p2{background:radial-gradient(120% 90% at 85% 20%,#4b2f8f 0%,#1d1533 55%,#0e0c14 100%)}
+.tph-l{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px dashed rgba(255,255,255,.4);border-radius:999px;padding:4px 10px}
+.tph b{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.95;text-transform:uppercase}
+.tph small{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.72);margin-top:10px;max-width:90%}
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.refs>span{grid-column:1/-1;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
+.refs a{text-decoration:none;color:var(--ink-50);font-family:var(--yt)}
+.refs img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.refs em{display:block;font-style:normal;font-size:12px;margin-top:5px}
+.refs em b{color:var(--red)}
+.lv-body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.lv-tags{display:flex;gap:6px;flex-wrap:wrap}
+.lv-tags .pill{font-size:12px;padding:4px 11px}
+.lv-body>h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.lv-vp{font-size:16px;color:var(--ink-70);line-height:1.55}
+.lv-stat{display:flex;gap:14px;align-items:center;background:var(--paper);border-radius:12px;padding:12px 14px}
+.lv-stat b{flex:none;font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--green)}
+.lv-stat span{font-size:14px;color:var(--ink-70);line-height:1.45}
+.lv .hook{padding:20px 22px}
+.lv .hook blockquote{font-style:normal;color:var(--ink);font-size:16px}
+mark{background:rgba(247,194,90,.55);color:inherit;border-radius:4px;padding:0 3px;font-style:normal}
+details.more.mini{margin-top:0}
+details.more.mini>summary{padding:12px 16px;font-size:14px}
+ol.steps{display:flex;flex-direction:column;gap:6px;padding-left:24px}
+ol.steps li{font-weight:600;color:var(--ink)!important}
+.lv-link{align-self:flex-start;font-weight:600;font-size:15px;color:var(--cobalt);text-decoration:none}
+.lv-link:hover{text-decoration:underline}
+@media (max-width:860px){.lv{grid-template-columns:1fr}.lv-media{position:static}}
+
+/* Ideas */
+.idea-row.is-launch{border-color:var(--green);box-shadow:0 0 0 3px var(--green-50)}
+.idea-row.bonus{background:var(--paper)}
+.idea-row>b{font-size:11px}
+.exg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.exg img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line-soft)}
+.ideas-more h4{margin-top:18px}
+@media (max-width:640px){.exg{grid-template-columns:1fr 1fr}}
+
+/* Launch plan */
+a.card.lw{text-decoration:none;color:inherit}
+.wk .pill{justify-self:end}
+.big-t{font-size:46px !important;font-weight:800;letter-spacing:-.04em;line-height:1 !important;color:var(--green) !important}
+@media (max-width:960px){.hero h1{padding-bottom:0}}
+.fx.dn{display:flex;text-align:left;padding:14px 16px;font-size:inherit;color:inherit}
+@media (min-width:641px){.weeks{display:flex}}
+.pts{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.pts li{position:relative;padding-left:16px;font-size:15.5px;line-height:1.55;color:var(--ink-70)}
+.pts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--cobalt);opacity:.6}
+.pts b{color:var(--ink);font-weight:600}
+/* Tighter rhythm */
+section{padding:clamp(44px,5.5vw,76px) 0}
+section+section{padding-top:clamp(28px,3.5vw,48px)}
+.sub-head{margin:clamp(52px,6vw,84px) auto 28px}
+.head{margin-bottom:clamp(32px,4vw,48px)}
+details.more{margin-top:28px}
+.callout{margin-top:36px}
+.kstats{max-width:900px;margin:0 auto;text-align:center}
+.stat strong .dash{display:inline;margin:0 .08em;letter-spacing:0;font-size:inherit;color:inherit}
+.vs{align-items:stretch}.vs .stat{display:flex;flex-direction:column;justify-content:center}.vs .vs-mid{align-self:center}
+
+/* Launch plan: list and calendar views */
+.lp-tabs{display:inline-flex;gap:4px;padding:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;margin:4px 0 20px}
+.lp-tabs button{font:600 14px var(--f);border:0;background:transparent;color:var(--ink-70);padding:8px 18px;border-radius:999px;cursor:pointer}
+.lp-tabs button[aria-selected="true"]{background:var(--white);color:var(--ink);box-shadow:var(--shadow-sm)}
+.lp-tabs button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.lp-view[hidden]{display:none}
+.lp-list{list-style:none;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.lp-phase{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 20px;background:var(--paper);border-bottom:1px solid var(--line-soft)}
+.lp-phase b{font-size:14px;font-weight:700;color:var(--ink)}
+.lp-phase span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-50)}
+.lp-row{display:grid;grid-template-columns:120px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line-soft)}
+.lp-row:last-child{border-bottom:0}
+.lp-row time{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-50)}
+.lp-row time b{display:block;font-family:var(--f);font-size:14px;letter-spacing:0;color:var(--ink)}
+.lp-row strong{font-size:15px;font-weight:600;line-height:1.35}
+.lp-row strong small{display:block;font-weight:400;font-size:13px;color:var(--ink-50);margin-top:2px}
+.lp-row.is-live{background:var(--green-50)}
+.lp-row .pill{justify-self:end}
+.lp-cal-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg)}
+table.lp-cal{min-width:760px;table-layout:fixed;font-size:12px}
+table.lp-cal th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-50);font-weight:400;padding:10px 8px;text-align:left;background:var(--paper)}
+table.lp-cal thead th:first-child{width:104px}
+table.lp-cal tbody th{font-family:var(--f);font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600;vertical-align:top}
+table.lp-cal td{vertical-align:top;padding:6px;border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft);height:56px}
+table.lp-cal tr.is-launch td,table.lp-cal tr.is-launch th{background:var(--green-50)}
+.ev{display:block;font-size:12px;line-height:1.3;border-radius:8px;padding:4px 7px;margin-bottom:4px;background:var(--paper);color:var(--ink-70)}
+table.lp-cal td.span .ev{display:inline-block;margin-right:4px}
+.ev.up{font-weight:700}
+.ev.up.p1{background:var(--red-50);color:var(--red-dark)}
+.ev.up.p2{background:var(--purple-50);color:var(--purple)}
+.ev.up.p3{background:var(--green-50);color:var(--green)}
+.ev.you{background:var(--yellow-50);color:var(--amber)}
+.ev.us{background:var(--paper);color:var(--ink-70);border:1px dashed var(--line)}
+.ev.rev{background:var(--blue-50);color:var(--cobalt)}
+.lp-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lp-legend .ev{display:inline-block;margin:0}
+.lp-after{margin-top:14px;font-size:15px;color:var(--ink-70);line-height:1.6}
+.lp-target{margin-top:24px}
+.lp-target .big-t{font-size:28px;font-weight:800;color:var(--green);margin-right:6px}
+@media (max-width:640px){.lp-row{grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px}.lp-row time{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.lp-row time b{display:inline}.lp-phase{padding:12px 16px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="who" href="#top"><img src="assets/av-pedro.jpg" alt=""><span><b>Pedro Adao</b><small>Mini Deep Dive</small></span></a>
+  <div class="links">
+    <a href="#who">Who You Are</a><a href="#channel">Your Channel</a><a href="#space">The Space</a><a href="#ideas">The Ideas</a>
+  </div>
+  <a class="btn" href="#ideas" style="background:var(--cobalt)">Video Ideas</a>
+</div></nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap" id="top">
+  <span class="chip tag"><svg class="tag-yt" viewBox="0 0 28 20" aria-hidden="true"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5c.6-2.2.6-6.9.6-6.9s0-4.7-.6-6.9Z" fill="#ff0033"/><path d="M11.2 14.3 18.5 10l-7.3-4.3v8.6Z" fill="#fff"/></svg>Prepared for Pedro Adao · November 2026</span>
+  <h1>Pedro Adao's Kingdom Wealth YouTube Channel <span class="note">Mini Deep Dive</span></h1>
+  <p class="sub">Relaunching the channel <b>your challenge audience already subscribed to</b>, with videos made for YouTube, <b>every week</b>.</p>
+  <div class="work"><span class="work-t">The work behind this plan</span><div class="work-g"><div><b data-n="2032">2,032</b><span>videos scored against their own channel</span></div><div><b data-n="737">737</b><span>channels measured in your space</span></div><div><b data-n="47">47</b><span>topics searched on YouTube</span></div><div><b data-n="200">200</b><span>of your videos traced by traffic source</span></div><div><b data-n="8">8</b><span>years of your YouTube Analytics</span></div><div><b data-n="10">10</b><span>video ideas ranked by their outliers</span></div></div></div>
+
+  <div class="prog">
+    <div class="prog-top">
+      <div class="counter"><img src="assets/av-pedro.jpg" alt=""><div><small>@Pedromadao · subscribers today</small><strong>80.6K</strong></div></div>
+      <div class="two-ch">
+        <div class="tc"><small>The channel today</small><b>A home for your challenge replays</b><span style="font-weight:500;color:var(--ink)">Seeking The Kingdom w/Pedro Adao</span></div>
+        <div class="tc new"><small>The relaunch</small><b>Weekly videos made for YouTube</b><span>Same channel, same audience, a reason to come back every week</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter has-photo" id="note">
+    <img class="letter-photo" src="assets/gio.jpg" alt="Gio Vescovi">
+    <div class="letter-main">
+    <div class="letter-who">
+      <div><b>Gio Vescovi</b><small>YouTube Strategist, Talking Heads Media</small></div>
+    </div>
+    <div class="letter-body">
+      <p>Hey Pedro,</p>
+      <p>Before we lock in your first videos, we wanted a clear answer to one question: <b>is the audience on your channel worth building on?</b> We went through 8 years of your channel data to find out.</p>
+      <p>The answer is yes. Most of your subscribers are people who signed up for your 31-Day Wisdom Challenge and subscribed right before Day 1. They're the women you want to reach, and they come back every January. What they don't have yet is a reason to come back the rest of the year. That's what the weekly videos are for.</p>
+      <p>Below: who you are on YouTube, what your channel has today, how big your space is, and the ideas ranked by how often they've broken out for other creators.</p>
+      <p class="sign">Gio</p>
+    </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PART 1 ============ -->
+<section id="who"><div class="wrap">
+  <div class="head">
+    <span class="chip k mono">Part 1 · Who You Are</span>
+    <h2>A Kingdom wealth teacher for believers who want to hear <span class="red">"well done"</span></h2>
+    <p>From your onboarding form, our kickoff call, your website, the Faithful page and your Instagram.</p>
+  </div>
+
+  <div class="g3">
+    <div class="card t-blue"><span class="col-label cobalt">🙋 Who you are</span><ul class="pts">
+      <li>20+ years in financial services. A successful real estate investor who <b>lost everything, went bankrupt</b> and climbed back.</li>
+      <li>Rebuilt as a Kingdom entrepreneur: your businesses have done <b>$10M+ a year since 2020</b>.</li>
+      <li>Since 2018 you've trained <b>250,000+ believers in 100+ nations</b> on Kingdom wealth, and created the <b>31-Day Wisdom Challenge</b>.</li>
+      <li>15 years studying the Kingdom of God. Consultant to Tony Robbins, Dean Graziosi, Joel Osteen and John and Lisa Bevere.</li>
+    </ul></div>
+    <div class="card t-red"><span class="col-label red">🚫 Who you're not</span><ul class="pts">
+      <li>Not religion: "I don't hate pastors; I don't hate the church, but I do hate religion."</li>
+      <li>Not the prosperity gospel, and not "give more money to ministries".</li>
+      <li>Not cheesy Christian culture: no cringe crosses, nothing performative.</li>
+      <li>Not an online marketing guy. Your website still leads with "The #1 go-to industry expert on challenges". On YouTube, Kingdom wealth leads.</li>
+    </ul></div>
+    <div class="card t-green"><span class="col-label green">🤝 Who you serve</span><ul class="pts">
+      <li><b>Christian women 50+</b>, and most of all 60+: "a 60+ female is worth 30 times more to me".</li>
+      <li>Believers who are nervous about retirement, or doing fine and want to steward it better.</li>
+      <li>YouTube agrees: <b>69% of your viewers are women 45+</b>, and women 55+ alone are 50%.</li>
+    </ul></div>
+  </div>
+  <p class="note-box">Credentials as you stated them on your form, your website and the Faithful page. We haven't verified them.</p>
+
+  <div class="sub-head">
+    <h3>The story your content tells</h3>
+    <p>The problem, your answer, and where you're taking people.</p>
+  </div>
+  <div class="g3">
+    <div class="card"><div class="num">1</div><h3>The problem</h3><p>They're <b>nervous about retirement and their financial future</b>, and church taught them money and faith don't mix. "Religion teaches you to pray for things that only work can produce."</p></div>
+    <div class="card"><div class="num">2</div><h3>Your solution</h3><p><b>Kingdom wealth:</b> what Jesus actually taught about stewardship, plus "a masterclass in modern finance". Delivered through the 31-Day Wisdom Challenge, the Faithful book and workshops, and the Faithful app.</p></div>
+    <div class="card"><div class="num">3</div><h3>The destination</h3><p>To hear <b>"Well done, good and faithful steward."</b> To retire sooner or better with more income while honoring God, and for money to be "fun again instead of scary and stressful" (a student's words).</p></div>
+  </div>
+
+  <div class="g3" style="margin-top:20px">
+    <figure class="fig"><img src="assets/dd/faithful.jpg" alt="The Faithful book page" loading="lazy"><figcaption>faithfulbook.com: "For the believer who more than anything wants to hear 'well done'".</figcaption></figure>
+    <figure class="fig"><img src="assets/dd/instagram.jpg" alt="Pedro's Instagram profile" loading="lazy"><figcaption>Instagram: 93K followers. "8-Figure Kingdom Entrepreneur."</figcaption></figure>
+    <figure class="fig"><img src="assets/dd/website.jpg" alt="pedroadao.com" loading="lazy"><figcaption>pedroadao.com still leads with challenges for entrepreneurs.</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- ============ PART 2 ============ -->
+<section id="channel"><div class="wrap">
+  <div class="head">
+    <span class="chip k mono">Part 2 · Your Channel Today</span>
+    <h2>80.6K subscribers who <span class="red">already said yes</span> to you</h2>
+    <p>Your channel has never had weekly videos. It does have the right people.</p>
+  </div>
+
+  <div class="g4">
+    <div class="card"><h3>80.6K</h3><p>YouTube subscribers today (96.6K joined, 16K left over 8 years). Plus 93K on Instagram.</p></div>
+    <div class="card"><h3>233</h3><p>public uploads, but only <b>12 videos made for YouTube</b>. The rest are 79 live replays and 142 Shorts.</p></div>
+    <div class="card"><h3>18 months</h3><p>since your last video made for YouTube (May 2025). Your last upload of any length was a live replay on 31 Jul 2026.</p></div>
+    <div class="card"><h3>10 of 35</h3><p>months since Jan 2024 had a long upload. They cluster around your events: January, April, and a few one-offs.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>Your channel publishes when you run an event</h3>
+    <p>Between 2018 and 2020 you made 10 videos for YouTube. Then nothing long for 3 years and 8 months. Since 2024 it's challenge replays and Shorts.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/uploads.png" alt="Public uploads per year by type" loading="lazy"><figcaption>Public uploads per year. Orange = videos made for YouTube, blue = live replays, grey = Shorts.</figcaption></figure>
+
+  <div class="sub-head">
+    <h3>Your subscribers joined for the challenge</h3>
+    <p>They didn't find you by accident. They signed up for the 31-Day Wisdom Challenge, then subscribed to watch it.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/subs_when.png" alt="Subscribers gained per month" loading="lazy"><figcaption>Subscribers gained per month since 2020. Orange = December and January.</figcaption></figure>
+  <div class="g4">
+    <div class="card t-green"><h3>79%</h3><p>of everyone who ever subscribed joined from Nov 2024 on: the last two challenges.</p></div>
+    <div class="card t-green"><h3>66%</h3><p>subscribed from a link or your channel page, not from a video. The biggest days are 29 Dec to 2 Jan, just before Day 1.</p></div>
+    <div class="card t-green"><h3>30%</h3><p>subscribed while watching a challenge replay. Shorts brought only 550 subscribers in the channel's whole life.</p></div>
+    <div class="card t-green"><h3>71%</h3><p>of the viewers who are subscribed are women 45+. Exactly who you want.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>They come back every January, then go quiet</h3>
+    <p>In January 2026 your subscribers watched 568K times. From March to November it was 2K to 14K a month.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/subs_watch.png" alt="Views from subscribers per month" loading="lazy"><figcaption>Views from subscribed viewers per month (log scale). Orange = January.</figcaption></figure>
+  <details class="more">
+    <summary><span class="lbl">📺 What happened when you posted outside January <small>Your last long uploads between challenges</small></span><span class="plus">+</span></summary>
+    <div class="more-body">
+      <div class="tbl-wrap"><table>
+        <tr><th>Video</th><th>Published</th><th>Views</th><th>From subscribers</th><th>From home and subscription feeds</th><th>From your links</th></tr>
+        <tr><td>Ep. 1 - Religion Sucks Try This Instead</td><td>2025-03-04</td><td>8,797</td><td>62%</td><td>1,882</td><td>2,188</td></tr><tr><td>4:14 Challenge - Day 1 - HOW TO BECOBE BOLD TO TAKE ACTION</td><td>2025-04-14</td><td>12,026</td><td>53%</td><td>1,207</td><td>2,605</td></tr><tr><td>The 4:14 Reset - Kingdom Convergence Message (What's Coming in the Nex</td><td>2026-04-15</td><td>6,509</td><td>63%</td><td>633</td><td>2,759</td></tr>
+      </table></div>
+      <p style="margin-top:12px">Every time you post, more than half the views come from subscribers. But fewer of them are being shown your videos: 1,882 views came from home and subscription feeds on "Religion Sucks" in March 2025, 633 on the 4:14 Reset in April 2026. Posting every week is how that number grows again.</p>
+      <div class="vgrid"><a class="v" href="https://youtu.be/_gX71ZQwLog" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_gX71ZQwLog.jpg" alt="" loading="lazy"></div><b>31-Day Wisdom Challenge - Day 1</b><small>86K views · 2026-01-01</small></a><a class="v" href="https://youtu.be/iopGsUrnnsI" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/iopGsUrnnsI.jpg" alt="" loading="lazy"></div><b>31-Day Wisdom Challenge Day 2 With Special Guest Dan McCollam</b><small>50K views · 2026-01-02</small></a><a class="v" href="https://youtu.be/Ciot2kw_lNA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/Ciot2kw_lNA.jpg" alt="" loading="lazy"></div><b>Ep. 1 - Religion Sucks Try This Instead</b><small>9K views · 2025-03-04</small></a><a class="v" href="https://youtu.be/PKdI7ndmPU0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/PKdI7ndmPU0.jpg" alt="" loading="lazy"></div><b>The 4:14 Reset - Kingdom Convergence Message (What's Coming in the Next 12-24 Months)</b><small>7K views · 2026-04-15</small></a><a class="v" href="https://youtu.be/x9foL5cJAMs" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/x9foL5cJAMs.jpg" alt="" loading="lazy"></div><b>4:14 Challenge - Day 1 - HOW TO BECOBE BOLD TO TAKE ACTION</b><small>12K views · 2025-04-14</small></a><a class="v" href="https://youtu.be/omDC6lZmzkw" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/omDC6lZmzkw.jpg" alt="" loading="lazy"></div><b>Day 1 with Special Guest Dr. Brian Simmons | 31-Day Wisdom Challenge</b><small>95K views · 2025-01-01</small></a></div>
+    </div>
+  </details>
+
+  <div class="sub-head">
+    <h3>Why we're relaunching this channel, not starting a new one</h3>
+  </div>
+  <div class="g3">
+    <div class="card t-blue"><span class="col-label cobalt">They chose you</span><p>Almost every subscriber opted in to your challenge first. That's a warmer start than any new channel gets.</p></div>
+    <div class="card t-blue"><span class="col-label cobalt">They're your avatar</span><p>Women 45+ are 71% of your subscribed viewers. Same niche, same audience, so nothing to move away from.</p></div>
+    <div class="card t-blue"><span class="col-label cobalt">The timing is right</span><p>Your first videos go out 12 Dec to 2 Jan, the exact weeks your subscribers come back for the challenge.</p></div>
+  </div>
+  <p class="callout">The job for YouTube is simple: <span class="hl">give these people a reason to watch you in March, not just in January.</span></p>
+</div></section>
+
+<!-- ============ PART 3 ============ -->
+<section id="space"><div class="wrap">
+  <div class="head">
+    <span class="chip k mono">Part 3 · The Space</span>
+    <h2>Faith and money is a real niche, but <span class="red">broad money outliers get 2.5x the views</span></h2>
+    <p>Your niche on YouTube: Kingdom wealth, biblical finance and God-led business.</p>
+  </div>
+
+  <div class="sub-head" style="margin-top:0">
+    <h3>How big it is, and how many people are in it</h3>
+    <p>Outliers from the last 365 days: videos with 3x+ their channel's usual views and 30K+ views.</p>
+  </div>
+  <div class="g2">
+    <div class="card t-blue"><span class="col-label cobalt">Faith and money</span><h3>59 channels</h3><p>101 outliers. A typical one gets <b>128K views</b>; the biggest from a creator, about <b>1M</b>.</p><p style="margin-top:8px">3 channels over 1M subscribers, 21 between 100K and 1M, 35 under 100K.</p></div>
+    <div class="card"><span class="col-label">Broad money and business</span><h3>87 channels</h3><p>101 outliers. A typical one gets <b>324K views</b>; the biggest, <b>4.8M</b> (Mel Robbins).</p><p style="margin-top:8px">16 channels over 1M subscribers.</p></div>
+  </div>
+
+  <div class="sub-head">
+    <h3>Five ways creators approach it</h3>
+  </div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Angle</th><th>What they do</th><th>Who, and how big</th></tr>
+    <tr><td><b>Pastors and ministries</b></td><td>Sermons on faith, wealth and stewardship</td><td>Joyce Meyer 2.53M · In Touch 1.57M · Munroe Global 1.29M · Terri Savelle Foy 479K</td></tr>
+    <tr><td><b>Faith-led business coaches</b></td><td>Business and money, with God in the content</td><td>Myron Golden 1.46M (plus his Bible Study channel 199K) · The Deep End w/Taylor Welch 671K · Dan Romer 75K · Stefanie Gass 73K</td></tr>
+    <tr><td><b>Christian personal finance</b></td><td>Debt, saving, retirement, testimonies</td><td>The Ramsey Show Highlights 4.6M · Danielle Pulu 243K · Gary Keesee 78K</td></tr>
+    <tr><td><b>Faceless Bible-money explainers</b></td><td>Solomon, Proverbs and parables as money rules</td><td>Bible Ascent 72K · The Solomon Wealth Code 70K · The Bible Blade 43K · The Steward's Path 8K (small channels, single videos up to 1M)</td></tr>
+    <tr><td><b>What Jesus really taught</b></td><td>Religion vs the Kingdom, tithing, church myths</td><td>Beyond The Verses 415K · BibleFix 348K · Destiny Finn 26K</td></tr>
+  </table></div>
+
+  <div class="sub-head">
+    <h3>How high can it go? Channels named for Kingdom business sit under 80K</h3>
+    <p>Faith-first teaching reaches 1.3M to 2.5M. Faith-led creators who package money broadly go further: Myron Golden 1.46M, Ramsey 4.6M.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/north_stars.png" alt="Subscribers of the big players" loading="lazy"><figcaption>Blue = faith in the packaging. Orange = faith-led creators who package broadly. Grey = broad business.</figcaption></figure>
+  <div class="g2">
+    <div class="card t-green"><span class="col-label green">Your north star</span><p><b>Myron Golden</b> (1.46M): a Christian business teacher whose titles sell the money ("3 Things That Are Keeping You Broke", 1.5M views), with a separate Bible study channel for the faith-first audience.</p></div>
+    <div class="card t-yellow"><span class="col-label">Faith in a broad channel works too</span><p>Gabe Bult (873K, broad money) got <b>879K views</b> with "8 Money Lessons From The Bible That Made Me Rich" this year. The Bible in the title didn't hold it back.</p></div>
+  </div>
+</div></section>
+
+<!-- ============ PART 4 ============ -->
+<section id="ideas"><div class="wrap">
+  <div class="head">
+    <span class="chip k mono">Part 4 · The Ideas</span>
+    <h2>A mix: <span class="red">faith-clear titles</span> to own the niche, broad titles to grow it</h2>
+    <p>Faith titles say who the channel is for. Broad titles reach further, with the faith in the thumbnail and the content.</p>
+  </div>
+  <figure class="fig"><img src="assets/dd/ideas_ceiling.png" alt="Most views on one outlier per idea" loading="lazy"><figcaption>Each bar: the most views one outlier got for that idea in the last 365 days, and how many creators had an outlier with it.</figcaption></figure>
+
+  <div class="sub-head">
+    <span class="part">The ideas, ranked</span>
+    <h3>10 ideas, ordered by how often they broke out</h3>
+    <p>Ranked by the number of creators with an outlier (3x+ their channel's median, 30K+ views, published since 23 Nov 2025), then by ceiling.</p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <tr><th>#</th><th>Idea</th><th>Title</th><th>Creators</th><th>Outliers</th><th>Best score</th><th>Ceiling</th></tr>
+    <tr><td>1</td><td><b>How To Change Your Life In 30 Days</b></td><td><span class="pill pp3">Broad title</span></td><td>7</td><td>7</td><td>251.5x</td><td>3.6M</td></tr><tr><td>2</td><td><b>X Habits That Build Quiet Wealth</b></td><td><span class="pill pp3">Broad title</span></td><td>7</td><td>7</td><td>318.5x</td><td>994K</td></tr><tr><td>3</td><td><b>These X Bible Verses Made Me A Millionaire</b></td><td><span class="pill pp1">Faith in the title</span></td><td>7</td><td>8</td><td>144.4x</td><td>879K</td></tr><tr><td>4</td><td><b>If I Had To Start Over With $0, This Is Exactly What I'd Do</b></td><td><span class="pill pp3">Broad title</span></td><td>7</td><td>7</td><td>88.0x</td><td>760K</td></tr><tr><td>5</td><td><b>X Biblical Business Ideas For Christian Women</b></td><td><span class="pill pp1">Faith in the title</span></td><td>5</td><td>6</td><td>92.7x</td><td>226K</td></tr><tr><td>6</td><td><b>x Income Streams You Can Build After 50</b></td><td><span class="pill pp3">Broad title</span></td><td>4</td><td>6</td><td>56.7x</td><td>911K</td></tr><tr><td>7</td><td><b>If God Has You Building a Business In 2027, Watch This</b></td><td><span class="pill pp1">Faith in the title</span></td><td>4</td><td>4</td><td>24.6x</td><td>161K</td></tr><tr><td>8</td><td><b>God Can Do the Impossible in Your Finances. Here's Proof.</b></td><td><span class="pill pp1">Faith in the title</span></td><td>3</td><td>3</td><td>41.1x</td><td>437K</td></tr><tr><td>9</td><td><b>Start The Business God Told You To Build</b></td><td><span class="pill pp1">Faith in the title</span></td><td>3</td><td>5</td><td>24.6x</td><td>161K</td></tr><tr><td>10</td><td><b>How God Builds a Wealthy Business</b></td><td><span class="pill pp1">Faith in the title</span></td><td>2</td><td>3</td><td>24.1x</td><td>217K</td></tr>
+  </table></div>
+
+  <details class="more" style="margin-top:20px">
+    <summary><span class="lbl">🔍 Why each idea works, with the examples <small>The outliers behind every idea, same order</small></span><span class="plus">+</span></summary>
+    <div class="more-body"><h4>1. How To Change Your Life In 30 Days</h4><div class="vgrid"><a class="v" href="https://youtu.be/8dHEG7WxR4c" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/8dHEG7WxR4c.jpg" alt="" loading="lazy"></div><b>The Science of Making & Breaking Habits: How to Change Your Life in 1 Month</b><small>Mel Robbins · 3.6M views · <span class="x">9.3x</span></small></a><a class="v" href="https://youtu.be/d8SCax7RiJc" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/d8SCax7RiJc.jpg" alt="" loading="lazy"></div><b>How To Change Your Entire Life In One Day</b><small>Mark Manson · 1.2M views · <span class="x">9.0x</span></small></a><a class="v" href="https://youtu.be/SMYKAbbOefA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/SMYKAbbOefA.jpg" alt="" loading="lazy"></div><b>TONY ROBBINS: If You Want to CHANGE Your Life This Year, Do THIS 3 Step Process…</b><small>Jay Shetty Podcast · 1.1M views · <span class="x">6.6x</span></small></a><a class="v" href="https://youtu.be/2Z9YUolWBYk" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/2Z9YUolWBYk.jpg" alt="" loading="lazy"></div><b>Do This for 30 Days and Your Life Will Change</b><small>RelentX · 862K views · <span class="x">34.2x</span></small></a><a class="v" href="https://youtu.be/XRxEPqdrlrQ" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/XRxEPqdrlrQ.jpg" alt="" loading="lazy"></div><b>how to change your life in 30 days: your 2026 comeback</b><small>nadeen · 793K views · <span class="x">24.9x</span></small></a><a class="v" href="https://youtu.be/NMHETVJDP48" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/NMHETVJDP48.jpg" alt="" loading="lazy"></div><b>Give Yourself  90 days to Change Everything | Best Audiobooks</b><small>AudioBook Rise · 731K views · <span class="x">251.5x</span></small></a></div><h4>2. X Habits That Build Quiet Wealth</h4><div class="vgrid"><a class="v" href="https://youtu.be/co0g5vxsxnk" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/co0g5vxsxnk.jpg" alt="" loading="lazy"></div><b>9 Habits That Build Quiet Wealth (No Luck, No Stress)</b><small>The Mindset Mentor Podcast · 994K views · <span class="x">32.9x</span></small></a><a class="v" href="https://youtu.be/ncyQwLk3QaM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ncyQwLk3QaM.jpg" alt="" loading="lazy"></div><b>The Japanese Secret to Saving Money (Even on a Low Income)</b><small>The Mindful Path with Wisdom · 709K views · <span class="x">25.1x</span></small></a><a class="v" href="https://youtu.be/gMc90UdQU8U" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/gMc90UdQU8U.jpg" alt="" loading="lazy"></div><b>9 Japanese Habits That Build Quiet Wealth (No Luck, No Stress)</b><small>Wealth Mindset 99 · 581K views · <span class="x">112.2x</span></small></a><a class="v" href="https://youtu.be/DqubCWCgxQM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/DqubCWCgxQM.jpg" alt="" loading="lazy"></div><b>3  WAYS TO BUILD WEALTH QUIETLY THROUGH DAILY DISCIPLINE |DR EMMANUEL OLUMIDE</b><small>Success Growth Mindset · 324K views · <span class="x">318.5x</span></small></a><a class="v" href="https://youtu.be/B8cnuDcmHDc" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/B8cnuDcmHDc.jpg" alt="" loading="lazy"></div><b>10 Boring Habits That Makes You Rich While No One Notices</b><small>The Boring Rich · 316K views · <span class="x">48.3x</span></small></a><a class="v" href="https://youtu.be/JTXXMoZ9HEs" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/JTXXMoZ9HEs.jpg" alt="" loading="lazy"></div><b>9 Japanese Habits That Make You Quietly Rich | Book Summary in hindi | Financial Freedom </b><small>Financial Brain · 256K views · <span class="x">14.0x</span></small></a></div><h4>3. These X Bible Verses Made Me A Millionaire</h4><div class="vgrid"><a class="v" href="https://youtu.be/iwWvfvtQJqM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/iwWvfvtQJqM.jpg" alt="" loading="lazy"></div><b>8 Money Lessons From The Bible That Made Me Rich</b><small>Gabe Bult · 879K views · <span class="x">5.1x</span></small></a><a class="v" href="https://youtu.be/SyUK0abQ56I" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/SyUK0abQ56I.jpg" alt="" loading="lazy"></div><b>Proverbs 31 Made Me a Millionaire (Here's the Blueprint)</b><small>Danielle Pulu | Daily Abundance  · 508K views · <span class="x">47.8x</span></small></a><a class="v" href="https://youtu.be/vh5zlpkupBU" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/vh5zlpkupBU.jpg" alt="" loading="lazy"></div><b>I Prayed to Be a Millionaire (And God Said Yes)</b><small>Danielle Pulu | Daily Abundance  · 437K views · <span class="x">41.1x</span></small></a><a class="v" href="https://youtu.be/_anE3AaLV70" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_anE3AaLV70.jpg" alt="" loading="lazy"></div><b>These 3 Bible Verses Made Me A Millionaire</b><small>AstenCeo · 298K views · <span class="x">144.4x</span></small></a><a class="v" href="https://youtu.be/jE2zgOnIeXY" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/jE2zgOnIeXY.jpg" alt="" loading="lazy"></div><b>This one bible secret made me a multi-millionaire | Testimony of breakthrough</b><small>The King's Temple Church · 176K views · <span class="x">37.9x</span></small></a><a class="v" href="https://youtu.be/0aQzYTzpvAc" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/0aQzYTzpvAc.jpg" alt="" loading="lazy"></div><b>These 3 Bible Verses Made Me A Profitable Trader</b><small>Kalin Trades · 156K views · <span class="x">20.5x</span></small></a></div><h4>4. If I Had To Start Over With $0, This Is Exactly What I'd Do</h4><div class="vgrid"><a class="v" href="https://youtu.be/lUFHAZMbbN0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/lUFHAZMbbN0.jpg" alt="" loading="lazy"></div><b>Emmanuel Eboué: “I Lost Everything” | Divorce, Loss & Starting Again</b><small>The5thHouse Podcast · 760K views · <span class="x">51.7x</span></small></a><a class="v" href="https://youtu.be/1r_OlA6VV-Q" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/1r_OlA6VV-Q.jpg" alt="" loading="lazy"></div><b>Starting over in your 40s or 50s (Is it too late?) | with Host Ntando Maseko</b><small>Mindset Profits · 350K views · <span class="x">11.9x</span></small></a><a class="v" href="https://youtu.be/cxbTW0hTw70" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/cxbTW0hTw70.jpg" alt="" loading="lazy"></div><b>Billionaire: If I Lost Everything, Here’s How I’d Make $10K in 90 Days</b><small>Grant Owen · 320K views · <span class="x">32.1x</span></small></a><a class="v" href="https://youtu.be/qLldUd1VzrQ" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/qLldUd1VzrQ.jpg" alt="" loading="lazy"></div><b>I Lost My Job...Starting Again At 46</b><small>The Mid Life Reboot · 136K views · <span class="x">88.0x</span></small></a><a class="v" href="https://youtu.be/fUWkAkrkj6A" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/fUWkAkrkj6A.jpg" alt="" loading="lazy"></div><b>Starting Over at Fifty - What Proverbs Actually Says</b><small>The Solomon Wealth Code · 132K views · <span class="x">29.2x</span></small></a><a class="v" href="https://youtu.be/ypYo4z2uDU8" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ypYo4z2uDU8.jpg" alt="" loading="lazy"></div><b>Andrea McLean: Losing everything in my 50s made me realise it's never too late to start again</b><small>HELLO! · 113K views · <span class="x">14.2x</span></small></a></div><h4>5. X Biblical Business Ideas For Christian Women</h4><div class="vgrid"><a class="v" href="https://youtu.be/kViIpTGTPEw" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/kViIpTGTPEw.jpg" alt="" loading="lazy"></div><b>The Independent Woman | 7 Biblical Business Ideas for Christian Women</b><small>She Reflects · 226K views · <span class="x">92.7x</span></small></a><a class="v" href="https://youtu.be/r-Pd3AJiyY0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/r-Pd3AJiyY0.jpg" alt="" loading="lazy"></div><b>7 Profitable Businesses That Will Help You NEVER Depend on a Job Again According to the Bible</b><small>Pure Roots · 129K views · <span class="x">14.1x</span></small></a><a class="v" href="https://youtu.be/ER0cVicKlWE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ER0cVicKlWE.jpg" alt="" loading="lazy"></div><b>5 Business Lessons From The Proverbs 31 Woman</b><small>Stefanie Gass, Podcast to Profit® GOD-LED BUSINESS · 115K views · <span class="x">16.7x</span></small></a><a class="v" href="https://youtu.be/ATC6jqVvV64" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/ATC6jqVvV64.jpg" alt="" loading="lazy"></div><b>4 Infallible BUSINESSES THAT NEVER FAIL (According to the Bible)</b><small>Pure Roots · 85K views · <span class="x">9.3x</span></small></a><a class="v" href="https://youtu.be/FshbLTvTHZ0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/FshbLTvTHZ0.jpg" alt="" loading="lazy"></div><b>God Gave You the Idea-Why Haven't You Started? | 5 Practical Home-Based Business Ideas</b><small>Threaded Grace · 74K views · <span class="x">11.4x</span></small></a><a class="v" href="https://youtu.be/KXVFChIciB0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/KXVFChIciB0.jpg" alt="" loading="lazy"></div><b>7 Habits of Financially Blessed Women of God - THE PROVERBS 31 BLUEPRINT</b><small>The Bible Blade · 53K views · <span class="x">23.8x</span></small></a></div><h4>6. x Income Streams You Can Build After 50</h4><div class="vgrid"><a class="v" href="https://youtu.be/kQ0mcaShcjA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/kQ0mcaShcjA.jpg" alt="" loading="lazy"></div><b>Top 10 Jobs BEGGING For Workers Over 50</b><small>Shane Hummus · 911K views · <span class="x">47.0x</span></small></a><a class="v" href="https://youtu.be/gkVmG6SkhQ8" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/gkVmG6SkhQ8.jpg" alt="" loading="lazy"></div><b>55 With No Retirement Plan: How I Built a $400k Solo Business</b><small>Lori Ballen · 211K views · <span class="x">40.3x</span></small></a><a class="v" href="https://youtu.be/-A57NyMp8ro" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/-A57NyMp8ro.jpg" alt="" loading="lazy"></div><b>7 Income Streams You Can Build After 50 (The Proverbs Blueprint)</b><small>Solomon's Ledger · 199K views · <span class="x">56.7x</span></small></a><a class="v" href="https://youtu.be/_W0rdDVGk-g" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_W0rdDVGk-g.jpg" alt="" loading="lazy"></div><b>Solomon's 3 Passive Income Streams You Can Start This Week (Proverbs 31)</b><small>Solomon's Ledger · 186K views · <span class="x">53.0x</span></small></a><a class="v" href="https://youtu.be/342m9Z2GIdM" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/342m9Z2GIdM.jpg" alt="" loading="lazy"></div><b>3 Money Habits You Can Start After 50 Using Solomon's Blueprint</b><small>Solomon's Ledger · 180K views · <span class="x">51.4x</span></small></a><a class="v" href="https://youtu.be/E1J1eX8LYe0" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/E1J1eX8LYe0.jpg" alt="" loading="lazy"></div><b>Over 50? This Side Hustle Made Me $105K in 30 Days</b><small>Wendy Nolan · 32K views · <span class="x">6.2x</span></small></a></div><h4>7. If God Has You Building a Business In 2027, Watch This</h4><div class="vgrid"><a class="v" href="https://youtu.be/_paFdZmEKdg" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_paFdZmEKdg.jpg" alt="" loading="lazy"></div><b>START THE BUSINESS GOD TOLD YOU TO BUILD (Someone Is Waiting On Your 'YES')</b><small>Niqueea · 161K views · <span class="x">24.6x</span></small></a><a class="v" href="https://youtu.be/zJ2_lybkgco" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/zJ2_lybkgco.jpg" alt="" loading="lazy"></div><b>If God Has You Building a Business in 2026, Watch This.</b><small>Dan Romer · 89K views · <span class="x">9.9x</span></small></a><a class="v" href="https://youtu.be/Me5msu4vzrE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/Me5msu4vzrE.jpg" alt="" loading="lazy"></div><b>God Told Me Exactly How to Start a Business. Here's What He Said.</b><small>Stefanie Gass, Podcast to Profit® GOD-LED BUSINESS · 79K views · <span class="x">11.6x</span></small></a><a class="v" href="https://youtu.be/-hVqXYJzQeg" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/-hVqXYJzQeg.jpg" alt="" loading="lazy"></div><b>Why Most Entrepreneurs QUIT Before God Opens the Door | ft. Rick Gutman</b><small>The Carver Life · 63K views · <span class="x">13.4x</span></small></a></div><h4>8. God Can Do the Impossible in Your Finances. Here's Proof.</h4><div class="vgrid"><a class="v" href="https://youtu.be/vh5zlpkupBU" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/vh5zlpkupBU.jpg" alt="" loading="lazy"></div><b>I Prayed to Be a Millionaire (And God Said Yes)</b><small>Danielle Pulu | Daily Abundance  · 437K views · <span class="x">41.1x</span></small></a><a class="v" href="https://youtu.be/PasJYExZ_Jo" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/PasJYExZ_Jo.jpg" alt="" loading="lazy"></div><b>God can do the impossible in your finances… here’s proof</b><small>Terri Savelle Foy · 128K views · <span class="x">5.0x</span></small></a><a class="v" href="https://youtu.be/NmCdCKgcrcA" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/NmCdCKgcrcA.jpg" alt="" loading="lazy"></div><b>FINANCIAL MIRACLES TESTIMONY‼️GOD SHOWED UP AGAIN</b><small>TheMcKenzieMommy · 100K views · <span class="x">9.3x</span></small></a></div><h4>9. Start The Business God Told You To Build</h4><div class="vgrid"><a class="v" href="https://youtu.be/_paFdZmEKdg" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/_paFdZmEKdg.jpg" alt="" loading="lazy"></div><b>START THE BUSINESS GOD TOLD YOU TO BUILD (Someone Is Waiting On Your 'YES')</b><small>Niqueea · 161K views · <span class="x">24.6x</span></small></a><a class="v" href="https://youtu.be/XgG52CSq6jo" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/XgG52CSq6jo.jpg" alt="" loading="lazy"></div><b>How to Get Your Business Plan From God</b><small>Dan Romer · 96K views · <span class="x">10.7x</span></small></a><a class="v" href="https://youtu.be/Me5msu4vzrE" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/Me5msu4vzrE.jpg" alt="" loading="lazy"></div><b>God Told Me Exactly How to Start a Business. Here's What He Said.</b><small>Stefanie Gass, Podcast to Profit® GOD-LED BUSINESS · 79K views · <span class="x">11.6x</span></small></a><a class="v" href="https://youtu.be/cQJlSOh4ZNw" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/cQJlSOh4ZNw.jpg" alt="" loading="lazy"></div><b>7 SIGNS TO KNOW IF YOUR BUSINESS IDEA IS FROM GOD</b><small>Niqueea · 70K views · <span class="x">10.7x</span></small></a><a class="v" href="https://youtu.be/HCm5ok99H5g" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/HCm5ok99H5g.jpg" alt="" loading="lazy"></div><b>God Already Told You Which Business to Start (You’re Just Not Listening)</b><small>Stefanie Gass, Podcast to Profit® GOD-LED BUSINESS · 54K views · <span class="x">7.9x</span></small></a></div><h4>10. How God Builds a Wealthy Business</h4><div class="vgrid"><a class="v" href="https://youtu.be/hOMj0wbElUk" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/hOMj0wbElUk.jpg" alt="" loading="lazy"></div><b>how God Builds a Wealthy Business (a Billionaire told me)</b><small>Dan Romer · 217K views · <span class="x">24.1x</span></small></a><a class="v" href="https://youtu.be/QxgjCWoZgzU" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/QxgjCWoZgzU.jpg" alt="" loading="lazy"></div><b>What Nehemiah Teaches Us About Building a Business With God (ft. Rick Gutman)</b><small>The Carver Life · 96K views · <span class="x">20.7x</span></small></a><a class="v" href="https://youtu.be/dpo3zVGAXrw" target="_blank" rel="noopener"><div class="v-img"><img src="assets/thumbs/dpo3zVGAXrw.jpg" alt="" loading="lazy"></div><b>How God Actually Funds a Business</b><small>Dan Romer · 56K views · <span class="x">6.2x</span></small></a></div></div>
+  </details>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b>About the data.</b> Your channel: YouTube Studio and the Data API for @Pedromadao, all formats, lifetime to 22 Nov 2026 (your long uploads are live replays, so they're included). The space: 47 topics searched on YouTube (signed out, US English), 2,032 videos from 737 channels, each scored against its own channel's median long-form views. Outliers are 3x+ that median with 30K+ views, published 23 Nov 2025 to 22 Nov 2026. Subscriber counts pulled 23 Nov 2026. Views after 27 Aug 2026 are counted the new way.</p>
+  <p style="margin-top:14px">Prepared by Talking Heads · Private, for Pedro Adao</p>
+</div></footer>
+
+<script>
+// Count the proof-of-work numbers up when they scroll into view
+(function () {
+  var els = document.querySelectorAll('.work-g b[data-n]');
+  if (!els.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      var el = e.target, to = +el.dataset.n, t0 = null;
+      (function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400), k = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * k).toLocaleString('en-GB'); if (p < 1) requestAnimationFrame(step); })(performance.now());
+    });
+  }, { threshold: .4 });
+  els.forEach(function (el) { el.textContent = '0'; io.observe(el); });
+})();
+
+// Highlight the nav link for the section in view
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.links a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var y = window.scrollY + 140, cur = -1;
+    secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+
+// Launch plan: switch between the week-by-week list and the calendar
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.lp-tabs [role=tab]'));
+  if (!tabs.length) return;
+  function show(t) {
+    tabs.forEach(function (x) {
+      var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; show(n); n.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
